@@ -1,0 +1,17 @@
+[
+  {
+    "logo": "/assets/wowl.png",
+    "alt": "Twitter",
+    "link": "/twitter"
+  },
+  {
+    "logo": "/assets/wowl.png",
+    "alt": "Youtube",
+    "link": "/youtube"
+  },
+  {
+    "logo": "/assets/wowl.png",
+    "alt": "Facebook",
+    "link": "/facebook"
+  }
+]
