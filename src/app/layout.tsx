@@ -6,6 +6,7 @@ import { Lato } from 'next/font/google';
 import Header from '../views/header';
 import Footer from '../views/footer';
 import ClientRoot from './client-root';
+import clsx from 'clsx';
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -25,10 +26,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={lato.className}>
-      <body className="preload overflow-x-hidden h-[100vw] bg-black">
+      <body className="preload overflow-x-hidden bg-black">
         <ClientRoot>
           <Header />
-          <main className="container mx-auto">{children}</main>
+          <main
+            className={clsx('container mx-auto px-6 my-10', 'md:px-0 md:my-20')}
+          >
+            {children}
+          </main>
           <Footer />
         </ClientRoot>
       </body>

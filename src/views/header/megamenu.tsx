@@ -19,19 +19,16 @@ export default async function Megamenu() {
         ></Image>
       </Button>
 
-      <ul className="hidden md:flex">
-        {data?.map((item: HeaderNavItemType) => (
-          <li key={item.title}>
-            <Button
-              className="h-8 text-white"
-              appearance="bright"
-              link={item.link}
-            >
-              {item.title}
-            </Button>
-          </li>
-        ))}
-      </ul>
+      {data?.map((item: HeaderNavItemType) => (
+        <Button
+          key={item.title}
+          className="h-8 text-white hidden md:block"
+          appearance="bright"
+          link={item.link}
+        >
+          {item.title}
+        </Button>
+      ))}
     </>
   );
 }
