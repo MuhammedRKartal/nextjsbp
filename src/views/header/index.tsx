@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import Megamenu from './megamenu';
 import Navbar from './navbar';
 import HamburgerMenu from './hamburger-menu';
+import MobileHamburgerButton from './hamburger-menu-button';
 
 export default function Header() {
   return (
@@ -17,6 +18,7 @@ export default function Header() {
           )}
         >
           <Navbar>
+            <MobileHamburgerButton />
             <Megamenu />
           </Navbar>
           <HamburgerMenu />
