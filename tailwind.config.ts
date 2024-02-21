@@ -13,9 +13,7 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-primary': 'linear-gradient(90deg, #191f16 100%)'
       },
       colors: {
         transparent: 'transparent',
@@ -23,7 +21,11 @@ const config: Config = {
           100: '#087908',
           700: '#516b1b',
           800: '#4b6319',
+          900: '#191f16',
           opacity: '#4b6319ed'
+        },
+        secondary: {
+          100: '#16191c'
         },
         black: {
           400: '#14171a'

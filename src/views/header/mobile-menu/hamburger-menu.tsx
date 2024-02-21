@@ -1,10 +1,10 @@
 'use client';
 
-import data from '../../schemas/header-megamenu.json';
-import { Button } from '@/src/components/button';
+import data from '../../../schemas/header-megamenu.json';
 import { useAppDispatch, useAppSelector } from '@/src/redux/hooks';
 import { closeMobileMenu } from '@/src/redux/reducers/header';
 import clsx from 'clsx';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export type HeaderNavItemType = {
@@ -12,7 +12,11 @@ export type HeaderNavItemType = {
   link: string;
 };
 
-export default function HamburgerMenu() {
+export default function HamburgerMenu({
+  children
+}: {
+  children: React.ReactNode;
+}) {
   const isMobileMenuOpen = useAppSelector(
     (state) => state.header.isMobileMenuOpen
   );
@@ -23,6 +27,7 @@ export default function HamburgerMenu() {
       <div
         className={clsx(
           'fixed top-0 left-0 z-50 w-screen h-screen invisible opacity-0 bg-black bg-opacity-80 transition duration-500',
+          'md:hidden',
           {
             '!visible !opacity-100 scroll-lock': isMobileMenuOpen
           }
@@ -34,22 +39,15 @@ export default function HamburgerMenu() {
       />
       <div
         className={clsx(
-          'fixed top-0 left-0 z-50 flex flex-col bg-primary-100 w-80 h-screen',
-          'invisible opacity-0 transition duration-500 transform -translate-x-72',
+          'fixed top-0 left-0 z-50 flex flex-col bg-secondary-100 w-80 -translate-x-80 h-screen',
+          'opacity-0 transition duration-500 transform',
+          'md:hidden',
           {
-            '!visible !opacity-100 translate-x-0': isMobileMenuOpen
+            '!visible !opacity-100 translate-x-[0]': isMobileMenuOpen
           }
         )}
       >
-        <ul className="flex flex-col gap-3">
-          {data?.map((item: HeaderNavItemType) => (
-            <li key={item.title} className="text-white cursor-pointer">
-              <Link href={item.link} className="hover:text-primary-100">
-                {item.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {children}
       </div>
     </>
   );

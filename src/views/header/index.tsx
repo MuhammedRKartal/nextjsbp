@@ -3,8 +3,8 @@
 import clsx from 'clsx';
 import Megamenu from './megamenu';
 import Navbar from './navbar';
-import HamburgerMenu from './hamburger-menu';
-import MobileHamburgerButton from './hamburger-menu-button';
+import HamburgerMenu from './mobile-menu/hamburger-menu';
+import HamburgerMenuContent from './mobile-menu/hamburger-menu-content';
 
 export default function Header() {
   return (
@@ -20,7 +20,11 @@ export default function Header() {
           <Navbar>
             <Megamenu />
           </Navbar>
-          <HamburgerMenu />
+          <div className="transition duration-500">
+            <HamburgerMenu>
+              <HamburgerMenuContent />
+            </HamburgerMenu>
+          </div>
         </div>
       </header>
     </>
