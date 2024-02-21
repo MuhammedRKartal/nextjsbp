@@ -22,7 +22,7 @@ export default async function Megamenu() {
       {data?.map((item: HeaderNavItemType) => (
         <Button
           key={item.title}
-          linkClassName="hidden md:block"
+          linkclassname="hidden md:block"
           className="h-8 text-white"
           appearance="bright"
           link={item.link}

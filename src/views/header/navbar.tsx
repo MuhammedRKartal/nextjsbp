@@ -1,15 +1,18 @@
-'use client';
+import clsx from 'clsx';
 
-import { clsx } from 'clsx';
-
-export default function Navbar({ children }: { children: React.ReactNode }) {
+export default function Navbar({
+  children,
+  navClassName
+}: {
+  children: React.ReactNode;
+  navClassName?: string;
+}) {
   return (
     <>
       <nav
         className={clsx(
-          'h-[50px] flex items-center justify-center gap-2 transition-all px-2',
-          'border-0 bg-primary-opacity',
-          'md:h-[72px] md:mx-8 md:px-4 md:rounded-lg md:justify-start'
+          'h-full flex items-center justify-center gap-2 transition-all md:justify-start',
+          navClassName ?? navClassName
         )}
       >
         {children}

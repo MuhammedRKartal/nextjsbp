@@ -9,7 +9,7 @@ export const Button = (props: ButtonProps) => {
   return (
     <>
       {props.link ? (
-        <Link href={props.link} className={props.linkClassName}>
+        <Link href={props.link} className={props.linkclassname}>
           <button
             {...props}
             className={twMerge(

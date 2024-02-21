@@ -17,11 +17,20 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: 'Next BPK',
   description: 'Nextjs Template Website by Muhammed Kartal',
+  metadataBase: new URL('https://nextbpk.netlify.app'),
   openGraph: {
     title: 'Next BPK',
     description: 'Nextjs Template Website by Muhammed Kartal',
     url: 'https://nextbpk.netlify.app',
-    type: 'website'
+    type: 'website',
+    siteName: 'Next BPK',
+    images: [
+      {
+        url: 'https://wowtasker.io/wp-content/uploads/2024/02/logo-banner.png',
+        width: 400,
+        height: 400
+      }
+    ]
   }
 };
 

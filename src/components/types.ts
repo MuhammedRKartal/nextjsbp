@@ -2,5 +2,5 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     appearance?: 'filled' | 'outlined' | 'ghost' | 'bright'
     size?: 'xs' | 'lg'
     link?: string;
-    linkClassName?: string;
+    linkclassname?: string;
 }
