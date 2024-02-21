@@ -1,5 +1,3 @@
-'use client';
-
 import clsx from 'clsx';
 import FooterCopyright from './footer-copyright';
 import FooterMenu from './footer-menu';

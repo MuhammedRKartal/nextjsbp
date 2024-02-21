@@ -8,10 +8,8 @@ export default function MobileHamburgerButton() {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="flex">
-      <Button appearance="ghost" onClick={() => dispatch(toggleMobileMenu())}>
-        X
-      </Button>
-    </div>
+    <Button appearance="ghost" onClick={() => dispatch(toggleMobileMenu())}>
+      X
+    </Button>
   );
 }

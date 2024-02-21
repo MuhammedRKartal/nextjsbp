@@ -18,7 +18,6 @@ export default function Header() {
           )}
         >
           <Navbar>
-            <MobileHamburgerButton />
             <Megamenu />
           </Navbar>
           <HamburgerMenu />

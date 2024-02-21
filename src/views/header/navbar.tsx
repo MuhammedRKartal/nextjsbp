@@ -11,7 +11,7 @@ export default function Navbar({
     <>
       <nav
         className={clsx(
-          'h-full flex items-center justify-center gap-2 transition-all md:justify-start',
+          'h-full flex items-center justify-between gap-2 transition-all md:justify-start',
           navClassName ?? navClassName
         )}
       >
