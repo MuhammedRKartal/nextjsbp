@@ -9,39 +9,49 @@ export const Button = (props: ButtonProps) => {
   return (
     <>
       {props.link ? (
-        <Link href={props.link}>
+        <Link href={props.link} className={props.linkClassName}>
           <button
             {...props}
             className={twMerge(
               clsx(
                 [
-                  'px-4',
-                  'h-12',
+                  'px-6',
+                  'min-h-[3rem]',
+                  'h-auto',
                   'text-base',
                   'rounded-md',
                   'border',
                   'transition-all'
                 ],
+                props.size === 'xs' && ['px-4', 'min-h-[2.5rem]'],
+                props.size === 'lg' && [
+                  'px-12',
+                  'min-h-[3.5rem]',
+                  'text-lg',
+                  'font-bold'
+                ],
                 props.appearance === 'filled' && [
-                  'bg-slate-300',
-                  'text-gray-800',
-                  'border-black',
-                  'hover:bg-slate-700',
-                  'hover:border-slate-400',
-                  'hover:text-gray-900'
+                  'text-white',
+                  'bg-primary-800',
+                  'border-primary-800',
+                  'hover:bg-primary-700',
+                  'hover:border-primary-700'
                 ],
                 props.appearance === 'outlined' && [
-                  'bg-transparent ',
-                  'border-black',
-                  'hover:border-slate-400',
-                  'hover:bg-slate-300'
+                  'text-white',
+                  'bg-transparent',
+                  'border-primary-800',
+                  'hover:border-primary-700',
+                  'hover:bg-primary-700'
                 ],
                 props.appearance === 'ghost' && [
+                  'text-white',
                   'bg-transparent',
                   'border-transparent',
-                  'hover:bg-slate-300'
+                  'hover:bg-primary-700'
                 ],
                 props.appearance === 'bright' && [
+                  'text-white',
                   'bg-transparent',
                   'border-transparent',
                   'hover:border-transparent',
@@ -61,34 +71,43 @@ export const Button = (props: ButtonProps) => {
           className={twMerge(
             clsx(
               [
-                'px-4',
-                'h-12',
+                'px-6',
+                'min-h-[3rem]',
+                'h-auto',
                 'text-base',
-                'font-serif',
                 'rounded-md',
                 'border',
                 'transition-all'
               ],
+              props.size === 'xs' && ['px-4', 'min-h-[2.5rem]'],
+              props.size === 'lg' && [
+                'px-12',
+                'min-h-[3.5rem]',
+                'text-lg',
+                'font-bold'
+              ],
               props.appearance === 'filled' && [
-                'bg-slate-300',
-                'text-gray-800',
-                'border-black',
-                'hover:bg-slate-700',
-                'hover:border-slate-400',
-                'hover:text-gray-900'
+                'text-white',
+                'bg-primary-800',
+                'border-primary-800',
+                'hover:bg-primary-700',
+                'hover:border-primary-700'
               ],
               props.appearance === 'outlined' && [
-                'bg-transparent ',
-                'border-black',
-                'hover:border-slate-400',
-                'hover:bg-slate-300'
+                'text-white',
+                'bg-transparent',
+                'border-primary-800',
+                'hover:border-primary-700',
+                'hover:bg-primary-700'
               ],
               props.appearance === 'ghost' && [
+                'text-white',
                 'bg-transparent',
                 'border-transparent',
-                'hover:bg-slate-300'
+                'hover:bg-primary-700'
               ],
               props.appearance === 'bright' && [
+                'text-white',
                 'bg-transparent',
                 'border-transparent',
                 'hover:border-transparent',

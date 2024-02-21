@@ -24,14 +24,14 @@ export default async function FooterMenu() {
     >
       {data?.map((column: FooterMenuColumnType) => (
         <li key={column.main_title}>
-          <div className="text-green-900 font-medium mb-5">
+          <div className="text-primary-100 font-medium mb-5">
             {column.main_title}
           </div>
           <ul className="flex flex-col gap-3">
             {column?.item?.map((item: FooterMenuItemType) => (
               <li key={item.title} className="text-white cursor-pointer">
                 {item?.is_link ? (
-                  <Link href={item.link} className="hover:text-green-900">
+                  <Link href={item.link} className="hover:text-primary-100">
                     {item.title}
                   </Link>
                 ) : (

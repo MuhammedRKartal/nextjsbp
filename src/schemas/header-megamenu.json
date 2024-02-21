@@ -1,18 +1,10 @@
 [
   {
-    "link": "/a",
-    "title": "First"
+    "link": "/style-guide",
+    "title": "Styles"
   },
   {
-    "link": "/b",
-    "title": "Second"
-  },
-  {
-    "link": "/c",
-    "title": "Third"
-  },
-  {
-    "link": "/d",
-    "title": "Fourth"
+    "link": "/about-us",
+    "title": "About Us"
   }
 ]

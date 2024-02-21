@@ -19,11 +19,15 @@ const config: Config = {
       },
       colors: {
         transparent: 'transparent',
-        green: {
-          opa: '#4b6319ed',
-          900: '#087908'
+        primary: {
+          100: '#087908',
+          700: '#516b1b',
+          800: '#4b6319',
+          opacity: '#4b6319ed'
         },
-        black: '#14171a'
+        black: {
+          400: '#14171a'
+        }
       }
     },
   },
