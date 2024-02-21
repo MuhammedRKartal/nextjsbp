@@ -23,7 +23,7 @@ export const Button = (props: ButtonProps) => {
                   'border',
                   'transition-all'
                 ],
-                props.size === 'xs' && ['px-4', 'min-h-[2.5rem]'],
+                props.size === 'xs' && ['text-sm', 'px-4', 'min-h-[2.5rem]'],
                 props.size === 'lg' && [
                   'px-12',
                   'min-h-[3.5rem]',
@@ -79,7 +79,7 @@ export const Button = (props: ButtonProps) => {
                 'border',
                 'transition-all'
               ],
-              props.size === 'xs' && ['px-4', 'min-h-[2.5rem]'],
+              props.size === 'xs' && ['text-sm', 'px-4', 'min-h-[2.5rem]'],
               props.size === 'lg' && [
                 'px-12',
                 'min-h-[3.5rem]',

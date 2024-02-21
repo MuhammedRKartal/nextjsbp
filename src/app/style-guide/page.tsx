@@ -10,47 +10,47 @@ export default function StyleGuide() {
 
       <div className="flex gap-3 items-center justify-center">
         <Button appearance="filled" size="xs">
-          Return Home
+          Filled XS
         </Button>
-        <Button appearance="filled">Return Home</Button>
+        <Button appearance="filled">Filled</Button>
         <Button appearance="filled" size="lg">
-          Return Home
+          Filled LG
         </Button>
       </div>
 
       <div className="flex gap-3 items-center justify-center">
         <Button appearance="outlined" size="xs" link="/">
-          Return Home
+          Outlined XS
         </Button>
         <Button appearance="outlined" link="/">
-          Return Home
+          Outlined
         </Button>
         <Button appearance="outlined" size="lg" link="/">
-          Return Home
+          Outlined LG
         </Button>
       </div>
 
       <div className="flex gap-3 items-center justify-center">
         <Button appearance="ghost" size="xs" link="/">
-          Return Home
+          Ghost XS
         </Button>
         <Button appearance="ghost" link="/">
-          Return Home
+          Ghost
         </Button>
         <Button appearance="ghost" size="lg" link="/">
-          Return Home
+          Ghost LG
         </Button>
       </div>
 
       <div className="flex gap-3 items-center justify-center">
         <Button appearance="bright" size="xs" link="/">
-          Return Home
+          Bright XS
         </Button>
         <Button appearance="bright" link="/">
-          Return Home
+          Bright
         </Button>
         <Button appearance="bright" size="lg" link="/">
-          Return Home
+          Bright LG
         </Button>
       </div>
     </div>
