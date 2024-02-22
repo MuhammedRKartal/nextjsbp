@@ -18,7 +18,7 @@ export default async function FooterMenu() {
     <ul
       className={clsx(
         'grid grid-cols-2 gap-x-4 gap-y-8 py-8',
-        'md:grid-cols-3 md:gap-x-8 md:gap-y-16',
+        'sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16',
         'lg:grid-cols-5'
       )}
     >

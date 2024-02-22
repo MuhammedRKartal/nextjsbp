@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 import { Button } from '@/src/components/button';
+import { Section } from '@/src/components/section';
 
 export default function StyleGuide() {
   return (
-    <div
+    <Section
       className={clsx('flex flex-col items-center justify-center gap-4 w-full')}
     >
       <h1 className="text-white text-2xl">Style Guide</h1>
@@ -55,6 +56,6 @@ export default function StyleGuide() {
           </Button>
         </div>
       </div>
-    </div>
+    </Section>
   );
 }

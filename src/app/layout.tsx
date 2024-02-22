@@ -44,12 +44,7 @@ export default function RootLayout({
       <body className="preload overflow-x-hidden bg-black-400">
         <ClientRoot>
           <Header />
-          <main
-            className={clsx(
-              'relative container mx-auto px-6 my-10',
-              'md:px-0 md:my-20'
-            )}
-          >
+          <main className={clsx('relative mx-auto my-10', 'md:my-20')}>
             {children}
           </main>
           <Footer />

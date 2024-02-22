@@ -1,3 +1,4 @@
+import { Section } from '@/src/components/section';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <>
+    <Section>
       <h1>About Us</h1>
       <ul className="text-white">
         <li>
@@ -65,6 +66,6 @@ export default function About() {
           botting experience.
         </li>
       </ul>
-    </>
+    </Section>
   );
 }

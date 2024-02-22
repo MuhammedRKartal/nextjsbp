@@ -1,14 +1,16 @@
 import { Button } from '../components/button';
 import Image from 'next/image';
 import clsx from 'clsx';
+import { Section } from '../components/section';
 
-export default function Home() {
+export default function NotFound() {
   return (
-    <div
+    <Section
       className={clsx(
         'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2',
         'flex flex-col items-center justify-center gap-4 w-full'
       )}
+      itemtag="div"
     >
       <Image
         src={'/assets/wowl.png'}
@@ -20,6 +22,6 @@ export default function Home() {
       <Button appearance="filled" link="/">
         Return Home
       </Button>
-    </div>
+    </Section>
   );
 }

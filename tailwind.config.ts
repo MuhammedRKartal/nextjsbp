@@ -30,8 +30,24 @@ const config: Config = {
         black: {
           400: '#14171a'
         }
+      },
+      maxWidth: {
+        min: '320px',
+        xs: '480px',
+        sm: '720px',
+        md: '960px',
+        lg: '1200px',
+        xl: '1400px',
+        xxl: '1600px',
+      },
+      screens: {
+        xxl: '1440px',
+        xl: '1200px',
+        lg: '960px',
+        md: '720px',
+        sm: '480px'
       }
-    },
+    }
   },
   plugins: [],
 }

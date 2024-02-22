@@ -4,3 +4,10 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     link?: string;
     linkclassname?: string;
 }
+
+export interface SectionProps {
+    children: React.ReactNode;
+    itemtag?: 'section' | 'div' | 'span' | 'main';
+    appearance?: 'thinnest' | 'thin' | 'wide' | 'full';
+    className?: string;
+  };
