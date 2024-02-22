@@ -1,46 +1,35 @@
 'use client';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
-import Image from 'next/image';
-import clsx from 'clsx';
 import { HeroBannerType } from '@/src/types';
 
-export default function HeroBannerContent({ content }: HeroBannerType) {
-  const breakpoints = {
-    768: {
-      slidesPerView: 1.3,
-      centeredSlides: true,
-      spaceBetween: 60
-    },
-    320: {
-      slidesPerView: 1.3,
-      spaceBetween: 12,
-      centeredSlides: true
-    }
-  };
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
+import Image from 'next/image';
+
+export default function HeroBannerContent({ content }: HeroBannerType) {
   return (
     <>
       <Swiper
-        className="fixed w-screen left-0 overflow-visible"
-        breakpoints={breakpoints}
-        pagination={{
-          clickable: true,
-          el: '.my-custom-pagination-div',
-          bulletActiveClass: 'swiper-pagination-bullet-active',
-          bulletClass:
-            'bg-primary-100 swiper-pagination-bullet h-4 w-4 bg-primary-100'
-        }}
+        modules={[Navigation, Pagination, EffectCoverflow]}
         navigation
-        modules={[Navigation, Pagination]}
-        loop={false}
-        wrapperClass="relative min-h-[500px]"
+        pagination={{ clickable: true }}
+        effect="coverflow"
+        coverflowEffect={{
+          rotate: 50,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false
+        }}
+        slidesPerView={2}
+        centeredSlides
+        loop={true}
       >
         {content.map((item) => (
           <SwiperSlide
-            className="relative flex items-center justify-center"
             key={item.title || item.image_alt}
+            className="flex relative items-center justify-center"
           >
             <Image
               src={item?.image}
@@ -50,14 +39,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
             ></Image>
           </SwiperSlide>
         ))}
-        <div
-          className={clsx(
-            'my-custom-pagination-div',
-            'bg-primary-100 flex justify-center items-center',
-            '!w-fit gap-1.5 py-[0.438rem]  px-[0.438rem] rounded-[0.688rem]',
-            'md:bg-transparent md:py-0 md:gap-0 md:mb-5 md:z-10'
-          )}
-        />
       </Swiper>
     </>
   );
