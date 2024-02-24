@@ -29,7 +29,8 @@ const config: Config = {
         },
         secondary: {
           100: '#16191c',
-          200: '#8697AA'
+          200: '#8697AA',
+          300: '#333B4B'
         },
         black: {
           400: '#14171a'
