@@ -16,7 +16,7 @@ export default function GlobalError({
 }) {
   return (
     <html lang="en">
-      <body className="preload overflow-x-hidden bg-black-400">
+      <body className="preload overflow-x-hidden bg-black">
         <Header />
         <main>
           <Section

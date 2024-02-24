@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={lato.className}>
-      <body className="preload overflow-x-hidden bg-black-400">
+      <body className="preload overflow-x-hidden bg-black">
         <ClientRoot>
           <Header />
           <main className={clsx('relative mx-auto my-10', 'md:my-20')}>

@@ -34,7 +34,12 @@ const config: Config = {
           400: '#374155'
         },
         black: {
-          400: '#14171a'
+          DEFAULT:'#14171a',
+          900: '#000000'
+        },
+        white: {
+          DEFAULT: '#FFFFFF',
+          opacity: '#ffffffb3'
         }
       },
       maxWidth: {

@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge';
 export const Button = (props: ButtonProps) => {
   return (
     <>
-      {props.link ? (
+      {props.link && props.link !== null ? (
         <Link href={props.link} className={props.linkclassname}>
           <button
             {...props}
