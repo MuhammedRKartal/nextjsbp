@@ -16,17 +16,7 @@ export default function Footer() {
           'flex justify-center'
         ])}
       >
-        <div
-          className={clsx(
-            'w-full',
-            'max-w-xs',
-            'sm:max-w-sm',
-            'md:max-w-md',
-            'lg:max-w-lg',
-            'xl:max-w-xl',
-            'xxl:max-w-xxl'
-          )}
-        >
+        <div className={clsx('w-full', 'k-container')}>
           <FooterMenu />
           <div className="border-b border-gray-500 my-8"></div>
           <div

@@ -9,6 +9,11 @@ const config: Config = {
       sans: ['Open_Sans', 'sans-serif'],
       serif: ['Merriweather', 'serif'],
     },
+    container: {
+      padding: {
+
+      }
+    },
     extend: {
       backgroundImage: {
         'gradient-primary': 'linear-gradient(90deg, #191f16 100%)'
@@ -23,7 +28,8 @@ const config: Config = {
           opacity: '#4b6319ed'
         },
         secondary: {
-          100: '#16191c'
+          100: '#16191c',
+          200: '#8697AA'
         },
         black: {
           400: '#14171a'

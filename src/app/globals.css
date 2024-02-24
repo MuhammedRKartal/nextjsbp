@@ -11,3 +11,45 @@ html{
 main{
     @apply min-h-[400px];
 }
+
+.k-container {
+    @apply max-w-xs;
+    @apply sm:max-w-sm;
+    @apply md:max-w-md;
+    @apply lg:max-w-lg;
+    @apply xl:max-w-xl;
+    @apply xxl:max-w-xxl;
+}
+
+.k-px {
+    @apply px-5;
+    @apply md:px-8;
+    @apply xl:px-28;
+    @apply xxl:px-36;
+}
+
+.k-py {
+    @apply pt-7 pb-8;
+    @apply xl:pt-10 xl:pb-11;
+}
+
+.k-pxi {
+    @apply px-5 !important;
+    @apply md:px-8 !important;
+    @apply xl:px-28 !important;
+    @apply xxl:px-36 !important;
+}
+
+.k-pyi {
+    @apply pt-7 pb-8 !important;
+    @apply xl:pt-10 xl:pb-11 !important;
+}
+
+.k-containeri {
+    @apply max-w-xs !important;
+    @apply sm:max-w-sm !important;
+    @apply md:max-w-md !important;
+    @apply lg:max-w-lg !important;
+    @apply xl:max-w-xl !important;
+    @apply xxl:max-w-xxl !important;
+}

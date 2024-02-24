@@ -12,7 +12,7 @@
     },
     {
       "is_image": true,
-      "image": "/assets/wowl.png",
+      "image": "https://dummyimage.com/1300x500/516b1b/fff&text=+",
       "mobile_image": "/assets/wowl.png",
       "image_alt": "This is the description of the both images",
       "title": null,
@@ -22,7 +22,17 @@
     },
     {
       "is_image": true,
-      "image": "/assets/wowl.png",
+      "image": "https://dummyimage.com/1300x500/516b1b/fff&text=+",
+      "mobile_image": "/assets/wowl.png",
+      "image_alt": "This is the description of the both images",
+      "title": null,
+      "description": null,
+      "button_text": null,
+      "button_target_url": "/style-guide"
+    },
+    {
+      "is_image": true,
+      "image": "https://dummyimage.com/1300x500/191f16/fff&text=+",
       "mobile_image": "/assets/wowl.png",
       "image_alt": "This is the description of the both images",
       "title": "The new patch!",

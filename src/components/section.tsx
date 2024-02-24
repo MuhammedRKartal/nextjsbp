@@ -30,48 +30,21 @@ export const Section = (props: SectionProps) => {
     >
       {(!itemtag || itemtag === 'section') && (
         <section
-          className={clsx([
-            'w-full',
-            'max-w-xs',
-            'sm:max-w-sm',
-            'md:max-w-md',
-            'lg:max-w-lg',
-            'xl:max-w-xl',
-            'xxl:max-w-xxl',
-            className ?? className
-          ])}
+          className={clsx(['w-full', 'k-container', className ?? className])}
         >
           {children}
         </section>
       )}
       {itemtag === 'div' && (
         <div
-          className={clsx([
-            'w-full',
-            'max-w-xs',
-            'sm:max-w-sm',
-            'md:max-w-md',
-            'lg:max-w-lg',
-            'xl:max-w-xl',
-            'xxl:max-w-xxl',
-            className ?? className
-          ])}
+          className={clsx(['w-full', 'k-container', className ?? className])}
         >
           {children}
         </div>
       )}
       {itemtag === 'div' && (
         <span
-          className={clsx([
-            'w-full',
-            'max-w-xs',
-            'sm:max-w-sm',
-            'md:max-w-md',
-            'lg:max-w-lg',
-            'xl:max-w-xl',
-            'xxl:max-w-xxl',
-            className ?? className
-          ])}
+          className={clsx(['w-full', 'k-container', className ?? className])}
         >
           {children}
         </span>
