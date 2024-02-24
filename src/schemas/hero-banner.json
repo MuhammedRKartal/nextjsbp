@@ -27,8 +27,8 @@
     {
       "is_image": true,
       "image": "https://dummyimage.com/1300x500/516b1b/fff&text=+",
-      "mobile_image": null,
-      "content_image": "/assets/wowl.png",
+      "mobile_image": "/assets/wowl.png",
+      "content_image": null,
       "content_image_alt": "Wow Logo",
       "image_alt": "This is the description of the both images",
       "title": null,

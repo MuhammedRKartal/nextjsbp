@@ -6,7 +6,7 @@ export type HeroBannerContentType = {
     is_image: boolean;
     image: string;
     content_image: string | null;
-    content_image_alt: string | null;
+    content_image_alt: string | null | undefined;
     mobile_image: string;
     image_alt: string;
     title: string | null;
