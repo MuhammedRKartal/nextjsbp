@@ -7,7 +7,6 @@ import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
 import Image from 'next/image';
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
 import { Button } from '@/src/components/button';
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
@@ -43,9 +42,9 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         spaceBetween={20}
         slidesPerView={'auto'}
         centeredSlides
-        loop
         slideToClickedSlide={true}
         parallax={true}
+        loop
       >
         {content.map((item) => (
           <SwiperSlide
@@ -89,15 +88,10 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
               stroke="currentColor"
               className="w-4 h-4 rotate-180"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-              />
+              <path d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>{' '}
           </Button>
           <Button
@@ -113,15 +107,10 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
               stroke="currentColor"
               className="w-4 h-4"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m8.25 4.5 7.5 7.5-7.5 7.5"
-              />
+              <path d="m8.25 4.5 7.5 7.5-7.5 7.5" />
             </svg>
           </Button>
         </div>
