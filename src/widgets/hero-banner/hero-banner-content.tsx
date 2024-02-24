@@ -2,12 +2,11 @@
 
 import { HeroBannerType } from '@/src/types';
 
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
 import Image from 'next/image';
 import clsx from 'clsx';
-import { Button } from '@/src/components/button';
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
   const bulletClassMobile =
@@ -21,10 +20,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
       <Swiper
         className={clsx('relative', 'k-pxi', '!h-[450px] md:!h-[550px]')}
         modules={[Navigation, Pagination, EffectCoverflow]}
-        navigation={{
-          prevEl: '#hb-custom-prevEl',
-          nextEl: '#hb-custom-nextEl'
-        }}
         pagination={{
           clickable: true,
           bulletClass: `swiper-pagination-bullet ${bulletClass} ${bulletClassMobile}`,
@@ -73,46 +68,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
               'md:bg-transparent md:py-0 md:gap-0 md:mb-2 md:z-10'
             )}
           />
-        </div>
-        <div className="k-px w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 absolute k-container">
-          <Button
-            appearance="filled"
-            id="hb-custom-prevEl"
-            className={clsx(
-              'absolute top-1/2 -translate-y-1/2 -left-8 z-10 hidden rounded-full px-[16px] md:block',
-              'bg-secondary-300 hover:bg-secondary-400 border-secondary-300 hover:border-secondary-400',
-              'shadow-inner'
-            )}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-4 h-4 rotate-180"
-            >
-              <path d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>{' '}
-          </Button>
-          <Button
-            appearance="filled"
-            id="hb-custom-nextEl"
-            className={clsx(
-              'absolute top-1/2 -translate-y-1/2 -right-8 z-10 hidden rounded-full px-[16px] md:block',
-              'bg-secondary-300 hover:bg-secondary-400 border-secondary-300 hover:border-secondary-400',
-              'shadow-inner'
-            )}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-4 h-4"
-            >
-              <path d="m8.25 4.5 7.5 7.5-7.5 7.5" />
-            </svg>
-          </Button>
         </div>
       </Swiper>
     </>
