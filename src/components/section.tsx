@@ -9,19 +9,19 @@ export const Section = (props: SectionProps) => {
         'flex justify-center',
         (!appearance || appearance === 'wide') && [
           'px-5 pt-6 pb-8',
-          'md:px-8',
+          'md:px-12',
           'xl:px-28 xl:pt-10 xl:pb-11',
           'xxl:px-36'
         ],
         appearance === 'thin' && [
           'px-5 pt-6 pb-8',
-          'md:px-8',
+          'md:px-12',
           'xl:px-48 xl:pt-10 xl:pb-11',
           'xxl:px-56'
         ],
         appearance === 'thinnest' && [
           'px-5 pt-6 pb-8',
-          'md:px-8',
+          'md:px-12',
           'xl:px-72 xl:pt-10 xl:pb-11',
           'xxl:px-80'
         ],

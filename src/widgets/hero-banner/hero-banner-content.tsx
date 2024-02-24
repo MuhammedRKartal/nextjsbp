@@ -2,11 +2,13 @@
 
 import { HeroBannerType } from '@/src/types';
 
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
 import Image from 'next/image';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
+import { Button } from '@/src/components/button';
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
   const bulletClassMobile =
@@ -18,7 +20,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
   return (
     <>
       <Swiper
-        className={clsx('relative', 'k-pxi')}
+        className={clsx('relative', 'k-pxi', '!h-[450px] md:!h-[550px]')}
         modules={[Navigation, Pagination, EffectCoverflow]}
         navigation={{
           prevEl: '#hb-custom-prevEl',
@@ -42,12 +44,15 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         slidesPerView={'auto'}
         centeredSlides
         loop
+        slideToClickedSlide={true}
+        parallax={true}
       >
         {content.map((item) => (
           <SwiperSlide
+            onClick={(item) => {}}
             key={item.title || item.image_alt}
             className={clsx(
-              'flex !h-[450px] md:!h-[550px] w-full relative items-center justify-center',
+              'flex w-full relative items-center justify-center rounded-lg overflow-hidden',
               'k-container'
             )}
           >
@@ -58,8 +63,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
               sizes="(max-width: 720px) 450px, 1350px"
               className="object-fit"
             ></Image>
-            <div id="hb-custom-prevEl">{'<'}</div>
-            <div id="hb-custom-nextEl">{'>'}</div>
           </SwiperSlide>
         ))}
         <div className="z-10 flex justify-center items-center absolute bottom-0 left-1/2 !-translate-x-1/2">
@@ -71,6 +74,56 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
               'md:bg-transparent md:py-0 md:gap-0 md:mb-2 md:z-10'
             )}
           />
+        </div>
+        <div className="k-px w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 absolute k-container">
+          <Button
+            appearance="filled"
+            id="hb-custom-prevEl"
+            className={clsx(
+              'absolute top-1/2 -translate-y-1/2 -left-8 z-10 hidden rounded-full px-[16px] md:block',
+              'bg-secondary-300 hover:bg-secondary-400 border-secondary-300 hover:border-secondary-400',
+              'shadow-inner'
+            )}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-4 h-4 rotate-180"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>{' '}
+          </Button>
+          <Button
+            appearance="filled"
+            id="hb-custom-nextEl"
+            className={clsx(
+              'absolute top-1/2 -translate-y-1/2 -right-8 z-10 hidden rounded-full px-[16px] md:block',
+              'bg-secondary-300 hover:bg-secondary-400 border-secondary-300 hover:border-secondary-400',
+              'shadow-inner'
+            )}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              className="w-4 h-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m8.25 4.5 7.5 7.5-7.5 7.5"
+              />
+            </svg>
+          </Button>
         </div>
       </Swiper>
     </>
