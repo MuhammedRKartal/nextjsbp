@@ -49,6 +49,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         slideToClickedSlide={true}
         parallax={true}
         loop
+        autoplay={{ delay: 1000 }}
       >
         {content.map((item) => (
           <SwiperSlide
