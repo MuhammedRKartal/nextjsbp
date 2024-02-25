@@ -22,15 +22,28 @@ export const Modal = (props: ModalProps) => {
     showCloseButton = true,
     className
   } = props;
+
+  function blurBackground() {
+    if (typeof document !== 'undefined') {
+      document.querySelector('#main')?.classList.remove('blur-sm');
+      document.querySelector('#header')?.classList.remove('blur-sm');
+      document.querySelector('#footer')?.classList.remove('blur-sm');
+    }
+  }
+
+  function removeBlur() {
+    if (typeof document !== 'undefined') {
+      document.querySelector('#main')?.classList.add('blur-sm');
+      document.querySelector('#header')?.classList.add('blur-sm');
+      document.querySelector('#footer')?.classList.add('blur-sm');
+    }
+  }
+
   if (!open) {
-    document.querySelector('#main')?.classList.remove('blur-sm');
-    document.querySelector('#header')?.classList.remove('blur-sm');
-    document.querySelector('#footer')?.classList.remove('blur-sm');
+    blurBackground();
     return null;
   } else {
-    document.querySelector('#main')?.classList.add('blur-sm');
-    document.querySelector('#header')?.classList.add('blur-sm');
-    document.querySelector('#footer')?.classList.add('blur-sm');
+    removeBlur();
   }
 
   return (
