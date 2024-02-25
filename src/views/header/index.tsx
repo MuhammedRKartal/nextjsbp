@@ -9,7 +9,10 @@ import HamburgerMenuContent from './mobile-menu/hamburger-menu-content';
 export default function Header() {
   return (
     <>
-      <header className={clsx('w-full sticky h-full top-0 z-10', 'md:top-4')}>
+      <header
+        id="header"
+        className={clsx('w-full sticky h-full top-0 z-10', 'md:top-4')}
+      >
         <div
           className={clsx(
             'h-[50px] px-2',

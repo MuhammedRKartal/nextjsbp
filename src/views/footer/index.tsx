@@ -7,7 +7,7 @@ import { Section } from '@/src/components/section';
 export default function Footer() {
   return (
     <>
-      <footer className={clsx(['k-px', , 'flex justify-center'])}>
+      <footer id="footer" className={clsx(['k-px', , 'flex justify-center'])}>
         <div className={clsx('w-full', 'k-container')}>
           <FooterMenu />
           <div className="border-b border-gray-500 my-8"></div>

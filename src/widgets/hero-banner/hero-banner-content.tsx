@@ -97,8 +97,8 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
                 {item?.title && (
                   <div
                     className={clsx(
-                      'text-white font-bold text-5xl mb-6 hidden',
-                      'lg:text-6xl md:block'
+                      'text-white font-bold text-5xl mb-6',
+                      'lg:text-6xl '
                     )}
                   >
                     {item?.title}
@@ -107,8 +107,8 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
                 {item?.description && (
                   <div
                     className={clsx(
-                      'text-white text-2xl font-bold mb-4',
-                      'md:text-white-opacity md:mb-[30px]'
+                      'text-white text-2xl font-bold mb-4 hidden',
+                      'md:text-white-opacity md:mb-[30px] md:block'
                     )}
                   >
                     {item?.description}
