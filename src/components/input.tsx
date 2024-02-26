@@ -28,7 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const isPassword = type && type === 'password';
 
   const inputClass = clsx(
-    'bg-transparent text-base min-w-[336px] max-w-[336px] text-white border px-3 h-10 rounded my-[3px] transition duration-200',
+    'bg-transparent text-base min-w-[320px] max-w-[320px] text-white border px-3 h-10 rounded my-[3px] transition duration-200',
     'sm:min-w-[416px] sm:max-w-[416px]',
     'placeholder:text-gray-400',
     'hover:border-primary-100',

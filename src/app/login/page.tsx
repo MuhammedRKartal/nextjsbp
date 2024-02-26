@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function Login() {
   return (
     <Section>
-      <div className="flex flex-col items-center mx-auto mb-6 w-[336px] sm:w-[416px]">
+      <div className="flex flex-col items-center mx-auto mb-6 w-[320px] sm:w-[416px]">
         <Image
           src={'/assets/logo-banner.png'}
           alt="Company"
