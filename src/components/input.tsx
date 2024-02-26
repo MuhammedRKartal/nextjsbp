@@ -45,7 +45,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     id,
     ref,
     className: inputClass,
-    type: type === 'password' ? (showValue ? type : 'text') : type,
+    type: type === 'password' ? (!showValue ? type : 'text') : type,
     onFocus: () => setFocused(true),
     onBlur: (event: FocusEvent<HTMLInputElement>) => {
       setFocused(false);
