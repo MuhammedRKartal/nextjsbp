@@ -45,7 +45,7 @@ export default function Login() {
             target="_blank"
             className="text-primary-100 font-black hover:text-primary-700"
           >
-            Forget your password?
+            Forgot your password?
           </Link>
         </div>
       </div>
