@@ -46,7 +46,7 @@ export default function RootLayout({
           <Header />
           <main
             id="main"
-            className={clsx('relative mx-auto my-10', 'md:my-20')}
+            className={clsx('relative mx-auto my-10 min-h-[50vh]', 'md:my-20')}
           >
             {children}
           </main>

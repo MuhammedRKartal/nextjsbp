@@ -28,7 +28,7 @@ export const Button = (props: ButtonProps) => {
                   'text-lg',
                   'font-bold'
                 ],
-                props.appearance === 'filled' && [
+                (props.appearance === 'filled' || !props.appearance) && [
                   'text-white',
                   'bg-primary-800',
                   'border-primary-800',
@@ -84,7 +84,7 @@ export const Button = (props: ButtonProps) => {
                 'text-lg',
                 'font-bold'
               ],
-              props.appearance === 'filled' && [
+              (props.appearance === 'filled' || !props.appearance) && [
                 'text-white',
                 'bg-primary-800',
                 'border-primary-800',

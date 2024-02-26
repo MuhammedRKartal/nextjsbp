@@ -40,6 +40,9 @@ const config: Config = {
         white: {
           DEFAULT: '#FFFFFF',
           opacity: '#ffffffb3'
+        },
+        error: {
+          DEFAULT: '#ff0000'
         }
       },
       maxWidth: {
