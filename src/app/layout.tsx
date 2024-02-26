@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description: 'Nextjs Template Website by Muhammed Kartal',
   metadataBase: new URL('https://nextbpk.netlify.app'),
   verification: {
-    google: 'n9tDYnssR6MuWm19pDQzKwMS7Ahjs44EOpC0S_LTVPs'
+    google: '5cQd3-U9FV3CZh0ax9nuPPUNR2DUo-JVHku4r2vUQ_0'
   },
   openGraph: {
     title: 'Next BPK',
