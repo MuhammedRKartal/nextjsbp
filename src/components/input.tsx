@@ -93,7 +93,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                   height={16}
                   className="shadow-lg"
                 />
-                {showValue && (
+                {!showValue && (
                   <span className="w-1 h-[150%] absolute top-1/2 left-1/2 bg-primary-800 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]" />
                 )}
               </div>
