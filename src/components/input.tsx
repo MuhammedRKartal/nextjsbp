@@ -45,7 +45,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     id,
     ref,
     className: inputClass,
-    type: type === 'password' ? (!showValue ? type : 'text') : type,
+    type: type === 'password' ? (showValue ? 'text' : type) : type,
     onFocus: () => setFocused(true),
     onBlur: (event: FocusEvent<HTMLInputElement>) => {
       setFocused(false);
@@ -87,13 +87,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             >
               <div className="relative">
                 <Image
-                  src={'/assets/wowl.png'}
+                  src={'/assets/eye.png'}
                   alt="disable"
                   width={16}
                   height={16}
-                  className="shadow-lg"
+                  className={
+                    'shadow-lg invert-[60%] sepia-[80%] saturate-[3050%] hue-rotate-[20deg]'
+                  }
                 />
-                {!showValue && (
+                {showValue && (
                   <span className="w-1 h-[150%] absolute top-1/2 left-1/2 bg-primary-800 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]" />
                 )}
               </div>
