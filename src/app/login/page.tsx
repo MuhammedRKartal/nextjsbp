@@ -28,7 +28,7 @@ export default function Login() {
         >
           <div className="flex flex-col gap-2">
             <Input label="Email or Phone" id="account" />
-            <Input label="Password" id="password" />
+            <Input label="Password" id="password" type="password" />
           </div>
           <Button
             type="submit"
