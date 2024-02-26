@@ -29,7 +29,7 @@ main{
 }
 
 .k-py {
-    @apply pt-7 pb-8;
+    @apply pt-6 pb-8;
     @apply xl:pt-10 xl:pb-11;
 }
 
@@ -41,7 +41,7 @@ main{
 }
 
 .k-pyi {
-    @apply pt-7 pb-8 !important;
+    @apply pt-6 pb-8 !important;
     @apply xl:pt-10 xl:pb-11 !important;
 }
 

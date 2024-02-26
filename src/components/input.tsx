@@ -67,7 +67,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         <input
           {...rest}
           {...inputProps}
-          placeholder={hasPlaceholder && `${label} ${required ? '*' : ''}`}
+          placeholder={hasPlaceholder ? `${label} ${required ? '*' : ''}` : ''}
         />
       </div>
       {error && (

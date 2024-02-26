@@ -28,7 +28,7 @@ export const InputLabel: React.FC<InputLabelProps> = ({
         },
         { 'mb-1': outer },
         {
-          '-translate-y-[-12px] text-[9px]': floating && (focused || hasValue)
+          '-translate-y-[-12px] !text-[9px]': floating && (focused || hasValue)
         },
         { 'top-1/3': outer && !(focused || hasValue) }
       )}
