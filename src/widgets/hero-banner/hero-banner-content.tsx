@@ -48,6 +48,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         centeredSlides
         slideToClickedSlide={true}
         parallax={true}
+        loop
         autoplay={{ delay: 1000 }}
       >
         {content.map((item) => (
@@ -64,7 +65,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
               alt={item?.image_alt}
               fill
               sizes="(max-width: 720px) 450px, 1350px"
-              className="object-fit"
+              className="object-cover"
             ></Image>
             {(item?.title || item?.description || item?.button_text) && (
               <div
