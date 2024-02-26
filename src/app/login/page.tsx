@@ -31,7 +31,7 @@ export default function Login() {
             <Input label="Password" id="password" type="password" />
           </div>
           <Button
-            type="submit"
+            type="reset"
             appearance="filled"
             size="xs"
             className="w-full text-base"
@@ -43,7 +43,7 @@ export default function Login() {
           <Link
             href={'/'}
             target="_blank"
-            className="text-primary-100 font-black hover:text-primary-700"
+            className="text-primary font-black hover:text-primary-700"
           >
             Forgot your password?
           </Link>

@@ -21,17 +21,17 @@ const config: Config = {
       colors: {
         transparent: 'transparent',
         primary: {
-          100: '#087908',
+          DEFAULT: '#087908',
           700: '#516b1b',
           800: '#4b6319',
           900: '#191f16',
           opacity: '#4b6319ed'
         },
         secondary: {
-          100: '#16191c',
-          200: '#8697AA',
-          300: '#333B4B',
-          400: '#374155'
+          DEFAULT: "#8697AA",
+          700: '#374155',
+          800: '#333B4B',
+          900: '#16191c',
         },
         black: {
           DEFAULT:'#14171a',
@@ -39,7 +39,7 @@ const config: Config = {
         },
         white: {
           DEFAULT: '#FFFFFF',
-          opacity: '#ffffffb3'
+          opacity: '#ffffffe6'
         },
         error: {
           DEFAULT: '#ff0000'

@@ -15,7 +15,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
     clickable: true,
     bulletClass: clsx(
       'swiper-pagination-bullet',
-      '!bg-secondary-200 !rounded-sm !mx-1 !my-3 hover:!bg-white hover:!opacity-100',
+      '!bg-secondary !rounded-sm !mx-1 !my-3 hover:!bg-white hover:!opacity-100',
       'md:!w-16 md:!h-2.5 md:!mx-2',
       'xl:!w-24'
     ),
@@ -48,7 +48,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         centeredSlides
         slideToClickedSlide={true}
         parallax={true}
-        loop
         autoplay={{ delay: 1000 }}
       >
         {content.map((item) => (

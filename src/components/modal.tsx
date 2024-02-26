@@ -3,6 +3,8 @@
 import clsx from 'clsx';
 import ReactPortal from './react-portal';
 import { Button } from './button';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -57,7 +59,7 @@ export const Modal = (props: ModalProps) => {
       />
       <section
         className={clsx(
-          'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-secondary-100 shadow-lg',
+          'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-secondary-900 shadow-lg',
           'rounded-md',
           className
         )}
@@ -70,7 +72,7 @@ export const Modal = (props: ModalProps) => {
                 appearance="bright"
                 size="xs"
               >
-                X
+                <FontAwesomeIcon icon={faClose} />
               </Button>
             )}
           </div>

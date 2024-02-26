@@ -34,7 +34,7 @@ export default function HamburgerMenuContent() {
           <li key={item.title} className="text-white cursor-pointer w-fit">
             <Link
               href={item.link}
-              className="hover:text-primary-100"
+              className="hover:text-primary"
               onClick={() => {
                 dispatch(closeMobileMenu());
               }}

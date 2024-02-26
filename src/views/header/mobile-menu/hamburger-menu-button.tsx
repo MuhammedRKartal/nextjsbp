@@ -3,7 +3,8 @@
 import { Button } from '@/src/components/button';
 import { toggleMobileMenu } from '@/src/redux/reducers/header';
 import { useAppDispatch } from '@/src/redux/hooks';
-import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
 export default function MobileHamburgerButton() {
   const dispatch = useAppDispatch();
@@ -14,12 +15,7 @@ export default function MobileHamburgerButton() {
       appearance="ghost"
       onClick={() => dispatch(toggleMobileMenu())}
     >
-      <Image
-        src={'/assets/menu.svg'}
-        alt="Hamburger Menu"
-        height={20}
-        width={20}
-      ></Image>
+      <FontAwesomeIcon icon={faBars} />
     </Button>
   );
 }

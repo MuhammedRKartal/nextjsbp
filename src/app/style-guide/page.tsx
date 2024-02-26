@@ -70,6 +70,11 @@ export default function StyleGuidePage() {
               <Input label="Inner" id="account" type="password" />
               <Input label="Floating" id="password" labelStyle="floating" />
               <Input label="Required" required></Input>
+              <Input
+                label="Required Floating"
+                required
+                labelStyle="floating"
+              ></Input>
               <Input label="Disabled" disabled></Input>
             </div>
           </div>

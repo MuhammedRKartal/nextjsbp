@@ -7,6 +7,10 @@ import MobileHamburgerButton from './mobile-menu/hamburger-menu-button';
 import CustomModal from '../modals/custom-modal';
 import { useState } from 'react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
+import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
+
 export type HeaderNavItemType = {
   title: string;
   link: string;
@@ -20,7 +24,11 @@ export default function Megamenu() {
       <CustomModal open={open} setOpen={setOpen} />
       <MobileHamburgerButton />
       <div className="flex">
-        <Button appearance="bright" link="/">
+        <Button
+          appearance="bright"
+          link="/"
+          linkclassname="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0"
+        >
           <Image
             src={'/assets/wowl.png'}
             alt="wow"
@@ -44,22 +52,21 @@ export default function Megamenu() {
 
       <div className="flex">
         <Button
-          className="hidden md:block"
+          className="px-2"
           appearance="bright"
           onClick={() => {
             setOpen(true);
           }}
         >
-          X
+          <FontAwesomeIcon icon={faBasketShopping} size="lg" />
         </Button>
-        <Button appearance="bright" link="/login" linkclassname="">
-          <Image
-            src={'/assets/user.svg'}
-            alt="Login Icon"
-            className="text-white"
-            height={20}
-            width={20}
-          ></Image>
+        <Button
+          appearance="bright"
+          link="/login"
+          linkclassname=""
+          className="pl-2"
+        >
+          <FontAwesomeIcon icon={faUser} size="lg" />
         </Button>
       </div>
     </>

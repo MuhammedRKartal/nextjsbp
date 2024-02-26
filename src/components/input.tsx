@@ -1,11 +1,13 @@
 'use client';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { forwardRef, FocusEvent, useState } from 'react';
 import { InputProps } from './types';
 import { InputLabel } from './input-label';
 import Image from 'next/image';
 import { Button } from './button';
+import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const [focused, setFocused] = useState(false);
@@ -31,9 +33,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     'bg-transparent text-base min-w-[320px] max-w-[320px] text-white border px-3 h-10 rounded my-[3px] transition duration-200',
     'sm:min-w-[416px] sm:max-w-[416px]',
     'placeholder:text-gray-400',
-    'hover:border-primary-100',
-    'active:border-primary-100',
-    'focus-visible:outline-none focus:border-primary-100',
+    'hover:border-primary',
+    'active:border-primary',
+    'focus-visible:outline-none focus:border-primary',
     { 'pt-3 h-12': hasFloatingLabel },
     error &&
       'border-error focus:border-error active:border-error hover:border-error text-error',
@@ -55,7 +57,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   return (
     <>
-      <div className="relative flex flex-col transition-all w-fit">
+      <div className="relative flex flex-col transition-all w-fit ">
         {!hasPlaceholder && (
           <InputLabel
             label={label}
@@ -85,20 +87,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                 setShowValue(!showValue);
               }}
             >
-              <div className="relative">
-                <Image
-                  src={'/assets/eye.png'}
-                  alt="disable"
-                  width={16}
-                  height={16}
-                  className={
-                    'shadow-lg invert-[60%] sepia-[80%] saturate-[3050%] hue-rotate-[20deg]'
-                  }
-                />
-                {showValue && (
-                  <span className="w-1 h-[150%] absolute top-1/2 left-1/2 bg-primary-800 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]" />
-                )}
-              </div>
+              <FontAwesomeIcon icon={faEye} className="text-primary-800" />
+
+              {showValue && (
+                <span className="w-1 h-3/5 absolute top-1/2 left-1/2 bg-primary-700 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]" />
+              )}
             </Button>
           )}
         </div>
