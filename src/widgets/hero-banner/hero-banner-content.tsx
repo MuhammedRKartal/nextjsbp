@@ -63,6 +63,8 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
             <Image
               src={item?.image}
               alt={item?.image_alt}
+              blurDataURL="https://c.wallhere.com/photos/81/7f/artwork_World_of_Warcraft_Arthas_Lich_King_World_of_Warcraft_Wrath_of_the_Lich_King-250327.jpg!d"
+              placeholder="blur"
               fill
               sizes="(max-width: 720px) 450px, 1350px"
               className="object-cover"
