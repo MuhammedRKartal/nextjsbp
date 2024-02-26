@@ -67,7 +67,7 @@ export default function StyleGuidePage() {
             <h2 className="text-white text-2xl mb-4">Inputs</h2>
             <div className="flex flex-col gap-3 w-full">
               <Input label="Outer" id="password" labelStyle="outer" />
-              <Input label="Inner" id="account" />
+              <Input label="Inner" id="account" type="password" />
               <Input label="Floating" id="password" labelStyle="floating" />
               <Input label="Required" required></Input>
               <Input label="Disabled" disabled></Input>

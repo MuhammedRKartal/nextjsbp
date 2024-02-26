@@ -5,15 +5,20 @@ import { forwardRef, FocusEvent, useState } from 'react';
 import { InputProps } from './types';
 import { twMerge } from 'tailwind-merge';
 import { InputLabel } from './input-label';
+import Image from 'next/image';
+import { Button } from './button';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const [focused, setFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
+  const [showValue, setShowValue] = useState(false);
+
   const {
     id,
     label,
     labelStyle,
     error,
+    type,
     required = false,
     disabled = false,
     ...rest
@@ -21,6 +26,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   const hasFloatingLabel = label && labelStyle === 'floating';
   const hasPlaceholder = label && (labelStyle === 'inner' || !labelStyle);
+  const isPassword = type && type === 'password';
 
   const inputClass = twMerge(
     clsx(
@@ -29,12 +35,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
       'placeholder:text-gray-400',
       'hover:border-primary-100',
       'active:border-primary-100',
-      'focus-visible:outline-none focus:border-primary-100', // disable outline on focus
+      'focus-visible:outline-none focus:border-primary-100',
       { 'pt-3 h-12': hasFloatingLabel },
-      error
-        ? 'border-error focus:border-error active:border-error hover:border-error text-error'
-        : 'border-gray-300',
-      disabled ? 'pointer-events-none opacity-40' : ''
+      error &&
+        'border-error focus:border-error active:border-error hover:border-error text-error',
+      disabled && 'pointer-events-none opacity-40',
+      'before: '
     ),
     props.className
   );
@@ -43,6 +49,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     id,
     ref,
     className: inputClass,
+    type: type === 'password' ? (showValue ? type : 'text') : type,
     onFocus: () => setFocused(true),
     onBlur: (event: FocusEvent<HTMLInputElement>) => {
       setFocused(false);
@@ -51,8 +58,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   };
 
   return (
-    <div className="flex flex-col">
-      <div className="relative flex flex-col transition-all ">
+    <>
+      <div className="relative flex flex-col transition-all w-fit">
         {!hasPlaceholder && (
           <InputLabel
             label={label}
@@ -64,16 +71,43 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             id={id}
           />
         )}
-        <input
-          {...rest}
-          {...inputProps}
-          placeholder={hasPlaceholder ? `${label} ${required ? '*' : ''}` : ''}
-        />
+        <div className="relative">
+          <input
+            {...rest}
+            {...inputProps}
+            placeholder={
+              hasPlaceholder ? `${label} ${required ? '*' : ''}` : ''
+            }
+          />
+          {isPassword && (
+            <Button
+              appearance="bright"
+              size="xs"
+              className="absolute right-0 top-1/2 -translate-y-1/2"
+              onClick={() => {
+                setShowValue(!showValue);
+              }}
+            >
+              <div className="relative">
+                <Image
+                  src={'/assets/wowl.png'}
+                  alt="disable"
+                  width={16}
+                  height={16}
+                  className="shadow-lg"
+                />
+                {!showValue && (
+                  <span className="w-1 h-[150%] absolute top-1/2 left-1/2 bg-primary-800 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]" />
+                )}
+              </div>
+            </Button>
+          )}
+        </div>
       </div>
       {error && (
         <span className="mt-1 text-sm text-error">{error.message}</span>
       )}
-    </div>
+    </>
   );
 });
 
