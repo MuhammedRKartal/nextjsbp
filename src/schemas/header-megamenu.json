@@ -6,5 +6,9 @@
   {
     "link": "/about-us",
     "title": "About Us"
+  },
+  {
+    "link": "/product-list",
+    "title": "Products"
   }
 ]

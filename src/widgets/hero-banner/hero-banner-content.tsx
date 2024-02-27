@@ -9,17 +9,18 @@ import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
 import { Image } from '@/components/image';
 import clsx from 'clsx';
+import { twMerge } from 'tailwind-merge';
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
   const paginationSettings = {
     clickable: true,
-    bulletClass: clsx(
+    bulletClass: twMerge(
       'swiper-pagination-bullet',
       '!bg-secondary !rounded-sm !mx-1 !my-3 hover:!bg-white hover:!opacity-100',
       'md:!w-16 md:!h-2.5 md:!mx-2',
       'xl:!w-24'
     ),
-    bulletActiveClass: clsx(
+    bulletActiveClass: twMerge(
       'swiper-pagination-bullet-active',
       '!w-3 !h-3 !bg-black',
       'md:!bg-white md:!h-3'
@@ -38,7 +39,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
   return (
     <>
       <Swiper
-        className={clsx('relative', 'k-pxi', '!h-[450px] lg:!h-[550px]')}
+        className={twMerge('relative', 'k-pxi', '!h-[450px] lg:!h-[550px]')}
         modules={[Navigation, Pagination, EffectCoverflow]}
         pagination={paginationSettings}
         effect="coverflow"
@@ -54,7 +55,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
           <SwiperSlide
             onClick={(item) => {}}
             key={item.title || item.image_alt}
-            className={clsx(
+            className={twMerge(
               'flex w-full relative items-center justify-center rounded-lg overflow-hidden',
               'k-container'
             )}
@@ -71,7 +72,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
             ></Image>
             {(item?.title || item?.description || item?.button_text) && (
               <div
-                className={clsx(
+                className={twMerge(
                   'absolute top-0 left-0 w-full h-full py-16',
                   'flex justify-end items-center flex-col px-[15%] text-center',
                   'md:justify-center',

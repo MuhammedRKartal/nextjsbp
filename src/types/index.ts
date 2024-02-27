@@ -27,3 +27,16 @@ export type NextPageWithLayout = NextPage & {
 export type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
+
+export type ProductItemImagesType = {
+    image: string;
+    alt: string;
+}
+
+export type ProductItemType = {
+    pk: number | string;
+    name: string;
+    images: ProductItemImagesType[];
+    price: string;
+    in_stock: boolean;
+}

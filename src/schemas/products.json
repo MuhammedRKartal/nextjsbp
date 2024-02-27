@@ -1,0 +1,50 @@
+[
+  {
+    "pk": "1",
+    "name": "Content1",
+    "images": [
+      {
+        "image": "/assets/wowl.png",
+        "alt": "Item1"
+      },
+      {
+        "image": "/assets/wowl.png",
+        "alt": "Item2"
+      }
+    ],
+    "price": "10.99",
+    "in_stock": true
+  },
+  {
+    "pk": "2",
+    "name": "Content2",
+    "images": [
+      {
+        "image": "/assets/wowl.png",
+        "alt": "Item1"
+      },
+      {
+        "image": "/assets/wowl.png",
+        "alt": "Item2"
+      }
+    ],
+    "price": "10.99",
+    "in_stock": true
+  },
+  {
+    "pk": "3",
+    "name": "Content3",
+    "images": [
+      {
+        "image": "/assets/wowl.png",
+        "alt": "Item1"
+      },
+      {
+        "image": "/assets/wowl.png",
+        "alt": "Item2"
+      }
+    ],
+    "price": "10.99",
+    "in_stock": true
+  }
+]

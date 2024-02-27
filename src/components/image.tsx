@@ -29,7 +29,11 @@ export const Image = (props: ImageProps) => {
 
   return (
     <div
-      className={clsx('static', fill && 'w-full', className)}
+      className={clsx(
+        'static flex items-center justify-center',
+        fill && 'w-full',
+        className
+      )}
       style={{
         ...(fill && { aspectRatio })
       }}
