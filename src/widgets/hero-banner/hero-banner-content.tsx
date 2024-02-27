@@ -7,7 +7,7 @@ import { Button } from '@/components/button';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
-import Image from 'next/image';
+import { Image } from '@/components/image';
 import clsx from 'clsx';
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
@@ -38,7 +38,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
   return (
     <>
       <Swiper
-        className={clsx('relative', 'k-pxi', '!h-[650px] lg:!h-[550px]')}
+        className={clsx('relative', 'k-pxi', '!h-[450px] lg:!h-[550px]')}
         modules={[Navigation, Pagination, EffectCoverflow]}
         pagination={paginationSettings}
         effect="coverflow"
@@ -49,7 +49,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         slideToClickedSlide={true}
         parallax={true}
         loop
-        autoplay={{ delay: 1000 }}
       >
         {content.map((item) => (
           <SwiperSlide
@@ -66,13 +65,14 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
               blurDataURL="https://c.wallhere.com/photos/81/7f/artwork_World_of_Warcraft_Arthas_Lich_King_World_of_Warcraft_Wrath_of_the_Lich_King-250327.jpg!d"
               placeholder="blur"
               fill
+              aspectRatio={1350 / 500}
               sizes="(max-width: 720px) 450px, 1350px"
-              className="object-cover"
+              objectType="object-cover"
             ></Image>
             {(item?.title || item?.description || item?.button_text) && (
               <div
                 className={clsx(
-                  'relative h-full py-16',
+                  'absolute top-0 left-0 w-full h-full py-16',
                   'flex justify-end items-center flex-col px-[15%] text-center',
                   'md:justify-center',
                   'lg:w-[60%] lg:min-w-[700px] lg:items-start lg:px-[10%] lg:text-start'
@@ -85,6 +85,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
                       alt={item?.content_image_alt}
                       width={130}
                       height={130}
+                      aspectRatio={1}
                       className="mb-2 hidden md:block"
                     ></Image>
                     <Image
@@ -92,6 +93,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
                       alt={item?.content_image_alt}
                       width={150}
                       height={150}
+                      aspectRatio={1}
                       className="mb-2 md:hidden"
                     ></Image>
                   </>

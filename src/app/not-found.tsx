@@ -1,7 +1,7 @@
 import { Button } from '@/components/button';
-import Image from 'next/image';
 import clsx from 'clsx';
 import { Section } from '@/components/section';
+import { Image } from '@/components/image';
 
 export default function NotFound() {
   return (
@@ -17,6 +17,7 @@ export default function NotFound() {
         alt="Company Logo"
         height={70}
         width={70}
+        aspectRatio={1}
       ></Image>
       <h1 className="text-2xl text-white">The page is not found!</h1>
       <Button appearance="filled" link="/">

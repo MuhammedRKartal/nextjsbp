@@ -1,11 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import Image from 'next/image';
 import { Button } from '@/components/button';
 import Footer from '@/views/footer';
 import Header from '@/views/header';
 import { Section } from '@/components/section';
+import { Image } from '@/components/image';
 
 export default function GlobalError({
   error,
@@ -35,6 +35,7 @@ export default function GlobalError({
                 alt="Company Logo"
                 height={70}
                 width={70}
+                aspectRatio={1}
               ></Image>
               <h1 className="text-2xl text-white">Something went wrong!</h1>
               <span className="text-lg text-white capitalize">

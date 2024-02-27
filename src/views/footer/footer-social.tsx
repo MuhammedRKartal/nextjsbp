@@ -1,6 +1,6 @@
 import { Button } from '@/components/button';
 import data from '@/schemas/footer-social.json';
-import Image from 'next/image';
+import { Image } from '@/components/image';
 
 export type FooterSocialItemType = {
   logo: string;
@@ -19,6 +19,7 @@ export default async function FooterSocial() {
               alt={item?.alt}
               height={25}
               width={25}
+              aspectRatio={1}
             ></Image>
           </Button>
         </li>

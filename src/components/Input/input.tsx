@@ -1,11 +1,13 @@
 'use client';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { forwardRef, FocusEvent, useState } from 'react';
-import { InputProps } from '@/components/types';
-import { InputLabel } from '@/components/input-label';
+
+import { InputLabel } from '@/components/Input/input-label';
 import { Button } from '@/components/button';
+import { InputProps } from '@/components/types';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {

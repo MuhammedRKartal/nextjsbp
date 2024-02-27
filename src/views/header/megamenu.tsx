@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { Image } from '@/components/image';
 import data from '@/schemas/header-megamenu.json';
 import { Button } from '@/components/button';
 import MobileHamburgerButton from './mobile-menu/hamburger-menu-button';
@@ -34,6 +34,7 @@ export default function Megamenu() {
             alt="wow"
             height={30}
             width={30}
+            aspectRatio={1}
           ></Image>
         </Button>
 

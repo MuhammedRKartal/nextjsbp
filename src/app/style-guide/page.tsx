@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 import { Button } from '@/components/button';
 import { Section } from '@/components/section';
-import { Input } from '@/components/input';
+import { Input } from '@/components/Input/input';
 
 export default function StyleGuidePage() {
   return (

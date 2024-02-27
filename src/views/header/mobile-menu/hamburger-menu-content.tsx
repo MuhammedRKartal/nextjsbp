@@ -3,7 +3,7 @@
 import data from '@/schemas/header-megamenu.json';
 import { useAppDispatch } from '@/redux/hooks';
 import { closeMobileMenu } from '@/redux/reducers/header';
-import Image from 'next/image';
+import { Image } from '@/components/image';
 import Link from 'next/link';
 
 export type HeaderNavItemType = {
@@ -26,7 +26,7 @@ export default function HamburgerMenuContent() {
           alt="Wowtasker"
           width={260}
           height={40}
-          className="aspect-{260/40}"
+          aspectRatio={260 / 40}
         ></Image>
       </Link>
 

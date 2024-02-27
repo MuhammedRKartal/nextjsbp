@@ -1,10 +1,10 @@
 'server-only';
 
 import { Button } from '@/components/button';
-import { Input } from '@/components/input';
+import { Input } from '@/components/Input/input';
 import { Section } from '@/components/section';
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { Image } from '@/components/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function Register() {
           alt="Company"
           height={150}
           width={350}
-          className="aspect-{350/150}"
+          aspectRatio={350 / 150}
         ></Image>
         <div className="text-white text-4xl font-extrabold mt-12 mb-14">
           Register

@@ -1,4 +1,5 @@
 import { Control, FieldError } from 'react-hook-form';
+import { ImageProps as NextImageProps } from 'next/image';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     appearance?: 'filled' | 'outlined' | 'ghost' | 'bright'
@@ -31,3 +32,11 @@ export interface SectionProps {
     appearance?: 'thinnest' | 'thin' | 'wide' | 'full';
     className?: string;
 };
+
+export interface ImageProps extends NextImageProps {
+    fill?: boolean;
+    aspectRatio?: number;
+    sizes?: string;
+    imageClassName?: string;
+    objectType?: 'object-contain' | 'object-cover';
+  }
