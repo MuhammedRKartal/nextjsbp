@@ -11,15 +11,12 @@ import { BottomSheet } from './components/bottom-sheet';
 
 interface Props {
   product: ProductItemType;
-  width?: number;
-  height?: number;
   index: number;
-  fetchMode?: 'visible' | 'none';
   children?: ReactNode | ReactNode[];
 }
 
 const ProductItem = (props: Props) => {
-  const { product, index, children, fetchMode = 'none' } = props;
+  const { product, index, children } = props;
 
   const [selectedProduct, setProduct] = useState(product);
   const pk = product.pk;
@@ -72,7 +69,7 @@ const ProductItem = (props: Props) => {
     });
   };
 
-  return <div>{childrenWithProps(children)}</div>;
+  return <>{childrenWithProps(children)}</>;
 };
 
 ProductItem.Description = Description;

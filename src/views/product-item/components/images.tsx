@@ -33,7 +33,12 @@ export const Images = (props) => {
       modules={[Pagination]}
     >
       {product.images.map((item: ProductItemImagesType) => (
-        <SwiperSlide key={item.alt}>
+        <SwiperSlide
+          key={item.alt}
+          className={twMerge(
+            'flex w-full relative items-center justify-center rounded-lg overflow-hidden'
+          )}
+        >
           <Image
             src={item.image}
             alt={item.alt}
