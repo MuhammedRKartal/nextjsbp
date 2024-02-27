@@ -3,7 +3,6 @@
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
 import { Section } from '@/components/section';
-import LoginLayout from '@/app/layout';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';

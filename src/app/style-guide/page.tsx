@@ -1,9 +1,9 @@
 'server-only';
 
 import clsx from 'clsx';
-import { Button } from '@/src/components/button';
-import { Section } from '@/src/components/section';
-import { Input } from '@/src/components/input';
+import { Button } from '@/components/button';
+import { Section } from '@/components/section';
+import { Input } from '@/components/input';
 
 export default function StyleGuidePage() {
   return (
