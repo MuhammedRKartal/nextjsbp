@@ -4,8 +4,6 @@ import clsx from 'clsx';
 import NextImage from 'next/image';
 import { ImageProps } from '@/components/types';
 
-const DEFAULT_QUALITY = 70;
-
 export const Image = (props: ImageProps) => {
   const {
     src,
@@ -13,7 +11,6 @@ export const Image = (props: ImageProps) => {
     fill,
     sizes,
     aspectRatio,
-    quality = DEFAULT_QUALITY,
     className,
     imageClassName,
     objectType,
