@@ -1,3 +1,7 @@
+import { ReactElement, ReactNode } from 'react';
+import { NextPage } from 'next';
+import { AppProps } from 'next/app';
+
 export type HeroBannerType = {
     content: HeroBannerContentType[];
 };
@@ -13,4 +17,13 @@ export type HeroBannerContentType = {
     description: string | null | undefined;
     button_text: string | null | undefined;
     button_target_url: string | null | undefined;
+};
+
+
+export type NextPageWithLayout = NextPage & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+export type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
 };

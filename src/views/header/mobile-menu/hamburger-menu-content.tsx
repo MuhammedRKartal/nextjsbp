@@ -1,8 +1,8 @@
 'use client';
 
-import data from '../../../schemas/header-megamenu.json';
-import { useAppDispatch } from '@/src/redux/hooks';
-import { closeMobileMenu } from '@/src/redux/reducers/header';
+import data from '@/schemas/header-megamenu.json';
+import { useAppDispatch } from '@/redux/hooks';
+import { closeMobileMenu } from '@/redux/reducers/header';
 import Image from 'next/image';
 import Link from 'next/link';
 

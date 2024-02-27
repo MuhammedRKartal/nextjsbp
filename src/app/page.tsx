@@ -1,6 +1,6 @@
 'server-only';
 
-import HeroBanner from '../widgets/hero-banner';
+import HeroBanner from '@/widgets/hero-banner';
 
 export default function Home() {
   return (

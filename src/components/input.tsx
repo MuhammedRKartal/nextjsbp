@@ -3,10 +3,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { forwardRef, FocusEvent, useState } from 'react';
-import { InputProps } from './types';
-import { InputLabel } from './input-label';
-import Image from 'next/image';
-import { Button } from './button';
+import { InputProps } from '@/components/types';
+import { InputLabel } from '@/components/input-label';
+import { Button } from '@/components/button';
 import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {

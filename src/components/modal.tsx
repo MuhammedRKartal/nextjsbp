@@ -1,8 +1,8 @@
 'use client';
 
 import clsx from 'clsx';
-import ReactPortal from './react-portal';
-import { Button } from './button';
+import ReactPortal from '@/components/react-portal';
+import { Button } from '@/components/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 

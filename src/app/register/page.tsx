@@ -3,29 +3,28 @@
 import { Button } from '@/components/button';
 import { Input } from '@/components/input';
 import { Section } from '@/components/section';
-import LoginLayout from '@/app/layout';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Login',
-  description: 'Login Page of NextBPK'
+  title: 'Register',
+  description: 'Register Page of NextBPK'
 };
 
-const Login = () => {
+export default function Register() {
   return (
     <Section>
       <div className="flex flex-col items-center mx-auto mb-6 w-[320px] sm:w-[416px]">
         <Image
           src={'/assets/logo-banner.png'}
           alt="Company"
-          height={52}
+          height={150}
           width={350}
-          className="aspect-{350/52}"
+          className="aspect-{350/150}"
         ></Image>
         <div className="text-white text-4xl font-extrabold mt-12 mb-14">
-          Log In
+          Register
         </div>
         <form
           method="post"
@@ -57,6 +56,4 @@ const Login = () => {
       </div>
     </Section>
   );
-};
-
-export default Login;
+}

@@ -1,8 +1,8 @@
 'use client';
 
-import { Button } from '@/src/components/button';
-import { toggleMobileMenu } from '@/src/redux/reducers/header';
-import { useAppDispatch } from '@/src/redux/hooks';
+import { Button } from '@/components/button';
+import { toggleMobileMenu } from '@/redux/reducers/header';
+import { useAppDispatch } from '@/redux/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 

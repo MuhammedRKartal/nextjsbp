@@ -1,6 +1,6 @@
 'use client';
-import { Section } from '@/src/components/section';
-import { Modal } from '@/src/components/modal';
+import { Section } from '@/components/section';
+import { Modal } from '@/components/modal';
 import { useState } from 'react';
 
 export interface ModalProps {

@@ -1,4 +1,4 @@
-import { Section } from '@/src/components/section';
+import { Section } from '@/components/section';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

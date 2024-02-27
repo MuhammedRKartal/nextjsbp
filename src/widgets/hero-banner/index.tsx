@@ -1,6 +1,6 @@
 import 'server-only';
-import HeroBannerContent from './hero-banner-content';
-import data from '../../schemas/hero-banner.json';
+import HeroBannerContent from '@/widgets/hero-banner/hero-banner-content';
+import data from '@/schemas/hero-banner.json';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

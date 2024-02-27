@@ -1,7 +1,7 @@
-import { Button } from '../components/button';
+import { Button } from '@/components/button';
 import Image from 'next/image';
 import clsx from 'clsx';
-import { Section } from '../components/section';
+import { Section } from '@/components/section';
 
 export default function NotFound() {
   return (

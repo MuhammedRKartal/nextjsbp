@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { SectionProps } from './types';
+import { SectionProps } from '@/components/types';
 
 export const Section = (props: SectionProps) => {
   const { children, className, itemtag, appearance } = props;

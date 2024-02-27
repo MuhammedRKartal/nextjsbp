@@ -1,11 +1,8 @@
 'use client';
 
-import data from '../../../schemas/header-megamenu.json';
-import { useAppDispatch, useAppSelector } from '@/src/redux/hooks';
-import { closeMobileMenu } from '@/src/redux/reducers/header';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { closeMobileMenu } from '@/redux/reducers/header';
 import clsx from 'clsx';
-import Image from 'next/image';
-import Link from 'next/link';
 
 export type HeaderNavItemType = {
   title: string;
@@ -32,7 +29,6 @@ export default function HamburgerMenu({
             '!visible !opacity-100 scroll-lock': isMobileMenuOpen
           }
         )}
-        // TODO: Remove this after we have a better solution for clicking outside of the menu
         onClick={() => {
           dispatch(closeMobileMenu());
         }}

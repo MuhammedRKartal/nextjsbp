@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import FooterCopyright from './footer-copyright';
-import FooterMenu from './footer-menu';
-import FooterSocial from './footer-social';
-import { Section } from '@/src/components/section';
+import FooterCopyright from '@/views/footer/footer-copyright';
+import FooterMenu from '@/views/footer/footer-menu';
+import FooterSocial from '@/views/footer/footer-social';
 
 export default function Footer() {
   return (

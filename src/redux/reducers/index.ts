@@ -1,5 +1,5 @@
 
-import headerReducer from './header';
+import headerReducer from '@/redux/reducers/header';
 
 const reducers = {
   header: headerReducer

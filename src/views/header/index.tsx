@@ -1,10 +1,10 @@
 'server-only';
 
 import clsx from 'clsx';
-import Megamenu from './megamenu';
-import Navbar from './navbar';
-import HamburgerMenu from './mobile-menu/hamburger-menu';
-import HamburgerMenuContent from './mobile-menu/hamburger-menu-content';
+import Megamenu from '@/views/header/megamenu';
+import Navbar from '@/views/header/navbar';
+import HamburgerMenu from '@/views/header/mobile-menu/hamburger-menu';
+import HamburgerMenuContent from '@/views/header/mobile-menu/hamburger-menu-content';
 
 export default function Header() {
   return (

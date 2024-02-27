@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import data from '../../schemas/header-megamenu.json';
-import { Button } from '@/src/components/button';
+import data from '@/schemas/header-megamenu.json';
+import { Button } from '@/components/button';
 import MobileHamburgerButton from './mobile-menu/hamburger-menu-button';
-import CustomModal from '../modals/custom-modal';
+import CustomModal from '@/views/modals/custom-modal';
 import { useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

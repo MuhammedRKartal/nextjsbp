@@ -1,4 +1,4 @@
-import data from '../../schemas/footer-copyright.json';
+import data from '@/schemas/footer-copyright.json';
 
 export type FooterCopyrightItemType = {
   copyright: string;

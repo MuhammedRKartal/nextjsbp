@@ -1,11 +1,11 @@
 'use client';
 
 import clsx from 'clsx';
-import { Button } from '../components/button';
-import Footer from '../views/footer';
-import Header from '../views/header';
 import Image from 'next/image';
-import { Section } from '../components/section';
+import { Button } from '@/components/button';
+import Footer from '@/views/footer';
+import Header from '@/views/header';
+import { Section } from '@/components/section';
 
 export default function GlobalError({
   error,

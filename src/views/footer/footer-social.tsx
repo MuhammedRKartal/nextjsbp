@@ -1,5 +1,5 @@
-import { Button } from '@/src/components/button';
-import data from '../../schemas/footer-social.json';
+import { Button } from '@/components/button';
+import data from '@/schemas/footer-social.json';
 import Image from 'next/image';
 
 export type FooterSocialItemType = {

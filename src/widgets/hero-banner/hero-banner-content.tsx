@@ -1,14 +1,14 @@
 'use client';
 
-import { HeroBannerType } from '@/src/types';
+import { HeroBannerType } from '@/types';
+import HeroBannerCustomPagination from '@/widgets/hero-banner/custom-pagination';
+import { Button } from '@/components/button';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
 import Image from 'next/image';
 import clsx from 'clsx';
-import HeroBannerCustomPagination from './custom-pagination';
-import { Button } from '@/src/components/button';
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
   const paginationSettings = {

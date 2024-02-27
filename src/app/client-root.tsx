@@ -1,6 +1,6 @@
 'server-only';
 
-import StoreProvider from './StoreProvider';
+import StoreProvider from '@/app/StoreProvider';
 
 export default function ClientRoot({
   children

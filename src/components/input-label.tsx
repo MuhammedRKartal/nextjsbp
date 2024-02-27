@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { InputLabelProps } from './types';
+import { InputLabelProps } from '@/components/types';
 
 export const InputLabel: React.FC<InputLabelProps> = ({
   label,
