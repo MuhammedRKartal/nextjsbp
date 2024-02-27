@@ -1,4 +1,4 @@
-'use client';
+'server-only';
 
 import StoreProvider from './StoreProvider';
 

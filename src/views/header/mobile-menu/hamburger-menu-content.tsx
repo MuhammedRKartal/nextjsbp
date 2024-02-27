@@ -26,6 +26,7 @@ export default function HamburgerMenuContent() {
           alt="Wowtasker"
           width={260}
           height={40}
+          className="aspect-{260/40}"
         ></Image>
       </Link>
 

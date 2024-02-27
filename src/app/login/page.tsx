@@ -1,3 +1,5 @@
+'server-only';
+
 import { Button } from '@/src/components/button';
 import { Input } from '@/src/components/input';
 import { Section } from '@/src/components/section';
@@ -19,6 +21,7 @@ export default function Login() {
           alt="Company"
           height={150}
           width={350}
+          className="aspect-{350/150}"
         ></Image>
         <div className="text-white text-4xl font-black mt-12 mb-14">Log In</div>
         <form
