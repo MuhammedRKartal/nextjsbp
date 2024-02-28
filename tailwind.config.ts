@@ -59,7 +59,8 @@ const config: Config = {
         xl: '1200px',
         lg: '960px',
         md: '720px',
-        sm: '480px'
+        sm: '480px',
+        xs: '390px'
       }
     }
   },

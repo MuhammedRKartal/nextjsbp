@@ -2,7 +2,7 @@ import clsx from 'clsx';
 import { SectionProps } from '@/components/types';
 
 export const Section = (props: SectionProps) => {
-  const { children, className, itemtag, appearance } = props;
+  const { children, className, tag, appearance } = props;
   return (
     <div
       className={clsx(
@@ -23,21 +23,21 @@ export const Section = (props: SectionProps) => {
         appearance === 'full' && [className ?? className]
       )}
     >
-      {(!itemtag || itemtag === 'section') && (
+      {(!tag || tag === 'section') && (
         <section
           className={clsx(['w-full', 'k-container', className ?? className])}
         >
           {children}
         </section>
       )}
-      {itemtag === 'div' && (
+      {tag === 'div' && (
         <div
           className={clsx(['w-full', 'k-container', className ?? className])}
         >
           {children}
         </div>
       )}
-      {itemtag === 'div' && (
+      {tag === 'div' && (
         <span
           className={clsx(['w-full', 'k-container', className ?? className])}
         >

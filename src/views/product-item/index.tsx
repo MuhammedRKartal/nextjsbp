@@ -1,6 +1,6 @@
 import { ProductItemType } from '@/types';
 
-import { useState, Children, cloneElement, ReactNode } from 'react';
+import { Children, cloneElement, ReactNode } from 'react';
 import { Images } from './components/images';
 import { Prices } from './components/prices';
 import { Description } from './components/description';
@@ -18,10 +18,7 @@ interface Props {
 const ProductItem = (props: Props) => {
   const { product, index, children } = props;
 
-  const [selectedProduct, setProduct] = useState(product);
   const pk = product.pk;
-
-  const [error, setError] = useState(null);
 
   const childrenWithProps = (children) => {
     return Children.map(children, (child) => {
@@ -45,11 +42,8 @@ const ProductItem = (props: Props) => {
         const clone = cloneElement(child, {
           ...{
             ...props,
-            selectedProduct,
             pk,
-            error,
-            index,
-            setProduct
+            index
           },
           ...child.props,
           ...(hasChildren && {

@@ -1,23 +1,27 @@
 [
   {
     "pk": "1",
-    "name": "Content1",
+    "name": "Mjolnir",
+    "description": "Thor's hammer",
     "images": [
       {
-        "image": "/assets/wowl.png",
+        "image": "/assets/mjolnir1.png",
         "alt": "Item1"
       },
       {
-        "image": "/assets/wowl.png",
+        "image": "/assets/mjolnir2.png",
         "alt": "Item2"
       }
     ],
     "price": "10.99",
+    "retail_price": "10.99",
+    "currency_type": "$",
     "in_stock": true
   },
   {
     "pk": "2",
     "name": "Content2",
+    "description": "This is a warcraft logo.",
     "images": [
       {
         "image": "/assets/wowl.png",
@@ -28,12 +32,15 @@
         "alt": "Item2"
       }
     ],
-    "price": "10.99",
+    "price": "9.99",
+    "retail_price": "10.99",
+    "currency_type": "$",
     "in_stock": true
   },
   {
     "pk": "3",
     "name": "Content3",
+    "description": "This product is designed to smash!",
     "images": [
       {
         "image": "/assets/wowl.png",
@@ -44,7 +51,9 @@
         "alt": "Item2"
       }
     ],
-    "price": "10.99",
+    "price": "8.99",
+    "retail_price": "9.99",
+    "currency_type": "$",
     "in_stock": true
   }
 ]

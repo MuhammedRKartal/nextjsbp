@@ -28,7 +28,7 @@ export interface InputLabelProps extends React.HTMLProps<HTMLInputElement> {
 
 export interface SectionProps {
     children: React.ReactNode;
-    itemtag?: 'section' | 'div' | 'span' | 'main';
+    tag?: 'section' | 'div' | 'span' | 'main';
     appearance?: 'thinnest' | 'thin' | 'wide' | 'full';
     className?: string;
 };
@@ -39,4 +39,14 @@ export interface ImageProps extends NextImageProps {
     sizes?: string;
     imageClassName?: string;
     objectType?: 'object-contain' | 'object-cover';
-  }
+}
+
+export interface PriceProps  {
+    value: number;
+    displayType?: 'input' | 'text';
+    decimalScale?: number;
+    thousandSeperator?: '.' | ',';
+    decimalSeperator?: '.' | ',';
+    currency?: string;
+    fixedDecimalScale?: true;
+};

@@ -15,11 +15,11 @@ export const Images = (props) => {
     clickable: true,
     bulletClass: twMerge(
       'swiper-pagination-bullet',
-      '!bg-secondary !rounded-sm !mx-1 !my-3 hover:!bg-white hover:!opacity-100'
+      '!bg-secondary !rounded-sm !mx-0.5 !my-1 hover:!bg-secondary-700'
     ),
     bulletActiveClass: twMerge(
       'swiper-pagination-bullet-active',
-      '!w-3 !h-3 !bg-black'
+      '!w-2 !h-2 !bg-secondary-700'
     ),
     el: '#pi-custom-pagination'
   };
@@ -28,7 +28,7 @@ export const Images = (props) => {
     <Swiper
       slidesPerView={1}
       centeredSlides
-      className={clsx('relative')}
+      className={clsx('relative overflow-hidden')}
       pagination={paginationSettings}
       modules={[Pagination]}
     >
@@ -42,9 +42,10 @@ export const Images = (props) => {
           <Image
             src={item.image}
             alt={item.alt}
-            width={150}
-            height={150}
-            aspectRatio={1}
+            fill
+            sizes="(max-width:720px)170px, 230px"
+            aspectRatio={150 / 175}
+            objectType="object-cover"
           ></Image>
         </SwiperSlide>
       ))}
@@ -55,7 +56,7 @@ export const Images = (props) => {
 
 const ProductItemCustomPagination = () => {
   return (
-    <div className="z-10 flex justify-center items-center absolute bottom-3 left-1/2 !-translate-x-1/2">
+    <div className="z-10 flex justify-center items-center absolute bottom-2 left-1/2 !-translate-x-1/2">
       <div
         id="pi-custom-pagination"
         className={clsx(

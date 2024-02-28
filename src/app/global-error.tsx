@@ -21,7 +21,7 @@ export default function GlobalError({
         <main>
           <Section
             className={clsx('relative mx-auto my-10', 'md:my-20')}
-            itemtag="div"
+            tag="div"
             appearance="thin"
           >
             <div

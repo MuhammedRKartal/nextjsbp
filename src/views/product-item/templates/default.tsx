@@ -8,9 +8,9 @@ export const ProductItemDefault = (props) => {
       <ProductItem.Wrapper>
         <ProductItem.Images />
 
-        <ProductItem.Description />
-
         <ProductItem.BottomSheet>
+          <ProductItem.Description />
+
           {product.in_stock ? (
             <div className="flex justify-between">
               <ProductItem.Prices />
