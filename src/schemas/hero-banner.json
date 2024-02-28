@@ -2,18 +2,6 @@
   "content": [
     {
       "is_image": true,
-      "image": "https://i.pinimg.com/originals/04/2b/c6/042bc6959c2bc4ca164cabd9307b965c.gif",
-      "mobile_image": "/assets/wowl.png",
-      "content_image": "/assets/wowl.png",
-      "content_image_alt": "Wow Logo",
-      "image_alt": "This is the description of the both images",
-      "title": "The new patch!",
-      "description": "The new upgraded version of our product is viable to use now. The new upgraded version of our product is viable to use now.",
-      "button_text": "Buy Now",
-      "button_target_url": "/style-guide"
-    },
-    {
-      "is_image": true,
       "image": "https://c.wallhere.com/photos/81/7f/artwork_World_of_Warcraft_Arthas_Lich_King_World_of_Warcraft_Wrath_of_the_Lich_King-250327.jpg!d",
       "mobile_image": "/assets/wowl.png",
       "content_image": "/assets/wowl.png",
@@ -38,7 +26,7 @@
     },
     {
       "is_image": true,
-      "image": "https://static.wikia.nocookie.net/wowpedia/images/b/b3/Shadowlands_Cinematic05.jpg/revision/latest?cb=20191102091426",
+      "image": "https://c.wallhere.com/photos/81/7f/artwork_World_of_Warcraft_Arthas_Lich_King_World_of_Warcraft_Wrath_of_the_Lich_King-250327.jpg!d",
       "mobile_image": "/assets/wowl.png",
       "content_image": null,
       "content_image_alt": "Wow Logo",
@@ -46,6 +34,18 @@
       "title": null,
       "description": null,
       "button_text": null,
+      "button_target_url": "/style-guide"
+    },
+    {
+      "is_image": true,
+      "image": "https://i.pinimg.com/originals/04/2b/c6/042bc6959c2bc4ca164cabd9307b965c.gif",
+      "mobile_image": "/assets/wowl.png",
+      "content_image": "/assets/wowl.png",
+      "content_image_alt": "Wow Logo",
+      "image_alt": "This is the description of the both images",
+      "title": "The new patch!",
+      "description": "The new upgraded version of our product is viable to use now. The new upgraded version of our product is viable to use now.",
+      "button_text": "Buy Now",
       "button_target_url": "/style-guide"
     }
   ]
