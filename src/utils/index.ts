@@ -9,6 +9,7 @@ export function getCookie(name: string) {
   if (parts.length === 2) {
     return parts?.pop()?.split(';').shift();
   }
+  return null;
 }
 
 export function setCookie(name: string, val: string) {
