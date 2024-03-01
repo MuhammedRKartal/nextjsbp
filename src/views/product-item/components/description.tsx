@@ -5,7 +5,9 @@ export const Description = (props) => {
       <div className="">
         <span className="text-white text-sm font-bold">{product.name}</span>
         &nbsp;
-        <span className="text-gray-400 text-sm">{product.description}</span>
+        <span className="text-gray-400 text-sm">
+          {product.short_description}
+        </span>
       </div>
     </>
   );

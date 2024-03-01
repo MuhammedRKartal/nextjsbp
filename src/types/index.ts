@@ -35,8 +35,12 @@ export type ProductItemImagesType = {
 export type ProductItemType = {
   pk: number | string;
   name: string;
+  description: string;
+  short_description: string;
   images: ProductItemImagesType[];
   price: string;
+  retail_price: string;
+  currency_type: string;
   in_stock: boolean;
 };
 
@@ -56,24 +60,13 @@ export interface Basket {
 }
 
 export interface BasketItem {
-  attributes: object;
-  attributes_kwargs: object;
-  discount_amount: string;
-  offer_badges: {
-    description: string;
-    discount: string;
-  }[];
-  parent: any | null;
   price: string;
   retail_price: string;
   stock: number;
   id: number;
   quantity: number;
   currency_type: string;
-  currency_type_label: string;
   image: string;
-  shipping_discount: string;
-  tax_rate: string;
   total_amount: string;
   unit_price: string;
 }

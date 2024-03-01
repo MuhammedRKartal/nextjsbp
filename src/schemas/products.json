@@ -2,7 +2,8 @@
   {
     "pk": "1",
     "name": "Mjolnir",
-    "description": "Thor's hammer",
+    "short_description": "Thor's hammer",
+    "description": "This is the long description of Thor's hammer",
     "images": [
       {
         "image": "/assets/mjolnir1.png",
@@ -21,7 +22,8 @@
   {
     "pk": "2",
     "name": "Content2",
-    "description": "This is a warcraft logo.",
+    "short_description": "This is a warcraft logo.",
+    "description": "This is the long description of warcraft logo.",
     "images": [
       {
         "image": "/assets/wowl.png",
@@ -40,7 +42,8 @@
   {
     "pk": "3",
     "name": "Content3",
-    "description": "This product is designed to smash!",
+    "short_description": "This product is designed to smash!",
+    "description": "This is the long description of a product which is designed to smash!",
     "images": [
       {
         "image": "/assets/wowl.png",
