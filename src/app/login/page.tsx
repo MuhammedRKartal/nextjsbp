@@ -48,7 +48,7 @@ const Login = () => {
           <Link
             href={'/'}
             target="_blank"
-            className="text-primary font-extrabold hover:text-primary-700"
+            className="text-primary font-extrabold hover:text-primary-dark"
           >
             Forgot your password?
           </Link>

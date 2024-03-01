@@ -1,3 +1,5 @@
+import { ClientRequestOptions } from '@/types';
+
 export function getCookie(name: string) {
   if (typeof document === 'undefined') {
     return null;
@@ -30,7 +32,7 @@ export function removeCookie(name: string) {
 
 export function buildClientRequestUrl(
   path: string,
-  options?: ClientQueryOptions
+  options?: ClientRequestOptions
 ) {
   let url = `/api/client${path}`;
 

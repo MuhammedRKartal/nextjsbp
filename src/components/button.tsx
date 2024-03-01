@@ -30,23 +30,23 @@ export const Button = (props: ButtonProps) => {
                 ],
                 (props.appearance === 'filled' || !props.appearance) && [
                   'text-white',
-                  'bg-primary-800',
-                  'border-primary-800',
-                  'hover:bg-primary-700',
-                  'hover:border-primary-700'
+                  'bg-primary-darker',
+                  'border-primary-darker',
+                  'hover:bg-primary-dark',
+                  'hover:border-primary-dark'
                 ],
                 props.appearance === 'outlined' && [
                   'text-white',
                   'bg-transparent',
-                  'border-primary-800',
-                  'hover:border-primary-700',
-                  'hover:bg-primary-700'
+                  'border-primary-darker',
+                  'hover:border-primary-dark',
+                  'hover:bg-primary-dark'
                 ],
                 props.appearance === 'ghost' && [
                   'text-white',
                   'bg-transparent',
                   'border-transparent',
-                  'hover:bg-primary-700'
+                  'hover:bg-primary-dark'
                 ],
                 props.appearance === 'bright' && [
                   'text-white',
@@ -86,23 +86,23 @@ export const Button = (props: ButtonProps) => {
               ],
               (props.appearance === 'filled' || !props.appearance) && [
                 'text-white',
-                'bg-primary-800',
-                'border-primary-800',
-                'hover:bg-primary-700',
-                'hover:border-primary-700'
+                'bg-primary-darker',
+                'border-primary-darker',
+                'hover:bg-primary-dark',
+                'hover:border-primary-dark'
               ],
               props.appearance === 'outlined' && [
                 'text-white',
                 'bg-transparent',
-                'border-primary-800',
-                'hover:border-primary-700',
-                'hover:bg-primary-700'
+                'border-primary-darker',
+                'hover:border-primary-dark',
+                'hover:bg-primary-dark'
               ],
               props.appearance === 'ghost' && [
                 'text-white',
                 'bg-transparent',
                 'border-transparent',
-                'hover:bg-primary-700'
+                'hover:bg-primary-dark'
               ],
               props.appearance === 'bright' && [
                 'text-white',

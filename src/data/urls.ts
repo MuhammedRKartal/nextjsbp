@@ -1,5 +1,3 @@
-/* eslint-disable @akinon/projectzero/client-url */
-
 const API_URL = 'backend';
 
 export const basket = {
