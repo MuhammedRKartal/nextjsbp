@@ -27,10 +27,7 @@ const config: Config = {
           darker: '#4b6319',
           darkest: '#202f08',
           black: '#191f16',
-          opacity: '#4b6319ed',
-          700: '#516b1b',
-          800: '#4b6319',
-          900: '#191f16'
+          opacity: '#4b6319ed'
         },
         secondary: {
           DEFAULT: '#8697AA',
@@ -43,10 +40,7 @@ const config: Config = {
           darker: '#374155',
           darkest: '#333B4B',
           black: '#16191c',
-          opacity: '#8697aad4',
-          700: '#374155',
-          800: '#333B4B',
-          900: '#16191c'
+          opacity: '#8697aad4'
         },
         black: {
           DEFAULT: '#14171a',
