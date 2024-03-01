@@ -34,9 +34,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     'bg-transparent text-base min-w-[320px] max-w-[320px] text-white border px-3 h-10 rounded my-[3px] transition duration-200',
     'sm:min-w-[416px] sm:max-w-[416px]',
     'placeholder:text-gray-400',
-    'hover:border-primary',
-    'active:border-primary',
-    'focus-visible:outline-none focus:border-primary',
+    'hover:border-primary-dark',
+    'active:border-primary-dark',
+    'focus-visible:outline-none focus:border-primary-dark',
     { 'pt-3 h-12': hasFloatingLabel },
     error &&
       'border-error focus:border-error active:border-error hover:border-error text-error',
