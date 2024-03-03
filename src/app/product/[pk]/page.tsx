@@ -1,5 +1,6 @@
 import { Section } from '@/components/section';
-import Category from '@/views/category';
+import { ProductDefault as Product } from '@/views/product/templates/default';
+import data from '@/schemas/product.json';
 
 export default function ProductDetail(props) {
   const {
@@ -8,7 +9,7 @@ export default function ProductDetail(props) {
 
   return (
     <Section tag="section">
-      <span className="text-white">{pk}</span>
+      <Product product={data} />
     </Section>
   );
 }

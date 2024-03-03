@@ -1,0 +1,44 @@
+{
+  "pk": "1",
+  "name": "Mjolnir",
+  "short_description": "Thor's hammer",
+  "description": "This is the long description of Thor's hammer",
+  "images": [
+    {
+      "image": "/assets/mjolnir1.png",
+      "alt": "Item1"
+    },
+    {
+      "image": "/assets/mjolnir2.png",
+      "alt": "Item2"
+    },
+    {
+      "image": "/assets/mjolnir1.png",
+      "alt": "Item1"
+    },
+    {
+      "image": "/assets/mjolnir2.png",
+      "alt": "Item2"
+    },
+    {
+      "image": "/assets/mjolnir1.png",
+      "alt": "Item1"
+    },
+    {
+      "image": "/assets/mjolnir2.png",
+      "alt": "Item2"
+    },
+    {
+      "image": "/assets/mjolnir1.png",
+      "alt": "Item1"
+    },
+    {
+      "image": "/assets/mjolnir2.png",
+      "alt": "Item2"
+    }
+  ],
+  "price": "10.99",
+  "retail_price": "10.99",
+  "currency_type": "$",
+  "in_stock": true
+}
