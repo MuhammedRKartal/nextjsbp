@@ -10,8 +10,10 @@ export const Image = (props: ImageProps) => {
     src,
     width,
     height,
+    imageHeight,
     fill,
     fillWithSize,
+    showBG,
     sizes,
     aspectRatio,
     className,
@@ -21,6 +23,8 @@ export const Image = (props: ImageProps) => {
   } = props;
 
   const hasGif = typeof src === 'string' && src.includes('.gif');
+
+  let imageHg;
 
   if (fill && !aspectRatio) {
     throw new Error('aspectRatio is required when fill is true');
@@ -40,38 +44,51 @@ export const Image = (props: ImageProps) => {
     );
   }
 
-  let fillValue = !fillWithSize || fill;
-
-  if (!fill && !fillWithSize) {
-    fillValue = false;
-  }
-  if (fill === true) {
-    fillValue = fill;
+  if (imageHeight) {
+    imageHg = imageHeight;
   }
 
-  const fillWithSizeWidth = `w-[${width}px]`;
+  if (!imageHeight && height) {
+    imageHg = height;
+  }
 
   return (
     <div
       className={clsx(
         'inline-flex items-center justify-center',
         fill && 'w-full',
-        fillWithSize && 'overflow-hidden',
+        fillWithSize && 'overflow-hidden w-full relative',
+        fillWithSize && showBG && 'w-full',
         className
       )}
       style={{
         ...(fill && { aspectRatio }),
-        ...(fillWithSize && { width, height })
+        ...(fillWithSize === true && { height })
       }}
     >
+      {fillWithSize && showBG && (
+        <NextImage
+          {...restImage}
+          src={src}
+          sizes={sizes}
+          fill
+          className={'hidden blur-lg object-cover brightness-75 md:block'}
+          {...(hasGif && { unoptimized: true })}
+        />
+      )}
       <NextImage
         {...restImage}
         width={width}
-        height={height}
+        height={imageHg}
         src={src}
         sizes={sizes}
-        fill={fillValue}
-        className={twMerge(imageClassName, objectType ?? objectType)}
+        fill={fill}
+        className={twMerge(
+          fillWithSize && showBG && 'z-10 rounded shadow-xl',
+          imageClassName,
+          objectType && !fillWithSize ? objectType : 'object-cover'
+        )}
+        {...(!fill && { style: { height: imageHg } })}
         {...(hasGif && { unoptimized: true })}
       />
     </div>

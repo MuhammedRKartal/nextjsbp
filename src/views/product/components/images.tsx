@@ -2,19 +2,15 @@
 
 import { Image } from '@/components/image';
 import { ProductItemImagesType } from '@/types';
-import clsx from 'clsx';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination, Thumbs } from 'swiper/modules';
-import { twMerge } from 'tailwind-merge';
+
 import { useRef } from 'react';
 
 export const Images = (props) => {
   const { product } = props;
-
-  const swiperRef = useRef<SwiperClass | null>(null);
 
   return (
     <>
@@ -25,11 +21,12 @@ export const Images = (props) => {
               src={item.image}
               alt={item.alt}
               sizes="(max-width:720px)170px, 230px"
+              width={300}
+              height={400}
+              imageHeight={300}
               fillWithSize
-              width={200}
-              height={200}
-              aspectRatio={1}
-              objectType="object-contain"
+              showBG
+              objectType="object-cover"
             ></Image>
           </SwiperSlide>
         ))}
