@@ -6,7 +6,7 @@ export const ProductDefault = (props) => {
   return (
     <Product {...props}>
       <Product.Wrapper>
-        <div className="block lg:flex lg:gap-8">
+        <div className="block lg:flex lg:gap-24">
           <Product.Images />
           <Product.Information />
         </div>
