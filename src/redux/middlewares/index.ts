@@ -1,5 +1,3 @@
-'use client';
-
 import type { Middleware } from '@reduxjs/toolkit';
 
 import { api } from '../../data/client/api';

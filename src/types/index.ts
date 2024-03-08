@@ -2,6 +2,11 @@ import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
 import { AppProps } from 'next/app';
 
+export interface PageProps<T = any> {
+  params: T;
+  searchParams: URLSearchParams;
+}
+
 export type HeroBannerType = {
   content: HeroBannerContentType[];
 };
