@@ -3,7 +3,9 @@ export const Information = (props) => {
 
   return (
     <div className="flex-[1] w-full">
-      <div className="text-white text-4xl">{product.name}</div>
+      {product?.name && (
+        <div className="text-white text-4xl">{product.name}</div>
+      )}
     </div>
   );
 };

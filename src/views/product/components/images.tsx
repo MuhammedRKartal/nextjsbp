@@ -13,7 +13,7 @@ export const Images = (props) => {
   return (
     <>
       <Swiper className="flex-[1.8] [&>.swiper-wrapper]:max-h-full [&>.swiper-wrapper]:h-full [&>.swiper-wrapper]:flex">
-        {product.images.map((item: ProductItemImagesType) => (
+        {product?.images?.map((item: ProductItemImagesType) => (
           <SwiperSlide className="w-[auto] flex-shrink-0 block h-full max-h-full">
             <Image
               src={item.image}

@@ -24,7 +24,7 @@ export const Image = (props: ImageProps) => {
 
   const hasGif = typeof src === 'string' && src.includes('.gif');
 
-  let imageHg;
+  let imageHg: number | undefined | `${number}`;
 
   if (fill && !aspectRatio) {
     throw new Error('aspectRatio is required when fill is true');
@@ -72,6 +72,7 @@ export const Image = (props: ImageProps) => {
           src={src}
           sizes={sizes}
           fill
+          quality={1}
           className={'hidden blur-lg object-cover brightness-75 md:block'}
           {...(hasGif && { unoptimized: true })}
         />

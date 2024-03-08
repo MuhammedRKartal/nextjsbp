@@ -1,17 +1,20 @@
 import reducers from '@/redux/reducers';
 
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import middlewares from './middlewares';
 
 export const makeStore = () => {
   return configureStore({
     reducer: {
-        ...reducers
-    }
-  })
-}
+      ...reducers
+    },
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware().concat([...middlewares])
+  });
+};
 
 // Infer the type of makeStore
-export type AppStore = ReturnType<typeof makeStore>
+export type AppStore = ReturnType<typeof makeStore>;
 // Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<AppStore['getState']>
-export type AppDispatch = AppStore['dispatch']
+export type RootState = ReturnType<AppStore['getState']>;
+export type AppDispatch = AppStore['dispatch'];

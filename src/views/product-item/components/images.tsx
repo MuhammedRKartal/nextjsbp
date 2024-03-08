@@ -32,7 +32,7 @@ export const Images = (props) => {
       pagination={paginationSettings}
       modules={[Pagination]}
     >
-      {product.images.map((item: ProductItemImagesType) => (
+      {product?.images?.map((item: ProductItemImagesType) => (
         <SwiperSlide
           key={item.alt}
           className={twMerge(
