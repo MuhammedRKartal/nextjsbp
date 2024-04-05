@@ -16,7 +16,7 @@ async function proxyRequest(...args) {
   const options: ClientRequestOptions = {
     useTrailingSlash: true,
     useFormData: false,
-    contentType: null,
+    contentType: 'application/json',
     accept: 'application/json',
     responseType: 'json'
   };
@@ -77,7 +77,6 @@ async function proxyRequest(...args) {
         formData.append(key, body[key]);
       }
     });
-
     fetchOptions.body = !options.useFormData ? JSON.stringify(body) : formData;
   }
 
@@ -93,6 +92,7 @@ async function proxyRequest(...args) {
 
   try {
     const request = await fetch(url, fetchOptions);
+
     let response = {} as any;
 
     try {
@@ -111,6 +111,8 @@ async function proxyRequest(...args) {
     const statusCode = new RegExp(/^20./).test(request.status.toString())
       ? 200
       : request.status;
+
+    console.log('RERRRRRRRR', request.headers);
 
     return NextResponse.json(
       options.responseType === 'text' ? { result: response } : response,
