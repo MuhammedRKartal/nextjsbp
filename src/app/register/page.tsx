@@ -21,7 +21,7 @@ export default function Register() {
     username: yup
       .string()
       .required('This field is required.')
-      .min(12, 'Username must contain at least 12 characters.')
+      .min(6, 'Username must contain at least 6 characters.')
       .max(30, 'Username must contain max 30 characters.'),
     password: yup
       .string()
@@ -44,7 +44,9 @@ export default function Register() {
 
   const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
+  const [error, setError] = useState(false);
+  const [errorText, setErrorText] = useState('');
 
   const onSubmit: SubmitHandler<RegisterFormType> = async (data) => {
     setEmail(data.email);
@@ -54,9 +56,16 @@ export default function Register() {
     await fetch('/api/client/register', {
       method: 'POST',
       body: formData
-    }).then(() => {
+    }).then((res) => {
       setLoading(false);
-      setOpenModal(true);
+      if (res.status === 200) {
+        setOpenModal(true);
+      } else {
+        res.json().then((data) => {
+          setError(true);
+          setErrorText(data.error);
+        });
+      }
     });
   };
 
@@ -120,7 +129,13 @@ export default function Register() {
               type="password"
               required
             />
+            {error && (
+              <div className="text-error font-bold text-sm text-center">
+                {errorText}
+              </div>
+            )}
           </div>
+
           <Button
             type="submit"
             appearance="filled"
@@ -131,11 +146,23 @@ export default function Register() {
             Register
           </Button>
         </form>
-        <div id="help" className="flex items-center justify-center mt-8 w-full">
+        <div
+          id="help"
+          className="flex items-center justify-center mt-8 w-full text-primary font-extrabold gap-1"
+        >
+          <div>Already a member?</div>
+          <Link
+            href={'/login'}
+            className="text-primary font-extrabold hover:text-primary-dark underline"
+          >
+            Log In.
+          </Link>
+        </div>
+        <div id="help" className="flex items-center justify-center mt-1 w-full">
           <Link
             href={'/'}
             target="_blank"
-            className="text-primary font-extrabold hover:text-primary-dark"
+            className="text-sm text-primary font-bold hover:text-primary-dark"
           >
             Forgot your password?
           </Link>
