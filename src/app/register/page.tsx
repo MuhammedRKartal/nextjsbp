@@ -4,25 +4,62 @@ import { FormEvent } from 'react';
 import { Button } from '@/components/button';
 import { Input } from '@/components/Input/input';
 import { Section } from '@/components/section';
-import type { Metadata } from 'next';
 import { Image } from '@/components/image';
 import Link from 'next/link';
+import * as yup from 'yup';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { RegisterFormType } from '@/types';
 
 export default function Register() {
-  async function onSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  const registerValidationSchema = yup.object().shape({
+    email: yup
+      .string()
+      .email('Please enter a valid e-mail.')
+      .required('This field is required.'),
+    username: yup
+      .string()
+      .required('This field is required.')
+      .min(2, 'Username must contain at least 12 characters')
+      .max(30, 'Username must contain max 30 characters'),
+    password: yup
+      .string()
+      .required('This field is required.')
+      .min(8, 'Password must contain min 8 characters.')
+      .max(30, 'Password must contain max 30 characters.')
+      .matches(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\\.@$!%*?&])[A-Za-z\d\\.@$!%*?&]{8,30}$/,
+        'Password must contain a capital letter and a spacial character'
+      ),
+    password_confirm: yup
+      .string()
+      .required('This field is required.')
+      .min(8, 'Password must contain min 8 characters.')
+      .max(30, 'Password must contain max 30 characters.')
+      .test('passwords-match', 'Passwords are not matching', function (value) {
+        return this.parent.password === value;
+      })
+  });
 
-    const formData = new FormData(event.currentTarget);
-    const formJSON = JSON.stringify(Object.fromEntries(formData.entries()));
+  const onSubmit: SubmitHandler<RegisterFormType> = async (data) => {
+    const formData = JSON.stringify(data);
+    console.log(formData);
 
     await fetch('/api/client/register', {
       method: 'POST',
-      body: formJSON,
-      headers: {
-        auth_token: 'I2nWKDLDQVWMFeiMcN7vTjhusmbDmkSz'
-      }
+      body: formData
     });
-  }
+  };
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors }
+  } = useForm<RegisterFormType>({
+    resolver: yupResolver(registerValidationSchema)
+  });
+
   return (
     <Section>
       <div className="flex flex-col items-center mx-auto mb-6 w-[320px] sm:w-[416px]">
@@ -39,15 +76,36 @@ export default function Register() {
         <form
           id="register-form"
           className="flex flex-col gap-8 w-full"
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col gap-2">
-            <Input label="Email" id="email" name="email" required />
-            <Input label="Username" id="username" name="username" required />
+            <Input
+              label="Email"
+              id="email"
+              {...register('email')}
+              error={errors.email}
+              required
+            />
+            <Input
+              label="Username"
+              id="username"
+              {...register('username')}
+              error={errors.username}
+              required
+            />
             <Input
               label="Password"
               id="password"
-              name="password"
+              {...register('password')}
+              type="password"
+              error={errors.password}
+              required
+            />
+            <Input
+              label="Password Confirm"
+              id="password_confirm"
+              {...register('password_confirm')}
+              error={errors.password_confirm}
               type="password"
               required
             />

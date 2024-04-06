@@ -9,7 +9,8 @@ const nextConfig = {
     ]
   },
   env: {
-    BACKEND_URL: process.env.BACKEND_URL
+    BACKEND_URL: process.env.BACKEND_URL,
+    AUTH_TOKEN: process.env.AUTH_TOKEN
   }
 };
 

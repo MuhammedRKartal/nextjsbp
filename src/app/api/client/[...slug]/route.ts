@@ -56,7 +56,8 @@ async function proxyRequest(...args) {
       ...extraHeaders,
       'X-Requested-With': 'XMLHttpRequest',
       Referer: commerceUrl,
-      Accept: options.accept
+      Accept: options.accept,
+      auth_token: process.env.AUTH_TOKEN
     }
   } as RequestInit;
 

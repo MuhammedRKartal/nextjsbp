@@ -39,7 +39,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     'focus-visible:outline-none focus:border-primary-dark',
     { 'pt-3 h-12': hasFloatingLabel },
     error &&
-      'border-error focus:border-error active:border-error hover:border-error text-error',
+      'border-error focus:!border-error active:!border-error hover:!border-error !text-error',
     disabled && 'pointer-events-none opacity-40',
     props.className
   );
@@ -88,17 +88,25 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
                 setShowValue(!showValue);
               }}
             >
-              <FontAwesomeIcon icon={faEye} className="text-primary-darker" />
+              <FontAwesomeIcon
+                icon={faEye}
+                className={clsx('text-primary-darker', error && '!text-error')}
+              />
 
               {showValue && (
-                <span className="w-1 h-3/5 absolute top-1/2 left-1/2 bg-primary-dark rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]" />
+                <span
+                  className={clsx(
+                    "w-1 h-3/5 absolute top-1/2 left-1/2 bg-primary-dark rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]",
+                    error && '!bg-error'
+                  )}
+                />
               )}
             </Button>
           )}
         </div>
       </div>
       {error && (
-        <span className="mt-1 text-sm text-error">{error.message}</span>
+        <span className="-mt-1 text-sm text-error">{error.message}</span>
       )}
     </>
   );

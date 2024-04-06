@@ -83,3 +83,10 @@ export interface ClientRequestOptions {
   contentType?: string | null;
   responseType?: 'json' | 'text';
 }
+
+export type RegisterFormType = {
+  email: string;
+  username: string;
+  password: string;
+  password_confirm: string;
+};
