@@ -1,6 +1,6 @@
 'use client';
 
-import { FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import { Button } from '@/components/button';
 import { Input } from '@/components/Input/input';
 import { Section } from '@/components/section';
@@ -10,6 +10,7 @@ import * as yup from 'yup';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterFormType } from '@/types';
+import RegisterModal from '@/views/modals/register-modal';
 
 export default function Register() {
   const registerValidationSchema = yup.object().shape({
@@ -20,8 +21,8 @@ export default function Register() {
     username: yup
       .string()
       .required('This field is required.')
-      .min(2, 'Username must contain at least 12 characters')
-      .max(30, 'Username must contain max 30 characters'),
+      .min(12, 'Username must contain at least 12 characters.')
+      .max(30, 'Username must contain max 30 characters.'),
     password: yup
       .string()
       .required('This field is required.')
@@ -29,25 +30,33 @@ export default function Register() {
       .max(30, 'Password must contain max 30 characters.')
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\\.@$!%*?&])[A-Za-z\d\\.@$!%*?&]{8,30}$/,
-        'Password must contain a capital letter and a spacial character'
+        'Password must contain a capital letter and a spacial character.'
       ),
     password_confirm: yup
       .string()
       .required('This field is required.')
       .min(8, 'Password must contain min 8 characters.')
       .max(30, 'Password must contain max 30 characters.')
-      .test('passwords-match', 'Passwords are not matching', function (value) {
+      .test('passwords-match', 'Passwords are not matching.', function (value) {
         return this.parent.password === value;
       })
   });
 
-  const onSubmit: SubmitHandler<RegisterFormType> = async (data) => {
-    const formData = JSON.stringify(data);
-    console.log(formData);
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(true);
 
+  const onSubmit: SubmitHandler<RegisterFormType> = async (data) => {
+    setEmail(data.email);
+
+    const formData = JSON.stringify(data);
+    setLoading(true);
     await fetch('/api/client/register', {
       method: 'POST',
       body: formData
+    }).then(() => {
+      setLoading(false);
+      setOpenModal(true);
     });
   };
 
@@ -62,6 +71,8 @@ export default function Register() {
 
   return (
     <Section>
+      <RegisterModal open={openModal} email={email} setOpen={setOpenModal} />
+
       <div className="flex flex-col items-center mx-auto mb-6 w-[320px] sm:w-[416px]">
         <Image
           src={'/assets/logo-banner.png'}
@@ -115,6 +126,7 @@ export default function Register() {
             appearance="filled"
             size="xs"
             className="w-full text-base"
+            loading={loading}
           >
             Register
           </Button>

@@ -1,7 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ButtonProps } from './types';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 
 export const Button = (props: ButtonProps) => {
   return (
@@ -60,7 +62,11 @@ export const Button = (props: ButtonProps) => {
               props.className
             )}
           >
-            {props.children}
+            {props.loading ? (
+              <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
+            ) : (
+              <>{props.children}</>
+            )}
           </button>
         </Link>
       ) : (
@@ -116,7 +122,11 @@ export const Button = (props: ButtonProps) => {
             props.className
           )}
         >
-          {props.children}
+          {props.loading ? (
+            <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
+          ) : (
+            <>{props.children}</>
+          )}
         </button>
       )}
     </>

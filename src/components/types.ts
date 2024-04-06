@@ -7,6 +7,7 @@ export interface ButtonProps
   size?: 'xs' | 'lg';
   link?: string | null;
   linkclassname?: string;
+  loading?: boolean;
 }
 
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {

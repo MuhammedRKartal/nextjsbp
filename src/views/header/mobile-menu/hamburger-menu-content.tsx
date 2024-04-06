@@ -23,7 +23,7 @@ export default function HamburgerMenuContent() {
       >
         <Image
           src={'/assets/logo-banner.png'}
-          alt="Wowtasker"
+          alt="WoWTasker"
           width={260}
           height={40}
           aspectRatio={260 / 40}

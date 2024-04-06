@@ -113,8 +113,6 @@ async function proxyRequest(...args) {
       ? 200
       : request.status;
 
-    console.log('RERRRRRRRR', request.headers);
-
     return NextResponse.json(
       options.responseType === 'text' ? { result: response } : response,
       { status: statusCode, headers: responseHeaders }

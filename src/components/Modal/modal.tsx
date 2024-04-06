@@ -14,6 +14,7 @@ export interface ModalProps {
   title?: React.ReactNode;
   showCloseButton?: React.ReactNode;
   className?: string;
+  onClose?: () => void;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -23,7 +24,8 @@ export const Modal = (props: ModalProps) => {
     open,
     setOpen,
     showCloseButton = true,
-    className
+    className,
+    onClose = () => {}
   } = props;
 
   function blurBackground() {
@@ -55,6 +57,7 @@ export const Modal = (props: ModalProps) => {
         className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-60 z-50"
         onClick={() => {
           setOpen(false);
+          onClose();
         }}
       />
       <section
@@ -68,7 +71,10 @@ export const Modal = (props: ModalProps) => {
           <div className="absolute right-0">
             {showCloseButton && (
               <Button
-                onClick={() => setOpen(false)}
+                onClick={() => {
+                  setOpen(false);
+                  onClose();
+                }}
                 appearance="bright"
                 size="xs"
               >
