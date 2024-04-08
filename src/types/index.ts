@@ -89,4 +89,16 @@ export type RegisterFormType = {
   username: string;
   password: string;
   password_confirm: string;
+  formType: string;
 };
+
+export type LoginFormType = {
+  email: string;
+  password: string;
+  formType: string;
+};
+
+export interface AuthError {
+  type: string;
+  data?: any;
+}

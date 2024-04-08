@@ -9,6 +9,8 @@ import Footer from '@/views/footer';
 import ClientRoot from '@/app/client-root';
 import clsx from 'clsx';
 
+import { getServerSession } from 'next-auth/next';
+
 const lato = Lato({
   weight: ['400', '700'],
   subsets: ['latin'],
@@ -38,11 +40,13 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
+
   return (
     <html lang="en" className={lato.className}>
       <body className="preload overflow-x-hidden bg-black">

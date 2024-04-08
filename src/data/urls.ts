@@ -10,17 +10,14 @@ export const product = {
 };
 
 export const user = {
-  currentUser: '/current_user/',
-  login: '/users/login/',
-  register: '/users/registration/',
+  currentUser: '/web/currentuser',
+  login: '/web/login',
+  register: '/web/register',
+  confirmRegistration: '/web/confirmregistration',
   logout: '/users/logout',
-  profiles: '/users/profile/',
-  forgotPassword: '/users/password/reset/',
-  changeEmailVerification: (token: string) =>
-    `/users/email-set-primary/${token}/`,
-  confirmEmailVerification: (token: string) =>
-    `/users/registration/account-confirm-email/${token}/`,
-  csrfToken: '/csrf_token/'
+  profiles: '/users/profile',
+  forgotPassword: '/users/password/reset',
+  csrfToken: '/csrf_token'
 };
 
 const URLS = {

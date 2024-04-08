@@ -63,7 +63,7 @@ export default function Megamenu() {
         </Button>
         <Button
           appearance="bright"
-          link="/register"
+          link="/login"
           linkclassname=""
           className="pl-2"
         >

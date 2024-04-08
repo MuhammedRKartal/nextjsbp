@@ -8,6 +8,7 @@ import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
 import { useRouter } from 'next/navigation';
+import { SignInOptions, signIn } from 'next-auth/react';
 
 export interface ModalProps {
   open: boolean;
@@ -30,10 +31,13 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
   };
 
   const onSubmit = async (e) => {
-    const dataJSON = JSON.stringify({
+    const data = {
       email: email,
-      verification_code: otp
-    });
+      verification_code: otp,
+      formType: 'confirmRegistration'
+    };
+    const dataJSON = JSON.stringify(data);
+
     if (otp.length === 6 && !loading) {
       setLoading(true);
       await fetch('/api/client/confirmregistration', {
@@ -45,8 +49,13 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
         if (res.status === 200) {
           setSuccess(true);
           setTimeout(() => {
-            setOpen(false);
-            router.push('/login');
+            signIn('default', {
+              redirect: false,
+              ...data
+            } as SignInOptions).then(() => {
+              setOpen(false);
+              router.push('/');
+            });
           }, 500);
         } else {
           res.json().then((data) => {
