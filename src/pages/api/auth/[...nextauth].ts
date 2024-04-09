@@ -102,4 +102,4 @@ const handler = (req, res) => {
   return NextAuth(req, res, authOptions(req, res));
 };
 
-export { handler as GET, handler as POST, authOptions };
+export default handler;
