@@ -1,16 +1,18 @@
-'use client';
 import { ProductDefault as Product } from '@/views/product/templates/default';
-import { useGetProductByPkQuery } from '@/data/client/product';
+import { product } from '@/data/urls';
 
-export default function ProductPage(props) {
+export default async function ProductPage(props) {
   const { pk } = props;
 
-  const { data, isLoading, isSuccess } = useGetProductByPkQuery(pk);
+  const data = await (
+    await fetch(`${process.env.BACKEND_URL}${product.products}/${pk}`, {
+      method: 'GET'
+    })
+  ).json();
 
   return (
     <>
-      {isLoading && <div>Loading</div>}{' '}
-      {isSuccess && <Product product={data} />}
+      <Product product={data} />
     </>
   );
 }

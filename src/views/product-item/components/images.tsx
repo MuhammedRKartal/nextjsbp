@@ -1,3 +1,5 @@
+'use client';
+
 import { Image } from '@/components/image';
 import { ProductItemImagesType } from '@/types';
 import clsx from 'clsx';

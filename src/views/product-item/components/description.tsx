@@ -3,10 +3,10 @@ export const Description = (props) => {
   return (
     <>
       <div className="">
-        <span className="text-white text-sm font-bold">{product.name}</span>
+        <span className="text-white text-sm font-bold">{product?.name}</span>
         &nbsp;
         <span className="text-gray-400 text-sm">
-          {product.short_description}
+          {product?.short_description}
         </span>
       </div>
     </>

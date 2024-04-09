@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
 import { useRouter } from 'next/navigation';
 import { SignInOptions, signIn } from 'next-auth/react';
+import { user } from '@/data/urls';
 
 export interface ModalProps {
   open: boolean;
@@ -40,7 +41,7 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
 
     if (otp.length === 6 && !loading) {
       setLoading(true);
-      await fetch('/api/client/confirmregistration', {
+      await fetch(`/api/client${user.confirmRegistration}`, {
         method: 'POST',
         body: dataJSON
       }).then(async (res) => {

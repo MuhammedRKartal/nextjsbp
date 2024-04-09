@@ -1,6 +1,4 @@
-import { api } from '@/data/client/api';
-import { URLS, user } from '@/data/urls';
-import { AuthError } from '@/types';
+import { user } from '@/data/urls';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth, { AuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';

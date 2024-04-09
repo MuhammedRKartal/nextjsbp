@@ -13,6 +13,7 @@ import { RegisterFormType } from '@/types';
 import RegisterModal from '@/views/modals/register-modal';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { user } from '@/data/urls';
 
 export default function Register() {
   const registerValidationSchema = yup.object().shape({
@@ -63,7 +64,7 @@ export default function Register() {
     const formData = JSON.stringify(data);
 
     setLoading(true);
-    await fetch('/api/client/register', {
+    await fetch(`/api/client${user.register}`, {
       method: 'POST',
       body: formData
     }).then((res) => {

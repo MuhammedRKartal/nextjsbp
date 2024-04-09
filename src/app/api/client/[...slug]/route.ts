@@ -11,7 +11,7 @@ async function proxyRequest(...args) {
   const [req, { params }] = args as [req: Request, params: RouteParams];
   const { searchParams } = new URL(req.url);
 
-  const commerceUrl = `${process.env.BACKEND_URL}/web`;
+  const commerceUrl = `${process.env.BACKEND_URL}`;
 
   const options: ClientRequestOptions = {
     useTrailingSlash: true,

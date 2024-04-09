@@ -65,15 +65,21 @@ export interface Basket {
 }
 
 export interface BasketItem {
-  price: string;
-  retail_price: string;
-  stock: number;
   id: number;
+  stock: number;
   quantity: number;
-  currency_type: string;
+  product: ProductItemType;
   image: string;
   total_amount: string;
-  unit_price: string;
+  price: string;
+  currency_type: string;
+}
+
+export interface Basket {
+  basketitem_set: BasketItem[];
+  pk: number;
+  total_amount: string;
+  total_quantity: number;
 }
 
 export interface ClientRequestOptions {

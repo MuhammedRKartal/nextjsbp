@@ -1,12 +1,13 @@
 const API_URL = 'backend';
 
 export const basket = {
-  getBasket: '/baskets/basket/'
+  getBasket: '/basket/getbasket/'
 };
 
 export const product = {
-  getProductByPk: (pk: number) => `/product/${pk}/`,
-  addProduct: '/baskets/basket/'
+  products: '/web/products',
+  getProductByPk: (pk: number) => `/web/products/${pk}/`,
+  addProduct: '/web/basket/additemtobasket/'
 };
 
 export const user = {
@@ -16,8 +17,7 @@ export const user = {
   confirmRegistration: '/web/confirmregistration',
   logout: '/users/logout',
   profiles: '/users/profile',
-  forgotPassword: '/users/password/reset',
-  csrfToken: '/csrf_token'
+  forgotPassword: '/users/password/reset'
 };
 
 const URLS = {

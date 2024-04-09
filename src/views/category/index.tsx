@@ -1,11 +1,15 @@
-'use client';
-
 import { Section } from '@/components/section';
-import data from '@/schemas/products.json';
+import { product } from '@/data/urls';
 import { ProductItemType } from '@/types';
 import { ProductItemDefault as ProductItem } from '@/views/product-item/templates/default';
 
-export default function Category() {
+export default async function Category() {
+  const data = await (
+    await fetch(`${process.env.BACKEND_URL}${product.products}`, {
+      method: 'GET'
+    })
+  ).json();
+
   return (
     <>
       <Section

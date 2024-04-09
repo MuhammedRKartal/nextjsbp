@@ -12,6 +12,7 @@ import { LoginFormType } from '@/types';
 import { useState } from 'react';
 import { SignInOptions, signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import { user } from '@/data/urls';
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ const Login = () => {
     const formData = JSON.stringify(data);
 
     setLoading(true);
-    await fetch('/api/client/login', {
+    await fetch(`/api/client${user.login}`, {
       method: 'POST',
       body: formData
     }).then((res) => {
