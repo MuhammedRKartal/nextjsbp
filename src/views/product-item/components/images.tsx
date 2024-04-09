@@ -36,14 +36,14 @@ export const Images = (props) => {
     >
       {product?.images?.map((item: ProductItemImagesType) => (
         <SwiperSlide
-          key={item.alt}
+          key={item.alt_text}
           className={twMerge(
             'flex w-full relative items-center justify-center rounded-lg overflow-hidden'
           )}
         >
           <Image
-            src={item.image}
-            alt={item.alt}
+            src={item.url}
+            alt={item.alt_text}
             fill
             sizes="(max-width:720px)170px, 230px"
             aspectRatio={150 / 175}

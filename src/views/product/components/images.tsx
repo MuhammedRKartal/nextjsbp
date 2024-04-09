@@ -13,11 +13,14 @@ export const Images = (props) => {
   return (
     <>
       <Swiper className="flex-[1.8] [&>.swiper-wrapper]:max-h-full [&>.swiper-wrapper]:h-full [&>.swiper-wrapper]:flex">
-        {product?.images?.map((item: ProductItemImagesType) => (
-          <SwiperSlide className="w-[auto] flex-shrink-0 block h-full max-h-full">
+        {product?.images?.map((image: ProductItemImagesType, index) => (
+          <SwiperSlide
+            className="w-[auto] flex-shrink-0 block h-full max-h-full"
+            key={index}
+          >
             <Image
-              src={item.image}
-              alt={item.alt}
+              src={image.url}
+              alt={image.alt_text}
               sizes="(max-width:720px)170px, 230px"
               width={400}
               height={500}

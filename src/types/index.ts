@@ -33,8 +33,8 @@ export type AppPropsWithLayout = AppProps & {
 };
 
 export type ProductItemImagesType = {
-  image: string;
-  alt: string;
+  url: string;
+  alt_text: string;
 };
 
 export type ProductItemType = {
