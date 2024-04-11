@@ -1,12 +1,22 @@
-'server-only';
-
-import StoreProvider from '@/app/StoreProvider';
-import { SessionProvider } from 'next-auth/react';
+'use client';
+import { useAppDispatch } from '@/redux/hooks';
+import { resetHeaderState } from '@/redux/reducers/header';
+import { closeMiniBasket } from '@/redux/reducers/mini-basket';
+import { usePathname, useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function ClientRoot({
   children
 }: {
   children: React.ReactNode;
 }) {
-  return <StoreProvider>{children}</StoreProvider>;
+  const dispatch = useAppDispatch();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    dispatch(closeMiniBasket());
+    dispatch(resetHeaderState());
+  }, [dispatch, pathname, searchParams]);
+  return <>{children}</>;
 }

@@ -1,12 +1,16 @@
+'use server';
 import { user } from '@/data/urls';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth, { AuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { getCookie } from 'cookies-next';
+import { signOut } from 'next-auth/react';
+import { UpgradedUserType } from '@/types';
 
-async function getCurrentUser(sessionId: string) {
+async function getCurrentUser(refresh_token) {
   const headers = {
-    'Content-Type': 'application/json',
-    Cookie: `refresh_token=${sessionId}`
+    Cookie: `refresh_token=${refresh_token}`,
+    'Content-Type': 'application/json'
   };
 
   const currentUser = await (
@@ -19,7 +23,7 @@ async function getCurrentUser(sessionId: string) {
   return {
     id: currentUser.user_id,
     email: currentUser.email,
-    username: currentUser.username,
+    name: currentUser.username,
     email_allowed: currentUser.email_allowed,
     eula_accepted: currentUser.eula_accepted,
     verified: currentUser.verified,
@@ -67,25 +71,51 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
               setCookieHeader
                 .split(`;`)
                 ?.find((item) => item.includes('refresh_token'))
-                ?.replace('refresh_token=', '') || '';
+                .split('refresh_token=')[1] || '';
           }
 
           const currentUser = await getCurrentUser(sessionId);
-
-          return currentUser;
+          const currentUserUpgraded = {
+            ...currentUser,
+            refreshToken: sessionId
+          };
+          return currentUserUpgraded;
         }
       })
     ],
+    events: {
+      signOut: () => {
+        res.setHeader('Set-Cookie', [
+          `refresh_token=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`,
+          `access_token=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`
+        ]);
+      }
+    },
     callbacks: {
       jwt: async ({ token, user }) => {
+        const refresh_token = getCookie('refresh_token', { req, res });
+
+        token.refreshToken = refresh_token;
         if (user) {
           token.user = user;
         }
 
+        const tokenUser = token.user as UpgradedUserType;
+        if (token?.refreshToken !== tokenUser.refreshToken) {
+          token.exp = token.iat;
+        }
+        console.log(token);
+
         return token;
       },
-      async session({ session, user, token }) {
-        session.user = token.user as Session['user'];
+      async session({ session, token }) {
+        const tokenUser = token.user as UpgradedUserType;
+
+        if (tokenUser?.refreshToken !== token?.refreshToken) {
+          token.exp = token.iat;
+        }
+        session.user = token?.user;
+
         return session;
       }
     },

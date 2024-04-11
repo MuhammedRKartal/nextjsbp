@@ -16,6 +16,7 @@
     "noImplicitReturns": true,
     "noImplicitAny": false,
     "useUnknownInCatchVariables": false,
+    "strictNullChecks": false,
     "plugins": [
       {
         "name": "next"

@@ -1,7 +1,9 @@
 const API_URL = 'backend';
 
 export const basket = {
-  getBasket: '/basket/getbasket/'
+  getBasket: '/web/basket/getbasket',
+  updateQuantity: '/web/basket/updateQuantity',
+  clearBasket: '/web/basket/clearbasket'
 };
 
 export const product = {

@@ -49,23 +49,8 @@ export type ProductItemType = {
   in_stock: boolean;
 };
 
-export interface Basket {
-  segment: { pk: number; price_list: number; stock_list: number };
-  unavailable_basket_products: any[];
-  voucher_code: string | null;
-  total_amount: string;
-  total_quantity: number;
-  basketitem_set: BasketItem[];
-  created_date: string;
-  modified_date: string;
-  pk: number;
-  total_discount_amount: string;
-  total_product_amount: string;
-  upsell_messages: any[];
-}
-
 export interface BasketItem {
-  id: number;
+  item_id: number;
   stock: number;
   quantity: number;
   product: ProductItemType;
@@ -76,7 +61,7 @@ export interface BasketItem {
 }
 
 export interface Basket {
-  basketitem_set: BasketItem[];
+  product_list: BasketItem[];
   pk: number;
   total_amount: string;
   total_quantity: number;
@@ -107,4 +92,15 @@ export type LoginFormType = {
 export interface AuthError {
   type: string;
   data?: any;
+}
+
+export interface UpgradedUserType {
+  id: string;
+  email: string;
+  name: string;
+  email_allowed: boolean;
+  eula_accepted: boolean;
+  verified: boolean;
+  date_joined: string;
+  refreshToken: string;
 }

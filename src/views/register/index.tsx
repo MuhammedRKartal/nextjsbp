@@ -47,28 +47,22 @@ export default function Register() {
   });
 
   const [email, setEmail] = useState('');
-  const [loading, setLoading] = useState(false);
+  const [isloading, setLoading] = useState('false');
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
-
-  const router = useRouter();
-  const { data: sessionData, status } = useSession();
-  if (status === 'authenticated') {
-    router.push('/');
-  }
 
   const onSubmit: SubmitHandler<RegisterFormType> = async (data) => {
     setEmail(data.email);
 
     const formData = JSON.stringify(data);
 
-    setLoading(true);
+    setLoading('true');
     await fetch(`/api/client${user.register}`, {
       method: 'POST',
       body: formData
     }).then((res) => {
-      setLoading(false);
+      setLoading('false');
       if (res.status === 200) {
         setOpenModal(true);
       } else {
@@ -156,7 +150,7 @@ export default function Register() {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            loading={loading}
+            isloading={isloading}
           >
             Register
           </Button>

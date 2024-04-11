@@ -22,7 +22,7 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
   const [success, setSuccess] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [isloading, setLoading] = useState('false');
   const router = useRouter();
 
   const onClose = () => {
@@ -39,13 +39,13 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
     };
     const dataJSON = JSON.stringify(data);
 
-    if (otp.length === 6 && !loading) {
-      setLoading(true);
+    if (otp.length === 6 && !isloading) {
+      setLoading('true');
       await fetch(`/api/client${user.confirmRegistration}`, {
         method: 'POST',
         body: dataJSON
       }).then(async (res) => {
-        setLoading(false);
+        setLoading('false');
 
         if (res.status === 200) {
           setSuccess(true);
@@ -65,7 +65,7 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
           });
         }
       });
-    } else if (!loading && otp.length < 6) {
+    } else if (!isloading && otp.length < 6) {
       setError(true);
       setErrorText('Please enter a 6-digit code.');
     }
@@ -107,7 +107,7 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
               {errorText}
             </div>
           )}
-          <Button className="w-full" onClick={onSubmit} loading={loading}>
+          <Button className="w-full" onClick={onSubmit} isloading={isloading}>
             {success ? (
               <FontAwesomeIcon icon={faCheckCircle} />
             ) : (

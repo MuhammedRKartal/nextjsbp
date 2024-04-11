@@ -43,7 +43,7 @@ export function buildClientRequestUrl(
       url += '?';
     }
 
-    url += `options = ${encodeURIComponent(JSON.stringify(options))}`;
+    url += `options=${encodeURIComponent(JSON.stringify(options))}`;
   }
 
   return url;

@@ -33,10 +33,10 @@ const customBaseQuery: BaseQueryFn<
 
   const baseQuery = fetchBaseQuery({
     prepareHeaders: async (headers) => {
-      const csrfCookie = getCookie('csrftoken');
+      const refresh_cookie = getCookie('refresh_token');
 
-      if (csrfCookie) {
-        headers.set('x-csrftoken', `${csrfCookie}`);
+      if (refresh_cookie) {
+        headers.set('refresh_token', `${refresh_cookie}`);
       }
       return headers;
     },

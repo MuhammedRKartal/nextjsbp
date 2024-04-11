@@ -4,24 +4,21 @@ import { buildClientRequestUrl } from '../../utils';
 import { basket } from '../urls';
 
 export type UpdateQuantityResponse = {
-  basket: Basket;
-  osessionid: string;
+  refresh_token: string;
 };
 
 export type UpdateQuantityRequest = {
-  product: number;
+  productPk: string;
   quantity: number;
-  attributes: any;
 };
 
 export const basketApi = api.injectEndpoints({
   endpoints: (build) => ({
     getBasket: build.query<Basket, void>({
-      query: () =>
-        buildClientRequestUrl(basket.getBasket, {
-          contentType: 'application/json'
-        }),
-      transformResponse: (response: { basket: Basket }) => response.basket,
+      query: () => ({
+        url: buildClientRequestUrl(basket.getBasket)
+      }),
+      transformResponse: (response: Basket) => response,
       providesTags: ['Basket']
     }),
     updateQuantity: build.mutation<
@@ -29,22 +26,20 @@ export const basketApi = api.injectEndpoints({
       UpdateQuantityRequest
     >({
       query: (body) => ({
-        url: buildClientRequestUrl(basket.getBasket, {
-          contentType: 'application/json'
-        }),
+        url: buildClientRequestUrl(basket.updateQuantity),
         method: 'PUT',
         body
       })
     }),
     clearBasket: build.mutation<Basket, void>({
       query: (body) => ({
-        url: buildClientRequestUrl(basket.getBasket, {
+        url: buildClientRequestUrl(basket.clearBasket, {
           contentType: 'application/json'
         }),
         method: 'DELETE',
         body
       }),
-      transformResponse: (response: { basket: Basket }) => response.basket,
+      transformResponse: (response: Basket) => response,
       invalidatesTags: ['Basket']
     })
   }),

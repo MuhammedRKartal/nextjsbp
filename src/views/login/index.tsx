@@ -15,15 +15,11 @@ import { useRouter } from 'next/navigation';
 import { user } from '@/data/urls';
 
 const Login = () => {
-  const [loading, setLoading] = useState(false);
+  const [isloading, setLoading] = useState('false');
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
 
   const router = useRouter();
-  const { data: sessionData, status } = useSession();
-  if (status === 'authenticated') {
-    router.push('/');
-  }
 
   const loginValidationSchema = yup.object().shape({
     email: yup
@@ -45,17 +41,15 @@ const Login = () => {
   const onSubmit: SubmitHandler<LoginFormType> = async (data) => {
     const formData = JSON.stringify(data);
 
-    setLoading(true);
+    setLoading('true');
+
     await fetch(`/api/client${user.login}`, {
       method: 'POST',
       body: formData
     }).then((res) => {
-      setLoading(false);
+      setLoading('false');
       if (res.status === 200) {
-        signIn('default', {
-          redirect: false,
-          ...data
-        } as SignInOptions).then(() => router.push('/'));
+        signIn('default', { ...data } as SignInOptions);
       } else {
         res.json().then((data) => {
           setError(true);
@@ -85,11 +79,17 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col gap-2">
-            <Input label="Email or Phone" id="account" {...register('email')} />
+            <Input
+              label="Email or Phone"
+              id="account"
+              {...register('email')}
+              value={'hirohitogame@gmail.com'}
+            />
             <Input
               label="Password"
               id="password"
               type="password"
+              value={'Deneme123.'}
               {...register('password')}
             />
             <input
@@ -104,7 +104,7 @@ const Login = () => {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            loading={loading}
+            isloading={isloading}
           >
             Log In
           </Button>

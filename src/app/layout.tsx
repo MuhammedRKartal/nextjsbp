@@ -8,8 +8,9 @@ import Header from '@/views/header';
 import Footer from '@/views/footer';
 import ClientRoot from '@/app/client-root';
 import clsx from 'clsx';
-
-import { getServerSession } from 'next-auth/next';
+import MainRoot from './main-root';
+import { getServerSession } from 'next-auth';
+import SessionProvider from '@/components/SessionProvider';
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -50,16 +51,23 @@ export default async function RootLayout({
   return (
     <html lang="en" className={lato.className}>
       <body className="preload overflow-x-hidden bg-black">
-        <ClientRoot>
-          <Header />
-          <main
-            id="main"
-            className={clsx('relative mx-auto my-10 min-h-[50vh]', 'md:my-20')}
-          >
-            {children}
-          </main>
-          <Footer />
-        </ClientRoot>
+        <MainRoot>
+          <ClientRoot>
+            <SessionProvider session={session}>
+              <Header />
+              <main
+                id="main"
+                className={clsx(
+                  'relative mx-auto my-10 min-h-[50vh]',
+                  'md:my-20'
+                )}
+              >
+                {children}
+              </main>
+              <Footer />
+            </SessionProvider>
+          </ClientRoot>
+        </MainRoot>
       </body>
     </html>
   );

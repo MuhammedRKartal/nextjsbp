@@ -62,7 +62,7 @@ export const Button = (props: ButtonProps) => {
               props.className
             )}
           >
-            {props.loading === true ? (
+            {props.isloading === 'true' ? (
               <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
             ) : (
               <>{props.children}</>
@@ -122,7 +122,7 @@ export const Button = (props: ButtonProps) => {
             props.className
           )}
         >
-          {props.loading === true ? (
+          {props.isloading === 'true' ? (
             <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
           ) : (
             <>{props.children}</>

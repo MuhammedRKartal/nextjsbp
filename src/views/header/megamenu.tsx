@@ -5,11 +5,18 @@ import data from '@/schemas/header-megamenu.json';
 import { Button } from '@/components/button';
 import MobileHamburgerButton from './mobile-menu/hamburger-menu-button';
 import CustomModal from '@/views/modals/custom-modal';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
+import { useGetBasketQuery } from '@/data/client/basket';
+import MiniBasket from './mini-basket';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import {
+  closeMiniBasket,
+  toggleMiniBasket
+} from '@/redux/reducers/mini-basket';
 
 export type HeaderNavItemType = {
   title: string;
@@ -17,11 +24,15 @@ export type HeaderNavItemType = {
 };
 
 export default function Megamenu() {
-  const [open, setOpen] = useState(false);
+  const dispatch = useAppDispatch();
+
+  const { data: miniBasketData } = useGetBasketQuery();
+
+  const { open: miniBasketOpen } = useAppSelector((state) => state.miniBasket);
 
   return (
     <>
-      <CustomModal open={open} setOpen={setOpen} />
+      <MiniBasket />
       <MobileHamburgerButton />
       <div className="flex">
         <Button
@@ -56,7 +67,7 @@ export default function Megamenu() {
           className="px-2"
           appearance="bright"
           onClick={() => {
-            setOpen(true);
+            dispatch(toggleMiniBasket());
           }}
         >
           <FontAwesomeIcon icon={faBasketShopping} size="lg" />
