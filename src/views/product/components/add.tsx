@@ -72,7 +72,7 @@ export const Add = (props) => {
 
   return (
     <>
-      {!in_stock ? (
+      {in_stock ? (
         <>
           <Button
             isloading={isloading}
