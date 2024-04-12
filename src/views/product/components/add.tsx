@@ -21,14 +21,14 @@ export const Add = (props) => {
   const [isloading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const session = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   const dispatch = useAppDispatch();
   const [addProduct] = useAddProductMutation();
 
   const onClickAction = async (product) => {
-    if (session?.status === 'unauthenticated') {
+    if (status === 'unauthenticated') {
       router.replace('/login');
     } else {
       setLoading(true);

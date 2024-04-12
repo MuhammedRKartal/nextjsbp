@@ -11,8 +11,8 @@ export default function AccountPopUp() {
     (state) => state.popUps
   );
   const dispatch = useAppDispatch();
-  const session = useSession();
-  const user = session?.data?.user?.name;
+  const { data, status } = useSession();
+  const user = data?.user?.name;
 
   const onClickSignOut = () => {
     signOut();

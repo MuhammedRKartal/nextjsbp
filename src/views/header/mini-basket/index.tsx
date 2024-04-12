@@ -23,8 +23,8 @@ export default function MiniBasket() {
     error: basketError
   } = useGetBasketQuery();
 
-  const session = useSession();
-  const userMail = session?.data?.user?.email;
+  const { data, status } = useSession();
+  const userMail = data?.user?.email;
   if (basketError) {
     const status = 'status' in basketError && basketError.status;
     if (status === 401 && userMail) {

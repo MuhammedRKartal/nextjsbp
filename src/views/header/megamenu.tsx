@@ -24,11 +24,11 @@ export type HeaderNavItemType = {
 
 export default function Megamenu() {
   const dispatch = useAppDispatch();
-  const session = useSession();
+  const { status } = useSession();
   const router = useRouter();
 
   const onClickEvent = () => {
-    if (session?.data?.user) {
+    if (status === 'authenticated') {
       dispatch(openAccountPopUp());
     } else {
       router.push('/login');
@@ -36,13 +36,13 @@ export default function Megamenu() {
   };
 
   const onHoverEvent = () => {
-    if (session?.data?.user) {
+    if (status === 'authenticated') {
       dispatch(openAccountPopUp());
     }
   };
 
   const onHoverOutEvent = () => {
-    if (session?.data?.user) {
+    if (status === 'authenticated') {
       dispatch(closeAccountPopUp());
     }
   };
