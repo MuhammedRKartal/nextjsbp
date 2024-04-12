@@ -9,9 +9,8 @@ export type AddProductResponse = {
 };
 
 export type AddProductRequest = {
-  product: number;
+  productPk: string;
   quantity: number;
-  attributes: any;
 };
 
 export const productApi = api.injectEndpoints({

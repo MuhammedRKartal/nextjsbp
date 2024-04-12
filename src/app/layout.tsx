@@ -2,6 +2,7 @@ import 'server-only';
 
 import type { Metadata } from 'next';
 import '@/app/globals.css';
+import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import { Lato } from 'next/font/google';
 import Header from '@/views/header';
@@ -57,10 +58,7 @@ export default async function RootLayout({
               <Header />
               <main
                 id="main"
-                className={clsx(
-                  'relative mx-auto my-10 min-h-[50vh]',
-                  'md:my-20'
-                )}
+                className={clsx('relative mx-auto min-h-[50vh]', 'md:my-10')}
               >
                 {children}
               </main>

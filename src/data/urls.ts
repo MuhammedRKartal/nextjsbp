@@ -8,8 +8,8 @@ export const basket = {
 
 export const product = {
   products: '/web/products',
-  getProductByPk: (pk: number) => `/web/products/${pk}/`,
-  addProduct: '/web/basket/additemtobasket/'
+  getProductByPk: (pk: number) => `/web/products/${pk}`,
+  addProduct: '/web/basket/additemtobasket'
 };
 
 export const user = {

@@ -5,13 +5,19 @@ export const ProductDefault = (props) => {
 
   return (
     <Product {...props}>
-      <Product.Wrapper>
-        <div className="block lg:flex lg:gap-24">
-          <Product.Images />
-          <Product.Information />
-        </div>
-        <Product.Details />
-      </Product.Wrapper>
+      <div className="block gap-8 lg:flex 2xl:gap-16">
+        <Product.Images />
+        <Product.Wrapper>
+          <div>
+            <Product.Information />
+            <Product.Prices />
+          </div>
+          <div>
+            <Product.Add />
+            <Product.Details />
+          </div>
+        </Product.Wrapper>
+      </div>
     </Product>
   );
 };

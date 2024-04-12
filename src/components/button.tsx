@@ -6,12 +6,14 @@ import { twMerge } from 'tailwind-merge';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 
 export const Button = (props: ButtonProps) => {
+  const { isloading, ...rest } = props;
+
   return (
     <>
       {props.link && props.link !== null ? (
         <Link href={props.link} className={props.linkclassname}>
           <button
-            {...props}
+            {...rest}
             className={twMerge(
               clsx(
                 [
@@ -23,7 +25,8 @@ export const Button = (props: ButtonProps) => {
                   'border',
                   'transition-all',
                   'flex',
-                  'items-center'
+                  'items-center',
+                  'justify-center'
                 ],
                 props.size === 'xs' && ['text-sm', 'px-4', 'min-h-[2.5rem]'],
                 props.size === 'lg' && [
@@ -64,7 +67,7 @@ export const Button = (props: ButtonProps) => {
               props.className
             )}
           >
-            {props.isloading === true ? (
+            {isloading === true ? (
               <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
             ) : (
               <>{props.children}</>
@@ -73,7 +76,7 @@ export const Button = (props: ButtonProps) => {
         </Link>
       ) : (
         <button
-          {...props}
+          {...rest}
           className={twMerge(
             clsx(
               [
@@ -85,7 +88,9 @@ export const Button = (props: ButtonProps) => {
                 'border',
                 'transition-all',
                 'flex',
-                'items-center'
+                'items-center',
+
+                'justify-center'
               ],
               props.size === 'xs' && ['text-sm', 'px-4', 'min-h-[2.5rem]'],
               props.size === 'lg' && [
@@ -126,7 +131,7 @@ export const Button = (props: ButtonProps) => {
             props.className
           )}
         >
-          {props.isloading === true ? (
+          {isloading === true ? (
             <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
           ) : (
             <>{props.children}</>

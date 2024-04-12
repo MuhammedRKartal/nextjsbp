@@ -1,5 +1,6 @@
 import { Control, FieldError } from 'react-hook-form';
 import { ImageProps as NextImageProps } from 'next/image';
+import { ReactElement, ReactNode } from 'react';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -113,3 +114,16 @@ export interface PriceProps {
   currency?: string;
   fixedDecimalScale?: true;
 }
+
+export type AccordionItemProps = {
+  active: number;
+  accordionId: number;
+  isCollapse?: boolean;
+  title?: string;
+  showIcon?: boolean;
+  children?: ReactNode;
+  className?: string;
+  titleClassName?: string;
+  iconClassName?: string;
+  handleToggle: (index: any) => void;
+};

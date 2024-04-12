@@ -2,7 +2,7 @@
 
 import { Image } from '@/components/image';
 import { ProductItemImagesType } from '@/types';
-import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -28,6 +28,17 @@ export const Images = (props) => {
               fillWithSize
               showBG
               objectType="object-cover"
+              className="hidden md:flex"
+            ></Image>
+            <Image
+              src={image.url}
+              alt={image.alt_text}
+              sizes="(max-width:720px)170px, 230px"
+              width={400}
+              height={300}
+              fillWithSize
+              objectType="object-cover"
+              className="md:hidden"
             ></Image>
           </SwiperSlide>
         ))}

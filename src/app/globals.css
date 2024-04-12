@@ -37,6 +37,15 @@ input[type=number] {
 }
 
 
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
 .k-container {
     @apply max-w-xs;
     @apply sm:max-w-sm;

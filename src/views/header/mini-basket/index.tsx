@@ -3,12 +3,11 @@ import { useGetBasketQuery } from '@/data/client/basket';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { closeMiniBasket } from '@/redux/reducers/mini-basket';
 import clsx from 'clsx';
-import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import MiniBasketItem from './mini-basket-item';
 import { Button } from '@/components/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose, faCross } from '@fortawesome/free-solid-svg-icons';
+import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 
 export default function MiniBasket() {
   const { open: miniBasketOpen, highlightedItem } = useAppSelector(
@@ -16,6 +15,7 @@ export default function MiniBasket() {
   );
   const dispatch = useAppDispatch();
   const { data: basket, isLoading, isSuccess } = useGetBasketQuery();
+  const miniBasketList = useRef();
 
   const totalQuantity = useMemo(() => basket?.total_quantity ?? 0, [basket]);
   const [highlightedItemPk, setHighlightedItemPk] = useState(0);
@@ -63,7 +63,7 @@ export default function MiniBasket() {
       <div
         className={clsx(
           miniBasketOpen
-            ? 'flex flex-col opacity-100 visible lg:translate-y-[calc(100%)]'
+            ? 'flex flex-col opacity-100 visible lg:translate-y-[calc(100%)] '
             : 'opacity-0 invisible translate-x-full lg:translate-x-0 lg:translate-y-[calc(100%+16px)]',
           'fixed bottom-0 right-0 h-screen lg:h-auto bg-secondary-black text-white z-50 transition-all duration-300 p-5 w-full rounded',
           'sm:w-96',
@@ -81,11 +81,15 @@ export default function MiniBasket() {
           ></FontAwesomeIcon>
         </header>
         {isSuccess && (
-          <ul className="overflow-y-auto lg:max-h-64 flex flex-col px-5">
+          <ul
+            className="overflow-y-auto lg:max-h-64 flex flex-col px-5 no-scrollbar"
+            ref={miniBasketList}
+          >
             {sortedBasket.map((basketItem) => (
               <MiniBasketItem
                 key={basketItem.item_id}
                 basketItem={basketItem}
+                miniBasketListRef={miniBasketList}
                 highlightedItem={highlightedItem}
               />
             ))}

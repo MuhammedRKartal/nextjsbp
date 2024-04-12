@@ -5,6 +5,8 @@ import { Images } from './components/images';
 import { Details } from './components/details';
 import { Information } from './components/information';
 import { Wrapper } from './components/wrapper';
+import { Prices } from './components/prices';
+import { Add } from './components/add';
 
 interface Props {
   product: ProductItemType;
@@ -15,6 +17,7 @@ const Product = (props: Props) => {
   const { product, children } = props;
 
   const pk = product.pk;
+  const IncludeArray = [Images, Details, Information, Prices, Add];
 
   const childrenWithProps = (children) => {
     return Children.map(children, (child) => {
@@ -24,7 +27,7 @@ const Product = (props: Props) => {
 
       const hasChildren = !!child.props?.children;
 
-      if ([Images, Details, Information].includes(child.type)) {
+      if (IncludeArray.includes(child.type)) {
         const clone = cloneElement(child, {
           ...{ ...props },
           ...child.props,
@@ -52,5 +55,7 @@ Product.Details = Details;
 Product.Images = Images;
 Product.Information = Information;
 Product.Wrapper = Wrapper;
+Product.Prices = Prices;
+Product.Add = Add;
 
 export { Product };

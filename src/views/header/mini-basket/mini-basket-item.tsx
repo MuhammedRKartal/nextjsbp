@@ -8,19 +8,34 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
-import { useState } from 'react';
+import { MutableRefObject, useEffect, useMemo, useState } from 'react';
 
 interface MiniBasketItemProps {
   basketItem: BasketItem;
   highlightedItem: number;
+  miniBasketListRef: MutableRefObject<HTMLUListElement>;
 }
 
 export default function MiniBasketItem(props: MiniBasketItemProps) {
-  const { basketItem } = props;
+  const { basketItem, highlightedItem, miniBasketListRef } = props;
   const dispatch = useAppDispatch();
   const [updateQuantityMutation] = useUpdateQuantityMutation();
 
   const [updateLoading, setUpdateLoading] = useState(false);
+
+  const isHighlighted = useMemo(() => {
+    return highlightedItem === basketItem.product.pk;
+  }, [highlightedItem, basketItem.product.pk]);
+
+  useEffect(() => {
+    const miniBasketList = miniBasketListRef.current;
+
+    if (highlightedItem === basketItem.product.pk) {
+      if (miniBasketList.scrollTop > 0) {
+        miniBasketList.scrollTop = 0;
+      }
+    }
+  }, [highlightedItem, basketItem.product.pk]);
 
   const removeItem = () => {
     updateQuantityMutation({
@@ -70,9 +85,8 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
 
   return (
     <li
-      className={clsx(
-        'flex gap-3 py-4 border-b border-gray-300 last:border-b-0'
-      )}
+      style={{ order: isHighlighted ? '-1' : '0' }}
+      className={clsx('flex gap-3 py-4 border-b border-gray-300')}
     >
       <Link
         href={`/product/${basketItem.product.pk}`}
@@ -81,8 +95,8 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
         <Image
           src={basketItem.image ?? ''}
           alt={basketItem.product.name}
-          width={48}
-          height={48}
+          width={isHighlighted ? 54 : 48}
+          height={isHighlighted ? 54 : 48}
           className="transition-all duration-300"
         />
       </Link>
