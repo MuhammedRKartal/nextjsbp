@@ -4,19 +4,18 @@ import { Image } from '@/components/image';
 import data from '@/schemas/header-megamenu.json';
 import { Button } from '@/components/button';
 import MobileHamburgerButton from './mobile-menu/hamburger-menu-button';
-import CustomModal from '@/views/modals/custom-modal';
-import { useCallback, useState } from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
-import { useGetBasketQuery } from '@/data/client/basket';
 import MiniBasket from './mini-basket';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import {
-  closeMiniBasket,
-  toggleMiniBasket
-} from '@/redux/reducers/mini-basket';
+import { toggleMiniBasket } from '@/redux/reducers/pop-ups';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import AccountPopUp from './account-popup';
+import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
+import { useState } from 'react';
 
 export type HeaderNavItemType = {
   title: string;
@@ -25,9 +24,32 @@ export type HeaderNavItemType = {
 
 export default function Megamenu() {
   const dispatch = useAppDispatch();
+  const session = useSession();
+  const router = useRouter();
+
+  const onClickEvent = () => {
+    if (session?.data?.user) {
+      dispatch(openAccountPopUp());
+    } else {
+      router.push('/login');
+    }
+  };
+
+  const onHoverEvent = () => {
+    if (session?.data?.user) {
+      dispatch(openAccountPopUp());
+    }
+  };
+
+  const onHoverOutEvent = () => {
+    if (session?.data?.user) {
+      dispatch(closeAccountPopUp());
+    }
+  };
 
   return (
     <>
+      <AccountPopUp />
       <MiniBasket />
       <MobileHamburgerButton />
       <div className="flex">
@@ -70,9 +92,11 @@ export default function Megamenu() {
         </Button>
         <Button
           appearance="bright"
-          link="/login"
           linkclassname=""
-          className="pl-2"
+          className="pl-2 pr-2 mr-2"
+          onClick={onClickEvent}
+          onMouseEnter={onHoverEvent}
+          onMouseLeave={onHoverOutEvent}
         >
           <FontAwesomeIcon icon={faUser} size="lg" />
         </Button>

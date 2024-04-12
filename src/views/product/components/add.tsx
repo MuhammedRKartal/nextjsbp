@@ -1,14 +1,12 @@
 'use client';
 
 import { Button } from '@/components/button';
-import { basketApi } from '@/data/client/basket';
+import { basketApi, useGetBasketQuery } from '@/data/client/basket';
 import { useAddProductMutation } from '@/data/client/product';
 import { useAppDispatch } from '@/redux/hooks';
-import {
-  openMiniBasket,
-  setHighlightedItem
-} from '@/redux/reducers/mini-basket';
+import { openMiniBasket, setHighlightedItem } from '@/redux/reducers/pop-ups';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
+import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { signOut, useSession } from 'next-auth/react';
@@ -18,8 +16,10 @@ import { useState } from 'react';
 
 export const Add = (props) => {
   const { product } = props;
+  const { in_stock } = product;
 
   const [isloading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const session = useSession();
   const router = useRouter();
@@ -62,21 +62,48 @@ export const Add = (props) => {
           if (error.status === 401) {
             signOut();
           }
+          if (error.status === 400) {
+            setLoading(false);
+            setErrorMessage(error.data.error);
+          }
         });
     }
   };
 
   return (
-    <Button
-      isloading={isloading}
-      onClick={() => onClickAction(product.pk)}
-      className={clsx(
-        'fixed bottom-0 left-0 rounded-none w-full text-lg font-bold px-12 h-[3.5rem] gap-2',
-        'md:relative md:h-12 md:rounded-sm'
+    <>
+      {!in_stock ? (
+        <>
+          <Button
+            isloading={isloading}
+            onClick={() => onClickAction(product.pk)}
+            className={clsx(
+              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2',
+              'md:relative md:h-12 md:rounded-sm'
+            )}
+          >
+            <FontAwesomeIcon
+              icon={faBasketShopping}
+              size="sm"
+            ></FontAwesomeIcon>
+            <span>Add to Basket</span>
+          </Button>
+          <div className="text-xs text-error text-center">{errorMessage}</div>
+        </>
+      ) : (
+        <>
+          <Button
+            appearance="outlined"
+            className={clsx(
+              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2',
+              'md:relative md:h-12 md:rounded-sm'
+            )}
+          >
+            <FontAwesomeIcon icon={faBell} size="sm"></FontAwesomeIcon>
+            <span>Not in Stock</span>
+          </Button>
+        </>
       )}
-    >
-      <FontAwesomeIcon icon={faBasketShopping} size="sm"></FontAwesomeIcon>
-      Add to Basket
-    </Button>
+    </>
   );
 };

@@ -1,7 +1,7 @@
 import { Price } from '@/components/price';
 import { useGetBasketQuery } from '@/data/client/basket';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { closeMiniBasket } from '@/redux/reducers/mini-basket';
+import { closeMiniBasket } from '@/redux/reducers/pop-ups';
 import clsx from 'clsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import MiniBasketItem from './mini-basket-item';
@@ -11,8 +11,8 @@ import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { signOut, useSession } from 'next-auth/react';
 
 export default function MiniBasket() {
-  const { open: miniBasketOpen, highlightedItem } = useAppSelector(
-    (state) => state.miniBasket
+  const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(
+    (state) => state.popUps
   );
   const dispatch = useAppDispatch();
 
@@ -82,9 +82,9 @@ export default function MiniBasket() {
           miniBasketOpen
             ? 'flex flex-col opacity-100 visible lg:translate-y-[calc(100%)] '
             : 'opacity-0 invisible translate-x-full lg:translate-x-0 lg:translate-y-[calc(100%+16px)]',
-          'fixed bottom-0 right-0 h-screen lg:h-auto bg-secondary-black text-white z-50 transition-all duration-300 p-5 w-full rounded',
+          'fixed bottom-0 right-0 h-screen lg:h-auto bg-secondary-black text-white z-50 transition-all duration-300 p-5 w-full',
           'sm:w-96',
-          'lg:absolute lg:right-8 lg:-bottom-1 lg:border lg:border-secondary-darkest'
+          'lg:absolute lg:right-8 lg:-bottom-1 lg:border lg:border-secondary-darkest lg:rounded'
         )}
       >
         <header className="flex items-center justify-between gap-2 pb-4 border-b uppercase lg:pb-2 lg:mb-3 text-gray-300">
@@ -93,7 +93,7 @@ export default function MiniBasket() {
             onClick={() => {
               dispatch(closeMiniBasket());
             }}
-            className="transition-all duration-300 text-lg  hover:text-white hover:cursor-pointer  lg:hidden"
+            className="transition-all duration-300 text-lg  hover:text-white hover:cursor-pointer lg:!hidden"
             icon={faClose}
           ></FontAwesomeIcon>
         </header>
