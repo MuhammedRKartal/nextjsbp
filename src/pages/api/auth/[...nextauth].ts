@@ -1,10 +1,8 @@
 'use server';
-import { user } from '@/data/urls';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth, { AuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { getCookie } from 'cookies-next';
-import { signOut } from 'next-auth/react';
 import { UpgradedUserType } from '@/types';
 
 async function getCurrentUser(refresh_token) {
@@ -51,38 +49,28 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
           headers.set('Content-Type', 'application/json');
           headers.set('auth_token', `${process.env.AUTH_TOKEN}`);
 
-          const apiRequest = await fetch(
-            `${process.env.BACKEND_URL}${
-              user[credentials?.formType as string]
-            }`,
-            {
-              method: 'POST',
-              headers,
-              body: JSON.stringify(credentials)
-            }
-          );
-
-          let sessionId = '';
-
-          const setCookieHeader = apiRequest.headers.get('set-cookie');
-
-          if (setCookieHeader) {
-            sessionId =
-              setCookieHeader
-                .split(`;`)
-                ?.find((item) => item.includes('refresh_token'))
-                .split('refresh_token=')[1] || '';
-          }
+          const sessionId = getCookie('refresh_token', { req, res });
 
           const currentUser = await getCurrentUser(sessionId);
-          const currentUserUpgraded = {
-            ...currentUser,
-            refreshToken: sessionId
-          };
-          return currentUserUpgraded;
+          return currentUser;
         }
       })
     ],
+
+    callbacks: {
+      jwt: async ({ token, user, account }) => {
+        if (user) {
+          token.user = user;
+        }
+
+        return token;
+      },
+      async session({ session, token }) {
+        session.user = token?.user;
+
+        return session;
+      }
+    },
     events: {
       signOut: () => {
         res.setHeader('Set-Cookie', [
@@ -91,38 +79,10 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
         ]);
       }
     },
-    callbacks: {
-      jwt: async ({ token, user }) => {
-        const refresh_token = getCookie('refresh_token', { req, res });
-
-        token.refreshToken = refresh_token;
-        if (user) {
-          token.user = user;
-        }
-
-        const tokenUser = token.user as UpgradedUserType;
-        if (token?.refreshToken !== tokenUser.refreshToken) {
-          token.exp = token.iat;
-        }
-        console.log(token);
-
-        return token;
-      },
-      async session({ session, token }) {
-        const tokenUser = token.user as UpgradedUserType;
-
-        if (tokenUser?.refreshToken !== token?.refreshToken) {
-          token.exp = token.iat;
-        }
-        session.user = token?.user;
-
-        return session;
-      }
-    },
     secret: process.env.NEXTAUTH_SECRET,
     session: {
       strategy: 'jwt',
-      maxAge: 2 * 24 * 60 * 60,
+      maxAge: 15 * 24 * 60 * 60,
       updateAge: 3 * 60 * 60
     }
   } as AuthOptions;

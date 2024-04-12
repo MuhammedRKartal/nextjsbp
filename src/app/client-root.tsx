@@ -18,5 +18,6 @@ export default function ClientRoot({
     dispatch(closeMiniBasket());
     dispatch(resetHeaderState());
   }, [dispatch, pathname, searchParams]);
+
   return <>{children}</>;
 }

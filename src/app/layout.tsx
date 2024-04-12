@@ -52,8 +52,8 @@ export default async function RootLayout({
     <html lang="en" className={lato.className}>
       <body className="preload overflow-x-hidden bg-black">
         <MainRoot>
-          <ClientRoot>
-            <SessionProvider session={session}>
+          <SessionProvider session={session}>
+            <ClientRoot>
               <Header />
               <main
                 id="main"
@@ -65,8 +65,8 @@ export default async function RootLayout({
                 {children}
               </main>
               <Footer />
-            </SessionProvider>
-          </ClientRoot>
+            </ClientRoot>
+          </SessionProvider>
         </MainRoot>
       </body>
     </html>

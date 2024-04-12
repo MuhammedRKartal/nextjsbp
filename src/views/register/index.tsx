@@ -11,8 +11,6 @@ import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterFormType } from '@/types';
 import RegisterModal from '@/views/modals/register-modal';
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { user } from '@/data/urls';
 
 export default function Register() {
