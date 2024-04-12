@@ -15,7 +15,7 @@ import { useRouter } from 'next/navigation';
 import { user } from '@/data/urls';
 
 const Login = () => {
-  const [isloading, setLoading] = useState('false');
+  const [isloading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
 
@@ -41,13 +41,13 @@ const Login = () => {
   const onSubmit: SubmitHandler<LoginFormType> = async (data) => {
     const formData = JSON.stringify(data);
 
-    setLoading('true');
+    setLoading(true);
 
     await fetch(`/api/client${user.login}`, {
       method: 'POST',
       body: formData
     }).then((res) => {
-      setLoading('false');
+      setLoading(false);
       if (res.status === 200) {
         signIn('default', { ...data } as SignInOptions);
       } else {
@@ -104,7 +104,7 @@ const Login = () => {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            isloading={isloading}
+            isloading={String(isloading)}
           >
             Log In
           </Button>

@@ -21,7 +21,9 @@ export const Button = (props: ButtonProps) => {
                   'text-base',
                   'rounded-md',
                   'border',
-                  'transition-all'
+                  'transition-all',
+                  'flex',
+                  'items-center'
                 ],
                 props.size === 'xs' && ['text-sm', 'px-4', 'min-h-[2.5rem]'],
                 props.size === 'lg' && [
@@ -62,7 +64,7 @@ export const Button = (props: ButtonProps) => {
               props.className
             )}
           >
-            {props.isloading === 'true' ? (
+            {props.isloading === true ? (
               <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
             ) : (
               <>{props.children}</>
@@ -81,7 +83,9 @@ export const Button = (props: ButtonProps) => {
                 'text-base',
                 'rounded-md',
                 'border',
-                'transition-all'
+                'transition-all',
+                'flex',
+                'items-center'
               ],
               props.size === 'xs' && ['text-sm', 'px-4', 'min-h-[2.5rem]'],
               props.size === 'lg' && [
@@ -122,7 +126,7 @@ export const Button = (props: ButtonProps) => {
             props.className
           )}
         >
-          {props.isloading === 'true' ? (
+          {props.isloading === true ? (
             <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
           ) : (
             <>{props.children}</>

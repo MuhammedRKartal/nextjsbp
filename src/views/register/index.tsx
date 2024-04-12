@@ -45,7 +45,7 @@ export default function Register() {
   });
 
   const [email, setEmail] = useState('');
-  const [isloading, setLoading] = useState('false');
+  const [isloading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
@@ -55,12 +55,12 @@ export default function Register() {
 
     const formData = JSON.stringify(data);
 
-    setLoading('true');
+    setLoading(true);
     await fetch(`/api/client${user.register}`, {
       method: 'POST',
       body: formData
     }).then((res) => {
-      setLoading('false');
+      setLoading(false);
       if (res.status === 200) {
         setOpenModal(true);
       } else {
@@ -148,7 +148,7 @@ export default function Register() {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            isloading={isloading}
+            isloading={String(isloading)}
           >
             Register
           </Button>
