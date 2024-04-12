@@ -8,13 +8,30 @@ import MiniBasketItem from './mini-basket-item';
 import { Button } from '@/components/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
+import { signOut, useSession } from 'next-auth/react';
 
 export default function MiniBasket() {
   const { open: miniBasketOpen, highlightedItem } = useAppSelector(
     (state) => state.miniBasket
   );
   const dispatch = useAppDispatch();
-  const { data: basket, isLoading, isSuccess } = useGetBasketQuery();
+
+  const {
+    data: basket,
+    isLoading,
+    isSuccess,
+    error: basketError
+  } = useGetBasketQuery();
+
+  const session = useSession();
+  const userMail = session?.data?.user?.email;
+  if (basketError) {
+    const status = 'status' in basketError && basketError.status;
+    if (status === 401 && userMail) {
+      signOut();
+    }
+  }
+
   const miniBasketList = useRef();
 
   const totalQuantity = useMemo(() => basket?.total_quantity ?? 0, [basket]);

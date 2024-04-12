@@ -11,7 +11,7 @@ import {
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -48,7 +48,7 @@ export const Add = (props) => {
             )
           )
         )
-        .then(() => {
+        .then((res) => {
           setTimeout(() => {
             setLoading(false);
             dispatch(openMiniBasket());
@@ -57,6 +57,11 @@ export const Add = (props) => {
               dispatch(setHighlightedItem(null));
             }, 3000);
           }, 500);
+        })
+        .catch((error) => {
+          if (error.status === 401) {
+            signOut();
+          }
         });
     }
   };

@@ -26,10 +26,6 @@ export type HeaderNavItemType = {
 export default function Megamenu() {
   const dispatch = useAppDispatch();
 
-  const { data: miniBasketData } = useGetBasketQuery();
-
-  const { open: miniBasketOpen } = useAppSelector((state) => state.miniBasket);
-
   return (
     <>
       <MiniBasket />

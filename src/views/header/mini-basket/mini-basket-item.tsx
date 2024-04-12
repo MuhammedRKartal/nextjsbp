@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { MutableRefObject, useEffect, useMemo, useState } from 'react';
+import { signOut } from 'next-auth/react';
 
 interface MiniBasketItemProps {
   basketItem: BasketItem;
@@ -53,7 +54,15 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
             }
           )
         )
-      );
+      )
+      .catch((error) => {
+        if (error.status === 401) {
+          signOut();
+        }
+        if (error.status === 400) {
+          setUpdateLoading(false);
+        }
+      });
   };
 
   const updateItemQuantity = (operation: 'increase' | 'decrease') => {
@@ -80,6 +89,14 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
           );
           setUpdateLoading(false);
         }, 1000);
+      })
+      .catch((error) => {
+        if (error.status === 401) {
+          signOut();
+        }
+        if (error.status === 400) {
+          setUpdateLoading(false);
+        }
       });
   };
 
@@ -126,12 +143,19 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
                 -
               </button>
               <button
-                className="rounded h-full w-5 hover:bg-secondary-darkest disabled:hover:bg-secondary-black"
+                className={clsx(
+                  'rounded h-full w-5 hover:bg-secondary-darkest disabled:hover:bg-secondary-black',
+                  basketItem.stock <= basketItem.quantity &&
+                    'text-secondary-darkest'
+                )}
                 onClick={() => updateItemQuantity('increase')}
-                disabled={updateLoading}
+                disabled={
+                  updateLoading || basketItem.stock <= basketItem.quantity
+                }
               >
                 +
               </button>
+
               {updateLoading && (
                 <FontAwesomeIcon
                   icon={faSpinner}

@@ -5,8 +5,7 @@ import {
   BaseQueryFn,
   FetchBaseQueryError,
   FetchBaseQueryMeta,
-  FetchArgs,
-  BaseQueryApi
+  FetchArgs
 } from '@reduxjs/toolkit/query/react';
 import { getCookie } from '../../utils';
 import { RootState } from '@/redux/store';
@@ -52,7 +51,7 @@ const customBaseQuery: BaseQueryFn<
 
 export const api = createApi({
   reducerPath: 'api',
-  baseQuery: retry(customBaseQuery, { maxRetries: 3 }),
+  baseQuery: retry(customBaseQuery, { maxRetries: 1 }),
   tagTypes: ['Basket', 'Product'],
   endpoints: () => ({})
 });
