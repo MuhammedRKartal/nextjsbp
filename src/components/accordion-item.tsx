@@ -21,7 +21,7 @@ export const AccordionItem = ({
   return (
     <div
       className={twMerge(
-        'flex flex-col justify-center border-b text-gray-300 border-gray-700 pb-2.5 mb-2.5 last:mb-0 first-of-type:border-t first-of-type:pt-2.5',
+        'flex flex-col justify-center border-b text-gray-300 border-secondary-darkest pb-2.5 mb-2.5 last:mb-0 first-of-type:border-t first-of-type:pt-2.5',
         className
       )}
     >

@@ -46,10 +46,11 @@ export type ProductItemType = {
   price: string;
   retail_price: string;
   currency_type: string;
+  currency_symbol: string;
   in_stock: boolean;
 };
 
-export interface BasketItem {
+export interface BasketItemType {
   item_id: number;
   stock: number;
   quantity: number;
@@ -58,10 +59,11 @@ export interface BasketItem {
   total_amount: string;
   price: string;
   currency_type: string;
+  currency_symbol: string;
 }
 
-export interface Basket {
-  product_list: BasketItem[];
+export interface BasketType {
+  product_list: BasketItemType[];
   pk: number;
   total_amount: string;
   total_quantity: number;

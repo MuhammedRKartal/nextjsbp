@@ -2,7 +2,7 @@ import { Image } from '@/components/image';
 import { Price } from '@/components/price';
 import { basketApi, useUpdateQuantityMutation } from '@/data/client/basket';
 import { useAppDispatch } from '@/redux/hooks';
-import { BasketItem } from '@/types';
+import { BasketItemType } from '@/types';
 import { faTrash } from '@fortawesome/free-solid-svg-icons/faTrash';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,13 +12,15 @@ import { MutableRefObject, useEffect, useMemo, useState } from 'react';
 import { signOut } from 'next-auth/react';
 
 interface MiniBasketItemProps {
-  basketItem: BasketItem;
+  basketItem: BasketItemType;
   highlightedItem: number;
   miniBasketListRef: MutableRefObject<HTMLUListElement>;
 }
 
 export default function MiniBasketItem(props: MiniBasketItemProps) {
   const { basketItem, highlightedItem, miniBasketListRef } = props;
+  console.log(basketItem);
+
   const dispatch = useAppDispatch();
   const [updateQuantityMutation] = useUpdateQuantityMutation();
 
@@ -164,7 +166,10 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
               )}
             </span>
           </div>
-          <Price value={Number(basketItem.price)} />
+          <Price
+            value={Number(basketItem.price)}
+            currency={basketItem.currency_symbol}
+          />
         </div>
       </div>
     </li>

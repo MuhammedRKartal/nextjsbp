@@ -29,7 +29,7 @@ export const Add = (props) => {
 
   const onClickAction = async (product) => {
     if (status === 'unauthenticated') {
-      router.replace('/login');
+      router.push('/login');
     } else {
       setLoading(true);
       await addProduct({
@@ -79,7 +79,7 @@ export const Add = (props) => {
             onClick={() => onClickAction(product.pk)}
             className={clsx(
               'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2',
-              'md:relative md:h-12 md:rounded-sm'
+              'md:relative md:h-12'
             )}
           >
             <FontAwesomeIcon
@@ -96,7 +96,7 @@ export const Add = (props) => {
             appearance="outlined"
             className={clsx(
               'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2',
-              'md:relative md:h-12 md:rounded-sm'
+              'md:relative md:h-12'
             )}
           >
             <FontAwesomeIcon icon={faBell} size="sm"></FontAwesomeIcon>

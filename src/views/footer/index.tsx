@@ -9,7 +9,7 @@ export default function Footer() {
       <footer id="footer" className={clsx(['k-px', , 'flex justify-center'])}>
         <div className={clsx('w-full', 'k-container')}>
           <FooterMenu />
-          <div className="border-b border-gray-500 my-8"></div>
+          <div className="border-b border-secondary-darkest my-8"></div>
           <div
             className={clsx(
               'flex flex-wrap items-center py-8 gap-4 justify-center flex-col-reverse',

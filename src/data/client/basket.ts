@@ -1,5 +1,5 @@
 import { api } from './api';
-import { Basket } from '../../types';
+import { BasketType } from '../../types';
 import { buildClientRequestUrl } from '../../utils';
 import { basket } from '../urls';
 
@@ -14,11 +14,11 @@ export type UpdateQuantityRequest = {
 
 export const basketApi = api.injectEndpoints({
   endpoints: (build) => ({
-    getBasket: build.query<Basket, void>({
+    getBasket: build.query<BasketType, void>({
       query: () => ({
         url: buildClientRequestUrl(basket.getBasket)
       }),
-      transformResponse: (response: Basket) => response,
+      transformResponse: (response: BasketType) => response,
       providesTags: ['Basket']
     }),
     updateQuantity: build.mutation<
@@ -31,7 +31,7 @@ export const basketApi = api.injectEndpoints({
         body
       })
     }),
-    clearBasket: build.mutation<Basket, void>({
+    clearBasket: build.mutation<BasketType, void>({
       query: (body) => ({
         url: buildClientRequestUrl(basket.clearBasket, {
           contentType: 'application/json'
@@ -39,7 +39,7 @@ export const basketApi = api.injectEndpoints({
         method: 'DELETE',
         body
       }),
-      transformResponse: (response: Basket) => response,
+      transformResponse: (response: BasketType) => response,
       invalidatesTags: ['Basket']
     })
   }),

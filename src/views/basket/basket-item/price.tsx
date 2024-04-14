@@ -1,13 +1,12 @@
-'use client';
 import { Price } from '@/components/price';
 
-export const Prices = (props) => {
+export const BasketItemPrice = (props) => {
   const {
     product: { price, retail_price, currency_symbol }
   } = props;
 
   return (
-    <div className="flex gap-1.5">
+    <div className="flex items-center gap-1">
       <Price
         value={price}
         currency={currency_symbol}
@@ -17,7 +16,7 @@ export const Prices = (props) => {
         <Price
           value={retail_price}
           currency={currency_symbol}
-          className="text-gray-400 text-sm font-bold line-through"
+          className="text-gray-400 text-xs font-bold line-through"
         />
       )}
     </div>

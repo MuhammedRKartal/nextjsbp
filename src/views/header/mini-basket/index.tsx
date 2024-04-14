@@ -116,11 +116,14 @@ export default function MiniBasket() {
           <div className="flex justify-between items-center px-3">
             <span className="text-sm font-semibold">{'Total Price'}</span>
             <span className="text-base font-bold">
-              <Price value={Number(basket?.total_amount)} />
+              <Price
+                value={Number(basket?.total_amount)}
+                currency={basket?.product_list[0]?.currency_symbol}
+              />
             </span>
           </div>
           <Button
-            link={'/'}
+            link={'/baskets/basket'}
             className="w-full"
             onClick={() => dispatch(closeMiniBasket())}
           >

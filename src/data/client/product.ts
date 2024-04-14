@@ -1,10 +1,10 @@
-import { Basket, ProductItemType } from '../../types';
+import { BasketType, ProductItemType } from '../../types';
 import { buildClientRequestUrl } from '../../utils';
 import { api } from './api';
 import { product } from '../urls';
 
 export type AddProductResponse = {
-  basket: Basket;
+  basket: BasketType;
   osessionid: string;
 };
 

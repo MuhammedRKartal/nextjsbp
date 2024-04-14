@@ -47,16 +47,6 @@ export default async function ProductDetail({
     })
   ).json();
 
-  console.log(
-    data.images.map((image) => {
-      return {
-        url: image.url,
-        width: 400,
-        height: 400
-      };
-    })
-  );
-
   return (
     <Section tag="section">
       <ProductPage data={data} />
