@@ -7,13 +7,9 @@ import { ImageResponseOptions } from 'next/server';
 
 type Props = {
   params: { pk: string };
-  data: ProductItemType;
 };
 
-export async function generateMetadata(
-  { params, data }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.pk;
   const product = await (
     await fetch(`${process.env.BACKEND_URL}/web/products/${id}`, {
