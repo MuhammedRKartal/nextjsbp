@@ -20,7 +20,7 @@ export default function BasketSummary(props) {
       </div>
       <div
         className={clsx(
-          'flex justify-between text-sm border-b pt-4 pb-3.5 h-24 border-secondary-darkest'
+          'flex justify-between text-sm border-b pt-4 pb-3.5 h-32 border-secondary-darkest'
         )}
       >
         <span>{`Sum of Products (${total_quantity} items)`}</span>
