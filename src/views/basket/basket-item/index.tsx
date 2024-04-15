@@ -10,6 +10,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import { signOut } from 'next-auth/react';
 import { Select } from '@/components/select';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 export default function BasketItem(props) {
   const { basketItem } = props;
@@ -107,17 +108,21 @@ export default function BasketItem(props) {
         'lg:last-of-type:pb-3.5'
       )}
     >
-      <Image
-        src={basketItem.image}
-        alt={product.name}
-        width={120}
-        height={146}
-      ></Image>
+      <Link href={`/product/${product.pk}`}>
+        <Image
+          src={basketItem.image}
+          alt={product.name}
+          width={120}
+          height={146}
+        ></Image>
+      </Link>
 
       <div className="flex flex-wrap w-full gap-2 px-2">
-        <div className="w-full pr-4 lg:pr-0 lg:flex-[2]">
-          <div className="text-sm">{product.name}</div>
-          <div className="text-xs">{product.short_description}</div>
+        <div className="flex flex-col gap-2w-full pr-4 lg:pr-0 lg:flex-[2]">
+          <Link href={`/product/${product.pk}`} className="text-sm">
+            <span>{product.name}</span>
+          </Link>
+          <span className="text-xs">{product.short_description}</span>
         </div>
         <div className="flex items-end justify-start w-[calc(50%-4px)] lg:flex-1 lg:items-center">
           {selectedOption && (

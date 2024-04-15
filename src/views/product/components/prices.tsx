@@ -1,5 +1,6 @@
 'use client';
 import { Price } from '@/components/price';
+import clsx from 'clsx';
 
 export const Prices = (props) => {
   const {
@@ -7,7 +8,12 @@ export const Prices = (props) => {
   } = props;
 
   return (
-    <div className="flex flex-col">
+    <div
+      className={clsx(
+        'flex flex-row-reverse justify-end items-center gap-1',
+        'lg:flex-col lg:justify-start lg:items-start lg:gap-0'
+      )}
+    >
       {parseFloat(retail_price) > parseFloat(price) && (
         <Price
           value={retail_price}

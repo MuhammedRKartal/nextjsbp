@@ -4,7 +4,9 @@ export const Information = (props) => {
   return (
     <>
       {product?.name && (
-        <h1 className="text-white text-4xl mb-2">{product.name}</h1>
+        <h1 className="text-white text-4xl mb-2 mt-3 lg:mt-0">
+          {product.name}
+        </h1>
       )}
     </>
   );

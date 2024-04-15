@@ -11,12 +11,14 @@ html{
 html:has(.scroll-lock){
     @media(max-width: 970px){
         overflow-y: hidden;
+        position:fixed;
     }
 }
 
 html:has(.scroll-lock) body {
     @media(max-width: 970px){
         overflow-y: hidden;
+        position:fixed;
     }
 }
 
@@ -24,14 +26,18 @@ html:has(.full-scroll-lock) {
     @media(max-width: 970px){
         padding-right: 14px;
     }
-    overflow-y: hidden
+    overflow-y: hidden;
+    position:fixed;
+
 }
 
 html:has(.full-scroll-lock) body {
     @media(max-width: 970px){
         padding-right: 14px;
     }
-    overflow-y: hidden
+    overflow-y: hidden;
+    position:fixed;
+
 }
 
 main{

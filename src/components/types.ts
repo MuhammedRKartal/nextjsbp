@@ -141,6 +141,8 @@ export interface SelectProps extends React.HTMLProps<HTMLSelectElement> {
   loading?: boolean;
   labelStyle?: 'default' | 'floating';
   labelClassName?: string;
+  itemListClassName?: string;
+  itemClassName?: string;
   selectedOption: any;
   setSelectedOption: React.Dispatch<React.SetStateAction<any>>;
 }
