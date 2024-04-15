@@ -19,7 +19,6 @@ interface MiniBasketItemProps {
 
 export default function MiniBasketItem(props: MiniBasketItemProps) {
   const { basketItem, highlightedItem, miniBasketListRef } = props;
-  console.log(basketItem);
 
   const dispatch = useAppDispatch();
   const [updateQuantityMutation] = useUpdateQuantityMutation();

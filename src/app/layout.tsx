@@ -58,7 +58,10 @@ export default async function RootLayout({
               <Header />
               <main
                 id="main"
-                className={clsx('relative mx-auto min-h-[50vh]', 'md:my-10')}
+                className={clsx(
+                  'relative my-6 mx-auto min-h-[50vh]',
+                  'md:my-10 md:mt-15'
+                )}
               >
                 {children}
               </main>

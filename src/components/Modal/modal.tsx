@@ -62,7 +62,7 @@ export const Modal = (props: ModalProps) => {
       />
       <section
         className={clsx(
-          'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-secondary-black shadow-lg',
+          'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-secondary-black shadow-lg full-scroll-lock',
           'rounded-md',
           className
         )}

@@ -1,14 +1,13 @@
 import { Price } from '@/components/price';
 import { useGetBasketQuery } from '@/data/client/basket';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { closeMiniBasket } from '@/redux/reducers/pop-ups';
+import { closeMiniBasket, openMiniBasket } from '@/redux/reducers/pop-ups';
 import clsx from 'clsx';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import MiniBasketItem from './mini-basket-item';
 import { Button } from '@/components/button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { signOut, useSession } from 'next-auth/react';
+import { SliderMenu } from '@/components/slider-menu';
 
 export default function MiniBasket() {
   const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(
@@ -77,25 +76,14 @@ export default function MiniBasket() {
           dispatch(closeMiniBasket());
         }}
       />
-      <div
-        className={clsx(
-          miniBasketOpen
-            ? 'flex flex-col opacity-100 visible lg:translate-y-[calc(100%)] '
-            : 'opacity-0 invisible translate-x-full lg:translate-x-0 lg:translate-y-[calc(100%+16px)]',
-          'fixed bottom-0 right-0 h-screen lg:h-auto bg-secondary-black text-white z-50 transition-all duration-300 p-5 w-full',
-          'sm:w-96',
-          'lg:absolute lg:right-8 lg:-bottom-1 lg:border lg:border-secondary-darkest lg:rounded'
-        )}
+      <SliderMenu
+        open={miniBasketOpen}
+        closePop={closeMiniBasket()}
+        enableDesktop={true}
+        desktopWidth="sm:w-96"
       >
         <header className="flex items-center justify-between gap-2 pb-4 border-b uppercase lg:pb-2 lg:mb-3 text-gray-300">
           <h3 className="text-xs lg:text-sm">{'My Bag'}</h3>
-          <FontAwesomeIcon
-            onClick={() => {
-              dispatch(closeMiniBasket());
-            }}
-            className="transition-all duration-300 text-lg  hover:text-white hover:cursor-pointer lg:!hidden"
-            icon={faClose}
-          ></FontAwesomeIcon>
         </header>
         {isSuccess && (
           <ul
@@ -130,7 +118,7 @@ export default function MiniBasket() {
             View Basket
           </Button>
         </footer>
-      </div>
+      </SliderMenu>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { Control, FieldError } from 'react-hook-form';
 import { ImageProps as NextImageProps } from 'next/image';
 import { ReactElement, ReactNode } from 'react';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -127,3 +128,34 @@ export type AccordionItemProps = {
   iconClassName?: string;
   handleToggle: (index: any) => void;
 };
+
+export type SelectItem = {
+  label: string | number;
+  value: string | number;
+  class?: string;
+  is_selected?: boolean;
+};
+
+export interface SelectProps extends React.HTMLProps<HTMLSelectElement> {
+  options: SelectItem[];
+  loading?: boolean;
+  labelStyle?: 'default' | 'floating';
+  labelClassName?: string;
+  selectedOption: any;
+  setSelectedOption: React.Dispatch<React.SetStateAction<any>>;
+}
+
+export interface SliderMenuProps extends React.HTMLProps<HTMLDivElement> {
+  open: boolean;
+  /**
+   * @param {PayloadAction} closePop - PayloadAction or boolean
+   */
+  closePop?: PayloadAction;
+  enableDesktop?: boolean;
+  /**
+   * @param {string} desktopWidth - Mobile width will be full screen, desktop width is determined by tailwind style, for ex: sm:w-96
+   */
+  desktopWidth?: string;
+  className?: string;
+  children: ReactNode;
+}

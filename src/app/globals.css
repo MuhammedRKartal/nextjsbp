@@ -8,6 +8,32 @@ html{
     scroll-behavior: smooth;
 }
 
+html:has(.scroll-lock){
+    @media(max-width: 970px){
+        overflow-y: hidden;
+    }
+}
+
+html:has(.scroll-lock) body {
+    @media(max-width: 970px){
+        overflow-y: hidden;
+    }
+}
+
+html:has(.full-scroll-lock) {
+    @media(max-width: 970px){
+        padding-right: 14px;
+    }
+    overflow-y: hidden
+}
+
+html:has(.full-scroll-lock) body {
+    @media(max-width: 970px){
+        padding-right: 14px;
+    }
+    overflow-y: hidden
+}
+
 main{
     @apply min-h-[400px];
 }
@@ -48,6 +74,22 @@ input[type=number] {
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+.thin-scrollbar::-webkit-scrollbar {
+    width: 7px;
+}
+.thin-scrollbar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb  {
+    background-color: #333B4B;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    background-clip: content-box;
+}
+.thin-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #333B4B;
 }
 
 .k-container {
