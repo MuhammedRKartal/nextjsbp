@@ -2,6 +2,7 @@ import { Button } from '@/components/button';
 import { SliderMenu } from '@/components/slider-menu';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
+import { ROUTES } from '@/routes';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PayloadAction } from '@reduxjs/toolkit';
@@ -35,7 +36,7 @@ export default function AccountPopUp() {
         </header>
         <ul className="text-xs lg:text-sm text-gray-300 mb-3">
           <li>
-            <Link href="/account">My Account</Link>
+            <Link href={ROUTES.ACCOUNT}>My Account</Link>
           </li>
         </ul>
         <footer className="text-xs lg:text-sm text-gray-300">

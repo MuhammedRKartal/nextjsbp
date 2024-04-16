@@ -24,12 +24,6 @@ export default function MiniBasket() {
 
   const { data, status } = useSession();
   const userMail = data?.user?.email;
-  if (basketError) {
-    const status = 'status' in basketError && basketError.status;
-    if (status === 401 && userMail) {
-      signOut();
-    }
-  }
 
   const miniBasketList = useRef();
 

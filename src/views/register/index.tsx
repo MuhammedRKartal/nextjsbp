@@ -12,6 +12,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterFormType } from '@/types';
 import RegisterModal from '@/views/modals/register-modal';
 import { user } from '@/data/urls';
+import { ROUTES } from '@/routes';
 
 export default function Register() {
   const registerValidationSchema = yup.object().shape({
@@ -85,17 +86,19 @@ export default function Register() {
   });
 
   return (
-    <Section>
+    <Section className="h-screen" appearance="full">
       <RegisterModal open={openModal} email={email} setOpen={setOpenModal} />
 
-      <div className="flex flex-col items-center mx-auto mb-6 w-[320px] sm:w-[416px]">
-        <Image
-          src={'/assets/logo-banner.png'}
-          alt="Company"
-          height={52}
-          width={350}
-          aspectRatio={350 / 52}
-        ></Image>
+      <div className="relative top-[15%] flex flex-col items-center mx-auto w-[320px] sm:w-[416px]">
+        <Link href={ROUTES.HOME}>
+          <Image
+            src={'/assets/logo-banner.png'}
+            alt="Company"
+            height={52}
+            width={350}
+            aspectRatio={350 / 52}
+          ></Image>
+        </Link>
         <div className="text-white text-4xl font-extrabold mt-12 mb-14">
           Register
         </div>
@@ -159,7 +162,7 @@ export default function Register() {
         >
           <div>Already a member?</div>
           <Link
-            href={'/login'}
+            href={ROUTES.LOGIN}
             className="text-primary font-extrabold hover:text-primary-dark underline"
           >
             Log In.

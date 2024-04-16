@@ -1,5 +1,6 @@
 'use client';
 
+import { ROUTES } from '@/routes';
 import data from '@/schemas/account-menu.json';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
@@ -29,7 +30,7 @@ export const AccountMenu = (props) => {
       )}
     >
       <h2 className="text-3xl pb-2.5 mb-7 border-b w-max border-secondary-darkest">
-        <Link href="/account">My Account</Link>
+        <Link href={ROUTES.ACCOUNT}>My Account</Link>
       </h2>
       <ul className="w-max text-sm leading-7 [&>:nth-last-child(2)]:border-b [&>:nth-last-child(2)]:pb-2.5 [&>:nth-last-child(2)]:mb-6">
         {data?.map((item: AccountMenuItemType) => (

@@ -115,3 +115,30 @@ export interface UserType {
   verified: boolean;
   date_joined: string;
 }
+
+export type OrderItemType = {
+  createdDate: string;
+  currency: string | null;
+  id: number;
+  order: number;
+  price: string;
+  product: ProductItemType;
+  quantity: number;
+  status: number | null;
+  unit_price: string;
+};
+
+export type OrderType = {
+  basket: number;
+  createdDate: string;
+  currency: string | null;
+  orderId: number;
+  orderItems: OrderItemType;
+  orderNumber: string | null;
+  orderStatus: number;
+  orderStatusLabel: string;
+  paymentOption: string | null;
+  totalAmount: string;
+  user: string;
+  user_email: string;
+};

@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import { SectionProps } from '@/components/types';
+import { twMerge } from 'tailwind-merge';
 
 export const Section = (props: SectionProps) => {
-  const { children, className, tag, appearance } = props;
+  const { children, outerClassName, className, tag, appearance } = props;
   return (
     <div
-      className={clsx(
+      className={twMerge(
         'flex justify-center w-full h-full',
         (!appearance || appearance === 'wide') && ['k-px k-py'],
         appearance === 'thin' && [
@@ -20,27 +21,22 @@ export const Section = (props: SectionProps) => {
           'xl:px-72 xl:pt-10 xl:pb-11',
           'xxl:px-80'
         ],
-        appearance === 'full' && [className ?? className]
+        appearance === 'full' && [],
+        outerClassName
       )}
     >
       {(!tag || tag === 'section') && (
-        <section
-          className={clsx(['w-full', 'k-container', className ?? className])}
-        >
+        <section className={twMerge('w-full', 'k-container', className)}>
           {children}
         </section>
       )}
       {tag === 'div' && (
-        <div
-          className={clsx(['w-full', 'k-container', className ?? className])}
-        >
+        <div className={twMerge('w-full', 'k-container', className)}>
           {children}
         </div>
       )}
-      {tag === 'div' && (
-        <span
-          className={clsx(['w-full', 'k-container', className ?? className])}
-        >
+      {tag === 'span' && (
+        <span className={twMerge('w-full', 'k-container', className)}>
           {children}
         </span>
       )}

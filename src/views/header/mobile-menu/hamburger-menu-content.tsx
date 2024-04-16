@@ -5,6 +5,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import { closeMobileMenu } from '@/redux/reducers/header';
 import { Image } from '@/components/image';
 import Link from 'next/link';
+import { ROUTES } from '@/routes';
 
 export type HeaderNavItemType = {
   title: string;
@@ -16,7 +17,7 @@ export default function HamburgerMenuContent() {
   return (
     <>
       <Link
-        href={'/'}
+        href={ROUTES.HOME}
         onClick={() => {
           dispatch(closeMobileMenu());
         }}

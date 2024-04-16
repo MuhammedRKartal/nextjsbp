@@ -57,9 +57,6 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
         )
       )
       .catch((error) => {
-        if (error.status === 401) {
-          signOut();
-        }
         if (error.status === 400) {
           setUpdateLoading(false);
         }
@@ -92,9 +89,6 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
         }, 1000);
       })
       .catch((error) => {
-        if (error.status === 401) {
-          signOut();
-        }
         if (error.status === 400) {
           setUpdateLoading(false);
         }

@@ -16,6 +16,7 @@ import { useSession } from 'next-auth/react';
 import AccountPopUp from './account-popup';
 import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
 import { useState } from 'react';
+import { ROUTES } from '@/routes';
 
 export type HeaderNavItemType = {
   title: string;
@@ -31,7 +32,7 @@ export default function Megamenu() {
     if (status === 'authenticated') {
       dispatch(openAccountPopUp());
     } else {
-      router.push('/login');
+      router.push(ROUTES.LOGIN);
     }
   };
 

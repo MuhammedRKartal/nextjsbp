@@ -12,12 +12,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { PasswordChangeFormType } from '@/types';
 import { Button } from '@/components/button';
 import { useUpdatePasswordMutation } from '@/data/client/account';
+import { ROUTES } from '@/routes';
 
 export default function ChangePasswordPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   if (status === 'unauthenticated') {
-    router.push('/login');
+    router.push(ROUTES.LOGIN);
   }
 
   const passwordChangeValidationSchema = yup.object().shape({
@@ -138,7 +139,7 @@ export default function ChangePasswordPage() {
             <h3 className="text-3xl">Do you have any questions?</h3>
             <div className="text-sm">
               Check out our{' '}
-              <Link href={'/account/faq'} className="underline">
+              <Link href={ROUTES.FAQ} className="underline">
                 FAQ
               </Link>{' '}
               page.

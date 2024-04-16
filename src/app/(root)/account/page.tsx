@@ -1,4 +1,5 @@
 import { Section } from '@/components/section';
+import { ROUTES } from '@/routes';
 import { AccountInfoBox } from '@/views/account/account-info-box';
 import { AccountMenu } from '@/views/account/account-menu';
 import { Metadata } from 'next';
@@ -15,12 +16,8 @@ export const metadata: Metadata = {
 export default async function Page() {
   const session = await getServerSession();
 
-  if (session?.user) {
-    if (cookies().get('refresh_token')?.value) {
-      redirect('/login');
-    }
-  } else {
-    redirect('/login');
+  if (!session?.user || !cookies().get('refresh_token')?.value) {
+    redirect(ROUTES.LOGIN);
   }
 
   return (
@@ -31,7 +28,7 @@ export default async function Page() {
           <p className="text-sm mb-8">
             Our point system is going to be awailable soon.
           </p>
-          <Link href={'/account'} className="font-bold mt-auto underline">
+          <Link href={ROUTES.PRODUCTS} className="font-bold mt-auto underline">
             Continue Shopping
           </Link>
         </AccountInfoBox>
@@ -41,7 +38,7 @@ export default async function Page() {
             our RocketChat app. You can log in with the credentials of WoWTasker
             website.
           </p>
-          <Link href={'/account'} className="text-xl font-bold mt-auto">
+          <Link href={ROUTES.ACCOUNT} className="text-xl font-bold mt-auto">
             RocketChat
           </Link>
         </AccountInfoBox>

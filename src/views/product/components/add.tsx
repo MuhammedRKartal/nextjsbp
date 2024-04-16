@@ -5,6 +5,7 @@ import { basketApi, useGetBasketQuery } from '@/data/client/basket';
 import { useAddProductMutation } from '@/data/client/product';
 import { useAppDispatch } from '@/redux/hooks';
 import { openMiniBasket, setHighlightedItem } from '@/redux/reducers/pop-ups';
+import { ROUTES } from '@/routes';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
 import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,7 +30,7 @@ export const Add = (props) => {
 
   const onClickAction = async (product) => {
     if (status === 'unauthenticated') {
-      router.push('/login');
+      router.push(ROUTES.LOGIN);
     } else {
       setLoading(true);
       await addProduct({
@@ -59,9 +60,6 @@ export const Add = (props) => {
           }, 500);
         })
         .catch((error) => {
-          if (error.status === 401) {
-            signOut();
-          }
           if (error.status === 400) {
             setLoading(false);
             setErrorMessage(error.data.error);

@@ -46,6 +46,7 @@ export interface SectionProps {
   children: React.ReactNode;
   tag?: 'section' | 'div' | 'span' | 'main';
   appearance?: 'thinnest' | 'thin' | 'wide' | 'full';
+  outerClassName?: string;
   className?: string;
 }
 

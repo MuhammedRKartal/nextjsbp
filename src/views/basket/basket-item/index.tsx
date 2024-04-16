@@ -25,8 +25,6 @@ export default function BasketItem(props) {
   const [selectedOption, setSelectedOption] = useState(basketItem.quantity);
   const [updateLoading, setUpdateLoading] = useState(false);
 
-  console.log(selectedOption);
-
   const [updateQuantityMutation] = useUpdateQuantityMutation();
   const dispatch = useAppDispatch();
 
@@ -46,12 +44,7 @@ export default function BasketItem(props) {
             }
           )
         )
-      )
-      .catch((error) => {
-        if (error.status === 401) {
-          signOut();
-        }
-      });
+      );
   };
 
   const updateItemQuantity = (quantity: number) => {
@@ -76,9 +69,6 @@ export default function BasketItem(props) {
         }, 1000);
       })
       .catch((error) => {
-        if (error.status === 401) {
-          signOut();
-        }
         if (error.status === 400) {
           setUpdateLoading(false);
         }

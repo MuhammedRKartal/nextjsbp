@@ -9,17 +9,16 @@ import * as yup from 'yup';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginFormType } from '@/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SignInOptions, signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { user } from '@/data/urls';
+import { ROUTES } from '@/routes';
 
 const Login = () => {
   const [isloading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
-
-  const router = useRouter();
 
   const loginValidationSchema = yup.object().shape({
     email: yup
@@ -60,15 +59,17 @@ const Login = () => {
   };
 
   return (
-    <Section>
-      <div className="flex flex-col items-center mx-auto mb-6 w-[320px] sm:w-[416px]">
-        <Image
-          src={'/assets/logo-banner.png'}
-          alt="Company"
-          height={52}
-          width={350}
-          aspectRatio={350 / 52}
-        ></Image>
+    <Section className="h-screen" appearance="full">
+      <div className="relative top-[15%] flex flex-col items-center mx-auto w-[320px] sm:w-[416px]">
+        <Link href={ROUTES.HOME}>
+          <Image
+            src={'/assets/logo-banner.png'}
+            alt="Company"
+            height={52}
+            width={350}
+            aspectRatio={350 / 52}
+          ></Image>
+        </Link>
         <div className="text-white text-4xl font-extrabold mt-12 mb-14">
           Log In
         </div>
@@ -98,6 +99,11 @@ const Login = () => {
               value="login"
               {...register('formType')}
             />
+            {error && (
+              <div className="text-error font-bold text-sm text-center">
+                {errorText}
+              </div>
+            )}
           </div>
           <Button
             type="submit"
@@ -115,7 +121,7 @@ const Login = () => {
         >
           <div>Not a member yet?</div>
           <Link
-            href={'/register'}
+            href={ROUTES.REGISTER}
             className="text-primary font-extrabold hover:text-primary-dark underline"
           >
             Register.

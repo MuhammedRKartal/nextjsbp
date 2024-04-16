@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth, { AuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { getCookie } from 'cookies-next';
-import { URLS } from '@/data/urls';
+import { URLS, user } from '@/data/urls';
 
 async function getCurrentUser(refresh_token) {
   const headers = {
@@ -49,7 +49,24 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
           headers.set('Content-Type', 'application/json');
           headers.set('auth_token', `${process.env.AUTH_TOKEN}`);
 
-          const sessionId = getCookie('refresh_token', { req, res });
+          const apiRequest = await fetch(
+            `${process.env.BACKEND_URL}${user[credentials.formType]}`,
+            {
+              method: 'POST',
+              headers,
+              body: JSON.stringify(credentials)
+            }
+          );
+
+          let sessionId = '';
+          const setCookieHeader = apiRequest.headers.get('set-cookie');
+          if (setCookieHeader) {
+            sessionId =
+              setCookieHeader
+                .split(`;`)
+                ?.find((item) => item.includes('refresh_token'))
+                .split('refresh_token=')[1] || '';
+          }
 
           const currentUser = await getCurrentUser(sessionId);
           return currentUser;

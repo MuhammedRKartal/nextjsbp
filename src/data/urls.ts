@@ -1,15 +1,15 @@
 export const account = {
-  orders: '/web/user/orders',
+  orders: '/web/orders',
   orderId: (id: string | string[]) => `/web/user/order/${id}`,
   updatePassword: '/web/user/password/change',
   updateNotifications: '/web/user/update-notifications'
 };
 
 export const basket = {
-  getBasket: '/web/basket/get-basket',
+  getBasket: '/web/basket/getbasket',
   updateQuantity: '/web/basket/update-quantity',
   clearBasket: '/web/basket/clear-basket',
-  addProduct: '/web/basket/add-item-to-basket'
+  addProduct: '/web/basket/additemtobasket'
 };
 
 export const product = {
@@ -19,7 +19,7 @@ export const product = {
 
 export const user = {
   currentUser: '/web/currentuser',
-  login: '/web/user/login',
+  login: '/web/login',
   register: '/web/user/register',
   confirmRegistration: '/web/user/confirm-registration',
   profile: '/web/user/profile'
