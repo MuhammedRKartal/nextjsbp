@@ -22,14 +22,15 @@ export const AccountMenu = (props) => {
   return (
     <div
       className={twMerge(
-        'text-white border pt-10 pb-6 pr-24 pl-8 w-fit h-[75vh] border-secondary-darkest',
+        'text-white whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[75vh] border-secondary-darkest hidden md:block',
+        'lg:pr-24',
         className
       )}
     >
-      <h2 className="text-2xl pb-2.5 mb-7 border-b border-secondary-darkest">
-        My Account
+      <h2 className="text-3xl pb-2.5 mb-7 border-b w-max border-secondary-darkest">
+        <Link href="/account">My Account</Link>
       </h2>
-      <ul className="text-sm leading-7 [&>:nth-last-child(2)]:border-b [&>:nth-last-child(2)]:pb-2.5 [&>:nth-last-child(2)]:mb-6">
+      <ul className="w-max text-sm leading-7 [&>:nth-last-child(2)]:border-b [&>:nth-last-child(2)]:pb-2.5 [&>:nth-last-child(2)]:mb-6">
         {data?.map((item: AccountMenuItemType) => (
           <li key={item.main_title} className="border-secondary-darkest ">
             {item?.is_link ? (
@@ -37,7 +38,7 @@ export const AccountMenu = (props) => {
             ) : (
               <div className="">{item?.main_title}</div>
             )}
-            <ul className="pl-5">
+            <ul className="pl-5 w-max">
               {item?.sub_titles?.map((subtitle: AccountMenuSubtitleType) => (
                 <li key={subtitle?.title} className="">
                   {subtitle?.is_link ? (

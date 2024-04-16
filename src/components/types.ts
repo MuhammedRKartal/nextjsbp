@@ -15,6 +15,7 @@ export interface ButtonProps
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   label?: string;
   labelStyle?: 'outer' | 'inner' | 'floating';
+  labelClassName?: string;
   error?: FieldError | undefined;
   control?: Control<any, any>;
   required?: boolean;
@@ -28,6 +29,8 @@ export interface InputLabelProps extends React.HTMLProps<HTMLInputElement> {
   required: boolean;
   disabled: boolean;
   id: string | undefined;
+  className: string;
+  hasError?: boolean;
 }
 
 export interface SectionProps {

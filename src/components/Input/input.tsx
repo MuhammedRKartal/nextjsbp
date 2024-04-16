@@ -23,6 +23,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     type,
     required = false,
     disabled = false,
+    labelClassName,
     ...rest
   } = props;
 
@@ -31,8 +32,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const isPassword = type && type === 'password';
 
   const inputClass = clsx(
-    'bg-transparent text-base min-w-[320px] max-w-[320px] text-white border px-3 h-10 rounded my-[3px] transition duration-200',
-    'sm:min-w-[416px] sm:max-w-[416px]',
+    'bg-transparent text-base w-full text-white border px-3 h-10 rounded my-[3px] transition duration-200',
     'placeholder:text-gray-400',
     'hover:border-primary-dark',
     'active:border-primary-dark',
@@ -58,7 +58,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
 
   return (
     <>
-      <div className="relative flex flex-col transition-all w-fit ">
+      <div className="relative flex flex-col transition-all w-full">
         {!hasPlaceholder && (
           <InputLabel
             label={label}
@@ -68,6 +68,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             required={required}
             disabled={disabled}
             id={id}
+            className={labelClassName}
+            hasError={error ? true : false}
           />
         )}
         <div className="relative">
@@ -104,10 +106,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             </Button>
           )}
         </div>
+        {error && (
+          <span className="-mt-1 text-sm text-error">{error.message}</span>
+        )}
       </div>
-      {error && (
-        <span className="-mt-1 text-sm text-error">{error.message}</span>
-      )}
     </>
   );
 });

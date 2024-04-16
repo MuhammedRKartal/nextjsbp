@@ -41,7 +41,7 @@ html:has(.full-scroll-lock) body {
 }
 
 main{
-    @apply min-h-[400px];
+    @apply min-h-[400px] overflow-x-hidden;
 }
 
 input:-webkit-autofill,

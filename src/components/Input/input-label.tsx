@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { InputLabelProps } from '@/components/types';
+import { twMerge } from 'tailwind-merge';
 
 export const InputLabel: React.FC<InputLabelProps> = ({
   label,
@@ -9,7 +10,9 @@ export const InputLabel: React.FC<InputLabelProps> = ({
   hasValue,
   required,
   disabled,
-  id
+  id,
+  className,
+  hasError
 }) => {
   const floating = labelStyle === 'floating';
   const outer = labelStyle === 'outer';
@@ -17,23 +20,26 @@ export const InputLabel: React.FC<InputLabelProps> = ({
   return (
     <label
       htmlFor={id}
-      className={clsx(
+      className={twMerge(
         'text-base leading-[1] text-gray-400 transition-all duration-900',
         disabled && 'opacity-40 pointer-events-none',
-        {
-          'absolute left-3 pointer-events-none transform': floating
-        },
-        {
-          '-translate-y-[-20px]': floating && !(focused || hasValue)
-        },
-        { 'mb-1': outer },
-        {
-          '-translate-y-[-12px] !text-[9px]': floating && (focused || hasValue)
-        },
-        { 'top-1/3': outer && !(focused || hasValue) }
+        floating && 'absolute left-3 pointer-events-none transform',
+        floating && !(focused || hasValue) && '-translate-y-[-20px]',
+        outer && 'mb-1',
+        floating && (focused || hasValue) && '-translate-y-[-12px] !text-[9px]',
+        outer && !(focused || hasValue) && 'top-1/3',
+        hasError && 'text-error',
+        className
       )}
     >
-      {label} {required && <span className="text-secondary">*</span>}
+      {label}{' '}
+      {required && (
+        <span
+          className={twMerge('text-secondary', hasError ? 'text-error' : '')}
+        >
+          *
+        </span>
+      )}
     </label>
   );
 };

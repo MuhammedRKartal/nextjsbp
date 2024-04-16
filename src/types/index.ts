@@ -91,6 +91,12 @@ export type LoginFormType = {
   formType: string;
 };
 
+export type PasswordChangeFormType = {
+  current_password: string;
+  new_password: string;
+  confirm_password: string;
+};
+
 export interface AuthError {
   type: string;
   data?: any;

@@ -16,9 +16,9 @@ export default function Page() {
   }
 
   return (
-    <Section appearance="thin" className="flex gap-5">
-      <AccountMenu className="w-[calc(25%-10px)]" />
-      <div className="flex gap-3 w-[calc(75%-10px)] ">
+    <Section className="flex gap-5 items-start">
+      <AccountMenu />
+      <div className="flex flex-wrap gap-3 w-full md:flex-nowrap">
         <AccountInfoBox title={'WowTasker Points'}>
           <p className="text-sm mb-8">
             Our point system is going to be awailable soon.
@@ -28,7 +28,7 @@ export default function Page() {
           </Link>
         </AccountInfoBox>
         <AccountInfoBox title={'Contact Us'}>
-          <p className="text-sm mb-8">
+          <p className="text-sm mb-20">
             To share your opinion, suggesion or complaint, you can reach us via
             our RocketChat app. You can log in with the credentials of WoWTasker
             website.
