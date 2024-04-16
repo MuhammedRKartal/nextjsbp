@@ -6,6 +6,7 @@ import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
 
 export default function AccountPopUp() {
   const { openAccountPopUp: accountPopUpOpen } = useAppSelector(
@@ -33,7 +34,9 @@ export default function AccountPopUp() {
           <h3 className="text-xs lg:text-sm">{`Hi, ${user}`}</h3>
         </header>
         <ul className="text-xs lg:text-sm text-gray-300 mb-3">
-          <li>My Account</li>
+          <li>
+            <Link href="/account">My Account</Link>
+          </li>
         </ul>
         <footer className="text-xs lg:text-sm text-gray-300">
           <div className="hover:cursor-pointer w-fit" onClick={onClickSignOut}>
