@@ -52,7 +52,7 @@ const customBaseQuery: BaseQueryFn<
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: retry(customBaseQuery, { maxRetries: 1 }),
-  tagTypes: ['Basket', 'Product'],
+  tagTypes: ['Basket', 'Product', 'Profile'],
   endpoints: () => ({})
 });
 

@@ -1,18 +1,26 @@
-'use client';
-
 import { Section } from '@/components/section';
 import { AccountInfoBox } from '@/views/account/account-info-box';
 import { AccountMenu } from '@/views/account/account-menu';
-import clsx from 'clsx';
-import { useSession } from 'next-auth/react';
+import { Metadata } from 'next';
+import { getServerSession } from 'next-auth';
+import { cookies } from 'next/headers';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { redirect } from 'next/navigation';
 
-export default function Page() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-  if (status === 'unauthenticated') {
-    router.push('/login');
+export const metadata: Metadata = {
+  title: 'My Account',
+  description: 'Account Page'
+};
+
+export default async function Page() {
+  const session = await getServerSession();
+
+  if (session?.user) {
+    if (cookies().get('refresh_token')?.value) {
+      redirect('/login');
+    }
+  } else {
+    redirect('/login');
   }
 
   return (

@@ -12,6 +12,15 @@ export interface ButtonProps
   isloading?: string | boolean;
 }
 
+export interface CheckboxProps extends React.HTMLProps<HTMLInputElement> {
+  inputClassName?: string;
+  inputWidth?: number | Array<number>;
+  inputHeight?: number | Array<number>;
+  error?: FieldError | undefined;
+  appearance?: 'square' | 'circle';
+  tick?: boolean;
+}
+
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   label?: string;
   labelStyle?: 'outer' | 'inner' | 'floating';

@@ -1,5 +1,5 @@
 import { Section } from '@/components/section';
-import { product } from '@/data/urls';
+import { URLS, product } from '@/data/urls';
 import { PageProps, ProductItemType } from '@/types';
 import ProductPage from '@/views/product/product-page';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -12,9 +12,12 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const id = params.pk;
   const product = await (
-    await fetch(`${process.env.BACKEND_URL}/web/products/${id}`, {
-      method: 'GET'
-    })
+    await fetch(
+      `${process.env.BACKEND_URL}${URLS.product.getProductByPk(id)}`,
+      {
+        method: 'GET'
+      }
+    )
   ).json();
 
   return {
@@ -36,11 +39,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProductDetail({
   params
-}: PageProps<{ pk: Number }>) {
+}: PageProps<{ pk: string }>) {
   const data = await (
-    await fetch(`${process.env.BACKEND_URL}${product.products}/${params.pk}`, {
-      method: 'GET'
-    })
+    await fetch(
+      `${process.env.BACKEND_URL}${URLS.product.getProductByPk(params.pk)}`,
+      {
+        method: 'GET'
+      }
+    )
   ).json();
 
   return (

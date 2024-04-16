@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import NextAuth, { AuthOptions, Session } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { getCookie } from 'cookies-next';
+import { URLS } from '@/data/urls';
 
 async function getCurrentUser(refresh_token) {
   const headers = {
@@ -11,7 +12,7 @@ async function getCurrentUser(refresh_token) {
   };
 
   const currentUser = await (
-    await fetch(`${process.env.BACKEND_URL}/web/currentuser`, {
+    await fetch(`${process.env.BACKEND_URL}${URLS.user.currentUser}`, {
       method: 'GET',
       headers
     })

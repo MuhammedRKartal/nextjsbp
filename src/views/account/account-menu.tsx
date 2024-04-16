@@ -1,5 +1,6 @@
+'use client';
+
 import data from '@/schemas/account-menu.json';
-import clsx from 'clsx';
 import { signOut } from 'next-auth/react';
 import Link from 'next/link';
 import { twMerge } from 'tailwind-merge';
@@ -22,7 +23,7 @@ export const AccountMenu = (props) => {
   return (
     <div
       className={twMerge(
-        'text-white whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[75vh] border-secondary-darkest hidden md:block',
+        'text-white whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[60vh] border-secondary-darkest hidden md:block',
         'lg:pr-24',
         className
       )}

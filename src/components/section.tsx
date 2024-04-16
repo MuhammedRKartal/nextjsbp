@@ -6,7 +6,7 @@ export const Section = (props: SectionProps) => {
   return (
     <div
       className={clsx(
-        'flex justify-center',
+        'flex justify-center w-full h-full',
         (!appearance || appearance === 'wide') && ['k-px k-py'],
         appearance === 'thin' && [
           'px-5 pt-6 pb-8',

@@ -1,49 +1,35 @@
-const API_URL = 'backend';
+export const account = {
+  orders: '/web/user/orders',
+  orderId: (id: string | string[]) => `/web/user/order/${id}`,
+  updatePassword: '/web/user/password/change',
+  updateNotifications: '/web/user/update-notifications'
+};
 
 export const basket = {
-  getBasket: '/web/basket/getbasket',
-  updateQuantity: '/web/basket/updateQuantity',
-  clearBasket: '/web/basket/clearbasket'
+  getBasket: '/web/basket/get-basket',
+  updateQuantity: '/web/basket/update-quantity',
+  clearBasket: '/web/basket/clear-basket',
+  addProduct: '/web/basket/add-item-to-basket'
 };
 
 export const product = {
   products: '/web/products',
-  getProductByPk: (pk: number) => `/web/products/${pk}`,
-  addProduct: '/web/basket/additemtobasket'
+  getProductByPk: (pk: string) => `/web/products/${pk}`
 };
 
 export const user = {
   currentUser: '/web/currentuser',
-  login: '/web/login',
-  register: '/web/register',
-  confirmRegistration: '/web/confirmregistration',
-  logout: '/users/logout',
-  profiles: '/users/profile',
-  forgotPassword: '/users/password/reset'
+  login: '/web/user/login',
+  register: '/web/user/register',
+  confirmRegistration: '/web/user/confirm-registration',
+  profile: '/web/user/profile'
 };
 
 const URLS = {
   basket,
   product,
-  user
+  user,
+  account
 };
-
-const UrlProxyHandler = {
-  get(target, prop, receiver) {
-    if (typeof target[prop] === 'function') {
-      return new Proxy(target[prop], {
-        apply(target, thisArgs, argumentList) {
-          return `${API_URL}${target(...argumentList)}`;
-        }
-      });
-    }
-
-    return `${API_URL}${target[prop]}`;
-  }
-};
-
-Object.keys(URLS).forEach((key) => {
-  URLS[key] = new Proxy(URLS[key], UrlProxyHandler);
-});
 
 export { URLS };

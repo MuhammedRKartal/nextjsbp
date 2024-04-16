@@ -97,12 +97,16 @@ export type PasswordChangeFormType = {
   confirm_password: string;
 };
 
+export type NotificationChangeFormType = {
+  email_allowed: boolean;
+};
+
 export interface AuthError {
   type: string;
   data?: any;
 }
 
-export interface UpgradedUserType {
+export interface UserType {
   id: string;
   email: string;
   name: string;
@@ -110,5 +114,4 @@ export interface UpgradedUserType {
   eula_accepted: boolean;
   verified: boolean;
   date_joined: string;
-  refreshToken: string;
 }

@@ -2,10 +2,8 @@
 
 import { Input } from '@/components/Input/input';
 import { Section } from '@/components/section';
-import { AccountInfoBox } from '@/views/account/account-info-box';
 import { AccountMenu } from '@/views/account/account-menu';
 import * as yup from 'yup';
-import clsx from 'clsx';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -13,6 +11,7 @@ import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { PasswordChangeFormType } from '@/types';
 import { Button } from '@/components/button';
+import { useUpdatePasswordMutation } from '@/data/client/account';
 
 export default function ChangePasswordPage() {
   const { data: session, status } = useSession();
@@ -64,6 +63,8 @@ export default function ChangePasswordPage() {
       })
   });
 
+  const [updatePassword] = useUpdatePasswordMutation();
+
   const {
     register,
     handleSubmit,
@@ -77,17 +78,23 @@ export default function ChangePasswordPage() {
   });
 
   const onSubmit: SubmitHandler<PasswordChangeFormType> = async (data) => {
-    console.log(data);
+    const formData = JSON.stringify(data);
+
+    await updatePassword(data)
+      .unwrap()
+      .then((data) => console.log(data));
   };
 
   return (
     <Section className="flex gap-5 items-start">
       <AccountMenu />
       <div className="w-full text-white">
-        <h3 className="text-3xl mb-4">Change Password</h3>
+        <header>
+          <h3 className="text-3xl mb-4">Change Password</h3>
+        </header>
         <div className="flex flex-col gap-7 xl:flex-row xl:w-full xl:flex-wrap">
           <div className="flex-[60]">
-            <div className="flex flex-col gap-5 px-7 py-6 border  xl:px-24 xl:py-16">
+            <div className="flex flex-col gap-5 px-7 py-6 border sm:px-24 sm:py-16 md:px-12 md:py-8 lg:px-24 lg:py-16">
               <form
                 className="flex flex-col gap-5"
                 onSubmit={handleSubmit(onSubmit)}
