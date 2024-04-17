@@ -70,7 +70,7 @@ export default function ChangeNotificationsPage() {
             </header>
             <div className="flex flex-col gap-7 xl:flex-row xl:w-full xl:flex-wrap">
               <div className="flex-[60]">
-                <div className="flex flex-col gap-5 px-7 py-6 border 2xl:px-24 2xl:py-16">
+                <div className="flex flex-col gap-5 px-7 py-6 border sm:px-24 sm:py-16 md:px-12 md:py-8 lg:px-24 lg:py-16 xl:px-12 xl:py-8 2xl:px-24 2xl:py-16">
                   <form
                     className="flex flex-col gap-5"
                     onSubmit={handleSubmit(onSubmit)}

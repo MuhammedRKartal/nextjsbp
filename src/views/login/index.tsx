@@ -5,13 +5,12 @@ import { Image } from '@/components/image';
 import { Input } from '@/components/Input/input';
 import { Section } from '@/components/section';
 import Link from 'next/link';
-import * as yup from 'yup';
+import { string, object } from 'yup';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { LoginFormType } from '@/types';
-import { useEffect, useState } from 'react';
-import { SignInOptions, signIn, useSession } from 'next-auth/react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
+import { SignInOptions, signIn } from 'next-auth/react';
 import { user } from '@/data/urls';
 import { ROUTES } from '@/routes';
 
@@ -20,13 +19,12 @@ const Login = () => {
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
 
-  const loginValidationSchema = yup.object().shape({
-    email: yup
-      .string()
+  const loginValidationSchema = object().shape({
+    email: string()
       .email('Please enter a valid e-mail.')
       .required('This field is required.'),
-    password: yup.string().required('This field is required.'),
-    formType: yup.string()
+    password: string().required('This field is required.'),
+    formType: string()
   });
 
   const {

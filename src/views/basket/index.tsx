@@ -1,6 +1,4 @@
 import { Section } from '@/components/section';
-import { basket } from '@/data/urls';
-import { getCookie } from 'cookies-next';
 import BasketItem from './basket-item';
 import BasketSummary from './summary';
 import clsx from 'clsx';
@@ -12,11 +10,6 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { Loader } from '@/components/loader';
 
 export default function Basket() {
-  const refresh_token = getCookie('refresh_token');
-  const headers = {
-    Cookie: `refresh_token=${refresh_token}`,
-    'Content-Type': 'application/json'
-  };
   const {
     data: basket,
     isSuccess,

@@ -3,7 +3,7 @@
 import { Input } from '@/components/Input/input';
 import { Section } from '@/components/section';
 import { AccountMenu } from '@/views/account/account-menu';
-import * as yup from 'yup';
+import { string, object } from 'yup';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -21,9 +21,8 @@ export default function ChangePasswordPage() {
     router.push(ROUTES.LOGIN);
   }
 
-  const passwordChangeValidationSchema = yup.object().shape({
-    current_password: yup
-      .string()
+  const passwordChangeValidationSchema = object().shape({
+    current_password: string()
       .required('This field is required.')
       .min(8, 'Password must contain min 8 characters.')
       .max(30, 'Password must contain max 30 characters.')
@@ -31,8 +30,7 @@ export default function ChangePasswordPage() {
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\\.@$!%*?&])[A-Za-z\d\\.@$!%*?&]{8,30}$/,
         'Password must contain a capital letter and a spacial character.'
       ),
-    new_password: yup
-      .string()
+    new_password: string()
       .required('This field is required.')
       .min(8, 'Password must contain min 8 characters.')
       .max(30, 'Password must contain max 30 characters.')
@@ -47,8 +45,7 @@ export default function ChangePasswordPage() {
           return this.parent.current_password !== value;
         }
       ),
-    confirm_password: yup
-      .string()
+    confirm_password: string()
       .required('This field is required.')
       .min(8, 'Password must contain min 8 characters.')
       .max(30, 'Password must contain max 30 characters.')

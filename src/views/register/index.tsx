@@ -6,7 +6,7 @@ import { Input } from '@/components/Input/input';
 import { Section } from '@/components/section';
 import { Image } from '@/components/image';
 import Link from 'next/link';
-import * as yup from 'yup';
+import { string, object } from 'yup';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterFormType } from '@/types';
@@ -15,18 +15,15 @@ import { user } from '@/data/urls';
 import { ROUTES } from '@/routes';
 
 export default function Register() {
-  const registerValidationSchema = yup.object().shape({
-    email: yup
-      .string()
+  const registerValidationSchema = object().shape({
+    email: string()
       .email('Please enter a valid e-mail.')
       .required('This field is required.'),
-    username: yup
-      .string()
+    username: string()
       .required('This field is required.')
       .min(6, 'Username must contain at least 6 characters.')
       .max(30, 'Username must contain max 30 characters.'),
-    password: yup
-      .string()
+    password: string()
       .required('This field is required.')
       .min(8, 'Password must contain min 8 characters.')
       .max(30, 'Password must contain max 30 characters.')
@@ -34,15 +31,14 @@ export default function Register() {
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\\.@$!%*?&])[A-Za-z\d\\.@$!%*?&]{8,30}$/,
         'Password must contain a capital letter and a spacial character.'
       ),
-    password_confirm: yup
-      .string()
+    password_confirm: string()
       .required('This field is required.')
       .min(8, 'Password must contain min 8 characters.')
       .max(30, 'Password must contain max 30 characters.')
       .test('passwords-match', 'Passwords are not matching.', function (value) {
         return this.parent.password === value;
       }),
-    formType: yup.string()
+    formType: string()
   });
 
   const [email, setEmail] = useState('');
