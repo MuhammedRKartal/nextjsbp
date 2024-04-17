@@ -14,6 +14,8 @@ export const AccordionItem = ({
   children,
   className,
   titleClassName,
+  activeTitleClassName,
+  activeClassName,
   iconClassName,
   showIcon
 }: AccordionItemProps) => {
@@ -33,7 +35,9 @@ export const AccordionItem = ({
           <h3
             className={twMerge(
               'text-sm',
-              isActive ? 'mb-2' : '',
+              isActive ? `mb-2` : '',
+              isActive ? `${activeTitleClassName}` : '',
+
               titleClassName
             )}
           >
@@ -53,7 +57,8 @@ export const AccordionItem = ({
       <div
         className={twMerge(
           'transition-[height] duration-200 ease-in-out text-sm overflow-auto no-scrollbar mx-0.5',
-          isActive ? 'h-12' : 'h-0 ',
+          isActive ? `h-12` : 'h-0 ',
+          isActive ? `${activeClassName}` : '',
           className
         )}
       >

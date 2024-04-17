@@ -67,12 +67,6 @@ img, video {
     max-width: unset;
 }
 
-/* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
-
 .no-scrollbar::-webkit-scrollbar {
     display: none;
 }

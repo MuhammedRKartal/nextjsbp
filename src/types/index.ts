@@ -48,6 +48,8 @@ export type ProductItemType = {
   currency_type: string;
   currency_symbol: string;
   in_stock: boolean;
+  os_compatibility: string | null;
+  duration: string | null;
 };
 
 export interface BasketItemType {
@@ -133,7 +135,7 @@ export type OrderType = {
   createdDate: string;
   currency: string | null;
   orderId: number;
-  orderItems: OrderItemType;
+  orderItems: OrderItemType[];
   orderNumber: string | null;
   orderStatus: number;
   orderStatusLabel: string;
@@ -141,4 +143,60 @@ export type OrderType = {
   totalAmount: string;
   user: string;
   user_email: string;
+};
+
+export type CheckoutType = {
+  basket: number;
+  createdDate: string;
+  currency: string | null;
+  orderId: number;
+  orderItems: OrderItemType[];
+  orderNumber: string | null;
+  orderStatus: number;
+  orderStatusLabel: string;
+  paymentOption: string | null;
+  totalAmount: string;
+  user: string;
+  user_email: string;
+  invoice: InvoiceType;
+};
+
+export type InvoiceType = {
+  additionalStatus: string;
+  amount: string;
+  archived: boolean;
+  availableStatusesForManualMarking: string[];
+  checkout: CheckoutOptionsType;
+  checkoutLink: string;
+  createdTime: number;
+  currency: string;
+  expirationTime: number;
+  id: string;
+  metadata: Object;
+  monitoringExpiration: number;
+  receipt: ReceiptType;
+  status: string;
+  storeId: string;
+  type: string;
+};
+
+export type ReceiptType = {
+  enabled: null;
+  showPayments: null;
+  showQR: null;
+};
+
+export type CheckoutOptionsType = {
+  checkoutType: null;
+  defaultLanguage: null;
+  defaultPaymentMethod: string;
+  expirationMinutes: number;
+  lazyPaymentMethods: null;
+  monitoringMinutes: number;
+  paymentMethods: string[];
+  paymentTolerance: number;
+  redirectAutomatically: boolean;
+  redirectURL: null;
+  requiresRefundEmail: null;
+  speedPolicy: string;
 };

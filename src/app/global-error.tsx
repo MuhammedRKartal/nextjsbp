@@ -31,7 +31,7 @@ export default function GlobalError({
               )}
             >
               <Image
-                src={'/assets/wowl.png'}
+                src={'/assets/WoWTaskerMinimized.png'}
                 alt="Company Logo"
                 height={70}
                 width={70}

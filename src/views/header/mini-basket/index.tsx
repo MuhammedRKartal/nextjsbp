@@ -8,6 +8,7 @@ import MiniBasketItem from './mini-basket-item';
 import { Button } from '@/components/button';
 import { signOut, useSession } from 'next-auth/react';
 import { SliderMenu } from '@/components/slider-menu';
+import { twMerge } from 'tailwind-merge';
 
 export default function MiniBasket() {
   const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(
@@ -60,7 +61,7 @@ export default function MiniBasket() {
   return (
     <>
       <div
-        className={clsx(
+        className={twMerge(
           miniBasketOpen
             ? 'opacity-100 visible lg:opacity-0'
             : 'opacity-0 invisible',

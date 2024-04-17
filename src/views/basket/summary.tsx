@@ -3,6 +3,7 @@
 import { Price } from '@/components/price';
 import { Button } from '@/components/button';
 import clsx from 'clsx';
+import { ROUTES } from '@/routes';
 
 export default function BasketSummary(props) {
   const { total_amount, total_quantity, currency_symbol } = props;
@@ -35,7 +36,9 @@ export default function BasketSummary(props) {
         <span>{`Total`}</span>
         <Price value={total_amount} currency={currency_symbol} />
       </div>
-      <Button className="w-full text-base font-bold">Checkout</Button>
+      <Button className="w-full text-base font-bold" link={ROUTES.CHECKOUT}>
+        Checkout
+      </Button>
     </>
   );
 }

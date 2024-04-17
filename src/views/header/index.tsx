@@ -11,7 +11,7 @@ export default function Header() {
     <>
       <header
         id="header"
-        className={clsx('w-full sticky h-full top-0 z-10', 'md:top-4')}
+        className={clsx('w-full sticky h-full top-0 z-50', 'md:top-4')}
       >
         <div
           className={clsx(

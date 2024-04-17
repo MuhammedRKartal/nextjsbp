@@ -132,14 +132,34 @@ export interface PriceProps {
 export type AccordionItemProps = {
   active: number;
   accordionId: number;
-  isCollapse?: boolean;
   title?: string;
   showIcon?: boolean;
   children?: ReactNode;
   className?: string;
   titleClassName?: string;
+  activeClassName?: string;
+  activeTitleClassName?: string;
   iconClassName?: string;
   handleToggle: (index: any) => void;
+};
+
+export type TabTitleProps = {
+  title: string;
+  id: number;
+};
+
+export type TabItemProps = {
+  active: number;
+  tabId: number;
+  title: string;
+  handleToggle: (index: any) => void;
+  className?: string;
+};
+
+export type TabContentProps = {
+  active: number;
+  tabId: number;
+  children?: ReactNode;
 };
 
 export type SelectItem = {

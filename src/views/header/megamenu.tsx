@@ -60,7 +60,7 @@ export default function Megamenu() {
           linkclassname="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0"
         >
           <Image
-            src={'/assets/wowl.png'}
+            src={'/assets/WoWTaskerMinimized.png'}
             alt="wow"
             height={30}
             width={30}

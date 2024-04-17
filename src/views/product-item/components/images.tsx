@@ -12,6 +12,7 @@ import { twMerge } from 'tailwind-merge';
 
 export const Images = (props) => {
   const { product } = props;
+  console.log(product);
 
   const paginationSettings = {
     clickable: true,
@@ -41,14 +42,16 @@ export const Images = (props) => {
             'flex w-full relative items-center justify-center rounded-lg overflow-hidden'
           )}
         >
-          <Image
-            src={item.url}
-            alt={item.alt_text}
-            fill
-            sizes="(max-width:720px)170px, 230px"
-            aspectRatio={150 / 175}
-            objectType="object-cover"
-          ></Image>
+          {item.url && item.alt_text && (
+            <Image
+              src={item.url}
+              alt={item.alt_text}
+              fill
+              sizes="(max-width:720px)170px, 230px"
+              aspectRatio={150 / 175}
+              objectType="object-cover"
+            ></Image>
+          )}
         </SwiperSlide>
       ))}
       <ProductItemCustomPagination />

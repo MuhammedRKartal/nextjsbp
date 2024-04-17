@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     siteName: 'Next BPK',
     images: [
       {
-        url: '/assets/wowl.png',
+        url: '/assets/WoWTaskerMinimized.png',
         width: 400,
         height: 400
       }

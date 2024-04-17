@@ -3,6 +3,11 @@ enum GENERAL_ROUTES {
   PRODUCTS = '/products'
 }
 
+enum ORDERS_ROUTES {
+  CHECKOUT = '/orders/checkout',
+  COMPLETE = '/orders/complete'
+}
+
 enum AUTH_ROUTES {
   LOGIN = '/login',
   REGISTER = '/register',
@@ -20,5 +25,6 @@ enum ACCOUNT_ROUTES {
 export const ROUTES = {
   ...GENERAL_ROUTES,
   ...AUTH_ROUTES,
-  ...ACCOUNT_ROUTES
+  ...ACCOUNT_ROUTES,
+  ...ORDERS_ROUTES
 };

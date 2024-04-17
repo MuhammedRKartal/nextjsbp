@@ -13,13 +13,13 @@ interface GetOrdersResponse {
 }
 
 export const accountApi = api.injectEndpoints({
-  endpoints: (builder) => ({
-    getProfileInfo: builder.query<any, void>({
-      query: () => buildClientRequestUrl(user.currentUser),
+  endpoints: (build) => ({
+    getProfileInfo: build.query<any, void>({
+      query: () => buildClientRequestUrl(user.profile),
       transformResponse: (response: UserType) => response,
       providesTags: ['Profile']
     }),
-    updatePassword: builder.mutation<void, PasswordChangeFormType>({
+    updatePassword: build.mutation<void, PasswordChangeFormType>({
       query: (body) => ({
         url: buildClientRequestUrl(account.updatePassword, {
           contentType: 'application/json'
@@ -28,7 +28,7 @@ export const accountApi = api.injectEndpoints({
         body
       })
     }),
-    updateNotifications: builder.mutation<void, NotificationChangeFormType>({
+    updateNotifications: build.mutation<void, NotificationChangeFormType>({
       query: (body) => ({
         url: buildClientRequestUrl(account.updateNotifications, {
           contentType: 'application/json'
@@ -37,7 +37,7 @@ export const accountApi = api.injectEndpoints({
         body
       })
     }),
-    getOrders: builder.query<GetOrdersResponse, void>({
+    getOrders: build.query<GetOrdersResponse, void>({
       query: (body) => ({
         url: buildClientRequestUrl(account.orders)
       })
