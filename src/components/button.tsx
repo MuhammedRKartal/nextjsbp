@@ -89,7 +89,6 @@ export const Button = (props: ButtonProps) => {
                 'transition-all',
                 'flex',
                 'items-center',
-
                 'justify-center'
               ],
               props.size === 'xs' && ['text-sm', 'px-4', 'min-h-[2.5rem]'],

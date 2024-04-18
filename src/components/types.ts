@@ -2,6 +2,7 @@ import { Control, FieldError } from 'react-hook-form';
 import { ImageProps as NextImageProps } from 'next/image';
 import { ReactElement, ReactNode } from 'react';
 import { PayloadAction } from '@reduxjs/toolkit';
+import { UsePaginationType } from './Pagination/hook';
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -193,4 +194,15 @@ export interface SliderMenuProps extends React.HTMLProps<HTMLDivElement> {
   desktopWidth?: string;
   className?: string;
   children: ReactNode;
+}
+
+export interface PaginationProps {
+  total: number | undefined;
+  limit?: number | undefined;
+  currentPage?: number | undefined;
+  numberOfPages?: number | undefined;
+  className?: string;
+  itemClassName?: string;
+  threshold?: number | undefined;
+  render?: (pagination: UsePaginationType) => ReactNode;
 }

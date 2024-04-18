@@ -12,7 +12,6 @@ export default async function Auth({
   searchParams?: { [key: string]: string | undefined };
 }) {
   const session = await getServerSession();
-  const callback = searchParams?.callbackUrl;
 
   if (session?.user) {
     const callback = searchParams?.callbackUrl;

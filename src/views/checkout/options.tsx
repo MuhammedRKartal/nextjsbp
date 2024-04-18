@@ -1,12 +1,8 @@
 'use client';
-import clsx from 'clsx';
-import CheckoutItem from './checkout-item';
-import { useGetBasketQuery } from '@/data/client/basket';
-import { Loader } from '@/components/loader';
 import { TabItem } from '@/components/Tab/tab-item';
 import { useState } from 'react';
 import { TabContent } from '@/components/Tab/tab-content';
-import BTCPay from './payment-methods/btcpay';
+import CryptoPay from './payment-methods/crypto-pay';
 
 export default function CheckoutOptions(props) {
   const { className } = props;
@@ -22,13 +18,13 @@ export default function CheckoutOptions(props) {
         <TabItem
           tabId={1}
           handleToggle={handleToggle}
-          title="BTC Pay"
+          title="BTCPay"
           active={active}
         ></TabItem>
       </div>
       <div className="relative border z-0 border-secondary-darkest">
         <TabContent tabId={1} active={active}>
-          <BTCPay />
+          <CryptoPay />
         </TabContent>
       </div>
     </div>

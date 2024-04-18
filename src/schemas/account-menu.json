@@ -2,7 +2,7 @@
   {
     "main_title": "My Orders",
     "is_link": true,
-    "link": "/account/orders",
+    "link": "/account/orders?limit=4&page=1",
     "sub_titles": []
   },
   {

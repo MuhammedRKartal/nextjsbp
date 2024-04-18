@@ -1,11 +1,12 @@
 import { api } from './api';
 import { account, checkout, user } from '../urls';
 import { buildClientRequestUrl } from '../../utils';
-import { CheckoutType } from '@/types';
+import { CheckoutType, OrderType } from '@/types';
 
-interface CreateCheckoutRequest {
-  basket_id: number;
+interface FetchStatusRequestType {
+  token: number;
 }
+
 export const checkoutApi = api.injectEndpoints({
   endpoints: (build) => ({
     createCheckout: build.mutation<CheckoutType, void>({
@@ -15,9 +16,17 @@ export const checkoutApi = api.injectEndpoints({
         }),
         method: 'POST'
       })
+    }),
+    fetchOrderStatus: build.query<OrderType, FetchStatusRequestType>({
+      query: (params) => ({
+        url: buildClientRequestUrl(
+          `${checkout.fetchCheckout}?token=${params.token}`
+        )
+      })
     })
   }),
   overrideExisting: true
 });
 
-export const { useCreateCheckoutMutation } = checkoutApi;
+export const { useCreateCheckoutMutation, useFetchOrderStatusQuery } =
+  checkoutApi;

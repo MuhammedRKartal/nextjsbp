@@ -18,7 +18,7 @@ enum ACCOUNT_ROUTES {
   ACCOUNT = '/account',
   CHANGE_PASSWORD = '/account/change-password',
   NOTIFICATION_SETTINGS = '/account/notification-settings',
-  ORDERS = '/account/orders',
+  ORDERS = '/account/orders?limit=4&page=1',
   FAQ = '/account/faq'
 }
 

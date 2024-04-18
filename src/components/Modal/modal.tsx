@@ -5,6 +5,7 @@ import ReactPortal from '@/components/Modal/react-portal';
 import { Button } from '@/components/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
+import { useEffect, useState } from 'react';
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -14,7 +15,9 @@ export interface ModalProps {
   title?: React.ReactNode;
   showCloseButton?: React.ReactNode;
   className?: string;
+  outsideClick?: boolean;
   onClose?: () => void;
+  data?: any;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -25,39 +28,47 @@ export const Modal = (props: ModalProps) => {
     setOpen,
     showCloseButton = true,
     className,
+    outsideClick = true,
     onClose = () => {}
   } = props;
 
   function blurBackground() {
     if (typeof document !== 'undefined') {
-      document.querySelector('#main')?.classList.remove('blur-sm');
-      document.querySelector('#header')?.classList.remove('blur-sm');
-      document.querySelector('#footer')?.classList.remove('blur-sm');
+      document.getElementById('main').classList.add('blur-sm');
+      document.getElementById('header').classList.add('blur-sm');
+      document.getElementById('footer').classList.add('blur-sm');
     }
   }
 
   function removeBlur() {
     if (typeof document !== 'undefined') {
-      document.querySelector('#main')?.classList.add('blur-sm');
-      document.querySelector('#header')?.classList.add('blur-sm');
-      document.querySelector('#footer')?.classList.add('blur-sm');
+      document.getElementById('main').classList.remove('blur-sm');
+      document.getElementById('header').classList.remove('blur-sm');
+      document.getElementById('footer').classList.remove('blur-sm');
     }
   }
 
-  if (!open) {
-    blurBackground();
-    return null;
-  } else {
+  useEffect(() => {
+    if (open) {
+      blurBackground();
+    } else {
+      removeBlur();
+      return null;
+    }
+  }, [open]);
+
+  const closeAction = () => {
     removeBlur();
-  }
+    onClose();
+    setOpen(false);
+  };
 
   return (
     <ReactPortal wrapperId={wrapperId}>
       <div
         className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-60 z-50"
         onClick={() => {
-          setOpen(false);
-          onClose();
+          if (outsideClick) closeAction();
         }}
       />
       <section
@@ -71,10 +82,7 @@ export const Modal = (props: ModalProps) => {
           <div className="absolute right-0">
             {showCloseButton && (
               <Button
-                onClick={() => {
-                  setOpen(false);
-                  onClose();
-                }}
+                onClick={() => closeAction()}
                 appearance="bright"
                 size="xs"
               >

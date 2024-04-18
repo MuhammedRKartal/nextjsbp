@@ -8,8 +8,15 @@ import {
   UserType
 } from '@/types';
 
+interface OrdersRequestType {
+  limit?: number;
+  page?: number;
+}
+
 interface GetOrdersResponse {
-  results: OrderType[];
+  total_count: number;
+  page_count: number;
+  data: OrderType[];
 }
 
 export const accountApi = api.injectEndpoints({
@@ -21,25 +28,23 @@ export const accountApi = api.injectEndpoints({
     }),
     updatePassword: build.mutation<void, PasswordChangeFormType>({
       query: (body) => ({
-        url: buildClientRequestUrl(account.updatePassword, {
-          contentType: 'application/json'
-        }),
+        url: buildClientRequestUrl(account.updatePassword),
         method: 'POST',
         body
       })
     }),
     updateNotifications: build.mutation<void, NotificationChangeFormType>({
       query: (body) => ({
-        url: buildClientRequestUrl(account.updateNotifications, {
-          contentType: 'application/json'
-        }),
+        url: buildClientRequestUrl(account.updateNotifications),
         method: 'POST',
         body
       })
     }),
-    getOrders: build.query<GetOrdersResponse, void>({
-      query: (body) => ({
-        url: buildClientRequestUrl(account.orders)
+    getOrders: build.query<GetOrdersResponse, OrdersRequestType>({
+      query: (params) => ({
+        url: buildClientRequestUrl(
+          `${account.orders}?limit=${params?.limit}&page=${params?.page}`
+        )
       })
     })
   }),

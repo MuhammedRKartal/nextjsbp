@@ -13,9 +13,8 @@ export default function CheckoutItem(props) {
   return (
     <li
       className={clsx(
-        'relative flex flex-row pt-4 pb-3.5 border-secondary-darkest border-b ',
+        'flex flex-row pt-4 pb-3.5 border-secondary-darkest border-b',
         'last-of-type:pb-10',
-        'first-of-type:border-t',
         'lg:last-of-type:pb-3.5'
       )}
     >
@@ -38,7 +37,7 @@ export default function CheckoutItem(props) {
           </div>
           <div>
             {product?.attributes?.duration && (
-              <div className="text-gray-300 text-sm">
+              <div className="text-gray-300 text-xs">
                 <span className="font-bold text-gray-100">
                   {product.attributes.duration.label}{' '}
                 </span>{' '}

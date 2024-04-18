@@ -177,6 +177,15 @@ export type InvoiceType = {
   status: string;
   storeId: string;
   type: string;
+  paymentMethod: string;
+  paymentLink: string;
+  qr_code: string;
+  cryptoCode: string;
+  due: number;
+  rate: number;
+  totalPaid: string;
+  networkFee: number;
+  paymentMethodPaid: number;
 };
 
 export type ReceiptType = {

@@ -38,7 +38,7 @@ export const Details = (props) => {
         showIcon={true}
       >
         {product?.attributes?.duration && (
-          <div className="text-gray-300 text-sm">
+          <div className="text-gray-300 text-xs">
             <span className="font-bold text-gray-100">
               {product.attributes.duration.label}{' '}
             </span>{' '}

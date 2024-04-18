@@ -1,5 +1,5 @@
 export const account = {
-  orders: '/web/orders',
+  orders: '/web/user/orders',
   orderId: (id: string | string[]) => `/web/user/order/${id}`,
   updatePassword: '/web/user/password/change',
   updateNotifications: '/web/user/update-notifications',
@@ -19,7 +19,8 @@ export const product = {
 };
 
 export const checkout = {
-  createCheckout: '/web/orders/checkout'
+  createCheckout: '/web/orders/checkout',
+  fetchCheckout: '/web/orders/fetch-order-status'
 };
 
 export const user = {
