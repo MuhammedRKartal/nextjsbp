@@ -3,18 +3,10 @@
 import { Image } from '@/components/image';
 import { CheckoutItemPrice } from './price';
 import clsx from 'clsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
-import { basketApi, useUpdateQuantityMutation } from '@/data/client/basket';
-import { useAppDispatch } from '@/redux/hooks';
-import { signOut } from 'next-auth/react';
-import { Select } from '@/components/select';
-import { useEffect, useState } from 'react';
 import Link from 'next/link';
 
 export default function CheckoutItem(props) {
   const { checkoutItem } = props;
-  console.log(checkoutItem);
 
   const product = checkoutItem.product;
 
@@ -45,16 +37,24 @@ export default function CheckoutItem(props) {
             <div className="text-xs">{product.short_description}</div>
           </div>
           <div>
-            <ul>
-              <li className="text-xs">
-                <span className="font-bold text-gray-100">Duration: </span>{' '}
-                <span className="">30 Days</span>
-              </li>
-              <li className="text-xs">
-                <span className="font-bold text-gray-100">OS: </span>{' '}
-                <span className="">Windows 11</span>
-              </li>
-            </ul>
+            {product?.attributes?.duration && (
+              <div className="text-gray-300 text-sm">
+                <span className="font-bold text-gray-100">
+                  {product.attributes.duration.label}{' '}
+                </span>{' '}
+                <span className="">{product.attributes.duration.value}</span>
+              </div>
+            )}
+            {product?.attributes?.os_compatibility?.value && (
+              <div className="text-gray-300 text-xs">
+                <span className="font-bold text-gray-100">
+                  {product.attributes.os_compatibility.label}{' '}
+                </span>{' '}
+                <span className="">
+                  {product.attributes.os_compatibility.value}
+                </span>
+              </div>
+            )}
           </div>
         </div>
         <CheckoutItemPrice product={product} />

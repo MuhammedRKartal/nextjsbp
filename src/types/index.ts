@@ -48,8 +48,7 @@ export type ProductItemType = {
   currency_type: string;
   currency_symbol: string;
   in_stock: boolean;
-  os_compatibility: string | null;
-  duration: string | null;
+  attributes: any;
 };
 
 export interface BasketItemType {

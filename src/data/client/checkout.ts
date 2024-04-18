@@ -8,13 +8,12 @@ interface CreateCheckoutRequest {
 }
 export const checkoutApi = api.injectEndpoints({
   endpoints: (build) => ({
-    createCheckout: build.mutation<CheckoutType, CreateCheckoutRequest>({
-      query: (body) => ({
+    createCheckout: build.mutation<CheckoutType, void>({
+      query: () => ({
         url: buildClientRequestUrl(checkout.createCheckout, {
           contentType: 'application/json'
         }),
-        method: 'POST',
-        body
+        method: 'POST'
       })
     })
   }),

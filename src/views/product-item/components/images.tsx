@@ -12,7 +12,6 @@ import { twMerge } from 'tailwind-merge';
 
 export const Images = (props) => {
   const { product } = props;
-  console.log(product);
 
   const paginationSettings = {
     clickable: true,

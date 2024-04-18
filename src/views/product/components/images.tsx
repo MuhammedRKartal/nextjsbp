@@ -9,7 +9,6 @@ import 'swiper/css/pagination';
 
 export const Images = (props) => {
   const { product } = props;
-  console.log(product);
 
   return (
     <>

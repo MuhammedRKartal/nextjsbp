@@ -13,7 +13,7 @@ export default function CheckoutSummary(props) {
   } = useGetBasketQuery();
 
   return (
-    <Loader loading={isLoading}>
+    <Loader loading={isLoading} className={className}>
       {isSuccess && (
         <div className={className}>
           <div

@@ -37,16 +37,22 @@ export const Details = (props) => {
         active={active}
         showIcon={true}
       >
-        {product?.duration && (
+        {product?.attributes?.duration && (
           <div className="text-gray-300 text-sm">
-            <span className="font-bold text-gray-100">Duration: </span>{' '}
-            <span className="">{product.duration}</span>
+            <span className="font-bold text-gray-100">
+              {product.attributes.duration.label}{' '}
+            </span>{' '}
+            <span className="">{product.attributes.duration.value}</span>
           </div>
         )}
-        {product?.os_compatibility && (
+        {product?.attributes?.os_compatibility?.value && (
           <div className="text-gray-300 text-sm">
-            <span className="font-bold text-gray-100">OS Compatibility: </span>{' '}
-            <span className="">{product.os_compatibility}</span>
+            <span className="font-bold text-gray-100">
+              {product.attributes.os_compatibility.label}{' '}
+            </span>{' '}
+            <span className="">
+              {product.attributes.os_compatibility.value}
+            </span>
           </div>
         )}
       </AccordionItem>
