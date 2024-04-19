@@ -12,6 +12,7 @@ interface OrderProps {
 
 export const OrderItem = (props: OrderProps) => {
   const { data, className } = props;
+  console.log(data);
 
   let statusCodeClassName = '';
 
@@ -27,6 +28,9 @@ export const OrderItem = (props: OrderProps) => {
       break;
     case 400:
       statusCodeClassName = 'text-primary-light';
+      break;
+    case 500:
+      statusCodeClassName = 'text-error';
       break;
   }
 
@@ -65,10 +69,12 @@ export const OrderItem = (props: OrderProps) => {
             </div>
             <div>
               <span className="font-bold">Total:</span>{' '}
-              <Price
-                value={Number(data.totalAmount)}
-                currency={data.orderItems[0].product.currency_symbol}
-              ></Price>
+              {data.orderItems.length > 0 && (
+                <Price
+                  value={Number(data.totalAmount)}
+                  currency={data.orderItems[0].product.currency_symbol}
+                ></Price>
+              )}
             </div>
           </div>
           <Button size="xs" className="w-full mt-4 lg:hidden">

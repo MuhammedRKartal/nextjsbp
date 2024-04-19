@@ -33,6 +33,9 @@ export default function CryptoPayModal({ open, setOpen, data }: ModalProps) {
     case 400:
       statusCodeClassName = 'text-primary-light';
       break;
+    case 500:
+      statusCodeClassName = 'text-error';
+      break;
   }
 
   const { data: statusData } = useFetchOrderStatusQuery(

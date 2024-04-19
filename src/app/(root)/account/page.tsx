@@ -2,6 +2,7 @@ import { Section } from '@/components/section';
 import { ROUTES } from '@/routes';
 import { AccountInfoBox } from '@/views/account/account-info-box';
 import { AccountMenu } from '@/views/account/account-menu';
+import { AccountMenuMobile } from '@/views/account/account-menu-mobile';
 import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { cookies } from 'next/headers';
@@ -21,8 +22,9 @@ export default async function Page() {
   }
 
   return (
-    <Section className="flex gap-5 items-start">
-      <AccountMenu />
+    <Section className="flex flex-col gap-5 items-start md:flex-row">
+      <AccountMenu className="hidden md:block" />
+      <AccountMenuMobile className="md:hidden mb-8" />
       <div className="flex flex-wrap gap-3 w-full md:flex-nowrap">
         <AccountInfoBox title={'WowTasker Points'}>
           <p className="text-sm mb-8">

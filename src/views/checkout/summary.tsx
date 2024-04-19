@@ -13,24 +13,12 @@ import { basket } from '@/data/urls';
 interface CheckoutSummaryProps {
   data: BasketType;
   isLoading: boolean;
-  className: string;
+  isSuccess: boolean;
+  className?: string;
 }
 
 export default function CheckoutSummary(props: CheckoutSummaryProps) {
-  const { data, isLoading, className } = props;
-
-  const router = useRouter();
-
-  if (data) {
-    if (
-      data?.total_quantity === null ||
-      typeof data?.total_quantity === undefined
-    ) {
-      router.push(ROUTES.ORDERS);
-    }
-  } else {
-    router.push(ROUTES.ORDERS);
-  }
+  const { data, isLoading, isSuccess, className } = props;
 
   return (
     <>
@@ -58,13 +46,12 @@ export default function CheckoutSummary(props: CheckoutSummaryProps) {
             'text-sm border-b pt-4 pb-3.5 h-32 border-secondary-darkest'
           )}
         >
-          <div className="flex justify-between mb-2.5">
-            <span>{`Sum of Products (${data?.total_quantity} items)`}</span>
+          {data?.product_list?.length > 0 && (
             <Price
               value={Number(data?.total_amount)}
               currency={data?.product_list[0]?.product?.currency_symbol}
             />
-          </div>
+          )}
           {data?.product_list?.map((item) => {
             return (
               <div className="flex justify-between">
@@ -84,10 +71,12 @@ export default function CheckoutSummary(props: CheckoutSummaryProps) {
           )}
         >
           <span>Total</span>
-          <Price
-            value={Number(data?.total_amount)}
-            currency={data?.product_list[0]?.product?.currency_symbol}
-          />
+          {data?.product_list?.length > 0 && (
+            <Price
+              value={Number(data?.total_amount)}
+              currency={data?.product_list[0]?.product?.currency_symbol}
+            />
+          )}
         </div>
       </div>
     </>
