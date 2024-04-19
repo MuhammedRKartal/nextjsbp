@@ -2,8 +2,6 @@ import { useGetOrdersQuery } from '@/data/client/account';
 import { twMerge } from 'tailwind-merge';
 import { OrderItem } from './order-item';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { OrderType } from '@/types';
 import { Pagination } from '@/components/Pagination';
 
 export const AccountOrders = (props) => {

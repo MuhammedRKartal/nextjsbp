@@ -15,7 +15,6 @@ import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import AccountPopUp from './account-popup';
 import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
-import { useState } from 'react';
 import { ROUTES } from '@/routes';
 
 export type HeaderNavItemType = {

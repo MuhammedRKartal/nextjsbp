@@ -1,14 +1,10 @@
 [
   {
-    "link": "/style-guide",
-    "title": "Styles"
-  },
-  {
-    "link": "/about-us",
-    "title": "About Us"
-  },
-  {
     "link": "/product-list",
     "title": "Products"
+  },
+  {
+    "link": "https://discord.com/invite/wowtasker",
+    "title": "Discord"
   }
 ]

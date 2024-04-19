@@ -8,7 +8,6 @@ export default async function CheckoutPage({
   searchParams?: { [key: string]: string | undefined };
 }) {
   const session = await getServerSession();
-  console.log(session);
 
   if (!session?.user?.name) {
     const callback = searchParams?.callbackUrl;

@@ -12,7 +12,6 @@ interface OrderProps {
 
 export const OrderItem = (props: OrderProps) => {
   const { data, className } = props;
-  console.log(data);
 
   let statusCodeClassName = '';
 
@@ -49,12 +48,12 @@ export const OrderItem = (props: OrderProps) => {
               {data.orderNumber || data.orderId}
             </span>
           </div>
-          <Button
+          {/* <Button
             size="xs"
             className="hidden w-full mt-4 lg:block lg:px-12 lg:mt-0 lg:w-auto"
           >
             Order Details
-          </Button>
+          </Button> */}
         </div>
         <div className="flex flex-col lg:flex-row lg:justify-between">
           <div className="flex flex-col gap-2 text-sm lg:gap-10 lg:flex-row">
@@ -77,9 +76,9 @@ export const OrderItem = (props: OrderProps) => {
               )}
             </div>
           </div>
-          <Button size="xs" className="w-full mt-4 lg:hidden">
+          {/* <Button size="xs" className="w-full mt-4 lg:hidden">
             Order Details
-          </Button>
+          </Button> */}
         </div>
       </div>
 
