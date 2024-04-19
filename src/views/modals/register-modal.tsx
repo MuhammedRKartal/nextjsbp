@@ -44,33 +44,12 @@ export default function RegisterModal({
       verification_code: otp,
       formType: 'confirmRegistration'
     };
-    const dataJSON = JSON.stringify(data);
 
     if (otp.length === 6 && isloading === false) {
       setLoading(true);
-      await fetch(`/api/client${user.confirmRegistration}`, {
-        method: 'POST',
-        body: dataJSON
-      }).then(async (res) => {
-        setLoading(false);
-
-        if (res.status === 200) {
-          setSuccess(true);
-          setTimeout(() => {
-            signIn('default', {
-              ...data
-            } as SignInOptions).then(() => {
-              setOpen(false);
-              router.push('/');
-            });
-          }, 500);
-        } else {
-          res.json().then((data) => {
-            setError(true);
-            setErrorText(data.error);
-          });
-        }
-      });
+      setTimeout(() => {
+        signIn('default', { ...data } as SignInOptions);
+      }, 500);
     } else if (isloading === false && otp.length < 6) {
       setError(true);
       setErrorText('Please enter a 6-digit code.');
