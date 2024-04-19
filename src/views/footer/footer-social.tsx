@@ -6,6 +6,8 @@ export type FooterSocialItemType = {
   logo: string;
   alt: string;
   link: string;
+  rel?: string;
+  target?: string;
 };
 
 export default async function FooterSocial() {
@@ -13,7 +15,13 @@ export default async function FooterSocial() {
     <ul className="flex gap-6">
       {data?.map((item: FooterSocialItemType) => (
         <li key={item?.alt}>
-          <Button appearance="bright" link={item?.link} className="px-0">
+          <Button
+            appearance="bright"
+            link={item?.link}
+            className="px-0"
+            rel={item?.rel}
+            target="_blank"
+          >
             <Image
               src={item?.logo}
               alt={item?.alt}

@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Header />
       <main
         id="main"
-        className={clsx('my-6 mx-auto min-h-[50vh]', 'md:my-10 md:mt-15')}
+        className={clsx('my-6 mx-auto min-h-[64vh]', 'md:my-10 md:mt-15')}
       >
         {children}
       </main>

@@ -6,96 +6,6 @@
         "title": "About Us",
         "link": "/about-us",
         "is_link": true
-      },
-      {
-        "title": "Careers",
-        "link": "/career",
-        "is_link": true
-      },
-      {
-        "title": "Customers",
-        "link": "/customers",
-        "is_link": true
-      },
-      {
-        "title": "Blog",
-        "link": "/blog",
-        "is_link": true
-      },
-      {
-        "title": "Security",
-        "link": "/security",
-        "is_link": true
-      }
-    ]
-  },
-  {
-    "main_title": "Our Products",
-    "item": [
-      {
-        "title": "Bot",
-        "link": "/bot",
-        "is_link": true
-      },
-      {
-        "title": "Farmer",
-        "link": "/farmer",
-        "is_link": false
-      },
-      {
-        "title": "Gold",
-        "link": "/gold",
-        "is_link": true
-      }
-    ]
-  },
-  {
-    "main_title": "Huh",
-    "item": [
-      {
-        "title": "About Us",
-        "link": "/about-us",
-        "is_link": true
-      },
-      {
-        "title": "Careers",
-        "link": "/career",
-        "is_link": true
-      },
-      {
-        "title": "Customers",
-        "link": "/customers",
-        "is_link": true
-      },
-      {
-        "title": "Blog",
-        "link": "/blog",
-        "is_link": true
-      },
-      {
-        "title": "Security",
-        "link": "/security",
-        "is_link": true
-      }
-    ]
-  },
-  {
-    "main_title": "Something",
-    "item": [
-      {
-        "title": "Bot",
-        "link": "/bot",
-        "is_link": true
-      },
-      {
-        "title": "Farmer",
-        "link": "/farmer",
-        "is_link": false
-      },
-      {
-        "title": "Gold",
-        "link": "/gold",
-        "is_link": true
       }
     ]
   },
@@ -103,19 +13,9 @@
     "main_title": "Contact",
     "item": [
       {
-        "title": "600 Battery St., Floor 2",
-        "link": "/a",
-        "is_link": false
-      },
-      {
-        "title": "San Francisco, CA 94111",
-        "link": "/a",
-        "is_link": false
-      },
-      {
-        "title": "customercare@uicore.co",
-        "link": "/a",
-        "is_link": false
+        "title": "Discord",
+        "link": "https://discord.com/invite/wowtasker",
+        "is_link": true
       }
     ]
   }

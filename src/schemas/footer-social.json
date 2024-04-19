@@ -1,17 +1,9 @@
 [
   {
-    "logo": "/assets/WoWTaskerMinimized.png",
-    "alt": "Twitter",
-    "link": "/twitter"
-  },
-  {
-    "logo": "/assets/WoWTaskerMinimized.png",
-    "alt": "Youtube",
-    "link": "/youtube"
-  },
-  {
-    "logo": "/assets/WoWTaskerMinimized.png",
-    "alt": "Facebook",
-    "link": "/facebook"
+    "logo": "/assets/discord-logo.png",
+    "alt": "Discord",
+    "link": "https://discord.com/invite/wowtasker",
+    "rel": "noreferrer",
+    "target": "_blank"
   }
 ]

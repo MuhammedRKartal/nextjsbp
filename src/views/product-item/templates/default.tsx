@@ -11,6 +11,7 @@ export const ProductItemDefault = (props) => {
         <ProductItem.BottomSheet>
           <ProductItem.Description />
 
+          <ProductItem.Attributes />
           {product.in_stock ? (
             <div className="flex justify-between">
               <ProductItem.Prices />

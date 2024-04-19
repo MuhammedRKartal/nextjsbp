@@ -20,18 +20,18 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: 'Next BPK',
-  description: 'Nextjs Template Website by Muhammed Kartal',
+  title: 'WoW Tasker',
+  description: 'Revolutionize your botting experience with WoW Tasker!',
   metadataBase: new URL(process.env.NEXTAUTH_URL),
   verification: {
     google: '5cQd3-U9FV3CZh0ax9nuPPUNR2DUo-JVHku4r2vUQ_0'
   },
   openGraph: {
-    title: 'Next BPK',
-    description: 'Nextjs Template Website by Muhammed Kartal',
+    title: 'WoW Tasker',
+    description: 'Revolutionize your botting experience with WoW Tasker!',
     url: process.env.NEXTAUTH_URL,
     type: 'website',
-    siteName: 'Next BPK',
+    siteName: 'WoW Tasker',
     images: [
       {
         url: '/assets/WoWTaskerMinimized.png',

@@ -11,6 +11,7 @@ export interface ButtonProps
   link?: string | null;
   linkclassname?: string;
   isloading?: string | boolean;
+  target?: string | null;
 }
 
 export interface CheckboxProps extends React.HTMLProps<HTMLInputElement> {

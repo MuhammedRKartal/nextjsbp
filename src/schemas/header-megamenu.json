@@ -1,10 +1,20 @@
 [
   {
+    "link": "/about-us",
+    "title": "About Us",
+    "rel": null,
+    "target": null
+  },
+  {
     "link": "/product-list",
-    "title": "Products"
+    "title": "Products",
+    "rel": null,
+    "target": null
   },
   {
     "link": "https://discord.com/invite/wowtasker",
-    "title": "Discord"
+    "title": "Discord",
+    "rel": "noreferrer",
+    "target": "_blank"
   }
 ]

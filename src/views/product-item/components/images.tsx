@@ -46,8 +46,8 @@ export const Images = (props) => {
               src={item.url}
               alt={item.alt_text}
               fill
-              sizes="(max-width:720px)170px, 230px"
-              aspectRatio={150 / 175}
+              sizes="(max-width:720px)256px, 300px"
+              aspectRatio={256 / 256}
               objectType="object-cover"
             ></Image>
           )}

@@ -10,6 +10,7 @@ import { Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 import { Image } from '@/components/image';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { Section } from '@/components/section';
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
   const paginationSettings = {
@@ -37,7 +38,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
   };
 
   return (
-    <>
+    <Section outerClassName="!px-0" className="w-full !max-w-[unset]">
       <Swiper
         className={twMerge('relative', 'k-pxi', '!h-[450px] lg:!h-[550px]')}
         modules={[Navigation, Pagination, EffectCoverflow]}
@@ -49,7 +50,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         centeredSlides
         slideToClickedSlide={true}
         parallax={true}
-        loop
       >
         {content.map((item) => (
           <SwiperSlide
@@ -134,6 +134,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         ))}
         <HeroBannerCustomPagination />
       </Swiper>
-    </>
+    </Section>
   );
 }

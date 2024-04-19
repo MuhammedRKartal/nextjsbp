@@ -2,51 +2,27 @@
   "content": [
     {
       "is_image": true,
-      "image": "https://c.wallhere.com/photos/81/7f/artwork_World_of_Warcraft_Arthas_Lich_King_World_of_Warcraft_Wrath_of_the_Lich_King-250327.jpg!d",
+      "image": "/assets/saurfang-senjin.gif",
       "mobile_image": "/assets/WoWTaskerMinimized.png",
       "content_image": "/assets/WoWTaskerMinimized.png",
       "content_image_alt": "Wow Logo",
       "image_alt": "This is the description of the both images",
-      "title": "Botting",
-      "description": "The new upgraded version of our product is viable to use now.",
-      "button_text": "Read More",
-      "button_target_url": "/style-guide"
-    },
-    {
-      "is_image": true,
-      "image": "https://i.pinimg.com/originals/fe/6f/36/fe6f369476fbafc4187186b0abce18b7.gif",
-      "mobile_image": "/assets/WoWTaskerMinimized.png",
-      "content_image": "/assets/WoWTaskerMinimized.png",
-      "content_image_alt": "Wow Logo",
-      "image_alt": "This is the description of the both images",
-      "title": "Hey",
-      "description": null,
+      "title": "Early Access",
+      "description": "Revolutionize your botting experience with WoW Tasker!",
       "button_text": null,
-      "button_target_url": "/style-guide"
+      "button_target_url": "/product-list"
     },
     {
       "is_image": true,
-      "image": "https://c.wallhere.com/photos/81/7f/artwork_World_of_Warcraft_Arthas_Lich_King_World_of_Warcraft_Wrath_of_the_Lich_King-250327.jpg!d",
-      "mobile_image": "/assets/WoWTaskerMinimized.png",
-      "content_image": null,
-      "content_image_alt": "Wow Logo",
-      "image_alt": "This is the description of the both images",
-      "title": null,
-      "description": null,
-      "button_text": null,
-      "button_target_url": "/style-guide"
-    },
-    {
-      "is_image": true,
-      "image": "https://i.pinimg.com/originals/04/2b/c6/042bc6959c2bc4ca164cabd9307b965c.gif",
+      "image": "/assets/orc-war.gif",
       "mobile_image": "/assets/WoWTaskerMinimized.png",
       "content_image": "/assets/WoWTaskerMinimized.png",
       "content_image_alt": "Wow Logo",
       "image_alt": "This is the description of the both images",
-      "title": "The new patch!",
-      "description": "The new upgraded version of our product is viable to use now. The new upgraded version of our product is viable to use now.",
-      "button_text": "Buy Now",
-      "button_target_url": "/style-guide"
+      "title": "Start Shopping",
+      "description": "WoW Tasker released the product that you need!",
+      "button_text": "See Products",
+      "button_target_url": "/product-list"
     }
   ]
 }

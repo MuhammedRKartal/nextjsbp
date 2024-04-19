@@ -20,6 +20,8 @@ import { ROUTES } from '@/routes';
 export type HeaderNavItemType = {
   title: string;
   link: string;
+  rel?: string | null;
+  target?: string | null;
 };
 
 export default function Megamenu() {
@@ -74,6 +76,8 @@ export default function Megamenu() {
             className="h-8 text-white"
             appearance="bright"
             link={item.link}
+            rel={item.rel}
+            target={item.target}
           >
             {item.title}
           </Button>

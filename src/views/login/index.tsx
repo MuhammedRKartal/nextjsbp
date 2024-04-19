@@ -102,7 +102,7 @@ const Login = () => {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            isloading={String(isloading)}
+            isloading={isloading}
           >
             Log In
           </Button>

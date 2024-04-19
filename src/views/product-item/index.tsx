@@ -8,6 +8,7 @@ import { InStock } from './components/instock';
 import { Add } from './components/add';
 import { Wrapper } from './components/wrapper';
 import { BottomSheet } from './components/bottom-sheet';
+import { Attributes } from './components/attributes';
 
 interface Props {
   product: ProductItemType;
@@ -33,6 +34,7 @@ const ProductItem = (props: Props) => {
           Images,
           Prices,
           Description,
+          Attributes,
           InStock,
           Add,
           Wrapper,
@@ -67,6 +69,7 @@ const ProductItem = (props: Props) => {
 };
 
 ProductItem.Description = Description;
+ProductItem.Attributes = Attributes;
 ProductItem.Images = Images;
 ProductItem.Prices = Prices;
 ProductItem.Add = Add;
