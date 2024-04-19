@@ -9,6 +9,7 @@ import { ROUTES } from '@/routes';
 import { CheckoutType } from '@/types';
 import CryptoPayModal from '@/views/modals/crypto-pay-modal';
 import ExpirationModal from '@/views/modals/order-expired-modal';
+import SuccessModal from '@/views/modals/order-success-modal';
 import { faWarning } from '@fortawesome/free-solid-svg-icons/faWarning';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/navigation';
@@ -19,14 +20,20 @@ export default function CryptoPay() {
   const [invoiceData, setData] = useState({} as CheckoutType);
   const [open, setOpen] = useState(false);
   const [expired, setExpired] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const [loading, setLoading] = useState(false);
 
   const router = useRouter();
 
   const [createCheckout] = useCreateCheckoutMutation();
 
-  const onCloseAction = () => {
+  const onCloseExpiredAction = () => {
     router.push(ROUTES.BASKET);
+  };
+
+  const onCloseSuccessAction = () => {
+    router.push(ROUTES.ORDERS);
   };
 
   const onClickOperation = () => {
@@ -42,11 +49,18 @@ export default function CryptoPay() {
 
   return (
     <>
+      {success && (
+        <SuccessModal
+          open={success}
+          setOpen={setSuccess}
+          onClose={() => onCloseSuccessAction()}
+        />
+      )}
       {expired && (
         <ExpirationModal
           open={expired}
           setOpen={setExpired}
-          onClose={() => onCloseAction()}
+          onClose={() => onCloseExpiredAction()}
         />
       )}
       {open && Object.keys(invoiceData).length > 0 && (
@@ -55,6 +69,7 @@ export default function CryptoPay() {
           setOpen={setOpen}
           data={invoiceData}
           setExpired={setExpired}
+          setSuccess={setSuccess}
         ></CryptoPayModal>
       )}
       <section className="text-white">

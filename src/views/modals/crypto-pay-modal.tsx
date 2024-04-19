@@ -16,12 +16,14 @@ export interface ModalProps {
   open: boolean;
   setOpen: (open: boolean) => void;
   setExpired: (open: boolean) => void;
+  setSuccess: (open: boolean) => void;
   data: any;
 }
 export default function CryptoPayModal({
   open,
   setOpen,
   setExpired,
+  setSuccess,
   data
 }: ModalProps) {
   let statusCodeClassName = '';
@@ -57,10 +59,16 @@ export default function CryptoPayModal({
     document.getElementById('footer').classList.remove('blur-sm');
   };
 
-  if (statusData?.orderStatus === 400) {
+  if (statusData?.orderStatus === 500) {
     removeBlur();
     setOpen(false);
     setExpired(true);
+  }
+
+  if (statusData?.orderStatus === 400) {
+    removeBlur();
+    setOpen(false);
+    setSuccess(true);
   }
 
   const [copiedLink, setCopiedLink] = useState(false);
