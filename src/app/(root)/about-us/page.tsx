@@ -78,7 +78,7 @@ export default function About() {
           <Image
             width={250}
             height={250}
-            src={'/assets/WoWTaskerMinimized.png'}
+            src={'/assets/WoWTaskerMinimized300x300.png'}
             alt="WoW Tasker Logo"
           ></Image>
         </div>

@@ -14,10 +14,16 @@ import { user } from '@/data/urls';
 export interface ModalProps {
   open: boolean;
   email: string;
+  username: string;
   setOpen: (open: boolean) => void;
 }
 
-export default function RegisterModal({ open, email, setOpen }: ModalProps) {
+export default function RegisterModal({
+  open,
+  email,
+  username,
+  setOpen
+}: ModalProps) {
   const [otp, setOtp] = useState('');
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
@@ -34,6 +40,7 @@ export default function RegisterModal({ open, email, setOpen }: ModalProps) {
   const onSubmit = async (e) => {
     const data = {
       email: email,
+      username: username,
       verification_code: otp,
       formType: 'confirmRegistration'
     };

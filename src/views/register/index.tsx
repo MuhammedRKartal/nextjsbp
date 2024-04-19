@@ -42,6 +42,7 @@ export default function Register() {
   });
 
   const [email, setEmail] = useState('');
+  const [username, setUserName] = useState('');
   const [isloading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState(false);
@@ -49,6 +50,7 @@ export default function Register() {
 
   const onSubmit: SubmitHandler<RegisterFormType> = async (data) => {
     setEmail(data.email);
+    setUserName(data.username);
 
     const formData = JSON.stringify(data);
 
@@ -83,7 +85,12 @@ export default function Register() {
 
   return (
     <Section className="h-screen" appearance="full">
-      <RegisterModal open={openModal} email={email} setOpen={setOpenModal} />
+      <RegisterModal
+        open={openModal}
+        email={email}
+        username={username}
+        setOpen={setOpenModal}
+      />
 
       <div className="relative top-[15%] flex flex-col items-center mx-auto w-[320px] sm:w-[416px]">
         <Link href={ROUTES.HOME}>
