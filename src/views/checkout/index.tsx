@@ -4,6 +4,7 @@ import CheckoutSummary from './summary';
 import CheckoutOptions from './options';
 import { useGetBasketQuery } from '@/data/client/basket';
 import { Loader } from '@/components/loader';
+import { useGetLastActiveOrderQuery } from '@/data/client/account';
 
 export default function Checkout() {
   const {
@@ -12,6 +13,15 @@ export default function Checkout() {
     isSuccess,
     error: basketError
   } = useGetBasketQuery();
+
+  const { data: activeOrder } = useGetLastActiveOrderQuery();
+
+  const activeOrderObject = {
+    pk: activeOrder?.basket,
+    product_list: activeOrder?.productList,
+    total_amount: activeOrder?.totalAmount,
+    total_quantity: activeOrder?.totalQuantity
+  };
 
   return (
     <>
@@ -29,9 +39,8 @@ export default function Checkout() {
 
           <CheckoutSummary
             className="lg:flex-[1.2] 2xl:flex-[1]"
-            data={data}
+            data={data ? data : activeOrderObject}
             isLoading={isLoading}
-            isSuccess={isSuccess}
           />
         </div>
       </Section>

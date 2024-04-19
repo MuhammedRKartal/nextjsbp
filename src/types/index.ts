@@ -130,16 +130,18 @@ export type OrderItemType = {
 };
 
 export type OrderType = {
-  basket: number;
+  basket: number | null;
   createdDate: string;
   currency: string | null;
   orderId: number;
   orderItems: OrderItemType[];
+  productList: BasketItemType[];
   orderNumber: string | null;
   orderStatus: number;
   orderStatusLabel: string;
   paymentOption: string | null;
   totalAmount: string;
+  totalQuantity: number;
   user: string;
   user_email: string;
 };

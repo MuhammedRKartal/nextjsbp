@@ -38,6 +38,9 @@ export default function AccountPopUp() {
           <li>
             <Link href={ROUTES.ACCOUNT}>My Account</Link>
           </li>
+          <li>
+            <Link href={ROUTES.ORDERS}>My Orders</Link>
+          </li>
         </ul>
         <footer className="text-xs lg:text-sm text-gray-300">
           <div className="hover:cursor-pointer w-fit" onClick={onClickSignOut}>

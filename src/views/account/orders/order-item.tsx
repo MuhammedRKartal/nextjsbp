@@ -67,7 +67,7 @@ export const OrderItem = (props: OrderProps) => {
               <span className="font-bold">Total:</span>{' '}
               <Price
                 value={Number(data.totalAmount)}
-                currency={data.orderItems[0].product[0].currency_symbol}
+                currency={data.orderItems[0].product.currency_symbol}
               ></Price>
             </div>
           </div>
@@ -87,16 +87,15 @@ export const OrderItem = (props: OrderProps) => {
           {data.orderStatusLabel}
         </div>
 
-        {data.orderItems.map((orderItem) => {
+        {data.orderItems.map((orderItem, index) => {
           return (
-            <>
-              <Image
-                src={orderItem.product[0].images[0].alt_text}
-                alt={orderItem.product[0].images[0].url}
-                width={90}
-                height={112}
-              ></Image>
-            </>
+            <Image
+              key={index}
+              src={orderItem.product.images[0].url}
+              alt={orderItem.product.images[0].alt_text}
+              width={90}
+              height={112}
+            ></Image>
           );
         })}
         <div

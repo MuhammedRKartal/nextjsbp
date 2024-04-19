@@ -1,5 +1,6 @@
 export const account = {
   orders: '/web/user/orders',
+  lastActiveOrder: '/web/user/get-active-order',
   orderId: (id: string | string[]) => `/web/user/order/${id}`,
   updatePassword: '/web/user/password/change',
   updateNotifications: '/web/user/update-notifications',

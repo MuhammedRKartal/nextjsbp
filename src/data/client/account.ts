@@ -46,6 +46,11 @@ export const accountApi = api.injectEndpoints({
           `${account.orders}?limit=${params?.limit}&page=${params?.page}`
         )
       })
+    }),
+    getLastActiveOrder: build.query<OrderType, void>({
+      query: () => ({
+        url: buildClientRequestUrl(`${account.lastActiveOrder}`)
+      })
     })
   }),
   overrideExisting: true
@@ -55,5 +60,6 @@ export const {
   useGetProfileInfoQuery,
   useUpdatePasswordMutation,
   useUpdateNotificationsMutation,
-  useGetOrdersQuery
+  useGetOrdersQuery,
+  useGetLastActiveOrderQuery
 } = accountApi;
