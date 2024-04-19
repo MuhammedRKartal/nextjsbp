@@ -43,7 +43,7 @@ export default function Register() {
 
   const [email, setEmail] = useState('');
   const [isloading, setLoading] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
+  const [openModal, setOpenModal] = useState(true);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
 

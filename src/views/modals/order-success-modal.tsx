@@ -5,6 +5,7 @@ import { Button } from '@/components/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons/faCircleCheck';
+import { removeBlur } from '@/utils';
 
 export interface ModalProps {
   open: boolean;
@@ -12,12 +13,6 @@ export interface ModalProps {
   onClose: () => void;
 }
 export default function SuccessModal({ open, setOpen, onClose }: ModalProps) {
-  const removeBlur = () => {
-    document.getElementById('main').classList.remove('blur-sm');
-    document.getElementById('header').classList.remove('blur-sm');
-    document.getElementById('footer').classList.remove('blur-sm');
-  };
-
   const onClickClose = () => {
     removeBlur();
     onClose();

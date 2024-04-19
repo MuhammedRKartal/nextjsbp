@@ -6,6 +6,7 @@ import { Button } from '@/components/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { useEffect, useState } from 'react';
+import { blurBackground, removeBlur } from '@/utils';
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -32,30 +33,12 @@ export const Modal = (props: ModalProps) => {
     onClose = () => {}
   } = props;
 
-  function blurBackground() {
-    if (typeof document !== 'undefined') {
-      document.getElementById('main').classList.add('blur-sm');
-      document.getElementById('header').classList.add('blur-sm');
-      document.getElementById('footer').classList.add('blur-sm');
-    }
+  if (open) {
+    blurBackground();
+  } else {
+    removeBlur();
+    return null;
   }
-
-  function removeBlur() {
-    if (typeof document !== 'undefined') {
-      document.getElementById('main').classList.remove('blur-sm');
-      document.getElementById('header').classList.remove('blur-sm');
-      document.getElementById('footer').classList.remove('blur-sm');
-    }
-  }
-
-  useEffect(() => {
-    if (open) {
-      blurBackground();
-    } else {
-      removeBlur();
-      return null;
-    }
-  }, [open]);
 
   const closeAction = () => {
     removeBlur();

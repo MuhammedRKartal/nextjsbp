@@ -48,3 +48,19 @@ export function buildClientRequestUrl(
 
   return url;
 }
+
+export function blurBackground() {
+  if (typeof document !== 'undefined') {
+    document?.getElementById('main')?.classList?.add('blur-sm');
+    document?.getElementById('header')?.classList?.add('blur-sm');
+    document?.getElementById('footer')?.classList?.add('blur-sm');
+  }
+}
+
+export function removeBlur() {
+  if (typeof document !== 'undefined') {
+    document?.getElementById('main')?.classList?.remove('blur-sm');
+    document?.getElementById('header')?.classList?.remove('blur-sm');
+    document?.getElementById('footer')?.classList?.remove('blur-sm');
+  }
+}

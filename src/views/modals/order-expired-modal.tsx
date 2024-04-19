@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Button } from '@/components/button';
 import { faWarning } from '@fortawesome/free-solid-svg-icons/faWarning';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { removeBlur } from '@/utils';
 
 export interface ModalProps {
   open: boolean;
@@ -16,12 +17,6 @@ export default function ExpirationModal({
   setOpen,
   onClose
 }: ModalProps) {
-  const removeBlur = () => {
-    document.getElementById('main').classList.remove('blur-sm');
-    document.getElementById('header').classList.remove('blur-sm');
-    document.getElementById('footer').classList.remove('blur-sm');
-  };
-
   const onClickClose = () => {
     removeBlur();
     onClose();

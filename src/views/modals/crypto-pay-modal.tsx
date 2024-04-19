@@ -11,6 +11,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { useFetchOrderStatusQuery } from '@/data/client/checkout';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
+import { removeBlur } from '@/utils';
 
 export interface ModalProps {
   open: boolean;
@@ -52,12 +53,6 @@ export default function CryptoPayModal({
       pollingInterval: 6000
     }
   );
-
-  const removeBlur = () => {
-    document.getElementById('main').classList.remove('blur-sm');
-    document.getElementById('header').classList.remove('blur-sm');
-    document.getElementById('footer').classList.remove('blur-sm');
-  };
 
   if (statusData?.orderStatus === 500) {
     removeBlur();
