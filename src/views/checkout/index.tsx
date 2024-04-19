@@ -19,33 +19,15 @@ export default function Checkout() {
   } = useGetBasketQuery();
   const [data, setData] = useState(basketData as BasketType);
 
-  const { data: activeOrder, isSuccess: activeSuccess } =
-    useGetLastActiveOrderQuery();
-
-  const activeOrderObject = {
-    pk: activeOrder?.basket,
-    product_list: activeOrder?.productList,
-    total_amount: activeOrder?.totalAmount,
-    total_quantity: activeOrder?.totalQuantity
-  };
-
   useEffect(() => {
-    if (
-      !basketData ||
-      basketData?.total_quantity === null ||
-      basketData?.total_quantity === 0
-    ) {
-      setData(activeOrderObject);
-    } else {
-      setData(basketData);
-    }
-  }, [basketSuccess, activeSuccess]);
+    setData(basketData);
+  }, [basketSuccess]);
 
   const router = useRouter();
 
   if (data) {
     if (
-      (basketSuccess === true || activeSuccess === true) &&
+      basketSuccess === true &&
       (data.total_quantity === null || data.total_quantity === undefined)
     ) {
       router.push(ROUTES.ORDERS);
@@ -72,7 +54,7 @@ export default function Checkout() {
             {data?.total_quantity !== undefined && (
               <CheckoutSummary
                 data={data}
-                isSuccess={basketSuccess || activeSuccess}
+                isSuccess={basketSuccess}
                 isLoading={isLoading}
               />
             )}

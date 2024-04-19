@@ -2,17 +2,32 @@
 
 import { Modal } from '@/components/Modal/modal';
 import { Button } from '@/components/button';
+import { Section } from '@/components/section';
+import { basketApi, useClearBasketMutation } from '@/data/client/basket';
 import { useCreateCheckoutMutation } from '@/data/client/checkout';
+import { ROUTES } from '@/routes';
 import { CheckoutType } from '@/types';
 import CryptoPayModal from '@/views/modals/crypto-pay-modal';
+import ExpirationModal from '@/views/modals/order-expired-modal';
+import { faWarning } from '@fortawesome/free-solid-svg-icons/faWarning';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 export default function CryptoPay() {
   const [invoiceData, setData] = useState({} as CheckoutType);
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [expired, setExpired] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const router = useRouter();
+
   const [createCheckout] = useCreateCheckoutMutation();
+
+  const onCloseAction = () => {
+    router.push(ROUTES.BASKET);
+  };
 
   const onClickOperation = () => {
     setLoading(true);
@@ -27,11 +42,19 @@ export default function CryptoPay() {
 
   return (
     <>
+      {expired && (
+        <ExpirationModal
+          open={expired}
+          setOpen={setExpired}
+          onClose={() => onCloseAction()}
+        />
+      )}
       {open && Object.keys(invoiceData).length > 0 && (
         <CryptoPayModal
           open={open}
           setOpen={setOpen}
           data={invoiceData}
+          setExpired={setExpired}
         ></CryptoPayModal>
       )}
       <section className="text-white">
@@ -42,9 +65,9 @@ export default function CryptoPay() {
           <ol className="text-sm flex flex-col gap-1.5 list-disc list-inside">
             <li>Our payment method of choice is LTC.</li>
             <li>
-              Select Continue Payment and send the following amount of LTC to
-              the address displayed.
+              Select Continue Payment to display your latest active order .
             </li>
+            <li>Send the following amount of LTC to the address displayed.</li>
             <li>
               The total amount you have to pay is {invoiceData?.invoice?.amount}{' '}
               LTC.

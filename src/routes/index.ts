@@ -1,6 +1,7 @@
 enum GENERAL_ROUTES {
   HOME = '/',
-  PRODUCTS = '/products'
+  PRODUCTS = '/products',
+  BASKET = '/baskets/basket'
 }
 
 enum ORDERS_ROUTES {

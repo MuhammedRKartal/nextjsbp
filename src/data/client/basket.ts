@@ -32,12 +32,11 @@ export const basketApi = api.injectEndpoints({
       })
     }),
     clearBasket: build.mutation<BasketType, void>({
-      query: (body) => ({
+      query: () => ({
         url: buildClientRequestUrl(basket.clearBasket, {
           contentType: 'application/json'
         }),
-        method: 'DELETE',
-        body
+        method: 'DELETE'
       }),
       transformResponse: (response: BasketType) => response,
       invalidatesTags: ['Basket']

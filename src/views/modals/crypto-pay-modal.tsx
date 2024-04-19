@@ -15,9 +15,15 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 export interface ModalProps {
   open: boolean;
   setOpen: (open: boolean) => void;
+  setExpired: (open: boolean) => void;
   data: any;
 }
-export default function CryptoPayModal({ open, setOpen, data }: ModalProps) {
+export default function CryptoPayModal({
+  open,
+  setOpen,
+  setExpired,
+  data
+}: ModalProps) {
   let statusCodeClassName = '';
 
   switch (data.orderStatus) {
@@ -54,6 +60,7 @@ export default function CryptoPayModal({ open, setOpen, data }: ModalProps) {
   if (statusData?.orderStatus === 400) {
     removeBlur();
     setOpen(false);
+    setExpired(true);
   }
 
   const [copiedLink, setCopiedLink] = useState(false);
