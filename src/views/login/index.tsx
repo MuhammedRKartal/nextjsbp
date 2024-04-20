@@ -78,7 +78,7 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col gap-2">
-            <Input label="Email or Phone" id="account" {...register('email')} />
+            <Input label="Email or Phone" id="email" {...register('email')} />
             <Input
               label="Password"
               id="password"

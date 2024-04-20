@@ -4,5 +4,22 @@
     "is_link": true,
     "link": "/account/orders?limit=4&page=1",
     "sub_titles": []
+  },
+  {
+    "main_title": "My Personal Informations",
+    "is_link": false,
+    "link": "",
+    "sub_titles": [
+      {
+        "title": "Change Password",
+        "link": "/account/change-password",
+        "is_link": true
+      },
+      {
+        "title": "Notification Settings",
+        "link": "/account/notification-settings",
+        "is_link": true
+      }
+    ]
   }
 ]

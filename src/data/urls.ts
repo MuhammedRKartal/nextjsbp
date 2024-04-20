@@ -28,8 +28,12 @@ export const user = {
   currentUser: '/web/currentuser',
   login: '/web/user/login',
   register: '/web/user/register',
-  confirmRegistration: '/web/user/confirm-registration',
   profile: '/web/user/profile'
+};
+
+export const confirms = {
+  confirmRegistration: '/web/user/confirm-registration',
+  confirmUpdatePassword: '/web/user/password/confirm-change'
 };
 
 const URLS = {

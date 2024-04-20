@@ -20,7 +20,7 @@ enum ACCOUNT_ROUTES {
   CHANGE_PASSWORD = '/account/change-password',
   NOTIFICATION_SETTINGS = '/account/notification-settings',
   ORDERS = '/account/orders?limit=4&page=1',
-  FAQ = '/account/faq'
+  FAQ = 'https://discord.com/invite/wowtasker'
 }
 
 export const ROUTES = {

@@ -38,11 +38,9 @@ export default function ChangeNotificationsPage() {
   } = useForm<NotificationChangeFormType>();
 
   const onSubmit: SubmitHandler<NotificationChangeFormType> = async (data) => {
-    const formData = JSON.stringify(data);
-
     await updateNotifications(data)
       .unwrap()
-      .then((data) =>
+      .then((data) => {
         dispatch(
           accountApi.util.updateQueryData(
             'getProfileInfo',
@@ -51,74 +49,71 @@ export default function ChangeNotificationsPage() {
               Object.assign(draftBasket, data);
             }
           )
-        )
-      );
+        );
+      });
   };
 
   return (
-    <Section className="flex gap-5 items-start">
-      <AccountMenu />
-      <Loader loading={isLoading}>
-        {isSuccess && (
-          <div className="w-full text-white">
-            <header className="mb-6">
-              <h3 className="text-3xl mb-1">Notification Settings</h3>
-              <p className="text-sm">
-                Change your selections for our notifications and press the
-                "SAVE" button at the bottom of the page to update.
-              </p>
-            </header>
-            <div className="flex flex-col gap-7 xl:flex-row xl:w-full xl:flex-wrap">
-              <div className="flex-[60]">
-                <div className="flex flex-col gap-5 px-7 py-6 border sm:px-24 sm:py-16 md:px-12 md:py-8 lg:px-24 lg:py-16 xl:px-12 xl:py-8 2xl:px-24 2xl:py-16">
-                  <form
-                    className="flex flex-col gap-5"
-                    onSubmit={handleSubmit(onSubmit)}
+    <Loader loading={isLoading}>
+      {isSuccess && (
+        <div className="w-full text-white">
+          <header className="mb-6">
+            <h3 className="text-3xl mb-2 lg:mb-1">Notification Settings</h3>
+            <p className="text-xs text-gray-300 lg:text-sm">
+              Change your selections for our notifications and press the "SAVE"
+              button at the bottom of the page to update.
+            </p>
+          </header>
+          <div className="flex flex-col gap-7 xl:flex-row xl:w-full xl:flex-wrap">
+            <div className="flex-[50]">
+              <div className="flex flex-col gap-5 px-7 py-6 border sm:px-16 sm:py-16 md:px-12 md:py-8 lg:px-16 lg:py-12 xl:px-12 xl:py-8 2xl:px-16 2xl:py-12">
+                <form
+                  className="flex flex-col gap-5"
+                  onSubmit={handleSubmit(onSubmit)}
+                >
+                  <div>
+                    How would you like to be informed about our campaigns?
+                  </div>
+                  <Checkbox
+                    defaultChecked={profile?.email_allowed}
+                    appearance="square"
+                    {...register('email_allowed')}
                   >
-                    <div>
-                      How would you like to be informed about our campaigns?
-                    </div>
-                    <Checkbox
-                      defaultChecked={profile?.email_allowed}
-                      appearance="square"
-                      {...register('email_allowed')}
-                    >
-                      <div>by E-mail.</div>
-                      <span className="text-xs">
-                        Your registered e-mail address: {session.user.email}
-                      </span>
-                    </Checkbox>
+                    <div>by E-mail.</div>
+                    <span className="text-xs">
+                      Your registered e-mail address: {session.user.email}
+                    </span>
+                  </Checkbox>
 
-                    <Button
-                      type="submit"
-                      appearance="filled"
-                      size="xs"
-                      className="w-full text-base"
-                    >
-                      Save My Preferences
-                    </Button>
-                    <div className="text-sm mt-1">
-                      Even if you do not receive e-mails for the campaign, you
-                      will continue to receive e-mails regarding your orders and
-                      membership settings.
-                    </div>
-                  </form>
-                </div>
+                  <Button
+                    type="submit"
+                    appearance="filled"
+                    size="xs"
+                    className="w-full text-base"
+                  >
+                    Save My Preferences
+                  </Button>
+                  <div className="text-sm mt-10">
+                    Even if you do not receive e-mails for the campaign, you
+                    will continue to receive e-mails regarding your orders and
+                    membership settings.
+                  </div>
+                </form>
               </div>
-              <div className="flex flex-[40] flex-col gap-4">
-                <h3 className="text-3xl">Do you have any questions?</h3>
-                <div className="text-sm">
-                  Check out our{' '}
-                  <Link href={ROUTES.FAQ} className="underline">
-                    FAQ
-                  </Link>{' '}
-                  page.
-                </div>
+            </div>
+            <div className="flex flex-[50] flex-col gap-4">
+              <h3 className="text-3xl">Do you have any questions?</h3>
+              <div className="text-sm">
+                Check out our{' '}
+                <Link href={ROUTES.FAQ} target="_blank" className="underline">
+                  FAQ
+                </Link>{' '}
+                page.
               </div>
             </div>
           </div>
-        )}
-      </Loader>
-    </Section>
+        </div>
+      )}
+    </Loader>
   );
 }

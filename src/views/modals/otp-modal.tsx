@@ -9,19 +9,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
 import { useRouter } from 'next/navigation';
 import { SignInOptions, signIn } from 'next-auth/react';
-import { user } from '@/data/urls';
+import { confirms } from '@/data/urls';
+import { blurBackground, removeBlur } from '@/utils';
 
 export interface ModalProps {
   open: boolean;
-  email: string;
-  username: string;
+  body?: any;
+  isSignIn?: boolean;
   setOpen: (open: boolean) => void;
 }
 
-export default function RegisterModal({
+export default function OTPModal({
   open,
-  email,
-  username,
+  body,
+  isSignIn = false,
   setOpen
 }: ModalProps) {
   const [otp, setOtp] = useState('');
@@ -29,26 +30,43 @@ export default function RegisterModal({
   const [errorText, setErrorText] = useState('');
   const [success, setSuccess] = useState(false);
   const [isloading, setLoading] = useState(false);
-  const router = useRouter();
 
+  blurBackground();
   const onClose = () => {
+    setOtp('');
     setError(false);
     setErrorText('');
     setSuccess(false);
+    removeBlur();
   };
 
   const onSubmit = async (e) => {
-    const data = {
-      email: email,
-      username: username,
-      verification_code: otp,
-      formType: 'confirmRegistration'
-    };
+    body['verification_code'] = otp;
 
     if (otp.length === 6 && isloading === false) {
       setLoading(true);
-      setTimeout(() => {
-        signIn('default', { ...data } as SignInOptions);
+      setTimeout(async () => {
+        await fetch(`/api/client${confirms[body.formType]}`, {
+          method: 'POST',
+          body: JSON.stringify(body)
+        }).then((res) => {
+          if (res.status === 200) {
+            setLoading(false);
+            setSuccess(true);
+            setTimeout(() => {
+              onClose();
+              setOpen(false);
+            }, 2000);
+            if (isSignIn) {
+              signIn('default', { ...body } as SignInOptions);
+            }
+          } else {
+            res.json().then((data) => {
+              setError(true);
+              setErrorText(data.error);
+            });
+          }
+        });
       }, 500);
     } else if (isloading === false && otp.length < 6) {
       setError(true);
@@ -67,8 +85,11 @@ export default function RegisterModal({
       >
         <Section className="flex flex-col items-center">
           <div className="text-white text-2xl mt-4 mb-1">Enter Code</div>
-          <div className="text-gray-300 mb-8">
+          <div className="text-gray-300 mb-1">
             Enter the 6-digit code sent by WoWTasker Email Provider.
+          </div>
+          <div className="text-xs text-gray-400  mb-8">
+            Please check your spam folder if you didn't receive the email.
           </div>
           <OTPInput
             value={otp}

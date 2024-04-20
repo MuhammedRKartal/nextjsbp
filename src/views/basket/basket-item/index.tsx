@@ -103,7 +103,7 @@ export default function BasketItem(props) {
           src={basketItem.image}
           alt={product.name}
           width={120}
-          height={146}
+          height={120}
         ></Image>
       </Link>
 

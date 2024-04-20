@@ -9,9 +9,8 @@ type Props = {
   params: { pk: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const id = params.pk;
-  const product = await (
+async function getData(id: string) {
+  return (
     await fetch(
       `${process.env.BACKEND_URL}${URLS.product.getProductByPk(id)}`,
       {
@@ -19,6 +18,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       }
     )
   ).json();
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const id = params.pk;
+  const product = await getData(id);
 
   return {
     title: product.name,
@@ -40,14 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductDetail({
   params
 }: PageProps<{ pk: string }>) {
-  const data = await (
-    await fetch(
-      `${process.env.BACKEND_URL}${URLS.product.getProductByPk(params.pk)}`,
-      {
-        method: 'GET'
-      }
-    )
-  ).json();
+  const data = await getData(params.pk);
 
   return (
     <Section tag="section">

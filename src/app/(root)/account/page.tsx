@@ -1,7 +1,5 @@
-import { Section } from '@/components/section';
 import { ROUTES } from '@/routes';
 import { AccountInfoBox } from '@/views/account/account-info-box';
-import { AccountMenu } from '@/views/account/account-menu';
 import { AccountMenuMobile } from '@/views/account/account-menu-mobile';
 import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
@@ -22,9 +20,9 @@ export default async function Page() {
   }
 
   return (
-    <Section className="flex flex-col gap-5 items-start md:flex-row">
-      <AccountMenu className="hidden md:block" />
+    <>
       <AccountMenuMobile className="md:hidden mb-8" />
+
       <div className="flex flex-wrap gap-3 w-full md:flex-nowrap">
         <AccountInfoBox title={'WowTasker Points'}>
           <p className="text-sm mb-8">
@@ -37,14 +35,18 @@ export default async function Page() {
         <AccountInfoBox title={'Contact Us'}>
           <p className="text-sm mb-20">
             To share your opinion, suggesion or complaint, you can reach us via
-            our RocketChat app. You can log in with the credentials of WoWTasker
-            website.
+            our Discord channel.
           </p>
-          <Link href={ROUTES.ACCOUNT} className="text-xl font-bold mt-auto">
-            RocketChat
+          <Link
+            href={'https://discord.com/invite/wowtasker'}
+            target="_blank"
+            rel="noreferrer"
+            className="text-xl font-bold mt-auto"
+          >
+            Discord
           </Link>
         </AccountInfoBox>
       </div>
-    </Section>
+    </>
   );
 }

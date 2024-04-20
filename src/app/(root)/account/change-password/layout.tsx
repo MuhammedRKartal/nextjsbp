@@ -1,8 +1,23 @@
 import { Metadata } from 'next';
-import ChangePasswordPage from './page'; // import your Demo's page
+import ChangeNotificationsPage from './page';
+import Breadcrumb from '@/components/breadcrumb';
+import { ROUTES } from '@/routes';
 
 export const metadata: Metadata = {
   title: 'Change Password',
-  description: 'Your Description'
+  description:
+    'How would you like to be informed about our campaigns? Change your notification settings.'
 };
-export default ChangePasswordPage;
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const breadcrumbList = [
+    { url: ROUTES.ACCOUNT, text: 'Account' },
+    { url: ROUTES.CHANGE_PASSWORD, text: 'Change Password' }
+  ];
+
+  return (
+    <div className="w-full">
+      <Breadcrumb breadcrumbList={breadcrumbList} />
+      {children}
+    </div>
+  );
+}
