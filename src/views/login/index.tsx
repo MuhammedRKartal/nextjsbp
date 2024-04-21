@@ -119,7 +119,7 @@ const Login = () => {
             Register.
           </Link>
         </div>
-        <div id="help" className="flex items-center justify-center mt-1 w-full">
+        {/* <div id="help" className="flex items-center justify-center mt-1 w-full">
           <Link
             href={'/'}
             target="_blank"
@@ -127,7 +127,7 @@ const Login = () => {
           >
             Forgot your password?
           </Link>
-        </div>
+        </div> */}
       </div>
     </Section>
   );

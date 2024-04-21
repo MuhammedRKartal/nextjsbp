@@ -173,7 +173,7 @@ export default function Register() {
             Log In.
           </Link>
         </div>
-        <div id="help" className="flex items-center justify-center mt-1 w-full">
+        {/* <div id="help" className="flex items-center justify-center mt-1 w-full">
           <Link
             href={'/'}
             target="_blank"
@@ -181,7 +181,7 @@ export default function Register() {
           >
             Forgot your password?
           </Link>
-        </div>
+        </div> */}
       </div>
     </Section>
   );
