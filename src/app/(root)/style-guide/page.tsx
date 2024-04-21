@@ -1,4 +1,4 @@
-yarimport clsx from 'clsx';
+import clsx from 'clsx';
 import { Button } from '@/components/button';
 import { Section } from '@/components/section';
 import { Input } from '@/components/Input/input';
