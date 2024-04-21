@@ -9,12 +9,13 @@
       }
     ]
   },
+
   {
-    "main_title": "Contact",
+    "main_title": "Forums",
     "item": [
       {
-        "title": "Discord",
-        "link": "https://discord.com/invite/wowtasker",
+        "title": "Ownedcore",
+        "link": "https://www.ownedcore.com/forums/showthread.php?t=1011705&p=4463111",
         "is_link": true,
         "rel": "noreferrer",
         "target": "_blank"
@@ -22,6 +23,18 @@
       {
         "title": "Elitepvpers",
         "link": "https://www.elitepvpers.com/forum/members/8691539-wowtasker.html",
+        "is_link": true,
+        "rel": "noreferrer",
+        "target": "_blank"
+      }
+    ]
+  },
+  {
+    "main_title": "Contact Us",
+    "item": [
+      {
+        "title": "Discord",
+        "link": "https://discord.com/invite/wowtasker",
         "is_link": true,
         "rel": "noreferrer",
         "target": "_blank"

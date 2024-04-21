@@ -1,8 +1,12 @@
+import { Section } from '@/components/section';
+import { AccountMenu } from '@/views/account/account-menu';
 import { Metadata } from 'next';
-import BasketPage from './page'; // import your Demo's page
 
 export const metadata: Metadata = {
-  title: 'Your Title',
-  description: 'Your Description'
+  title: 'My Account',
+  description: 'Account Page'
 };
-export default BasketPage;
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return <>{children}</>;
+}

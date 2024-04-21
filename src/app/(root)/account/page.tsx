@@ -1,22 +1,21 @@
 import { ROUTES } from '@/routes';
 import { AccountInfoBox } from '@/views/account/account-info-box';
 import { AccountMenuMobile } from '@/views/account/account-menu-mobile';
-import { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
 import { cookies } from 'next/headers';
 import Link from 'next/link';
 import { redirect } from 'next/navigation';
-
-export const metadata: Metadata = {
-  title: 'My Account',
-  description: 'Account Page'
-};
+import SignOut from '@/components/SignOut';
 
 export default async function Page() {
   const session = await getServerSession();
+  const cookie = cookies();
 
-  if (!session?.user || !cookies().get('refresh_token')?.value) {
+  if (!session?.user) {
     redirect(ROUTES.LOGIN);
+  }
+  if (!cookie.get('refresh_token')?.value) {
+    return <SignOut />;
   }
 
   return (

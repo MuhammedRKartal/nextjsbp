@@ -8,21 +8,19 @@ import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
 import { useRouter } from 'next/navigation';
-import { SignInOptions, signIn } from 'next-auth/react';
+import { SignInOptions, signIn, signOut } from 'next-auth/react';
 import { confirms } from '@/data/urls';
 import { blurBackground, removeBlur } from '@/utils';
 
 export interface ModalProps {
   open: boolean;
   body?: any;
-  isSignIn?: boolean;
   setOpen: (open: boolean) => void;
 }
 
-export default function OTPModal({
+export default function PasswordVerificationModal({
   open,
   body,
-  isSignIn = false,
   setOpen
 }: ModalProps) {
   const [otp, setOtp] = useState('');
@@ -32,6 +30,7 @@ export default function OTPModal({
   const [isloading, setLoading] = useState(false);
 
   blurBackground();
+
   const onClose = () => {
     setOtp('');
     setError(false);
@@ -55,11 +54,11 @@ export default function OTPModal({
             setSuccess(true);
             setTimeout(() => {
               onClose();
-              setOpen(false);
+              signOut();
             }, 2000);
-            if (isSignIn) {
-              signIn('default', { ...body } as SignInOptions);
-            }
+            setTimeout(() => {
+              setOpen(false);
+            }, 1000);
           } else {
             res.json().then((data) => {
               setLoading(false);
@@ -78,7 +77,7 @@ export default function OTPModal({
   return (
     <>
       <Modal
-        wrapperId="otp-modal"
+        wrapperId="Password-verification-modal"
         open={open}
         setOpen={setOpen}
         onClose={onClose}

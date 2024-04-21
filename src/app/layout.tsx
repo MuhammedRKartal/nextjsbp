@@ -1,14 +1,9 @@
-import 'server-only';
-
 import type { Metadata } from 'next';
 import '@/app/globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 import { Lato } from 'next/font/google';
-import Header from '@/views/header';
-import Footer from '@/views/footer';
 import ClientRoot from '@/app/client-root';
-import clsx from 'clsx';
 import MainRoot from './main-root';
 import { getServerSession } from 'next-auth';
 import SessionProvider from '@/components/SessionProvider';

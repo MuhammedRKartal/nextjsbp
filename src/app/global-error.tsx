@@ -7,7 +7,7 @@ import Header from '@/views/header';
 import { Section } from '@/components/section';
 import { Image } from '@/components/image';
 
-export default function GlobalError({
+export default function Error({
   error,
   reset
 }: {
@@ -18,7 +18,12 @@ export default function GlobalError({
     <html lang="en">
       <body className="preload overflow-x-hidden bg-black">
         <Header />
-        <main>
+        <main
+          className={clsx(
+            'flex items-center my-6 mx-auto min-h-[64vh]',
+            'md:my-10 md:mt-15'
+          )}
+        >
           <Section
             className={clsx('relative mx-auto my-10', 'md:my-20')}
             tag="div"
@@ -38,12 +43,10 @@ export default function GlobalError({
                 aspectRatio={1}
               ></Image>
               <h1 className="text-2xl text-white">Something went wrong!</h1>
-              <span className="text-lg text-white capitalize">
-                {error.message}
-              </span>
-              <Button appearance="filled" link="/">
-                Return Home
-              </Button>
+              <span className="text-white capitalize">{error.message}</span>
+              <a href="/">
+                <Button appearance="filled">Return Home</Button>
+              </a>
             </div>
           </Section>
         </main>

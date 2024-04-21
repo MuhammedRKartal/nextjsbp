@@ -14,6 +14,7 @@ import { ROUTES } from '@/routes';
 import { useState } from 'react';
 import OTPModal from '@/views/modals/otp-modal';
 import clsx from 'clsx';
+import PasswordVerificationModal from '@/views/modals/password-verification-modal';
 
 export default function ChangePasswordPage() {
   const { data: session, status } = useSession();
@@ -65,6 +66,7 @@ export default function ChangePasswordPage() {
 
   const [updatePassword] = useUpdatePasswordMutation();
   const [openModal, setOpenModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
   const [body, setBody] = useState({});
@@ -87,20 +89,27 @@ export default function ChangePasswordPage() {
       new_password: data.new_password,
       formType: 'confirmUpdatePassword'
     });
+    setLoading(true);
     await updatePassword(data)
       .unwrap()
       .then(() => {
+        setLoading(false);
         setOpenModal(true);
       })
       .catch((error) => {
+        setLoading(false);
         setError(true);
-        setErrorText(error.data.error);
+        setErrorText(error?.data?.error);
       });
   };
 
   return (
     <div className="w-full text-white">
-      <OTPModal open={openModal} body={body} setOpen={setOpenModal} />
+      <PasswordVerificationModal
+        open={openModal}
+        body={body}
+        setOpen={setOpenModal}
+      />
       <header>
         <h3 className="text-3xl mb-4">Change Password</h3>
       </header>
@@ -153,6 +162,7 @@ export default function ChangePasswordPage() {
                 appearance="filled"
                 size="xs"
                 className={clsx('w-full text-base', error ? 'mt-3' : 'mt-7')}
+                isloading={loading}
               >
                 Change Password
               </Button>
