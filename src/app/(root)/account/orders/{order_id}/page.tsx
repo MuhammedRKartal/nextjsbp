@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { ROUTES } from '@/routes';
 import { AccountOrders } from '@/views/account/orders';
 
-export default function OrdersPage() {
+export default function OrderPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
   if (status === 'unauthenticated') {

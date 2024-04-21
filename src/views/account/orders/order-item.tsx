@@ -99,7 +99,7 @@ export const OrderItem = (props: OrderProps) => {
               src={orderItem.product.images[0].url}
               alt={orderItem.product.images[0].alt_text}
               width={90}
-              height={112}
+              height={90}
             ></Image>
           );
         })}

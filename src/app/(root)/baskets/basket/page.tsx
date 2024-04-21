@@ -1,15 +1,20 @@
-'use client';
-
 import { redirect } from 'next/navigation';
 import Basket from '@/views/basket';
-import { useSession } from 'next-auth/react';
 import { ROUTES } from '@/routes';
+import { getServerSession } from 'next-auth';
+import { cookies } from 'next/headers';
+import SignOut from '@/components/SignOut';
 
-export default function BasketPage() {
-  const session = useSession();
+export default async function BasketPage() {
+  const session = await getServerSession();
+  const cookie = cookies();
 
-  if (session?.status === 'unauthenticated') {
+  if (!session?.user) {
     redirect(ROUTES.LOGIN);
   }
+  if (!cookie.get('refresh_token')?.value) {
+    return <SignOut />;
+  }
+
   return <Basket />;
 }

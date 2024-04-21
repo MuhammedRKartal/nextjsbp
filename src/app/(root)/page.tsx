@@ -1,8 +1,8 @@
-'server-only';
+'use server';
 
 import HeroBanner from '@/widgets/hero-banner';
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <HeroBanner></HeroBanner>

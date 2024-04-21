@@ -96,6 +96,7 @@ export type PasswordChangeFormType = {
   current_password: string;
   new_password: string;
   confirm_password: string;
+  email: string;
 };
 
 export type NotificationChangeFormType = {

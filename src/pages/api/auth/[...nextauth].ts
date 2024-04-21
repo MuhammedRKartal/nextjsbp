@@ -99,7 +99,7 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
     session: {
       strategy: 'jwt',
       maxAge: 15 * 24 * 60 * 60,
-      updateAge: 3 * 60 * 60
+      updateAge: 2 * 24 * 60 * 60
     }
   } as AuthOptions;
 };

@@ -1,3 +1,5 @@
+'use client';
+
 import { Section } from '@/components/section';
 import BasketItem from './basket-item';
 import BasketSummary from './summary';
@@ -5,8 +7,6 @@ import clsx from 'clsx';
 import { useGetBasketQuery } from '@/data/client/basket';
 import EmptyBasket from './empty-basket';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner';
 import { Loader } from '@/components/loader';
 
 export default function Basket() {

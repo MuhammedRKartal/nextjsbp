@@ -23,7 +23,7 @@ export default function CheckoutItem(props) {
           src={product.images[0].url}
           alt={product.images[0].alt_text}
           width={80}
-          height={100}
+          height={80}
         ></Image>
       </Link>
 

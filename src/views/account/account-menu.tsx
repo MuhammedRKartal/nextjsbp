@@ -24,7 +24,7 @@ export const AccountMenu = (props) => {
   return (
     <div
       className={twMerge(
-        'text-white whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[50vh] border-secondary-darkest hidden md:block',
+        'text-white whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[55vh] border-secondary-darkest hidden md:block',
         'lg:pr-24',
         className
       )}

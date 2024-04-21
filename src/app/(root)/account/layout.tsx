@@ -8,5 +8,10 @@ export const metadata: Metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <Section className="flex flex-col gap-5 items-start md:flex-row">
+      <AccountMenu className="hidden md:block" />
+      {children}
+    </Section>
+  );
 }

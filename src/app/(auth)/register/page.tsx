@@ -1,4 +1,4 @@
-'server-only';
+'use server';
 
 import Register from '@/views/register';
 import { redirect } from 'next/navigation';

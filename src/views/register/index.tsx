@@ -10,7 +10,7 @@ import { string, object } from 'yup';
 import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { RegisterFormType } from '@/types';
-import RegisterModal from '@/views/modals/register-modal';
+import OTPModal from '@/views/modals/otp-modal';
 import { user } from '@/data/urls';
 import { ROUTES } from '@/routes';
 
@@ -41,16 +41,18 @@ export default function Register() {
     formType: string()
   });
 
-  const [email, setEmail] = useState('');
-  const [username, setUserName] = useState('');
+  const [body, setBody] = useState({});
   const [isloading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState('');
 
   const onSubmit: SubmitHandler<RegisterFormType> = async (data) => {
-    setEmail(data.email);
-    setUserName(data.username);
+    setBody({
+      email: data.email,
+      username: data.username,
+      formType: 'confirmRegistration'
+    });
 
     const formData = JSON.stringify(data);
 
@@ -85,11 +87,11 @@ export default function Register() {
 
   return (
     <Section className="h-screen" appearance="full">
-      <RegisterModal
+      <OTPModal
         open={openModal}
-        email={email}
-        username={username}
+        body={body}
         setOpen={setOpenModal}
+        isSignIn={true}
       />
 
       <div className="relative top-[15%] flex flex-col items-center mx-auto w-[320px] sm:w-[416px]">
@@ -154,7 +156,7 @@ export default function Register() {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            isloading={String(isloading)}
+            isloading={isloading}
           >
             Register
           </Button>
@@ -171,7 +173,7 @@ export default function Register() {
             Log In.
           </Link>
         </div>
-        <div id="help" className="flex items-center justify-center mt-1 w-full">
+        {/* <div id="help" className="flex items-center justify-center mt-1 w-full">
           <Link
             href={'/'}
             target="_blank"
@@ -179,7 +181,7 @@ export default function Register() {
           >
             Forgot your password?
           </Link>
-        </div>
+        </div> */}
       </div>
     </Section>
   );

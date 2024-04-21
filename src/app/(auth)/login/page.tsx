@@ -1,4 +1,4 @@
-'server-only';
+'use server';
 
 import Login from '@/views/login';
 import { redirect } from 'next/navigation';

@@ -1,4 +1,5 @@
-import 'server-only';
+'use server';
+
 import HeroBannerContent from '@/widgets/hero-banner/hero-banner-content';
 import data from '@/schemas/hero-banner.json';
 
