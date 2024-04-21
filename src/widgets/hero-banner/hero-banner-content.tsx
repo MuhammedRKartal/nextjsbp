@@ -50,7 +50,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
         centeredSlides
         slideToClickedSlide={true}
         parallax={true}
-        loop
       >
         {content.map((item) => (
           <SwiperSlide

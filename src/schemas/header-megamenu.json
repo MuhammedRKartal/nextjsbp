@@ -10,5 +10,11 @@
     "title": "Products",
     "rel": null,
     "target": null
+  },
+  {
+    "link": "https://discord.com/invite/wowtasker",
+    "title": "Discord",
+    "rel": "noreferrer",
+    "target": "_blank"
   }
 ]
