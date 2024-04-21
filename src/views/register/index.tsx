@@ -156,7 +156,7 @@ export default function Register() {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            isloading={String(isloading)}
+            isloading={isloading}
           >
             Register
           </Button>

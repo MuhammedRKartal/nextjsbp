@@ -94,7 +94,7 @@ export default function ChangePasswordPage() {
       })
       .catch((error) => {
         setError(true);
-        setErrorText(error);
+        setErrorText(error.data.error);
       });
   };
 

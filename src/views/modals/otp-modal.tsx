@@ -62,6 +62,7 @@ export default function OTPModal({
             }
           } else {
             res.json().then((data) => {
+              setLoading(false);
               setError(true);
               setErrorText(data.error);
             });
