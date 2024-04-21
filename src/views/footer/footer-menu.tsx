@@ -6,6 +6,8 @@ export type FooterMenuItemType = {
   title: string;
   link: string;
   is_link: boolean;
+  rel?: string;
+  target?: string;
 };
 
 type FooterMenuColumnType = {
@@ -31,7 +33,12 @@ export default async function FooterMenu() {
             {column?.item?.map((item: FooterMenuItemType) => (
               <li key={item.title} className="text-white cursor-pointer">
                 {item?.is_link ? (
-                  <Link href={item.link} className="hover:text-primary">
+                  <Link
+                    href={item.link}
+                    rel="noreferrer"
+                    target="target"
+                    className="hover:text-primary"
+                  >
                     {item.title}
                   </Link>
                 ) : (
