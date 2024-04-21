@@ -95,6 +95,8 @@ export default function ChangePasswordPage() {
       .then(() => {
         setLoading(false);
         setOpenModal(true);
+        setError(false);
+        setErrorText('');
       })
       .catch((error) => {
         setLoading(false);
