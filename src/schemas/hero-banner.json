@@ -10,7 +10,7 @@
       "title": "Early Access",
       "description": "Revolutionize your botting experience with WoW Tasker!",
       "button_text": null,
-      "button_target_url": "/product-list"
+      "button_target_url": null
     },
     {
       "is_image": true,
@@ -23,6 +23,18 @@
       "description": "WoW Tasker released the product that you need!",
       "button_text": "See Products",
       "button_target_url": "/product-list"
+    },
+    {
+      "is_image": true,
+      "image": "/assets/jaina.gif",
+      "mobile_image": "/assets/WoWTaskerMinimized.png",
+      "content_image": "/assets/WoWTaskerMinimized.png",
+      "content_image_alt": "WoWTasker Logo",
+      "image_alt": "Join our Discord gif",
+      "title": "Learn More",
+      "description": "Automation made easy, join discord to learn more!",
+      "button_text": "Join Discord",
+      "button_target_url": "https://discord.com/invite/wowtasker"
     }
   ]
 }
