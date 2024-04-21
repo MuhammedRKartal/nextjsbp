@@ -1,5 +1,12 @@
 [
   {
+    "logo": "/assets/elite-pvpers-logo.png",
+    "alt": "Elitepvpers",
+    "link": "https://www.elitepvpers.com/forum/members/8691539-wowtasker.html",
+    "rel": "noreferrer",
+    "target": "_blank"
+  },
+  {
     "logo": "/assets/discord-logo.png",
     "alt": "Discord",
     "link": "https://discord.com/invite/wowtasker",
