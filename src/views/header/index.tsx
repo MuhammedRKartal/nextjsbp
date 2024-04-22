@@ -16,8 +16,8 @@ export default async function Header() {
         <div
           className={clsx(
             'h-[50px] px-2',
-            'border-0 bg-primary-opacity',
-            'md:h-[72px] md:mx-8 md:px-4 md:rounded-lg'
+            'border-0 bg-primary-dark',
+            'md:h-[72px] md:mx-8 md:px-4 md:rounded-lg md:bg-primary-opacity'
           )}
         >
           <Navbar>

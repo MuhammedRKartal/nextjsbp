@@ -211,3 +211,11 @@ export type CheckoutOptionsType = {
   requiresRefundEmail: null;
   speedPolicy: string;
 };
+
+export type FeatureItemType = {
+  image: {
+    url: string;
+    alt_text: string;
+  };
+  text: string;
+};

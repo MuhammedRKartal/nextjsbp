@@ -1,5 +1,3 @@
-'use client';
-
 import clsx from 'clsx';
 import NextImage from 'next/image';
 import { ImageProps } from '@/components/types';

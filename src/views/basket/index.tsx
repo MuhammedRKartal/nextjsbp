@@ -36,7 +36,7 @@ export default function Basket() {
               >
                 <span>My Basket</span>
                 <Link
-                  href="/product-list"
+                  href="/products"
                   className="underline text-[10px] text-gray-300 tracking-wide"
                 >
                   Back to Shopping

@@ -70,6 +70,20 @@ const config: Config = {
         md: '720px',
         sm: '480px',
         xs: '390px'
+      },
+      animation: {
+        'loop-scroll': 'loop-scroll 35s linear infinite',
+        'loop-scroll-2': 'loop-scroll-2 35s linear infinite'
+      },
+      keyframes: {
+        'loop-scroll': {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-100%)' }
+        },
+        'loop-scroll-2': {
+          from: { transform: 'translateX(100%)' },
+          to: { transform: 'translateX(0%)' }
+        }
       }
     }
   },

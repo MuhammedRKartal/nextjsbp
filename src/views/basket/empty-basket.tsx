@@ -12,7 +12,7 @@ export default function EmptyBasket() {
         appearance="filled"
         size="lg"
         className="rounded"
-        link="/product-list"
+        link="/products"
       >
         Start Shopping
       </Button>

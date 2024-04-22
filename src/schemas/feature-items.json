@@ -1,0 +1,100 @@
+[
+  {
+    "text": "Easy UI",
+    "image": {
+      "url": "/assets/svg/hand-holding-hand-solid.svg",
+      "alt_text": "Easy UI"
+    }
+  },
+  {
+    "text": "Rotations & Rune Spells",
+    "image": {
+      "url": "/assets/svg/compass-regular.svg",
+      "alt_text": "Rotations & Rune Spells"
+    }
+  },
+  {
+    "text": "1-40 Level Profiles",
+    "image": {
+      "url": "/assets/svg/address-card-solid.svg",
+      "alt_text": "1-40 Level Profiles"
+    }
+  },
+  {
+    "text": "Advanced Equipment manager",
+    "image": {
+      "url": "/assets/svg/toolbox-solid.svg",
+      "alt_text": "Advanced Equipment Manager"
+    }
+  },
+  {
+    "text": "Automaton",
+    "image": {
+      "url": "/assets/svg/robot-solid.svg",
+      "alt_text": "Automaton"
+    }
+  },
+  {
+    "text": "Vendor, Repair and Spell Training",
+    "image": {
+      "url": "/assets/svg/hammer-solid.svg",
+      "alt_text": "Vendor, Repair and Spell Training"
+    }
+  },
+  {
+    "text": "Mailing System",
+    "image": {
+      "url": "/assets/svg/envelope-solid.svg",
+      "alt_text": "Mailing System"
+    }
+  },
+  {
+    "text": "Profession Levelling",
+    "image": {
+      "url": "/assets/svg/kitchen-set-solid.svg",
+      "alt_text": "Profession Levelling"
+    }
+  },
+  {
+    "text": "Item Handling",
+    "image": {
+      "url": "/assets/svg/sitemap-solid.svg",
+      "alt_text": "Item Handling"
+    }
+  },
+  {
+    "text": "TradeSkillMaster",
+    "image": {
+      "url": "/assets/svg/money-bill-trend-up-solid.svg",
+      "alt_text": "TradeSkillMaster"
+    }
+  },
+  {
+    "text": "Automatic Quest Data Generation",
+    "image": {
+      "url": "/assets/svg/circle-question-regular.svg",
+      "alt_text": "Automatic Quest Data Generation"
+    }
+  },
+  {
+    "text": "Simplified Profile Editor",
+    "image": {
+      "url": "/assets/svg/id-card-clip-solid.svg",
+      "alt_text": "Simplified Profile Editor"
+    }
+  },
+  {
+    "text": "Advanced Transportation Navigation",
+    "image": {
+      "url": "/assets/svg/horse-solid.svg",
+      "alt_text": "Advanced Transportation Navigation"
+    }
+  },
+  {
+    "text": "Streamer Mode",
+    "image": {
+      "url": "/assets/svg/podcast-solid.svg",
+      "alt_text": "Streamer Mode"
+    }
+  }
+]

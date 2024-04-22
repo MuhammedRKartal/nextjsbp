@@ -22,7 +22,7 @@
       "title": "Start Shopping",
       "description": "WoW Tasker released the product that you need!",
       "button_text": "See Products",
-      "button_target_url": "/product-list"
+      "button_target_url": "/products"
     },
     {
       "is_image": true,
