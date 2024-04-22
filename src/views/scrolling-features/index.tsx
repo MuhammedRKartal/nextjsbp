@@ -16,15 +16,15 @@ export const ScrollingFeatures = async (props) => {
         <div className="w-full inline-flex gap-2 justify-center overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-200px),transparent_100%)]">
           <div className="flex animate-loop-scroll">
             {data.map((item: FeatureItemType) => (
-              <FeatureItem item={item} />
+              <FeatureItem item={item} key={`${item?.text} Slider 1`} />
             ))}
           </div>
           <div
             className="flex animate-loop-scroll-2 absolute"
             aria-hidden="true"
           >
-            {data.map((item) => (
-              <FeatureItem item={item} />
+            {data.map((item: FeatureItemType) => (
+              <FeatureItem item={item} key={`${item?.text} Slider 1`} />
             ))}
           </div>
         </div>
