@@ -103,7 +103,7 @@ export default function OTPModal({
               <input
                 {...props}
                 className={clsx(
-                  '!w-12 h-12 rounded border-2 border-primary-darker text-lg font-bold text-gray-500',
+                  '!w-12 h-12 rounded border-2 border-borders-100 text-lg font-bold text-gray-500',
                   error && '!border-error !border'
                 )}
               />

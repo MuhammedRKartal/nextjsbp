@@ -53,7 +53,7 @@ const Select = (props: SelectProps) => {
       ) : (
         <div
           className={twMerge(
-            'relative border border-secondary-darkest text-xs py-2 px-3 cursor-pointer',
+            'relative border border-borders text-xs py-2 px-3 cursor-pointer',
             labelClassName
           )}
           onClick={handleListDisplay}
@@ -70,7 +70,7 @@ const Select = (props: SelectProps) => {
       )}
       <ul
         className={twMerge(
-          'fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[calc(80vw)] py-1 border bg-black border-secondary-darkest overflow-auto transition-all duration-300 max-h-56 max-w-xs thin-scrollbar z-50',
+          'fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[calc(80vw)] py-1 border bg-black border-borders overflow-auto transition-all duration-300 max-h-56 max-w-xs thin-scrollbar z-50',
           'lg:absolute lg:top-full lg:left-0 lg:translate-y-0 lg:translate-x-0 lg:w-full lg:border-t-0',
           showOptionList
             ? 'visible opacity-100 lg:max-h-32 lg:h-32 scroll-lock'
@@ -83,7 +83,7 @@ const Select = (props: SelectProps) => {
             <li
               className={twMerge(
                 'text-xs py-2 px-4 cursor-pointer',
-                'hover:bg-secondary-darkest',
+                'hover:bg-secondary-800',
                 itemClassName
               )}
               data-label={option.label}

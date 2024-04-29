@@ -12,8 +12,8 @@ export default function BasketSummary(props) {
     <>
       <div
         className={clsx(
-          'text-2xl font-semibold  flex justify-between items-center pb-5 border-b border-secondary-darkest',
-          'lg:text-base lg:font-normal lg:pt-4'
+          'text-2xl font-semibold  flex justify-between items-center pb-5 border-b border-borders',
+          'lg:text-base lg:font-500 lg:pt-4'
         )}
       >
         <span>{`Summary`}</span>
@@ -21,7 +21,7 @@ export default function BasketSummary(props) {
       </div>
       <div
         className={clsx(
-          'flex justify-between text-sm border-b pt-4 pb-3.5 h-32 border-secondary-darkest'
+          'flex justify-between text-sm border-b pt-4 pb-3.5 h-32 border-borders'
         )}
       >
         <span>{`Sum of Products (${total_quantity} items)`}</span>
@@ -29,7 +29,7 @@ export default function BasketSummary(props) {
       </div>
       <div
         className={clsx(
-          'flex justify-between text-2xl font-bold border-b pb-3 pt-2.5 mb-4 border-secondary-darkest',
+          'flex justify-between text-2xl font-bold border-b pb-3 pt-2.5 mb-4 border-borders',
           'lg:text-lg'
         )}
       >

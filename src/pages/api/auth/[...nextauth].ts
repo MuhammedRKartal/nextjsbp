@@ -1,8 +1,8 @@
 'use server';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import NextAuth, { AuthOptions, Session } from 'next-auth';
+import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import { URLS, user } from '@/data/urls';
+import { URLS } from '@/data/urls';
 
 async function getCurrentUser(refresh_token) {
   const headers = {
@@ -20,11 +20,7 @@ async function getCurrentUser(refresh_token) {
   return {
     id: currentUser.user_id,
     email: currentUser.email,
-    name: currentUser.username,
-    email_allowed: currentUser.email_allowed,
-    eula_accepted: currentUser.eula_accepted,
-    verified: currentUser.verified,
-    date_joined: currentUser.date_joined
+    name: currentUser.username
   };
 }
 
@@ -43,29 +39,7 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
           formType: { type: 'string' }
         },
         authorize: async (credentials) => {
-          const headers: HeadersInit = new Headers();
-
-          headers.set('Content-Type', 'application/json');
-          headers.set('auth_token', `${process.env.AUTH_TOKEN}`);
-
-          const apiRequest = await fetch(
-            `${process.env.BACKEND_URL}${user[credentials.formType]}`,
-            {
-              method: 'POST',
-              headers,
-              body: JSON.stringify(credentials)
-            }
-          );
-
-          let sessionId = '';
-          const setCookieHeader = apiRequest.headers.get('set-cookie');
-          if (setCookieHeader) {
-            sessionId =
-              setCookieHeader
-                .split(`;`)
-                ?.find((item) => item.includes('refresh_token'))
-                .split('refresh_token=')[1] || '';
-          }
+          const sessionId = req.cookies.refresh_token;
 
           const currentUser = await getCurrentUser(sessionId);
           return currentUser;
@@ -74,7 +48,7 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
     ],
 
     callbacks: {
-      jwt: async ({ token, user, account }) => {
+      jwt: async ({ token, user }) => {
         if (user) {
           token.user = user;
         }
@@ -90,8 +64,7 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
     events: {
       signOut: () => {
         res.setHeader('Set-Cookie', [
-          `refresh_token=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`,
-          `access_token=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`
+          `refresh_token=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`
         ]);
       }
     },

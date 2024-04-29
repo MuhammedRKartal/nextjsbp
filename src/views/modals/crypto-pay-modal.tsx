@@ -34,13 +34,13 @@ export default function CryptoPayModal({
       statusCodeClassName = 'text-gray-400';
       break;
     case 200:
-      statusCodeClassName = 'text-secondary-dark';
+      statusCodeClassName = 'text-secondary-600';
       break;
     case 300:
       statusCodeClassName = 'text-secondary';
       break;
     case 400:
-      statusCodeClassName = 'text-primary-light';
+      statusCodeClassName = 'text-primary-400';
       break;
     case 500:
       statusCodeClassName = 'text-error';
@@ -120,8 +120,8 @@ export default function CryptoPayModal({
             <span>{paymentMethod}</span>
             <FontAwesomeIcon
               className={clsx(
-                '-mt-1 ms-2 cursor-pointer hover:text-primary-lightest transform-all duration-100',
-                copiedPrice && 'text-primary-lightest'
+                '-mt-1 ms-2 cursor-pointer hover:text-primary-200 transform-all duration-100',
+                copiedPrice && 'text-primary-200'
               )}
               icon={copiedPrice ? faCheck : faCopy}
             ></FontAwesomeIcon>
@@ -146,7 +146,7 @@ export default function CryptoPayModal({
               onClick={() => onClickCopyLink()}
             >
               <div className="flex gap-1 max-w-[280px] cursor-pointer">
-                <span className="text-primary-light font-black flex items-center">
+                <span className="text-primary-400 font-black flex items-center">
                   <FontAwesomeIcon
                     icon={faChevronLeft}
                     className="text-[10px]"
@@ -155,7 +155,7 @@ export default function CryptoPayModal({
                 <span className="text-sm overflow-auto no-scrollbar">
                   {paymentLinkText}
                 </span>
-                <span className="text-primary-light font-black flex items-center">
+                <span className="text-primary-400 font-black flex items-center">
                   <FontAwesomeIcon
                     icon={faChevronLeft}
                     className="text-[10px] rotate-180"
@@ -164,8 +164,8 @@ export default function CryptoPayModal({
               </div>
               <FontAwesomeIcon
                 className={clsx(
-                  '-mt-1 cursor-pointer hover:text-primary-lightest transform-all duration-100',
-                  copiedLink && 'text-primary-lightest'
+                  '-mt-1 cursor-pointer hover:text-primary-200 transform-all duration-100',
+                  copiedLink && 'text-primary-200'
                 )}
                 icon={copiedLink ? faCheck : faCopy}
                 onClick={() => onClickCopyLink()}

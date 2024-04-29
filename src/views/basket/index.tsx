@@ -31,7 +31,7 @@ export default function Basket() {
               <div
                 className={clsx(
                   'flex justify-between text-2xl font-bold pb-5',
-                  'lg:pt-4 lg:text-base lg:font-normal'
+                  'lg:pt-4 lg:text-base lg:font-500'
                 )}
               >
                 <span>My Basket</span>

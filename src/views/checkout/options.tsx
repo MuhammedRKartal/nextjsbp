@@ -22,7 +22,7 @@ export default function CheckoutOptions(props) {
           active={active}
         ></TabItem>
       </div>
-      <div className="relative border z-0 border-secondary-darkest">
+      <div className="relative border z-0 border-borders">
         <TabContent tabId={1} active={active}>
           <CryptoPay />
         </TabContent>

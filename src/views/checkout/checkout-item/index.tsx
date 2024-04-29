@@ -13,7 +13,7 @@ export default function CheckoutItem(props) {
   return (
     <li
       className={clsx(
-        'flex flex-row pt-4 pb-3.5 border-secondary-darkest border-b',
+        'flex flex-row pt-4 pb-3.5 border-borders border-b',
         'last-of-type:pb-10',
         'lg:last-of-type:pb-3.5'
       )}

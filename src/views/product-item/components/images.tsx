@@ -17,11 +17,11 @@ export const Images = (props) => {
     clickable: true,
     bulletClass: twMerge(
       'swiper-pagination-bullet',
-      '!bg-secondary !rounded-sm !mx-0.5 !my-1 hover:!bg-secondary-darker'
+      '!bg-secondary !rounded-sm !mx-0.5 !my-1 hover:!bg-secondary-700'
     ),
     bulletActiveClass: twMerge(
       'swiper-pagination-bullet-active',
-      '!w-2 !h-2 !bg-secondary-darker'
+      '!w-2 !h-2 !bg-secondary-700'
     ),
     el: '#pi-custom-pagination'
   };

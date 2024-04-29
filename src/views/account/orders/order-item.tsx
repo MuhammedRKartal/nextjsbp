@@ -20,13 +20,13 @@ export const OrderItem = (props: OrderProps) => {
       statusCodeClassName = 'text-gray-400';
       break;
     case 200:
-      statusCodeClassName = 'text-secondary-dark';
+      statusCodeClassName = 'text-secondary-600';
       break;
     case 300:
       statusCodeClassName = 'text-secondary';
       break;
     case 400:
-      statusCodeClassName = 'text-primary-light';
+      statusCodeClassName = 'text-primary-400';
       break;
     case 500:
       statusCodeClassName = 'text-error';
@@ -36,11 +36,11 @@ export const OrderItem = (props: OrderProps) => {
   return (
     <div
       className={twMerge(
-        'relative flex flex-col border w-full py-5 px-5 text-white border-secondary-darkest lg:px-10 lg:py-8',
+        'relative flex flex-col border w-full py-5 px-5 text-white border-borders lg:px-10 lg:py-8',
         className
       )}
     >
-      <div className="flex flex-col gap-6 border-b border-secondary-darkest pb-4 mb-12 lg:pb-2 lg:mb-8 lg:gap-4">
+      <div className="flex flex-col gap-6 border-b border-borders pb-4 mb-12 lg:pb-2 lg:mb-8 lg:gap-4">
         <div className="flex justify-between">
           <div>
             <span className="text-2xl">Order No:</span>{' '}

@@ -133,7 +133,7 @@ export const Pagination = (props: PaginationProps) => {
                   'px-3 py-4 flex items-center justify-center',
                   'cursor-pointer text-black-400',
                   Number(page) === Number(item.page)
-                    ? 'mx-1 p-4 border border-primary'
+                    ? 'mx-1 p-4 border border-borders-100'
                     : ''
                 ),
                 itemClassName

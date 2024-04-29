@@ -17,32 +17,32 @@ export default function StyleGuidePage() {
                 <li key="primary-default" className="bg-primary">
                   Default
                 </li>
-                <li key="primary-feather" className="bg-primary-feather">
-                  Feather
+                <li key="primary-100" className="bg-primary-100">
+                  100
                 </li>
-                <li key="primary-lightest" className="bg-primary-lightest">
-                  Lightest
+                <li key="primary-200" className="bg-primary-200">
+                  200
                 </li>
-                <li key="primary-lighter" className="bg-primary-lighter">
-                  Lighter
+                <li key="primary-300" className="bg-primary-300">
+                  300
                 </li>
-                <li key="primary-light" className="bg-primary-light">
-                  Light
+                <li key="primary-400" className="bg-primary-400">
+                  400
                 </li>
-                <li key="primary-normal" className="bg-primary-normal">
-                  Normal
+                <li key="primary-500" className="bg-primary-500">
+                  500
                 </li>
-                <li key="primary-dark" className="bg-primary-dark">
-                  Dark
+                <li key="primary-600" className="bg-primary-600">
+                  600
                 </li>
-                <li key="primary-darker" className="bg-primary-darker">
-                  Darker
+                <li key="primary-600" className="bg-primary-600">
+                  700
                 </li>
-                <li key="primary-darkest" className="bg-primary-darkest">
-                  Darkest
+                <li key="primary-700" className="bg-primary-700">
+                  800
                 </li>
-                <li key="primary-black" className="bg-primary-black">
-                  Black
+                <li key="primary-900" className="bg-primary-900">
+                  900
                 </li>
                 <li key="primary-opacity" className="bg-primary-opacity">
                   Opacity
@@ -55,32 +55,32 @@ export default function StyleGuidePage() {
                 <li key="secondary-default" className="bg-secondary">
                   Default
                 </li>
-                <li key="secondary-feather" className="bg-secondary-feather">
-                  Feather
+                <li key="secondary-100" className="bg-secondary-100">
+                  100
                 </li>
-                <li key="secondary-lightest" className="bg-secondary-lightest">
-                  Lightest
+                <li key="secondary-200" className="bg-secondary-200">
+                  200
                 </li>
-                <li key="secondary-lighter" className="bg-secondary-lighter">
-                  Lighter
+                <li key="secondary-300" className="bg-secondary-300">
+                  300
                 </li>
-                <li key="secondary-light" className="bg-secondary-light">
-                  Light
+                <li key="secondary-400" className="bg-secondary-400">
+                  400
                 </li>
-                <li key="secondary-normal" className="bg-secondary-normal">
-                  Normal
+                <li key="secondary-500" className="bg-secondary-500">
+                  500
                 </li>
-                <li key="secondary-dark" className="bg-secondary-dark">
-                  Dark
+                <li key="secondary-600" className="bg-secondary-600">
+                  600
                 </li>
-                <li key="secondary-darker" className="bg-secondary-darker">
-                  Darker
+                <li key="secondary-700" className="bg-secondary-700">
+                  700
                 </li>
-                <li key="secondary-darkest" className="bg-secondary-darkest">
-                  Darkest
+                <li key="secondary-800" className="bg-secondary-800">
+                  800
                 </li>
-                <li key="secondary-black" className="bg-secondary-black">
-                  Black
+                <li key="secondary-900" className="bg-secondary-900">
+                  900
                 </li>
                 <li key="secondary-opacity" className="bg-secondary-opacity">
                   Opacity

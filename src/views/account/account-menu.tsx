@@ -24,17 +24,17 @@ export const AccountMenu = (props) => {
   return (
     <div
       className={twMerge(
-        'text-white whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[55vh] border-secondary-darkest hidden md:block',
+        'text-white whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[55vh] border-borders hidden md:block',
         'lg:pr-24',
         className
       )}
     >
-      <h2 className="text-3xl pb-2.5 mb-7 border-b w-max border-secondary-darkest">
+      <h2 className="text-3xl pb-2.5 mb-7 border-b w-max border-borders">
         <Link href={ROUTES.ACCOUNT}>My Account</Link>
       </h2>
       <ul className="w-max text-sm leading-7 [&>:nth-last-child(2)]:border-b [&>:nth-last-child(2)]:pb-2.5 [&>:nth-last-child(2)]:mb-6">
         {data?.map((item: AccountMenuItemType) => (
-          <li key={item.main_title} className="border-secondary-darkest ">
+          <li key={item.main_title} className="border-borders ">
             {item?.is_link ? (
               <Link href={item?.link}>{item?.main_title}</Link>
             ) : (

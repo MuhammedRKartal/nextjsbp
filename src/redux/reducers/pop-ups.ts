@@ -3,13 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 export interface PopUpState {
   openMiniBasket: boolean;
   openAccountPopUp: boolean;
-  highlightedItem: number | null;
+  high400edItem: number | null;
 }
 
 const initialState: PopUpState = {
   openMiniBasket: false,
   openAccountPopUp: false,
-  highlightedItem: null
+  high400edItem: null
 };
 
 const popUpsSlice = createSlice({
@@ -50,8 +50,8 @@ const popUpsSlice = createSlice({
       state.openMiniBasket = false;
       state.openAccountPopUp = false;
     },
-    setHighlightedItem: (state, action: { payload: number | null }) => {
-      state.highlightedItem = action.payload;
+    setHigh400edItem: (state, action: { payload: number | null }) => {
+      state.high400edItem = action.payload;
     }
   }
 });
@@ -64,7 +64,7 @@ export const {
   toggleMiniBasket,
   toggleAccountPopUp,
   closeBothPopUps,
-  setHighlightedItem
+  setHigh400edItem
 } = popUpsSlice.actions;
 
 export default popUpsSlice.reducer;

@@ -13,31 +13,31 @@ import { signOut } from 'next-auth/react';
 
 interface MiniBasketItemProps {
   basketItem: BasketItemType;
-  highlightedItem: number;
+  high400edItem: number;
   miniBasketListRef: MutableRefObject<HTMLUListElement>;
 }
 
 export default function MiniBasketItem(props: MiniBasketItemProps) {
-  const { basketItem, highlightedItem, miniBasketListRef } = props;
+  const { basketItem, high400edItem, miniBasketListRef } = props;
 
   const dispatch = useAppDispatch();
   const [updateQuantityMutation] = useUpdateQuantityMutation();
 
   const [updateLoading, setUpdateLoading] = useState(false);
 
-  const isHighlighted = useMemo(() => {
-    return highlightedItem === basketItem.product.pk;
-  }, [highlightedItem, basketItem.product.pk]);
+  const isHigh400ed = useMemo(() => {
+    return high400edItem === basketItem.product.pk;
+  }, [high400edItem, basketItem.product.pk]);
 
   useEffect(() => {
     const miniBasketList = miniBasketListRef.current;
 
-    if (highlightedItem === basketItem.product.pk) {
+    if (high400edItem === basketItem.product.pk) {
       if (miniBasketList.scrollTop > 0) {
         miniBasketList.scrollTop = 0;
       }
     }
-  }, [highlightedItem, basketItem.product.pk]);
+  }, [high400edItem, basketItem.product.pk]);
 
   const removeItem = () => {
     updateQuantityMutation({
@@ -97,8 +97,8 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
 
   return (
     <li
-      style={{ order: isHighlighted ? '-1' : '0' }}
-      className={clsx('flex gap-3 py-4 border-b border-gray-300')}
+      style={{ order: isHigh400ed ? '-1' : '0' }}
+      className={clsx('flex gap-3 py-4 border-b border-borders-600')}
     >
       <Link
         href={`/product/${basketItem.product.pk}`}
@@ -107,8 +107,8 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
         <Image
           src={basketItem.image ?? ''}
           alt={basketItem.product.name}
-          width={isHighlighted ? 54 : 48}
-          height={isHighlighted ? 54 : 48}
+          width={isHigh400ed ? 54 : 48}
+          height={isHigh400ed ? 54 : 48}
           className="transition-all duration-300"
         />
       </Link>
@@ -122,7 +122,7 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
           </Link>
           <FontAwesomeIcon
             icon={faTrash}
-            className="transition-all duration-300 text-gray-400 hover:cursor-pointer hover:text-secondary-dark "
+            className="transition-all duration-300 text-gray-400 hover:cursor-pointer hover:text-secondary-600 "
             onClick={removeItem}
           ></FontAwesomeIcon>
         </div>
@@ -131,7 +131,7 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
             {'Quantity'}: {basketItem.quantity}
             <span className="inline-flex items-center ms-2">
               <button
-                className="rounded h-full w-5 hover:bg-secondary-darkest disabled:hover:bg-secondary-black"
+                className="rounded h-full w-5 hover:bg-secondary-800 disabled:hover:bg-secondary-900"
                 onClick={() => updateItemQuantity('decrease')}
                 disabled={updateLoading}
               >
@@ -139,9 +139,9 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
               </button>
               <button
                 className={clsx(
-                  'rounded h-full w-5 hover:bg-secondary-darkest disabled:hover:bg-secondary-black',
+                  'rounded h-full w-5 hover:bg-secondary-800 disabled:hover:bg-secondary-900',
                   basketItem.stock <= basketItem.quantity &&
-                    'text-secondary-darkest'
+                    'text-secondary-800'
                 )}
                 onClick={() => updateItemQuantity('increase')}
                 disabled={

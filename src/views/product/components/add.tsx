@@ -4,7 +4,7 @@ import { Button } from '@/components/button';
 import { basketApi, useGetBasketQuery } from '@/data/client/basket';
 import { useAddProductMutation } from '@/data/client/product';
 import { useAppDispatch } from '@/redux/hooks';
-import { openMiniBasket, setHighlightedItem } from '@/redux/reducers/pop-ups';
+import { openMiniBasket, setHigh400edItem } from '@/redux/reducers/pop-ups';
 import { ROUTES } from '@/routes';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
 import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
@@ -53,9 +53,9 @@ export const Add = (props) => {
           setTimeout(() => {
             setLoading(false);
             dispatch(openMiniBasket());
-            dispatch(setHighlightedItem(product));
+            dispatch(setHigh400edItem(product));
             setTimeout(() => {
-              dispatch(setHighlightedItem(null));
+              dispatch(setHigh400edItem(null));
             }, 3000);
           }, 500);
         })

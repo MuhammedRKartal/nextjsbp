@@ -168,7 +168,7 @@ export default function Register() {
           <div>Already a member?</div>
           <Link
             href={ROUTES.LOGIN}
-            className="text-primary font-extrabold hover:text-primary-dark underline"
+            className="text-primary font-extrabold hover:text-primary-600 underline"
           >
             Log In.
           </Link>
@@ -177,7 +177,7 @@ export default function Register() {
           <Link
             href={'/'}
             target="_blank"
-            className="text-sm text-primary font-bold hover:text-primary-dark"
+            className="text-sm text-primary font-bold hover:text-primary-600"
           >
             Forgot your password?
           </Link>

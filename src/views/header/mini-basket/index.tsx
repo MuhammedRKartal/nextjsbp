@@ -11,7 +11,7 @@ import { SliderMenu } from '@/components/slider-menu';
 import { twMerge } from 'tailwind-merge';
 
 export default function MiniBasket() {
-  const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(
+  const { openMiniBasket: miniBasketOpen, high400edItem } = useAppSelector(
     (state) => state.popUps
   );
   const dispatch = useAppDispatch();
@@ -29,23 +29,23 @@ export default function MiniBasket() {
   const miniBasketList = useRef();
 
   const totalQuantity = useMemo(() => basket?.total_quantity ?? 0, [basket]);
-  const [highlightedItemPk, setHighlightedItemPk] = useState(0);
+  const [high400edItemPk, setHigh400edItemPk] = useState(0);
   const [sortedBasket, setSortedBasket] = useState([]);
 
   useEffect(() => {
-    if (highlightedItem > 0) {
-      setHighlightedItemPk(highlightedItem);
+    if (high400edItem > 0) {
+      setHigh400edItemPk(high400edItem);
     }
-  }, [highlightedItem]);
+  }, [high400edItem]);
 
   useEffect(() => {
     if (isSuccess) {
-      if (highlightedItemPk > 0) {
+      if (high400edItemPk > 0) {
         setSortedBasket(
           basket.product_list.slice().sort((a, b) => {
-            if (a.product.pk === highlightedItemPk) {
+            if (a.product.pk === high400edItemPk) {
               return -1;
-            } else if (b.product.pk === highlightedItemPk) {
+            } else if (b.product.pk === high400edItemPk) {
               return 1;
             } else {
               return Number(a.product.pk) - Number(b.product.pk);
@@ -56,7 +56,7 @@ export default function MiniBasket() {
         setSortedBasket(basket.product_list);
       }
     }
-  }, [isSuccess, highlightedItem, basket]);
+  }, [isSuccess, high400edItem, basket]);
 
   return (
     <>
@@ -90,7 +90,7 @@ export default function MiniBasket() {
                 key={basketItem.item_id}
                 basketItem={basketItem}
                 miniBasketListRef={miniBasketList}
-                highlightedItem={highlightedItem}
+                high400edItem={high400edItem}
               />
             ))}
           </ul>
