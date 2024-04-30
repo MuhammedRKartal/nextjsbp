@@ -76,7 +76,7 @@ export const Add = (props) => {
             isloading={isloading}
             onClick={() => onClickAction(product.pk)}
             className={clsx(
-              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2',
+              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2 z-10',
               'md:relative md:h-12'
             )}
           >
@@ -93,7 +93,7 @@ export const Add = (props) => {
           <Button
             appearance="outlined"
             className={clsx(
-              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2',
+              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2 z-10',
               'md:relative md:h-12'
             )}
           >

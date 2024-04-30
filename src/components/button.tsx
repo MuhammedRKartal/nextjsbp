@@ -48,7 +48,7 @@ export const Button = (props: ButtonProps) => {
                 ],
                 props.appearance === 'outlined' && [
                   '',
-                  'bg-transparent',
+                  'bg-black dark:bg-white',
                   'border-secondaryoutline dark:border-outline',
                   'hover:border-outline dark:hover:border-secondaryoutline',
                   'hover:bg-primary-600 dark:hover:bg-secondary'
@@ -111,7 +111,7 @@ export const Button = (props: ButtonProps) => {
               ],
               props.appearance === 'outlined' && [
                 '',
-                'bg-transparent',
+                'bg-black dark:bg-white',
                 'border-secondaryoutline dark:border-outline',
                 'hover:border-outline dark:hover:border-secondaryoutline',
                 'hover:bg-primary-600 dark:hover:bg-secondary'
