@@ -16,6 +16,9 @@ import { useSession } from 'next-auth/react';
 import AccountPopUp from './account-popup';
 import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
 import { ROUTES } from '@/routes';
+import { useTheme } from 'next-themes';
+import { faMoon } from '@fortawesome/free-solid-svg-icons/faMoon';
+import { faSun } from '@fortawesome/free-solid-svg-icons/faSun';
 
 export type HeaderNavItemType = {
   title: string;
@@ -26,8 +29,15 @@ export type HeaderNavItemType = {
 
 export default function Megamenu() {
   const dispatch = useAppDispatch();
+  const { theme, setTheme } = useTheme();
   const { status } = useSession();
   const router = useRouter();
+
+  const isActive = theme === 'light';
+
+  const toggleTheme = () => {
+    setTheme(theme === 'light' ? 'dark' : 'light');
+  };
 
   const onClickEvent = () => {
     if (status === 'authenticated') {
@@ -97,12 +107,23 @@ export default function Megamenu() {
         <Button
           appearance="bright"
           linkclassname=""
-          className="pl-2 pr-2 mr-2"
+          className="px-2"
           onClick={onClickEvent}
           onMouseEnter={onHoverEvent}
           onMouseLeave={onHoverOutEvent}
         >
           <FontAwesomeIcon icon={faUser} size="lg" />
+        </Button>
+        <Button
+          onClick={toggleTheme}
+          appearance="bright"
+          className="w-8 hover:text-borders-600"
+        >
+          {isActive ? (
+            <FontAwesomeIcon icon={faMoon} />
+          ) : (
+            <FontAwesomeIcon icon={faSun} />
+          )}
         </Button>
       </div>
     </>
