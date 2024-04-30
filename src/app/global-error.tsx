@@ -16,7 +16,7 @@ export default function Error({
 }) {
   return (
     <html lang="en">
-      <body className="preload overflow-x-hidden bg-black">
+      <body className="preload overflow-x-hidden bg-black dark:bg-white-bg">
         <Header />
         <main
           className={clsx(

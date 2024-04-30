@@ -31,17 +31,17 @@ const config: Config = {
           opacity: '#3b5998'
         },
         secondary: {
-          DEFAULT: '#9C27B0',
-          100: '#E1BEE7',
-          200: '#CE93D8',
-          300: '#BA68C8',
-          400: '#AB47BC',
-          500: '#9C27B0',
-          600: '#8E24AA',
-          700: '#7B1FA2',
-          800: '#6A1B9A',
-          900: '#4A148C',
-          opacity: '#9C27B0E6'
+          DEFAULT: '#8AA944',
+          100: '#F2F5E9',
+          200: '#D8E0BF',
+          300: '#BED797',
+          400: '#A4C06E',
+          500: '#8AA944',
+          600: '#708D22',
+          700: '#577B1B',
+          800: '#3E6816',
+          900: '#254512',
+          opacity: '#8AA944E6'
         },
         outline: {
           DEFAULT: '#bdbdbd',
@@ -65,6 +65,7 @@ const config: Config = {
         },
         white: {
           DEFAULT: '#FFFFFF',
+          bg: '#F7F9FA',
           100: '#F3F4F6',
           300: '#D1D5DB',
           400: '#9ca3af',

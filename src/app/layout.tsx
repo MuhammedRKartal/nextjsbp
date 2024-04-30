@@ -47,7 +47,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={lato.className}>
-      <body className="preload overflow-x-hidden bg-black dark:bg-white text-white dark:text-black w-full">
+      <body className="preload overflow-x-hidden bg-black dark:bg-white-bg text-white dark:text-black w-full">
         <MainRoot>
           <SessionProvider session={session}>
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

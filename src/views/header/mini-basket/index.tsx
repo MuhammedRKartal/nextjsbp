@@ -11,7 +11,7 @@ import { SliderMenu } from '@/components/slider-menu';
 import { twMerge } from 'tailwind-merge';
 
 export default function MiniBasket() {
-  const { openMiniBasket: miniBasketOpen, high400edItem } = useAppSelector(
+  const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(
     (state) => state.popUps
   );
   const dispatch = useAppDispatch();
@@ -29,23 +29,23 @@ export default function MiniBasket() {
   const miniBasketList = useRef();
 
   const totalQuantity = useMemo(() => basket?.total_quantity ?? 0, [basket]);
-  const [high400edItemPk, setHigh400edItemPk] = useState(0);
+  const [highlightedItemPk, sethighlightedItemPk] = useState(0);
   const [sortedBasket, setSortedBasket] = useState([]);
 
   useEffect(() => {
-    if (high400edItem > 0) {
-      setHigh400edItemPk(high400edItem);
+    if (highlightedItem > 0) {
+      sethighlightedItemPk(highlightedItem);
     }
-  }, [high400edItem]);
+  }, [highlightedItem]);
 
   useEffect(() => {
     if (isSuccess) {
-      if (high400edItemPk > 0) {
+      if (highlightedItemPk > 0) {
         setSortedBasket(
           basket.product_list.slice().sort((a, b) => {
-            if (a.product.pk === high400edItemPk) {
+            if (a.product.pk === highlightedItemPk) {
               return -1;
-            } else if (b.product.pk === high400edItemPk) {
+            } else if (b.product.pk === highlightedItemPk) {
               return 1;
             } else {
               return Number(a.product.pk) - Number(b.product.pk);
@@ -56,7 +56,7 @@ export default function MiniBasket() {
         setSortedBasket(basket.product_list);
       }
     }
-  }, [isSuccess, high400edItem, basket]);
+  }, [isSuccess, highlightedItem, basket]);
 
   return (
     <>
@@ -65,7 +65,7 @@ export default function MiniBasket() {
           miniBasketOpen
             ? 'opacity-100 visible lg:opacity-0'
             : 'opacity-0 invisible',
-          'fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300'
+          'fixed top-0 left-0 z-50 w-screen h-screen bg-black dark:bg-white-bg bg-opacity-80 transition-all duration-300'
         )}
         onClick={() => {
           dispatch(closeMiniBasket());
@@ -90,7 +90,7 @@ export default function MiniBasket() {
                 key={basketItem.item_id}
                 basketItem={basketItem}
                 miniBasketListRef={miniBasketList}
-                high400edItem={high400edItem}
+                highlightedItem={highlightedItem}
               />
             ))}
           </ul>

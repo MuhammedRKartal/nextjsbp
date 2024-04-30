@@ -13,31 +13,31 @@ import { signOut } from 'next-auth/react';
 
 interface MiniBasketItemProps {
   basketItem: BasketItemType;
-  high400edItem: number;
+  highlightedItem: number;
   miniBasketListRef: MutableRefObject<HTMLUListElement>;
 }
 
 export default function MiniBasketItem(props: MiniBasketItemProps) {
-  const { basketItem, high400edItem, miniBasketListRef } = props;
+  const { basketItem, highlightedItem, miniBasketListRef } = props;
 
   const dispatch = useAppDispatch();
   const [updateQuantityMutation] = useUpdateQuantityMutation();
 
   const [updateLoading, setUpdateLoading] = useState(false);
 
-  const isHigh400ed = useMemo(() => {
-    return high400edItem === basketItem.product.pk;
-  }, [high400edItem, basketItem.product.pk]);
+  const isHighlighted = useMemo(() => {
+    return highlightedItem === basketItem.product.pk;
+  }, [highlightedItem, basketItem.product.pk]);
 
   useEffect(() => {
     const miniBasketList = miniBasketListRef.current;
 
-    if (high400edItem === basketItem.product.pk) {
+    if (highlightedItem === basketItem.product.pk) {
       if (miniBasketList.scrollTop > 0) {
         miniBasketList.scrollTop = 0;
       }
     }
-  }, [high400edItem, basketItem.product.pk]);
+  }, [highlightedItem, basketItem.product.pk]);
 
   const removeItem = () => {
     updateQuantityMutation({
@@ -97,7 +97,7 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
 
   return (
     <li
-      style={{ order: isHigh400ed ? '-1' : '0' }}
+      style={{ order: isHighlighted ? '-1' : '0' }}
       className={clsx(
         'flex gap-3 py-4 border-b border-outline-100 dark:border-secondaryoutline-600'
       )}
@@ -109,8 +109,8 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
         <Image
           src={basketItem.image ?? ''}
           alt={basketItem.product.name}
-          width={isHigh400ed ? 54 : 48}
-          height={isHigh400ed ? 54 : 48}
+          width={isHighlighted ? 54 : 48}
+          height={isHighlighted ? 54 : 48}
           className="transition-all duration-300"
         />
       </Link>

@@ -96,28 +96,28 @@ export default function Megamenu() {
 
       <div className="flex">
         <Button
-          className="px-2"
+          className="px-2 md:text-lg"
           appearance="bright"
           onClick={() => {
             dispatch(toggleMiniBasket());
           }}
         >
-          <FontAwesomeIcon icon={faBasketShopping} size="lg" />
+          <FontAwesomeIcon icon={faBasketShopping} />
         </Button>
         <Button
           appearance="bright"
           linkclassname=""
-          className="px-2"
+          className="px-2 md:text-lg"
           onClick={onClickEvent}
           onMouseEnter={onHoverEvent}
           onMouseLeave={onHoverOutEvent}
         >
-          <FontAwesomeIcon icon={faUser} size="lg" />
+          <FontAwesomeIcon icon={faUser} />
         </Button>
         <Button
           onClick={toggleTheme}
           appearance="bright"
-          className="w-8 hover:text-outline-600"
+          className="pl-2 pr-2 mr-2 md:w-8 hover:text-outline-600"
         >
           {isActive ? (
             <FontAwesomeIcon icon={faMoon} />

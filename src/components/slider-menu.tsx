@@ -25,7 +25,7 @@ export const SliderMenu = (props: SliderMenuProps) => {
           open
             ? 'flex flex-col opacity-100 visible scroll-lock'
             : 'opacity-0 invisible translate-x-full',
-          'fixed bottom-0 right-0 h-full bg-black dark:bg-white  z-50 transition-all duration-300 p-5 w-full',
+          'fixed bottom-0 right-0 h-full bg-black dark:bg-white-bg  z-50 transition-all duration-300 p-5 w-full',
           enableDesktop &&
             clsx(
               open

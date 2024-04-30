@@ -31,7 +31,7 @@ const Select = (props: SelectProps) => {
   return (
     <div
       className={twMerge(
-        'w-24 bg-black lg:relative',
+        'w-24 bg-black dark:bg-white-bg lg:relative',
         loading === true ? 'flex justify-center items-center' : '',
         className
       )}
@@ -41,7 +41,7 @@ const Select = (props: SelectProps) => {
           showOptionList
             ? 'opacity-100 visible lg:opacity-0'
             : 'opacity-0 invisible',
-          'fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80',
+          'fixed top-0 left-0 z-50 w-screen h-screen bg-black dark:bg-white-bg bg-opacity-80',
           'lg:hidden'
         )}
         onClick={() => {
@@ -70,7 +70,7 @@ const Select = (props: SelectProps) => {
       )}
       <ul
         className={twMerge(
-          'fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[calc(80vw)] py-1 border bg-black dark:bg-white border-outline dark:border-secondaryoutline dark:border-secondaryoutline-100 overflow-auto transition-all duration-300 max-h-56 max-w-xs thin-scrollbar z-50',
+          'fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[calc(80vw)] py-1 border bg-black dark:bg-white-bg border-outline dark:border-secondaryoutline dark:border-secondaryoutline-100 overflow-auto transition-all duration-300 max-h-56 max-w-xs thin-scrollbar z-50',
           'lg:absolute lg:top-full lg:left-0 lg:translate-y-0 lg:translate-x-0 lg:w-full lg:border-t-0',
           showOptionList
             ? 'visible opacity-100 lg:max-h-32 lg:h-32 scroll-lock'
