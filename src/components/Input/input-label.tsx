@@ -34,9 +34,7 @@ export const InputLabel: React.FC<InputLabelProps> = ({
     >
       {label}{' '}
       {required && (
-        <span
-          className={twMerge('text-secondary', hasError ? 'text-error' : '')}
-        >
+        <span className={twMerge('text-primary', hasError ? 'text-error' : '')}>
           *
         </span>
       )}

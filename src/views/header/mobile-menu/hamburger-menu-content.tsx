@@ -40,7 +40,7 @@ export default function HamburgerMenuContent() {
           <li key={item.title} className="text-white cursor-pointer">
             <Link
               href={item.link}
-              className="flex justify-between items-center w-full hover:text-primary"
+              className="flex justify-between items-center w-full hover:text-borders-600"
               onClick={() => {
                 dispatch(closeMobileMenu());
               }}

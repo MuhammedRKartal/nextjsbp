@@ -20,10 +20,10 @@ export const OrderItem = (props: OrderProps) => {
       statusCodeClassName = 'text-gray-400';
       break;
     case 200:
-      statusCodeClassName = 'text-secondary-600';
+      statusCodeClassName = 'text-primary-300';
       break;
     case 300:
-      statusCodeClassName = 'text-secondary';
+      statusCodeClassName = 'text-primary';
       break;
     case 400:
       statusCodeClassName = 'text-primary-400';

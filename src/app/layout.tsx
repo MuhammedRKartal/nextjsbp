@@ -7,6 +7,7 @@ import ClientRoot from '@/app/client-root';
 import MainRoot from './main-root';
 import { getServerSession } from 'next-auth';
 import SessionProvider from '@/components/SessionProvider';
+import ThemeProvider from '@/components/ThemeProvider';
 
 const lato = Lato({
   weight: ['400', '700'],
@@ -49,7 +50,9 @@ export default async function RootLayout({
       <body className="preload overflow-x-hidden bg-black w-full">
         <MainRoot>
           <SessionProvider session={session}>
-            <ClientRoot>{children}</ClientRoot>
+            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+              <ClientRoot>{children}</ClientRoot>
+            </ThemeProvider>
           </SessionProvider>
         </MainRoot>
       </body>

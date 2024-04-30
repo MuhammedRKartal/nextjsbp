@@ -14,7 +14,7 @@ export default function StyleGuidePage() {
             <div>
               <h2 className="text-white text-2xl mb-4">Primary Colours</h2>
               <ul className="flex flex-wrap gap-3 w-full [&>li]:flex [&>li]:items-center [&>li]:justify-center [&>li]:h-8 [&>li]:min-w-[80px] [&>li]:rounded [&>li]:text-white [&>li]:p-3">
-                <li key="primary-default" className="bg-primary">
+                <li key="primary-default" className="bg-primary ">
                   Default
                 </li>
                 <li key="primary-100" className="bg-primary-100">

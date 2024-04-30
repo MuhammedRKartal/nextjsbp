@@ -2,6 +2,7 @@ import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  darkMode: 'class',
   theme: {
     fontFamily: {
       sans: ['Open_Sans', 'sans-serif'],
@@ -17,39 +18,39 @@ const config: Config = {
       colors: {
         transparent: 'transparent',
         primary: {
-          DEFAULT: '#087908',
-          100: '#529f52',
-          200: '#369336',
-          300: '#258725',
-          400: '#197f19',
-          500: '#087908',
-          600: '#516b1b',
-          700: '#4b6319',
-          800: '#202f08',
-          900: '#191f16',
-          opacity: '#4b6319ed'
+          DEFAULT: '#3b5998',
+          100: '#4078c0',
+          200: '#3b5998',
+          300: '#336699',
+          400: '#2a4d8e',
+          500: '#1e3799',
+          600: '#194f75',
+          700: '#0d5f84',
+          800: '#0052cc',
+          900: '#003d66',
+          opacity: '#3b5998'
         },
         secondary: {
-          DEFAULT: '#8697AA',
-          100: '#d5e4f3',
-          200: '#aabacb',
-          300: '#8697AA',
-          400: '#7799bf',
-          500: '#6382a5',
-          600: '#486585',
-          700: '#374155',
-          800: '#333B4B',
-          900: '#16191c',
-          opacity: '#8697aad4'
+          DEFAULT: '#9C27B0',
+          100: '#E1BEE7',
+          200: '#CE93D8',
+          300: '#BA68C8',
+          400: '#AB47BC',
+          500: '#9C27B0',
+          600: '#8E24AA',
+          700: '#7B1FA2',
+          800: '#6A1B9A',
+          900: '#4A148C',
+          opacity: '#9C27B0E6'
         },
         borders: {
-          DEFAULT: '#333B4B',
-          100: '#516b1b',
-          600: '#d1d5db',
-          900: '#333B4B'
+          DEFAULT: '#bdbdbd',
+          100: '#bdbdbd',
+          600: '#d35400',
+          900: '#4CAF50'
         },
         black: {
-          DEFAULT: '#14171a',
+          DEFAULT: '#121212',
           900: '#000000'
         },
         white: {

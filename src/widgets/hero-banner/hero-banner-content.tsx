@@ -17,7 +17,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
     clickable: true,
     bulletClass: twMerge(
       'swiper-pagination-bullet',
-      '!bg-secondary !rounded-sm !mx-1 !my-3 hover:!bg-white hover:!opacity-100',
+      '!bg-primary !rounded-sm !mx-1 !my-3 hover:!bg-white hover:!opacity-100',
       'md:!w-16 md:!h-2.5 md:!mx-2',
       'xl:!w-24'
     ),

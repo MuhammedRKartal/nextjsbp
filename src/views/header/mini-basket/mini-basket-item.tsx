@@ -122,7 +122,7 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
           </Link>
           <FontAwesomeIcon
             icon={faTrash}
-            className="transition-all duration-300 text-gray-400 hover:cursor-pointer hover:text-secondary-600 "
+            className="transition-all duration-300 text-gray-400 hover:cursor-pointer hover:text-borders-600 "
             onClick={removeItem}
           ></FontAwesomeIcon>
         </div>
@@ -131,7 +131,7 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
             {'Quantity'}: {basketItem.quantity}
             <span className="inline-flex items-center ms-2">
               <button
-                className="rounded h-full w-5 hover:bg-secondary-800 disabled:hover:bg-secondary-900"
+                className="rounded h-full w-5 hover:bg-primary-100 disabled:hover:bg-primary-900"
                 onClick={() => updateItemQuantity('decrease')}
                 disabled={updateLoading}
               >
@@ -139,9 +139,8 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
               </button>
               <button
                 className={clsx(
-                  'rounded h-full w-5 hover:bg-secondary-800 disabled:hover:bg-secondary-900',
-                  basketItem.stock <= basketItem.quantity &&
-                    'text-secondary-800'
+                  'rounded h-full w-5 hover:bg-primary-100 disabled:hover:bg-primary-900',
+                  basketItem.stock <= basketItem.quantity && 'text-primary-100'
                 )}
                 onClick={() => updateItemQuantity('increase')}
                 disabled={

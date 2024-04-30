@@ -14,7 +14,7 @@ export const AccountInfoBox = (props) => {
       <p
         className={twMerge(
           'relative text-2xl font-bold mb-8 pb-7',
-          'after:bottom-0 after:h-px after:w-20 after:bg-secondary-800 after:content-[""] after:left-1/2 after:-translate-x-1/2 after:absolute',
+          'after:bottom-0 after:h-px after:w-20 after:bg-primary-100 after:content-[""] after:left-1/2 after:-translate-x-1/2 after:absolute',
           titleClassName
         )}
       >

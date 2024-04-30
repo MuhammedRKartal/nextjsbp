@@ -83,7 +83,7 @@ const Select = (props: SelectProps) => {
             <li
               className={twMerge(
                 'text-xs py-2 px-4 cursor-pointer',
-                'hover:bg-secondary-800',
+                'hover:bg-primary-100',
                 itemClassName
               )}
               data-label={option.label}
