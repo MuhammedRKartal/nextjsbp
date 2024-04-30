@@ -18,7 +18,7 @@ import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
 import { ROUTES } from '@/routes';
 import { useTheme } from 'next-themes';
 import { faMoon } from '@fortawesome/free-solid-svg-icons/faMoon';
-import { faSun } from '@fortawesome/free-solid-svg-icons/faSun';
+import { faLightbulb } from '@fortawesome/free-solid-svg-icons/faLightbulb';
 
 export type HeaderNavItemType = {
   title: string;
@@ -120,7 +120,7 @@ export default function Megamenu() {
           className="pl-2 pr-2 mr-2 md:w-8 hover:text-outline-600"
         >
           {isActive ? (
-            <FontAwesomeIcon icon={faSun} />
+            <FontAwesomeIcon icon={faLightbulb} />
           ) : (
             <FontAwesomeIcon icon={faMoon} />
           )}
