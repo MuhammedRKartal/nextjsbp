@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { twMerge } from 'tailwind-merge';
 
 export default function AccountPopUp() {
   const { openAccountPopUp: accountPopUpOpen } = useAppSelector(
@@ -23,6 +24,17 @@ export default function AccountPopUp() {
 
   return (
     <>
+      <div
+        className={twMerge(
+          accountPopUpOpen
+            ? 'opacity-100 visible lg:opacity-0'
+            : 'opacity-0 invisible',
+          'fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300'
+        )}
+        onClick={() => {
+          dispatch(closeAccountPopUp());
+        }}
+      />
       <SliderMenu
         onMouseEnter={() => dispatch(openAccountPopUp())}
         onMouseLeave={() => dispatch(closeAccountPopUp())}

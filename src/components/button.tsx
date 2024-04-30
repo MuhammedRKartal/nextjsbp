@@ -21,7 +21,6 @@ export const Button = (props: ButtonProps) => {
             className={twMerge(
               clsx(
                 [
-                  'text-white',
                   'px-6',
                   'min-h-[3rem]',
                   'h-auto',
@@ -41,10 +40,10 @@ export const Button = (props: ButtonProps) => {
                   'font-bold'
                 ],
                 (props.appearance === 'filled' || !props.appearance) && [
-                  '',
-                  'bg-primary-600 dark:bg-secondary-400',
+                  'text-white',
+                  'bg-primary-600 dark:bg-secondary',
                   'border-outline-100',
-                  'hover:bg-primary-600 dark:hover:bg-secondary-400',
+                  'hover:bg-primary-600 dark:hover:bg-secondary',
                   'hover:border-outline-100 dark:hover:border-secondaryoutline-100'
                 ],
                 props.appearance === 'outlined' && [
@@ -52,16 +51,16 @@ export const Button = (props: ButtonProps) => {
                   'bg-transparent',
                   'border-outline-100',
                   'hover:border-outline-100 dark:hover:border-secondaryoutline-100',
-                  'hover:bg-primary-600 dark:hover:bg-secondary-400'
+                  'hover:bg-primary-600 dark:hover:bg-secondary'
                 ],
                 props.appearance === 'ghost' && [
                   '',
                   'bg-transparent',
                   'border-transparent',
-                  'hover:bg-primary-600 dark:hover:bg-secondary-400'
+                  'hover:bg-primary-600 dark:hover:bg-secondary'
                 ],
                 props.appearance === 'bright' && [
-                  '',
+                  'text-white',
                   'bg-transparent',
                   'border-transparent',
                   'hover:border-transparent',
@@ -85,7 +84,6 @@ export const Button = (props: ButtonProps) => {
           className={twMerge(
             clsx(
               [
-                'text-white',
                 'px-6',
                 'min-h-[3rem]',
                 'h-auto',
@@ -105,10 +103,10 @@ export const Button = (props: ButtonProps) => {
                 'font-bold'
               ],
               (props.appearance === 'filled' || !props.appearance) && [
-                '',
-                'bg-primary-600 dark:bg-secondary-400',
+                'text-white',
+                'bg-primary-600 dark:bg-secondary',
                 'border-outline-100',
-                'hover:bg-primary-600 dark:hover:bg-secondary-400',
+                'hover:bg-primary-600 dark:hover:bg-secondary',
                 'hover:border-outline-100 dark:hover:border-secondaryoutline-100'
               ],
               props.appearance === 'outlined' && [
@@ -116,16 +114,16 @@ export const Button = (props: ButtonProps) => {
                 'bg-transparent',
                 'border-outline-100',
                 'hover:border-outline-100 dark:hover:border-secondaryoutline-100',
-                'hover:bg-primary-600 dark:hover:bg-secondary-400'
+                'hover:bg-primary-600 dark:hover:bg-secondary'
               ],
               props.appearance === 'ghost' && [
                 '',
                 'bg-transparent',
                 'border-transparent',
-                'hover:bg-primary-600 dark:hover:bg-secondary-400'
+                'hover:bg-primary-600 dark:hover:bg-secondary'
               ],
               props.appearance === 'bright' && [
-                '',
+                'text-white',
                 'bg-transparent',
                 'border-transparent',
                 'hover:border-transparent',

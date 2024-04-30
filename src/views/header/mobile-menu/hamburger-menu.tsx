@@ -23,7 +23,7 @@ export default function HamburgerMenu({
     <>
       <div
         className={clsx(
-          'fixed top-0 left-0 z-50 w-screen h-screen invisible opacity-0 bg-black dark:bg-white-bg bg-opacity-80 transition-all duration-300',
+          'fixed top-0 left-0 z-50 w-screen h-screen invisible opacity-0 bg-black bg-opacity-80 transition-all duration-300',
           'md:hidden',
           {
             '!visible !opacity-100 scroll-lock': isMobileMenuOpen

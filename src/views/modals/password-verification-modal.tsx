@@ -84,7 +84,9 @@ export default function PasswordVerificationModal({
         title={'Confirmation Code'}
       >
         <Section className="flex flex-col items-center">
-          <div className=" text-2xl mt-4 mb-1">Enter Code</div>
+          <div className="text-white dark:text-black text-2xl mt-4 mb-1">
+            Enter Code
+          </div>
           <div className="text-white-300 dark:text-black-700 mb-1">
             Enter the 6-digit code sent by WoWTasker Email Provider.
           </div>

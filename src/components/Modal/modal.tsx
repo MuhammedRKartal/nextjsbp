@@ -49,7 +49,7 @@ export const Modal = (props: ModalProps) => {
   return (
     <ReactPortal wrapperId={wrapperId}>
       <div
-        className="fixed top-0 left-0 w-screen h-screen bg-black dark:bg-white-bg bg-opacity-60 z-50"
+        className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-60 z-50"
         onClick={() => {
           if (outsideClick) closeAction();
         }}
@@ -66,6 +66,7 @@ export const Modal = (props: ModalProps) => {
             {showCloseButton && (
               <Button
                 onClick={() => closeAction()}
+                className="text-white dark:text-black"
                 appearance="bright"
                 size="xs"
               >

@@ -65,7 +65,7 @@ export default function MiniBasket() {
           miniBasketOpen
             ? 'opacity-100 visible lg:opacity-0'
             : 'opacity-0 invisible',
-          'fixed top-0 left-0 z-50 w-screen h-screen bg-black dark:bg-white-bg bg-opacity-80 transition-all duration-300'
+          'fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300'
         )}
         onClick={() => {
           dispatch(closeMiniBasket());
