@@ -50,7 +50,7 @@ export default async function RootLayout({
       <body className="preload overflow-x-hidden bg-black dark:bg-white-bg text-white dark:text-black w-full">
         <MainRoot>
           <SessionProvider session={session}>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
               <ClientRoot>{children}</ClientRoot>
             </ThemeProvider>
           </SessionProvider>
