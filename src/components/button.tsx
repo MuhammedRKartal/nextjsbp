@@ -41,16 +41,16 @@ export const Button = (props: ButtonProps) => {
                 ],
                 (props.appearance === 'filled' || !props.appearance) && [
                   'text-white',
-                  'bg-primary-600 dark:bg-secondary',
-                  'border-outline-100',
+                  'bg-primary dark:bg-secondary',
+                  'border-secondaryoutline dark:border-outline',
                   'hover:bg-primary-600 dark:hover:bg-secondary',
-                  'hover:border-outline-100 dark:hover:border-secondaryoutline-100'
+                  'hover:border-outline dark:hover:border-secondaryoutline'
                 ],
                 props.appearance === 'outlined' && [
                   '',
                   'bg-transparent',
-                  'border-outline-100',
-                  'hover:border-outline-100 dark:hover:border-secondaryoutline-100',
+                  'border-secondaryoutline dark:border-outline',
+                  'hover:border-outline dark:hover:border-secondaryoutline',
                   'hover:bg-primary-600 dark:hover:bg-secondary'
                 ],
                 props.appearance === 'ghost' && [
@@ -104,16 +104,16 @@ export const Button = (props: ButtonProps) => {
               ],
               (props.appearance === 'filled' || !props.appearance) && [
                 'text-white',
-                'bg-primary-600 dark:bg-secondary',
-                'border-outline-100',
+                'bg-primary dark:bg-secondary',
+                'border-secondaryoutline dark:border-outline',
                 'hover:bg-primary-600 dark:hover:bg-secondary',
-                'hover:border-outline-100 dark:hover:border-secondaryoutline-100'
+                'hover:border-outline dark:hover:border-secondaryoutline'
               ],
               props.appearance === 'outlined' && [
                 '',
                 'bg-transparent',
-                'border-outline-100',
-                'hover:border-outline-100 dark:hover:border-secondaryoutline-100',
+                'border-secondaryoutline dark:border-outline',
+                'hover:border-outline dark:hover:border-secondaryoutline',
                 'hover:bg-primary-600 dark:hover:bg-secondary'
               ],
               props.appearance === 'ghost' && [

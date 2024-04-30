@@ -41,7 +41,7 @@ const config: Config = {
           700: '#577B1B',
           800: '#3E6816',
           900: '#254512',
-          opacity: '#8AA944E6'
+          opacity: '#8AA944'
         },
         outline: {
           DEFAULT: '#bdbdbd',

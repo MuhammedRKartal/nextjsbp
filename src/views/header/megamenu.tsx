@@ -83,7 +83,7 @@ export default function Megamenu() {
           <Button
             key={item.title}
             linkclassname="hidden md:block"
-            className="h-8 "
+            className="h-8"
             appearance="bright"
             link={item.link}
             rel={item.rel}
@@ -107,7 +107,7 @@ export default function Megamenu() {
         <Button
           appearance="bright"
           linkclassname=""
-          className="px-2 md:text-lg"
+          className="px-2 md:text-lg z-[60]"
           onClick={onClickEvent}
           onMouseEnter={onHoverEvent}
           onMouseLeave={onHoverOutEvent}
