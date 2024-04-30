@@ -31,16 +31,16 @@ export default function CryptoPayModal({
 
   switch (data.orderStatus) {
     case 100:
-      statusCodeClassName = 'text-gray-400';
+      statusCodeClassName = 'text-white-400 dark:text-black-600';
       break;
     case 200:
-      statusCodeClassName = 'text-primary-300';
+      statusCodeClassName = 'text-primary-300 dark:text-secondary-300';
       break;
     case 300:
-      statusCodeClassName = 'text-primary';
+      statusCodeClassName = 'text-primary dark:text-secondary';
       break;
     case 400:
-      statusCodeClassName = 'text-primary-400';
+      statusCodeClassName = 'text-primary-400 dark:text-secondary-400';
       break;
     case 500:
       statusCodeClassName = 'text-error';
@@ -104,7 +104,7 @@ export default function CryptoPayModal({
         data={data}
         outsideClick={false}
       >
-        <Section className="flex flex-col items-center text-white relative">
+        <Section className="flex flex-col items-center  relative">
           <Image
             width={60}
             height={60}
@@ -120,8 +120,8 @@ export default function CryptoPayModal({
             <span>{paymentMethod}</span>
             <FontAwesomeIcon
               className={clsx(
-                '-mt-1 ms-2 cursor-pointer hover:text-primary-200 transform-all duration-100',
-                copiedPrice && 'text-primary-200'
+                '-mt-1 ms-2 cursor-pointer hover:text-primary-200 dark:hover:text-secondary-800 transform-all duration-100',
+                copiedPrice && 'text-primary-200 dark:text-secondary-800'
               )}
               icon={copiedPrice ? faCheck : faCopy}
             ></FontAwesomeIcon>
@@ -138,7 +138,7 @@ export default function CryptoPayModal({
             ></Image>
           </div>
           <div className="mb-4">
-            <div className="text-sm font-bold uppercase text-gray-400">
+            <div className="text-sm font-bold uppercase text-white-400 dark:text-black-600">
               Address
             </div>
             <div
@@ -146,7 +146,7 @@ export default function CryptoPayModal({
               onClick={() => onClickCopyLink()}
             >
               <div className="flex gap-1 max-w-[280px] cursor-pointer">
-                <span className="text-primary-400 font-black flex items-center">
+                <span className="text-primary-400 dark:text-secondary-400 font-black flex items-center">
                   <FontAwesomeIcon
                     icon={faChevronLeft}
                     className="text-[10px]"
@@ -155,7 +155,7 @@ export default function CryptoPayModal({
                 <span className="text-sm overflow-auto no-scrollbar">
                   {paymentLinkText}
                 </span>
-                <span className="text-primary-400 font-black flex items-center">
+                <span className="text-primary-400 dark:text-secondary-400 font-black flex items-center">
                   <FontAwesomeIcon
                     icon={faChevronLeft}
                     className="text-[10px] rotate-180"
@@ -164,8 +164,8 @@ export default function CryptoPayModal({
               </div>
               <FontAwesomeIcon
                 className={clsx(
-                  '-mt-1 cursor-pointer hover:text-primary-200 transform-all duration-100',
-                  copiedLink && 'text-primary-200'
+                  '-mt-1 cursor-pointer hover:text-primary-200 dark:text-secondary-800 transform-all duration-100',
+                  copiedLink && 'text-primary-200 dark:text-secondary-800'
                 )}
                 icon={copiedLink ? faCheck : faCopy}
                 onClick={() => onClickCopyLink()}
@@ -182,7 +182,7 @@ export default function CryptoPayModal({
           </div>
 
           <Link
-            className="flex items-center text-gray-300 grayscale hover:text-white hover:grayscale-0 transform-all duration-300"
+            className="flex items-center text-white-300 dark:text-black-700 grayscale hover: hover:grayscale-0 transform-all duration-300"
             href={'https://btcpayserver.org/'}
             target="_blank"
             rel="noreferrer noopener"

@@ -11,7 +11,7 @@ export default function CustomModal({ open, setOpen }: ModalProps) {
   return (
     <>
       <Modal wrapperId="Popup" open={open} setOpen={setOpen} title={'hey'}>
-        <Section className="text-white">6</Section>
+        <Section className="">6</Section>
       </Modal>
     </>
   );

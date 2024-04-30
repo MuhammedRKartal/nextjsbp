@@ -26,7 +26,7 @@ export default function Basket() {
       basket.product_list &&
       basket.product_list.length > 0 ? (
         <Section tag="section" appearance="thin">
-          <div className="flex flex-col lg:flex-row gap-2 text-white lg:gap-10">
+          <div className="flex flex-col lg:flex-row gap-2  lg:gap-10">
             <div className="w-full lg:w-2/3">
               <div
                 className={clsx(
@@ -37,7 +37,7 @@ export default function Basket() {
                 <span>My Basket</span>
                 <Link
                   href="/products"
-                  className="underline text-[10px] text-gray-300 tracking-wide"
+                  className="underline text-[10px] text-white-300 dark:text-black-700 tracking-wide"
                 >
                   Back to Shopping
                 </Link>

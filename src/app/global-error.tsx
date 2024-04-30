@@ -42,8 +42,8 @@ export default function Error({
                 width={70}
                 aspectRatio={1}
               ></Image>
-              <h1 className="text-2xl text-white">Something went wrong!</h1>
-              <span className="text-white capitalize">{error.message}</span>
+              <h1 className="text-2xl ">Something went wrong!</h1>
+              <span className=" capitalize">{error.message}</span>
               <a href="/">
                 <Button appearance="filled">Return Home</Button>
               </a>

@@ -26,11 +26,11 @@ export default function SuccessModal({ open, setOpen, onClose }: ModalProps) {
         setOpen={setOpen}
         onClose={onClose}
       >
-        <Section className="text-center text-white">
+        <Section className="text-center ">
           <FontAwesomeIcon
             icon={faCircleCheck}
             size="2xl"
-            className="text-primary mb-4"
+            className="text-primary dark:text-secondary mb-4"
           ></FontAwesomeIcon>
           <h3 className="text-2xl mb-3">Your Order is Completed</h3>
           <Button

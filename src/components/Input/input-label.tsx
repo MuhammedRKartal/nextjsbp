@@ -21,7 +21,7 @@ export const InputLabel: React.FC<InputLabelProps> = ({
     <label
       htmlFor={id}
       className={twMerge(
-        'text-base leading-[1] text-gray-400 transition-all duration-900',
+        'text-base leading-[1] text-white-400 dark:text-black-600 transition-all duration-900',
         disabled && 'opacity-40 pointer-events-none',
         floating && 'absolute left-3 pointer-events-none transform',
         floating && !(focused || hasValue) && '-translate-y-[-20px]',
@@ -34,7 +34,12 @@ export const InputLabel: React.FC<InputLabelProps> = ({
     >
       {label}{' '}
       {required && (
-        <span className={twMerge('text-primary', hasError ? 'text-error' : '')}>
+        <span
+          className={twMerge(
+            'text-primary dark:text-secondary',
+            hasError ? 'text-error' : ''
+          )}
+        >
           *
         </span>
       )}

@@ -37,10 +37,10 @@ export default function HamburgerMenuContent() {
 
       <ul className="text-lg flex flex-col gap-2 ms-1 me-2">
         {data?.map((item: HeaderNavItemType) => (
-          <li key={item.title} className="text-white cursor-pointer">
+          <li key={item.title} className=" cursor-pointer">
             <Link
               href={item.link}
-              className="flex justify-between items-center w-full hover:text-borders-600"
+              className="flex justify-between items-center w-full hover:text-outline-600"
               onClick={() => {
                 dispatch(closeMobileMenu());
               }}

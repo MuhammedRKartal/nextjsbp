@@ -98,7 +98,9 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
   return (
     <li
       style={{ order: isHigh400ed ? '-1' : '0' }}
-      className={clsx('flex gap-3 py-4 border-b border-borders-600')}
+      className={clsx(
+        'flex gap-3 py-4 border-b border-outline-100 dark:border-secondaryoutline-600'
+      )}
     >
       <Link
         href={`/product/${basketItem.product.pk}`}
@@ -122,7 +124,7 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
           </Link>
           <FontAwesomeIcon
             icon={faTrash}
-            className="transition-all duration-300 text-gray-400 hover:cursor-pointer hover:text-borders-600 "
+            className="transition-all duration-300 text-white-400 dark:text-black-600 hover:cursor-pointer hover:text-outline-600 "
             onClick={removeItem}
           ></FontAwesomeIcon>
         </div>
@@ -131,7 +133,7 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
             {'Quantity'}: {basketItem.quantity}
             <span className="inline-flex items-center ms-2">
               <button
-                className="rounded h-full w-5 hover:bg-primary-100 disabled:hover:bg-primary-900"
+                className="rounded h-full w-5 hover:bg-primary-100 dark:hover:bg-secondary-500 disabled:disabled:hover:bg-primary-900 dark:disabled:hover:bg-secondary-100"
                 onClick={() => updateItemQuantity('decrease')}
                 disabled={updateLoading}
               >
@@ -139,8 +141,9 @@ export default function MiniBasketItem(props: MiniBasketItemProps) {
               </button>
               <button
                 className={clsx(
-                  'rounded h-full w-5 hover:bg-primary-100 disabled:hover:bg-primary-900',
-                  basketItem.stock <= basketItem.quantity && 'text-primary-100'
+                  'rounded h-full w-5 hover:bg-primary-100 dark:hover:bg-secondary-500 disabled:disabled:hover:bg-primary-900 dark:disabled:hover:bg-secondary-100',
+                  basketItem.stock <= basketItem.quantity &&
+                    'text-primary-100 dark:text-secondary-900'
                 )}
                 onClick={() => updateItemQuantity('increase')}
                 disabled={

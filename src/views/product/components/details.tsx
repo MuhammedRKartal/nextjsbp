@@ -38,16 +38,16 @@ export const Details = (props) => {
         showIcon={true}
       >
         {product?.attributes?.duration && (
-          <div className="text-gray-300 text-xs">
-            <span className="font-bold text-gray-100">
+          <div className="text-white-300 dark:text-black-700 text-xs">
+            <span className="font-bold text-white-100 dark:text-black-900">
               {product.attributes.duration.label}{' '}
             </span>{' '}
             <span className="">{product.attributes.duration.value}</span>
           </div>
         )}
         {product?.attributes?.os_compatibility?.value && (
-          <div className="text-gray-300 text-xs">
-            <span className="font-bold text-gray-100">
+          <div className="text-white-300 dark:text-black-700 text-xs">
+            <span className="font-bold text-white-100 dark:text-black-900">
               {product.attributes.os_compatibility.label}{' '}
             </span>{' '}
             <span className="">

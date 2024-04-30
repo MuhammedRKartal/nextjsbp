@@ -14,6 +14,11 @@
         "title": "Change Password",
         "link": "/account/change-password",
         "is_link": true
+      },
+      {
+        "title": "Notification Settings",
+        "link": "/account/notification-settings",
+        "is_link": true
       }
     ]
   }

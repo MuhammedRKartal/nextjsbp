@@ -30,7 +30,7 @@ export default function ExpirationModal({
         setOpen={setOpen}
         onClose={onClose}
       >
-        <Section className="text-center text-white">
+        <Section className="text-center ">
           <FontAwesomeIcon
             icon={faWarning}
             size="2xl"

@@ -83,7 +83,7 @@ export default function Megamenu() {
           <Button
             key={item.title}
             linkclassname="hidden md:block"
-            className="h-8 text-white"
+            className="h-8 "
             appearance="bright"
             link={item.link}
             rel={item.rel}
@@ -117,7 +117,7 @@ export default function Megamenu() {
         <Button
           onClick={toggleTheme}
           appearance="bright"
-          className="w-8 hover:text-borders-600"
+          className="w-8 hover:text-outline-600"
         >
           {isActive ? (
             <FontAwesomeIcon icon={faMoon} />

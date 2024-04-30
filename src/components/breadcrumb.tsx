@@ -41,11 +41,11 @@ export default function Breadcrumb(props: BreadcrumbProps) {
   return (
     <div className={twMerge('flex items-center mb-4', className)}>
       {list.map((item, index) => (
-        <div key={index} className="text-gray-400">
+        <div key={index} className="text-white-400 dark:text-black-600">
           <Link
             href={item.url}
             className={twMerge(
-              'text-sm last:text-white last:font-semibold',
+              'text-sm last: last:font-semibold',
               linkClassName
             )}
           >

@@ -3,8 +3,8 @@ export const Description = (props) => {
   return (
     <>
       <div className="flex flex-col mb-4">
-        <span className="text-white text-sm font-bold">{product?.name}</span>
-        <span className="text-gray-400 text-sm">
+        <span className=" text-sm font-bold">{product?.name}</span>
+        <span className="text-white-400 dark:text-black-600 text-sm">
           {product?.short_description}
         </span>
       </div>

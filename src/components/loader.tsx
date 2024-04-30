@@ -18,7 +18,7 @@ export const Loader = (props) => {
             {showIcon && (
               <FontAwesomeIcon
                 icon={faSpinner}
-                className="animate-spin text-6xl text-white"
+                className="animate-spin text-6xl "
               />
             )}
           </Section>
@@ -29,7 +29,7 @@ export const Loader = (props) => {
             {showIcon && (
               <FontAwesomeIcon
                 icon={faSpinner}
-                className="animate-spin text-6xl text-white"
+                className="animate-spin text-6xl "
               />
             )}
           </div>

@@ -35,7 +35,7 @@ export default function HamburgerMenu({
       />
       <div
         className={clsx(
-          'fixed top-0 left-0 z-50 flex flex-col bg-primary-900 w-80 -translate-x-80 h-screen',
+          'fixed top-0 left-0 z-50 flex flex-col bg-primary-900 dark:bg-secondary-100 w-80 -translate-x-80 h-screen',
           'k-container k-px k-py',
           'opacity-0 transition duration-300 transform',
           'md:hidden',

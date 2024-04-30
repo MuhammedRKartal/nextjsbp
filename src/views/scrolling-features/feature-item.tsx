@@ -10,7 +10,7 @@ export const FeatureItem = ({ item }: { item: FeatureItemType }) => {
         alt={item?.image?.alt_text}
         width={32}
         height={32}
-        className="invert"
+        className="invert dark:invert-0"
       ></Image>
 
       <span className="text-xs font-bold uppercase whitespace-nowrap">

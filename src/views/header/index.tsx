@@ -16,7 +16,7 @@ export default async function Header() {
         <div
           className={clsx(
             'h-[50px] px-2',
-            'border-0 bg-primary-600',
+            'border-0 bg-primary-600 dark:bg-secondary-400',
             'md:h-[72px] md:mx-8 md:px-4 md:rounded-lg md:bg-primary-opacity'
           )}
         >

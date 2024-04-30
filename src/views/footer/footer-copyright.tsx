@@ -7,7 +7,7 @@ export type FooterCopyrightItemType = {
 export default async function FooterCopyright() {
   return (
     <div>
-      <span className="text-white">{data?.copyright}</span>
+      <span className="">{data?.copyright}</span>
     </div>
   );
 }

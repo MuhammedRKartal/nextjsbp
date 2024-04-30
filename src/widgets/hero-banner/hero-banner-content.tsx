@@ -38,7 +38,10 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
   };
 
   return (
-    <Section outerClassName="!px-0" className="w-full !max-w-[unset]">
+    <Section
+      outerClassName="!px-0"
+      className="w-full text-white !max-w-[unset]"
+    >
       <Swiper
         className={twMerge('relative', 'k-pxi', '!h-[450px] lg:!h-[550px]')}
         modules={[Navigation, Pagination, EffectCoverflow]}
@@ -102,10 +105,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
                 )}
                 {item?.title && (
                   <div
-                    className={clsx(
-                      'text-white font-bold text-5xl mb-6',
-                      'lg:text-6xl '
-                    )}
+                    className={clsx(' font-bold text-5xl mb-6', 'lg:text-6xl ')}
                   >
                     {item?.title}
                   </div>
@@ -113,8 +113,8 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
                 {item?.description && (
                   <div
                     className={clsx(
-                      'text-white text-2xl font-bold mb-4 hidden',
-                      'md:text-white-opacity md:mb-[30px] md:block'
+                      'text-2xl font-bold mb-4 hidden',
+                      'md:-opacity md:mb-[30px] md:block'
                     )}
                   >
                     {item?.description}

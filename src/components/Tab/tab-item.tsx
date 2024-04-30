@@ -15,7 +15,7 @@ export const TabItem = ({
   return (
     <div
       className={twMerge(
-        'cursor-pointer border border-borders px-8 py-4 whitespace-nowrap',
+        'cursor-pointer border border-outline dark:border-secondaryoutline px-8 py-4 whitespace-nowrap',
         isActive ? 'border-b-black z-10' : 'z-0',
         className
       )}

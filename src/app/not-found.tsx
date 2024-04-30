@@ -19,7 +19,7 @@ export default function NotFound() {
         width={70}
         aspectRatio={1}
       ></Image>
-      <h1 className="text-2xl text-white">The page is not found!</h1>
+      <h1 className="text-2xl ">The page is not found!</h1>
       <Button appearance="filled" link="/">
         Return Home
       </Button>

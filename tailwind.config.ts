@@ -43,18 +43,32 @@ const config: Config = {
           900: '#4A148C',
           opacity: '#9C27B0E6'
         },
-        borders: {
+        outline: {
           DEFAULT: '#bdbdbd',
           100: '#bdbdbd',
           600: '#d35400',
           900: '#4CAF50'
         },
+        secondaryoutline: {
+          DEFAULT: '#424242',
+          100: '#424242',
+          600: '#d35400',
+          900: '#B350AF'
+        },
         black: {
           DEFAULT: '#121212',
+          100: '111827',
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
           900: '#000000'
         },
         white: {
           DEFAULT: '#FFFFFF',
+          100: '#F3F4F6',
+          300: '#D1D5DB',
+          400: '#9ca3af',
+          500: '#6B7280',
           opacity: '#ffffffe6'
         },
         error: {

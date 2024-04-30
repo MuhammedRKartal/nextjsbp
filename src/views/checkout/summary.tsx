@@ -25,7 +25,7 @@ export default function CheckoutSummary(props: CheckoutSummaryProps) {
       <div className={className}>
         <div
           className={clsx(
-            'flex justify-between items-center text-2xl font-bold pt-3 pb-5 border-y border-borders',
+            'flex justify-between items-center text-2xl font-bold pt-3 pb-5 border-y border-outline dark:border-secondaryoutline',
             'lg:pt-4 lg:text-base lg:font-500'
           )}
         >
@@ -42,7 +42,9 @@ export default function CheckoutSummary(props: CheckoutSummaryProps) {
           </ul>
         </Loader>
         <div
-          className={clsx('text-sm border-b pt-4 pb-3.5 h-32 border-borders')}
+          className={clsx(
+            'text-sm border-b pt-4 pb-3.5 h-32 border-outline dark:border-secondaryoutline'
+          )}
         >
           {data?.product_list?.length > 0 && (
             <Price
@@ -64,7 +66,7 @@ export default function CheckoutSummary(props: CheckoutSummaryProps) {
         </div>
         <div
           className={clsx(
-            'flex justify-between items-center text-2xl font-bold pt-3 pb-5 border-y border-borders',
+            'flex justify-between items-center text-2xl font-bold pt-3 pb-5 border-y border-outline dark:border-secondaryoutline',
             'lg:pt-4 lg:text-lg'
           )}
         >

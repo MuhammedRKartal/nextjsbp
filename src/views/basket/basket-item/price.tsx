@@ -10,13 +10,13 @@ export const BasketItemPrice = (props) => {
       <Price
         value={price}
         currency={currency_symbol}
-        className="text-white text-sm font-bold"
+        className=" text-sm font-bold"
       />
       {parseFloat(retail_price) > parseFloat(price) && (
         <Price
           value={retail_price}
           currency={currency_symbol}
-          className="text-gray-400 text-xs font-bold line-through"
+          className="text-white-400 dark:text-black-600 text-xs font-bold line-through"
         />
       )}
     </div>

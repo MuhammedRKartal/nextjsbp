@@ -28,7 +28,7 @@ export const AccountOrders = (props) => {
   return (
     <div
       className={twMerge(
-        'relative flex flex-col gap-4 w-full pb-6 text-white ',
+        'relative flex flex-col gap-4 w-full pb-6  ',
         className
       )}
     >

@@ -106,7 +106,7 @@ export default function ChangePasswordPage() {
   };
 
   return (
-    <div className="w-full text-white">
+    <div className="w-full ">
       <PasswordVerificationModal
         open={openModal}
         body={body}
@@ -117,7 +117,7 @@ export default function ChangePasswordPage() {
       </header>
       <div className="flex flex-col gap-7 xl:flex-row xl:w-full xl:flex-wrap">
         <div className="flex-[50]">
-          <div className="flex flex-col gap-5 px-7 py-6 border sm:px-16 sm:py-16 md:px-12 md:py-8 lg:px-16 lg:py-12 xl:px-12 xl:py-8 2xl:px-16 2xl:py-12">
+          <div className="flex flex-col gap-5 px-7 py-6 border border-outline dark:border-secondaryoutline sm:px-16 sm:py-16 md:px-12 md:py-8 lg:px-16 lg:py-12 xl:px-12 xl:py-8 2xl:px-16 2xl:py-12">
             <form className="flex flex-col" onSubmit={handleSubmit(onSubmit)}>
               <div className="flex flex-col gap-3">
                 <input

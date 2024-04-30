@@ -26,18 +26,18 @@ export default async function FooterMenu() {
     >
       {data?.map((column: FooterMenuColumnType) => (
         <li key={column.main_title}>
-          <div className="text-primary font-medium mb-5">
+          <div className="text-primary dark:text-secondary font-medium mb-5">
             {column.main_title}
           </div>
           <ul className="flex flex-col gap-3">
             {column?.item?.map((item: FooterMenuItemType) => (
-              <li key={item.title} className="text-white cursor-pointer">
+              <li key={item.title} className=" cursor-pointer">
                 {item?.is_link ? (
                   <Link
                     href={item.link}
                     rel="noreferrer"
                     target="target"
-                    className="hover:text-primary"
+                    className="hover:text-primary dark:hover:text-secondary"
                   >
                     {item.title}
                   </Link>

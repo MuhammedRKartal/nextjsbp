@@ -38,8 +38,8 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
           ref={ref}
           className={twMerge(
             clsx(
-              'appearance-none border border-white rounded-none',
-              'checked:bg-primary checked:ring-primary',
+              'appearance-none border border-white dark:border-black rounded-none',
+              'checked:bg-primary checked:ring-primary dark:checked:bg-secondary dark:checked:ring-secondary',
               props.appearance === 'circle' && [
                 'appearance-none rounded-full',
                 'checked:ring-1'
@@ -47,7 +47,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
               props.appearance === 'square' && [],
               props.tick && [
                 'checked:relative',
-                'checked:before:border-b checked:before:border-r checked:before:w-1 checked:before:h-[6px] checked:before:rotate-45 checked:before:text-white',
+                'checked:before:border-b checked:before:border-r checked:before:w-1 checked:before:h-[6px] checked:before:rotate-45 checked:before:',
                 'checked:before:absolute checked:before:top-[calc(50%-1px)] checked:before:left-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2'
               ],
               inputClassName

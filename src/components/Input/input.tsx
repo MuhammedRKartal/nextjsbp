@@ -32,11 +32,11 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const isPassword = type && type === 'password';
 
   const inputClass = clsx(
-    'bg-transparent text-base w-full text-white border px-3 h-10 rounded my-[3px] transition duration-200',
-    'placeholder:text-gray-400',
-    'hover:border-borders-100',
-    'active:border-borders-100',
-    'focus-visible:outline-none focus:border-borders-100',
+    'bg-transparent text-base w-full  border px-3 h-10 rounded my-[3px] transition duration-200',
+    'placeholder:text-white-400 dark:text-black-600',
+    'hover:border-outline-100 dark:hover:border-secondaryoutline-100 dark:border-secondaryoutline-100',
+    'active:border-outline dark:border-secondaryoutline',
+    'focus-visible:outline-none focus:border-outline dark:border-secondaryoutline',
     { 'pt-3 h-12': hasFloatingLabel },
     error &&
       'border-error focus:!border-error active:!border-error hover:!border-error !text-error',
@@ -92,13 +92,16 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             >
               <FontAwesomeIcon
                 icon={faEye}
-                className={clsx('text-primary-600', error && '!text-error')}
+                className={clsx(
+                  'text-primary-600 dark:text-secondary-400',
+                  error && '!text-error'
+                )}
               />
 
               {showValue && (
                 <span
                   className={clsx(
-                    "w-1 h-3/5 absolute top-1/2 left-1/2 bg-primary-600 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]",
+                    "w-1 h-3/5 absolute top-1/2 left-1/2 bg-primary-600 dark:bg-secondary-400 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]",
                     error && '!bg-error'
                   )}
                 />

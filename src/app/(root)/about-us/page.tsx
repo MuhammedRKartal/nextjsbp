@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <Section>
-      <h1 className="text-4xl font-bold lg:text-3xl mb-6 pb-3 border-b-2 border-borders">
+      <h1 className="text-4xl font-bold lg:text-3xl mb-6 pb-3 border-b-2 border-outline dark:border-secondaryoutline">
         About Us
       </h1>
       <div className="flex flex-col-reverse flex-wrap items-center xl:flex-row gap-3">

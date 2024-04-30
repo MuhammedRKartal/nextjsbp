@@ -84,11 +84,11 @@ export default function PasswordVerificationModal({
         title={'Confirmation Code'}
       >
         <Section className="flex flex-col items-center">
-          <div className="text-white text-2xl mt-4 mb-1">Enter Code</div>
-          <div className="text-gray-300 mb-1">
+          <div className=" text-2xl mt-4 mb-1">Enter Code</div>
+          <div className="text-white-300 dark:text-black-700 mb-1">
             Enter the 6-digit code sent by WoWTasker Email Provider.
           </div>
-          <div className="text-xs text-gray-400  mb-8">
+          <div className="text-xs text-white-400 dark:text-black-600  mb-8">
             Please check your spam folder if you didn't receive the email.
           </div>
           <OTPInput
@@ -102,7 +102,7 @@ export default function PasswordVerificationModal({
               <input
                 {...props}
                 className={clsx(
-                  '!w-12 h-12 rounded border-2 border-borders-100 text-lg font-bold text-gray-500',
+                  '!w-12 h-12 rounded border-2 border-outline dark:border-secondaryoutline text-lg font-bold text-white-500 dark:text-black-500',
                   error && '!border-error !border'
                 )}
               />
