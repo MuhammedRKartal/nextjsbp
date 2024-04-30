@@ -120,9 +120,9 @@ export default function Megamenu() {
           className="pl-2 pr-2 mr-2 md:w-8 hover:text-outline-600"
         >
           {isActive ? (
-            <FontAwesomeIcon icon={faMoon} />
-          ) : (
             <FontAwesomeIcon icon={faSun} />
+          ) : (
+            <FontAwesomeIcon icon={faMoon} />
           )}
         </Button>
       </div>
