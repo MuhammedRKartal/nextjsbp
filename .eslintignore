@@ -1,3 +1,11 @@
-/node_modules/*
-.next/*
-/src/pages/api
+# Ignore files in node_modules directory
+
+node_modules/\*
+
+# Ignore files in the .next directory, commonly used in Next.js projects
+
+.next/\*
+
+# Ignore files in specific directories used for authentication-related API routes
+
+src/pages/api/auth/\*
