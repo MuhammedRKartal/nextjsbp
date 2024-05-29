@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React from 'react';
 import { InputLabelProps } from '@/components/types';
 import { twMerge } from 'tailwind-merge';

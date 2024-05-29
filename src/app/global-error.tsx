@@ -9,10 +9,8 @@ import { Image } from "@/components/image";
 
 export default function Error({
   error,
-  reset,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
 }) {
   return (
     <html lang="en">

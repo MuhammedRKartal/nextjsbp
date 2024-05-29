@@ -12,7 +12,6 @@ import { Button } from '@/components/button';
 import { useUpdatePasswordMutation } from '@/data/client/account';
 import { ROUTES } from '@/routes';
 import { useState } from 'react';
-import OTPModal from '@/views/modals/otp-modal';
 import clsx from 'clsx';
 import PasswordVerificationModal from '@/views/modals/password-verification-modal';
 
@@ -74,7 +73,6 @@ export default function ChangePasswordPage() {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors }
   } = useForm<PasswordChangeFormType>({
     resolver: yupResolver(passwordChangeValidationSchema) as Resolver<

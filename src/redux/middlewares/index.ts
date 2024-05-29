@@ -5,7 +5,7 @@ import { signOut } from 'next-auth/react';
 import { ROUTES } from '@/routes';
 
 export const rtkQueryResponseHandler: Middleware =
-  ({ dispatch }) =>
+  () =>
   (next) =>
   (action) => {
     return next(action);

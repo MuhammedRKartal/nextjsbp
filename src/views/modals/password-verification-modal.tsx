@@ -7,8 +7,7 @@ import { Button } from '@/components/button';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
-import { useRouter } from 'next/navigation';
-import { SignInOptions, signIn, signOut } from 'next-auth/react';
+import { signOut } from 'next-auth/react';
 import { confirms } from '@/data/urls';
 import { blurBackground, removeBlur } from '@/utils';
 
@@ -39,7 +38,7 @@ export default function PasswordVerificationModal({
     removeBlur();
   };
 
-  const onSubmit = async (e) => {
+  const onSubmit = async () => {
     body['verification_code'] = otp;
 
     if (otp.length === 6 && isloading === false) {

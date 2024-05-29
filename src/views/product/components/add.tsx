@@ -1,7 +1,7 @@
 'use client';
 
 import { Button } from '@/components/button';
-import { basketApi, useGetBasketQuery } from '@/data/client/basket';
+import { basketApi } from '@/data/client/basket';
 import { useAddProductMutation } from '@/data/client/product';
 import { useAppDispatch } from '@/redux/hooks';
 import { openMiniBasket, sethighlightedItem } from '@/redux/reducers/pop-ups';
@@ -10,7 +10,7 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShop
 import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -49,7 +49,7 @@ export const Add = (props) => {
             )
           )
         )
-        .then((res) => {
+        .then(() => {
           setTimeout(() => {
             setLoading(false);
             dispatch(openMiniBasket());

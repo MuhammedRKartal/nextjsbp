@@ -1,12 +1,10 @@
 import { Price } from '@/components/price';
 import { useGetBasketQuery } from '@/data/client/basket';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { closeMiniBasket, openMiniBasket } from '@/redux/reducers/pop-ups';
-import clsx from 'clsx';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { closeMiniBasket } from '@/redux/reducers/pop-ups';
+import { useEffect, useRef, useState } from 'react';
 import MiniBasketItem from './mini-basket-item';
 import { Button } from '@/components/button';
-import { signOut, useSession } from 'next-auth/react';
 import { SliderMenu } from '@/components/slider-menu';
 import { twMerge } from 'tailwind-merge';
 
@@ -18,17 +16,11 @@ export default function MiniBasket() {
 
   const {
     data: basket,
-    isLoading,
     isSuccess,
-    error: basketError
   } = useGetBasketQuery();
-
-  const { data, status } = useSession();
-  const userMail = data?.user?.email;
 
   const miniBasketList = useRef();
 
-  const totalQuantity = useMemo(() => basket?.total_quantity ?? 0, [basket]);
   const [highlightedItemPk, sethighlightedItemPk] = useState(0);
   const [sortedBasket, setSortedBasket] = useState([]);
 

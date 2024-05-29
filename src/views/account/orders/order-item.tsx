@@ -1,7 +1,6 @@
-import { Button } from '@/components/button';
 import { Image } from '@/components/image';
 import { Price } from '@/components/price';
-import { OrderItemType, OrderType } from '@/types';
+import { OrderType } from '@/types';
 import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 

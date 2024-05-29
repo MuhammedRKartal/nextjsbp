@@ -1,20 +1,14 @@
 'use client';
 
-import { Modal } from '@/components/Modal/modal';
 import { Button } from '@/components/button';
-import { Section } from '@/components/section';
-import { basketApi, useClearBasketMutation } from '@/data/client/basket';
 import { useCreateCheckoutMutation } from '@/data/client/checkout';
 import { ROUTES } from '@/routes';
 import { CheckoutType } from '@/types';
 import CryptoPayModal from '@/views/modals/crypto-pay-modal';
 import ExpirationModal from '@/views/modals/order-expired-modal';
 import SuccessModal from '@/views/modals/order-success-modal';
-import { faWarning } from '@fortawesome/free-solid-svg-icons/faWarning';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 
 export default function CryptoPay() {
   const [invoiceData, setData] = useState({} as CheckoutType);

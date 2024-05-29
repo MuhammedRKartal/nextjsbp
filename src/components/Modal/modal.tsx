@@ -5,7 +5,6 @@ import ReactPortal from '@/components/Modal/react-portal';
 import { Button } from '@/components/button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
-import { useEffect, useState } from 'react';
 import { blurBackground, removeBlur } from '@/utils';
 
 export interface ModalProps {

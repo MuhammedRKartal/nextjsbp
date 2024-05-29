@@ -4,12 +4,6 @@ import CheckoutItem from './checkout-item';
 import { Loader } from '@/components/loader';
 import { Price } from '@/components/price';
 import { BasketType } from '@/types';
-import { useGetLastActiveOrderQuery } from '@/data/client/account';
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { ROUTES } from '@/routes';
-import { basket } from '@/data/urls';
-
 interface CheckoutSummaryProps {
   data: BasketType;
   isLoading: boolean;
@@ -18,7 +12,7 @@ interface CheckoutSummaryProps {
 }
 
 export default function CheckoutSummary(props: CheckoutSummaryProps) {
-  const { data, isLoading, isSuccess, className } = props;
+  const { data, isLoading, className } = props;
 
   return (
     <>

@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
 import MiniBasket from "./mini-basket";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { toggleMiniBasket } from "@/redux/reducers/pop-ups";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";

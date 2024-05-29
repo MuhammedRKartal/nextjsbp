@@ -13,7 +13,6 @@ export default function Basket() {
   const {
     data: basket,
     isSuccess,
-    error: basketError,
     isLoading
   } = useGetBasketQuery();
 
@@ -43,7 +42,7 @@ export default function Basket() {
                 </Link>
               </div>
               <ul>
-                {basket?.product_list.map((item, index) => {
+                {basket?.product_list.map((item) => {
                   return (
                     <BasketItem
                       key={item.product.images[0].alt_text}

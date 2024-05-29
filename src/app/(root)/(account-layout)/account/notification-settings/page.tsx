@@ -1,7 +1,5 @@
 'use client';
 
-import { Section } from '@/components/section';
-import { AccountMenu } from '@/views/account/account-menu';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -33,8 +31,7 @@ export default function ChangeNotificationsPage() {
   const {
     register,
     handleSubmit,
-    control,
-    formState: { errors }
+    formState: { }
   } = useForm<NotificationChangeFormType>();
 
   const onSubmit: SubmitHandler<NotificationChangeFormType> = async (data) => {

@@ -1,6 +1,5 @@
 'use client';
 
-import { URLS } from '@/data/urls';
 import { ROUTES } from '@/routes';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';

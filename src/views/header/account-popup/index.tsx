@@ -1,10 +1,7 @@
-import { Button } from '@/components/button';
 import { SliderMenu } from '@/components/slider-menu';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
 import { ROUTES } from '@/routes';
-import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { signOut, useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -15,7 +12,7 @@ export default function AccountPopUp() {
     (state) => state.popUps
   );
   const dispatch = useAppDispatch();
-  const { data, status } = useSession();
+  const { data } = useSession();
   const user = data?.user?.name;
 
   const onClickSignOut = () => {

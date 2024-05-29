@@ -38,7 +38,7 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
           },
           formType: { type: "string" },
         },
-        authorize: async credentials => {
+        authorize: async _credentials => {
           const sessionId = req.cookies.refresh_token;
 
           const currentUser = await getCurrentUser(sessionId);

@@ -1,5 +1,5 @@
 import { api } from "./api";
-import { account, checkout, user } from "../urls";
+import { checkout } from "../urls";
 import { buildClientRequestUrl } from "../../utils";
 import { CheckoutType, OrderType } from "@/types";
 

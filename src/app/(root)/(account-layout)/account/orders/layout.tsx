@@ -1,8 +1,5 @@
 import Breadcrumb from '@/components/breadcrumb';
-import { Section } from '@/components/section';
 import { ROUTES } from '@/routes';
-import { AccountMenu } from '@/views/account/account-menu';
-import { AccountMenuMobile } from '@/views/account/account-menu-mobile';
 
 import { Metadata } from 'next';
 

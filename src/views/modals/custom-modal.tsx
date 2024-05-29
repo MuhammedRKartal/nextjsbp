@@ -1,7 +1,6 @@
 'use client';
 import { Section } from '@/components/section';
 import { Modal } from '@/components/Modal/modal';
-import { useState } from 'react';
 
 export interface ModalProps {
   open: boolean;

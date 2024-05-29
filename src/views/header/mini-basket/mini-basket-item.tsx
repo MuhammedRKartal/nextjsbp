@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { MutableRefObject, useEffect, useMemo, useState } from 'react';
-import { signOut } from 'next-auth/react';
 
 interface MiniBasketItemProps {
   basketItem: BasketItemType;

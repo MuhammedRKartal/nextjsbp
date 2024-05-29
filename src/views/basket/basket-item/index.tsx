@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
 import { basketApi, useUpdateQuantityMutation } from '@/data/client/basket';
 import { useAppDispatch } from '@/redux/hooks';
-import { signOut } from 'next-auth/react';
 import { Select } from '@/components/select';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';

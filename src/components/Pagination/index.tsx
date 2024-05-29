@@ -1,12 +1,9 @@
-import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { PaginationProps } from '../types';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';
 
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
 import usePagination from './hook';
 
 export const Pagination = (props: PaginationProps) => {
@@ -27,8 +24,6 @@ export const Pagination = (props: PaginationProps) => {
     limit: paginationLimit,
     page,
     pageList,
-    prev,
-    next,
     setTotal,
     setLimit
   } = pagination;

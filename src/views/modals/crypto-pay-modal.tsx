@@ -1,7 +1,7 @@
 "use client";
 import { Section } from "@/components/section";
 import { Modal } from "@/components/Modal/modal";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Image } from "@/components/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";

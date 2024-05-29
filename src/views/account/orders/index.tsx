@@ -12,8 +12,6 @@ export const AccountOrders = (props) => {
   const {
     data: orders,
     isSuccess,
-    error,
-    isLoading
   } = useGetOrdersQuery(
     limit
       ? {

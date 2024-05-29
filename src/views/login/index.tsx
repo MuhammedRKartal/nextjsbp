@@ -28,7 +28,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
   } = useForm<LoginFormType>({
     resolver: yupResolver(loginValidationSchema) as Resolver<LoginFormType, any>,
   });

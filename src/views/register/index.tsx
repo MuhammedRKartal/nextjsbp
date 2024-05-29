@@ -74,7 +74,6 @@ export default function Register() {
   const {
     register,
     handleSubmit,
-    control,
     formState: { errors },
   } = useForm<RegisterFormType>({
     resolver: yupResolver(registerValidationSchema) as Resolver<RegisterFormType, any>,

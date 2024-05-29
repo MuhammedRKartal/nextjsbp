@@ -2,7 +2,6 @@
 
 import { twMerge } from 'tailwind-merge';
 import { TabItemProps } from '../types';
-import clsx from 'clsx';
 
 export const TabItem = ({
   tabId,

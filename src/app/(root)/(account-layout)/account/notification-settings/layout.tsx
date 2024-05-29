@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import ChangeNotificationsPage from './page';
 import Breadcrumb from '@/components/breadcrumb';
 import { ROUTES } from '@/routes';
 

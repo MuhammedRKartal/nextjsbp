@@ -16,7 +16,6 @@ const Select = (props: SelectProps) => {
     selectedOption,
     setSelectedOption,
     loading,
-    ...rest
   } = props;
   const [showOptionList, setShowOptionList] = useState(false);
 

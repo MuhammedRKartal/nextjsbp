@@ -1,3 +1,3 @@
-export const InStock = (props) => {
+export const InStock = () => {
   return <>{}</>;
 };

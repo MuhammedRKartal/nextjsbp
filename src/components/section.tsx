@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import { SectionProps } from '@/components/types';
 import { twMerge } from 'tailwind-merge';
 

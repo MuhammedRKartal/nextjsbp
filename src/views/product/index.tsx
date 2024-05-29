@@ -14,9 +14,8 @@ interface Props {
 }
 
 const Product = (props: Props) => {
-  const { product, children } = props;
+  const { children } = props;
 
-  const pk = product.pk;
   const IncludeArray = [Images, Details, Information, Prices, Add];
 
   const childrenWithProps = (children) => {

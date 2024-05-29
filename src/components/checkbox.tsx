@@ -1,4 +1,4 @@
-import { forwardRef, useState, useEffect } from 'react';
+import { forwardRef } from 'react';
 import { CheckboxProps } from './types';
 import { twMerge } from 'tailwind-merge';
 import clsx from 'clsx';

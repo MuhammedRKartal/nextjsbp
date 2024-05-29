@@ -1,6 +1,5 @@
 'use client';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { AccordionItemProps } from './types';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
@@ -16,7 +15,6 @@ export const AccordionItem = ({
   titleClassName,
   activeTitleClassName,
   activeClassName,
-  iconClassName,
   showIcon
 }: AccordionItemProps) => {
   const isActive = active === accordionId;

@@ -4,7 +4,6 @@ import CheckoutSummary from './summary';
 import CheckoutOptions from './options';
 import { useGetBasketQuery } from '@/data/client/basket';
 import { Loader } from '@/components/loader';
-import { useGetLastActiveOrderQuery } from '@/data/client/account';
 import { useEffect, useState } from 'react';
 import { BasketType } from '@/types';
 import { useRouter } from 'next/navigation';
@@ -15,7 +14,6 @@ export default function Checkout() {
     data: basketData,
     isLoading,
     isSuccess: basketSuccess,
-    error: basketError
   } = useGetBasketQuery();
   const [data, setData] = useState(basketData as BasketType);
 
