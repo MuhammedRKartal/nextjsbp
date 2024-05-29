@@ -1,6 +1,6 @@
-import { ProductItem } from '..';
+import { ProductItem } from "..";
 
-export const ProductItemDefault = (props) => {
+export const ProductItemDefault = props => {
   const { product } = props;
 
   return (

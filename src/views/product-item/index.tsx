@@ -1,14 +1,14 @@
-import { ProductItemType } from '@/types';
+import { ProductItemType } from "@/types";
 
-import { Children, cloneElement, ReactNode } from 'react';
-import { Images } from './components/images';
-import { Prices } from './components/prices';
-import { Description } from './components/description';
-import { InStock } from './components/instock';
-import { Add } from './components/add';
-import { Wrapper } from './components/wrapper';
-import { BottomSheet } from './components/bottom-sheet';
-import { Attributes } from './components/attributes';
+import { Children, cloneElement, ReactNode } from "react";
+import { Images } from "./components/images";
+import { Prices } from "./components/prices";
+import { Description } from "./components/description";
+import { InStock } from "./components/instock";
+import { Add } from "./components/add";
+import { Wrapper } from "./components/wrapper";
+import { BottomSheet } from "./components/bottom-sheet";
+import { Attributes } from "./components/attributes";
 
 interface Props {
   product: ProductItemType;
@@ -21,8 +21,8 @@ const ProductItem = (props: Props) => {
 
   const pk = product.pk;
 
-  const childrenWithProps = (children) => {
-    return Children.map(children, (child) => {
+  const childrenWithProps = children => {
+    return Children.map(children, child => {
       if (!child) {
         return null;
       }
@@ -30,33 +30,26 @@ const ProductItem = (props: Props) => {
       const hasChildren = !!child.props?.children;
 
       if (
-        [
-          Images,
-          Prices,
-          Description,
-          Attributes,
-          InStock,
-          Add,
-          Wrapper,
-          BottomSheet
-        ].includes(child.type)
+        [Images, Prices, Description, Attributes, InStock, Add, Wrapper, BottomSheet].includes(
+          child.type
+        )
       ) {
         const clone = cloneElement(child, {
           ...{
             ...props,
             pk,
-            index
+            index,
           },
           ...child.props,
           ...(hasChildren && {
-            children: childrenWithProps(child.props.children)
-          })
+            children: childrenWithProps(child.props.children),
+          }),
         });
         return clone;
       } else if (hasChildren) {
         const clone = cloneElement(child, {
           ...child.props,
-          children: childrenWithProps(child.props.children)
+          children: childrenWithProps(child.props.children),
         });
         return clone;
       }

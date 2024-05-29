@@ -5,36 +5,36 @@
   "description": "This is the long description of Thor's hammer",
   "images": [
     {
-      "image": "/assets/mjolnir1.png",
-      "alt": "Item1"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item1"
     },
     {
-      "image": "/assets/mjolnir2.png",
-      "alt": "Item2"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item2"
     },
     {
-      "image": "/assets/mjolnir1.png",
-      "alt": "Item1"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item1"
     },
     {
-      "image": "/assets/mjolnir2.png",
-      "alt": "Item2"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item2"
     },
     {
-      "image": "/assets/mjolnir1.png",
-      "alt": "Item1"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item1"
     },
     {
-      "image": "/assets/mjolnir2.png",
-      "alt": "Item2"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item2"
     },
     {
-      "image": "/assets/mjolnir1.png",
-      "alt": "Item1"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item1"
     },
     {
-      "image": "/assets/mjolnir2.png",
-      "alt": "Item2"
+      "url": "/assets/jaina.gif",
+      "alt_text": "Item2"
     }
   ],
   "price": "10.99",

@@ -1,7 +1,7 @@
-import { ClientRequestOptions } from '@/types';
+import { ClientRequestOptions } from "@/types";
 
 export function getCookie(name: string) {
-  if (typeof document === 'undefined') {
+  if (typeof document === "undefined") {
     return null;
   }
 
@@ -9,9 +9,20 @@ export function getCookie(name: string) {
   const parts = value.split(`; ${name}=`);
 
   if (parts.length === 2) {
-    return parts?.pop()?.split(';').shift();
+    return parts?.pop()?.split(";").shift();
   }
   return null;
+}
+
+export function parseCookies(cookie, sep?, eq?) {
+  sep = sep || /;\s*/;
+  eq = eq || "=";
+
+  return (cookie || "").split(sep).reduce((result, entry) => {
+    const [key, value] = entry.split(eq, 2);
+    result[key] = decodeURIComponent(value);
+    return result;
+  }, {});
 }
 
 export function setCookie(name: string, val: string) {
@@ -20,27 +31,23 @@ export function setCookie(name: string, val: string) {
 
   date.setTime(date.getTime() + 7 * 24 * 60 * 60 * 1000);
 
-  document.cookie =
-    name + '=' + value + '; expires=' + date.toUTCString() + '; path=/';
+  document.cookie = name + "=" + value + "; expires=" + date.toUTCString() + "; path=/";
 }
 
 export function removeCookie(name: string) {
-  const date = 'Thu, 01 Jan 1970 00:00:00 UTC';
+  const date = "Thu, 01 Jan 1970 00:00:00 UTC";
 
   document.cookie = `${name}=; expires=${date}; path=/;`;
 }
 
-export function buildClientRequestUrl(
-  path: string,
-  options?: ClientRequestOptions
-) {
+export function buildClientRequestUrl(path: string, options?: ClientRequestOptions) {
   let url = `/api/client${path}`;
 
   if (options) {
-    if (url.includes('?')) {
-      url += '&';
+    if (url.includes("?")) {
+      url += "&";
     } else {
-      url += '?';
+      url += "?";
     }
 
     url += `options=${encodeURIComponent(JSON.stringify(options))}`;
@@ -50,17 +57,17 @@ export function buildClientRequestUrl(
 }
 
 export function blurBackground() {
-  if (typeof document !== 'undefined') {
-    document?.getElementById('main')?.classList?.add('blur-sm');
-    document?.getElementById('header')?.classList?.add('blur-sm');
-    document?.getElementById('footer')?.classList?.add('blur-sm');
+  if (typeof document !== "undefined") {
+    document?.getElementById("main")?.classList?.add("blur-sm");
+    document?.getElementById("header")?.classList?.add("blur-sm");
+    document?.getElementById("footer")?.classList?.add("blur-sm");
   }
 }
 
 export function removeBlur() {
-  if (typeof document !== 'undefined') {
-    document?.getElementById('main')?.classList?.remove('blur-sm');
-    document?.getElementById('header')?.classList?.remove('blur-sm');
-    document?.getElementById('footer')?.classList?.remove('blur-sm');
+  if (typeof document !== "undefined") {
+    document?.getElementById("main")?.classList?.remove("blur-sm");
+    document?.getElementById("header")?.classList?.remove("blur-sm");
+    document?.getElementById("footer")?.classList?.remove("blur-sm");
   }
 }

@@ -1,7 +1,7 @@
-import { api } from './api';
-import { BasketType } from '../../types';
-import { buildClientRequestUrl } from '../../utils';
-import { basket } from '../urls';
+import { api } from "./api";
+import { BasketType } from "../../types";
+import { buildClientRequestUrl } from "../../utils";
+import { basket } from "../urls";
 
 export type UpdateQuantityResponse = {
   refresh_token: string;
@@ -13,40 +13,33 @@ export type UpdateQuantityRequest = {
 };
 
 export const basketApi = api.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     getBasket: build.query<BasketType, void>({
       query: () => ({
-        url: buildClientRequestUrl(basket.getBasket)
+        url: buildClientRequestUrl(basket.getBasket),
       }),
       transformResponse: (response: BasketType) => response,
-      providesTags: ['Basket']
+      providesTags: ["Basket"],
     }),
-    updateQuantity: build.mutation<
-      UpdateQuantityResponse,
-      UpdateQuantityRequest
-    >({
-      query: (body) => ({
+    updateQuantity: build.mutation<UpdateQuantityResponse, UpdateQuantityRequest>({
+      query: body => ({
         url: buildClientRequestUrl(basket.updateQuantity),
-        method: 'PUT',
-        body
-      })
+        method: "PUT",
+        body,
+      }),
     }),
     clearBasket: build.mutation<BasketType, void>({
       query: () => ({
         url: buildClientRequestUrl(basket.clearBasket, {
-          contentType: 'application/json'
+          contentType: "application/json",
         }),
-        method: 'DELETE'
+        method: "DELETE",
       }),
       transformResponse: (response: BasketType) => response,
-      invalidatesTags: ['Basket']
-    })
+      invalidatesTags: ["Basket"],
+    }),
   }),
-  overrideExisting: true
+  overrideExisting: true,
 });
 
-export const {
-  useGetBasketQuery,
-  useUpdateQuantityMutation,
-  useClearBasketMutation
-} = basketApi;
+export const { useGetBasketQuery, useUpdateQuantityMutation, useClearBasketMutation } = basketApi;

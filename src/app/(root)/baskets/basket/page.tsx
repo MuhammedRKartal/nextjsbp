@@ -1,9 +1,9 @@
-import { redirect } from 'next/navigation';
-import Basket from '@/views/basket';
-import { ROUTES } from '@/routes';
-import { getServerSession } from 'next-auth';
-import { cookies } from 'next/headers';
-import SignOut from '@/components/SignOut';
+import { redirect } from "next/navigation";
+import Basket from "@/views/basket";
+import { ROUTES } from "@/routes";
+import { getServerSession } from "next-auth";
+import { cookies } from "next/headers";
+import SignOut from "@/components/Utility/SignOut";
 
 export default async function BasketPage() {
   const session = await getServerSession();
@@ -12,7 +12,7 @@ export default async function BasketPage() {
   if (!session?.user) {
     redirect(ROUTES.LOGIN);
   }
-  if (!cookie.get('refresh_token')?.value) {
+  if (!cookie.get("refresh_token")?.value) {
     return <SignOut />;
   }
 

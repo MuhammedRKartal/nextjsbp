@@ -1,28 +1,11 @@
-import { ReactElement, ReactNode } from 'react';
-import { NextPage } from 'next';
-import { AppProps } from 'next/app';
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
+import { AppProps } from "next/app";
 
 export interface PageProps<T = any> {
   params: T;
   searchParams: URLSearchParams;
 }
-
-export type HeroBannerType = {
-  content: HeroBannerContentType[];
-};
-
-export type HeroBannerContentType = {
-  is_image: boolean;
-  image: string;
-  content_image: string | null;
-  content_image_alt: string | null | undefined;
-  mobile_image: string;
-  image_alt: string;
-  title: string | null;
-  description: string | null | undefined;
-  button_text: string | null | undefined;
-  button_target_url: string | null | undefined;
-};
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -75,22 +58,8 @@ export interface ClientRequestOptions {
   useFormData?: boolean;
   accept?: string;
   contentType?: string | null;
-  responseType?: 'json' | 'text';
+  responseType?: "json" | "text";
 }
-
-export type RegisterFormType = {
-  email: string;
-  username: string;
-  password: string;
-  password_confirm: string;
-  formType: string;
-};
-
-export type LoginFormType = {
-  email: string;
-  password: string;
-  formType: string;
-};
 
 export type PasswordChangeFormType = {
   current_password: string;

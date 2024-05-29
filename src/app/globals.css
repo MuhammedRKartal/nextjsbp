@@ -1,47 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-html:has(.scroll-lock){
-    @media(max-width: 970px){
-        overflow-y: hidden;
-        position:fixed;
-    }
+html:has(.scroll-lock) {
+  @media (max-width: 970px) {
+    overflow-y: hidden;
+    position: fixed;
+  }
 }
 
 html:has(.scroll-lock) body {
-    @media(max-width: 970px){
-        overflow-y: hidden;
-        position:fixed;
-    }
+  @media (max-width: 970px) {
+    overflow-y: hidden;
+    position: fixed;
+  }
 }
 
 html:has(.full-scroll-lock) {
-    @media(max-width: 970px){
-        padding-right: 14px;
-    }
-    overflow-y: hidden;
-    position:fixed;
-
+  @media (max-width: 970px) {
+    padding-right: 14px;
+  }
+  overflow-y: hidden;
+  position: fixed;
 }
 
 html:has(.full-scroll-lock) body {
-    @media(max-width: 970px){
-        padding-right: 14px;
-    }
-    overflow-y: hidden;
-    position:fixed;
-
+  @media (max-width: 970px) {
+    padding-right: 14px;
+  }
+  overflow-y: hidden;
+  position: fixed;
 }
 
-main{
-    @apply !overflow-x-hidden;
+main {
+  @apply !overflow-x-hidden;
 }
 
 input:-webkit-autofill,
@@ -63,73 +61,74 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-img, video {
-    max-width: unset;
+img,
+video {
+  max-width: unset;
 }
 
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .thin-scrollbar::-webkit-scrollbar {
-    width: 7px;
+  width: 7px;
 }
 .thin-scrollbar::-webkit-scrollbar-track {
-    background-color: transparent;
+  background-color: transparent;
 }
-.thin-scrollbar::-webkit-scrollbar-thumb  {
-    background-color: #333B4B;
-    border-radius: 2px;
-    border: 1px solid transparent;
-    background-clip: content-box;
+.thin-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #333b4b;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  background-clip: content-box;
 }
 .thin-scrollbar::-webkit-scrollbar-thumb:hover {
-    background-color: #333B4B;
+  background-color: #333b4b;
 }
 
 .k-container {
-    @apply max-w-xs;
-    @apply sm:max-w-sm;
-    @apply md:max-w-md;
-    @apply lg:max-w-lg;
-    @apply xl:max-w-xl;
-    @apply xxl:max-w-xxl;
+  @apply max-w-xs;
+  @apply sm:max-w-sm;
+  @apply md:max-w-md;
+  @apply lg:max-w-lg;
+  @apply xl:max-w-xl;
+  @apply xxl:max-w-xxl;
 }
 
 .k-px {
-    @apply px-5;
-    @apply md:px-12;
-    @apply xl:px-28;
-    @apply xxl:px-36;
+  @apply px-5;
+  @apply md:px-12;
+  @apply xl:px-28;
+  @apply xxl:px-36;
 }
 
 .k-py {
-    @apply pt-6 pb-8;
-    @apply xl:pt-10 xl:pb-11;
+  @apply pt-6 pb-8;
+  @apply xl:pt-10 xl:pb-11;
 }
 
 .k-pxi {
-    @apply px-5 !important;
-    @apply md:px-12 !important;
-    @apply xl:px-28 !important;
-    @apply xxl:px-36 !important;
+  @apply px-5 !important;
+  @apply md:px-12 !important;
+  @apply xl:px-28 !important;
+  @apply xxl:px-36 !important;
 }
 
 .k-pyi {
-    @apply pt-6 pb-8 !important;
-    @apply xl:pt-10 xl:pb-11 !important;
+  @apply pt-6 pb-8 !important;
+  @apply xl:pt-10 xl:pb-11 !important;
 }
 
 .k-containeri {
-    @apply max-w-xs !important;
-    @apply sm:max-w-sm !important;
-    @apply md:max-w-md !important;
-    @apply lg:max-w-lg !important;
-    @apply xl:max-w-xl !important;
-    @apply xxl:max-w-xxl !important;
+  @apply max-w-xs !important;
+  @apply sm:max-w-sm !important;
+  @apply md:max-w-md !important;
+  @apply lg:max-w-lg !important;
+  @apply xl:max-w-xl !important;
+  @apply xxl:max-w-xxl !important;
 }

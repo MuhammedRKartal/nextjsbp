@@ -26,11 +26,11 @@
     "description": "This is the long description of warcraft logo.",
     "images": [
       {
-        "image": "/assets/WoWTaskerMinimized.png",
+        "image": "/assets/company-logo-minimized.png",
         "alt": "Item1"
       },
       {
-        "image": "/assets/WoWTaskerMinimized.png",
+        "image": "/assets/company-logo-minimized.png",
         "alt": "Item2"
       }
     ],
@@ -46,11 +46,11 @@
     "description": "This is the long description of a product which is designed to smash!",
     "images": [
       {
-        "image": "/assets/WoWTaskerMinimized.png",
+        "image": "/assets/company-logo-minimized.png",
         "alt": "Item1"
       },
       {
-        "image": "/assets/WoWTaskerMinimized.png",
+        "image": "/assets/company-logo-minimized.png",
         "alt": "Item2"
       }
     ],
