@@ -22,7 +22,7 @@ export const Image = (props: ImageProps) => {
 
   const hasGif = typeof src === "string" && src.includes(".gif");
 
-  let imageHS: number | undefined | `${number}`;
+  let imageHg: number | undefined | `${number}`;
 
   if (fill && !aspectRatio) {
     throw new Error("aspectRatio is required when fill is true");
@@ -41,17 +41,17 @@ export const Image = (props: ImageProps) => {
   }
 
   if (imageHeight) {
-    imageHS = imageHeight;
+    imageHg = imageHeight;
   }
 
   if (!imageHeight && height) {
-    imageHS = height;
+    imageHg = height;
   }
 
   return (
     <div
       className={clsx(
-        "relative",
+        "flex items-center justify-center relative",
         fill && "w-full h-full",
         fillWithSize && "overflow-hidden w-full relative",
         fillWithSize && showBG && "w-full",
@@ -76,7 +76,7 @@ export const Image = (props: ImageProps) => {
       <NextImage
         {...restImage}
         width={width}
-        height={imageHS}
+        height={imageHg}
         src={src}
         sizes={sizes}
         fill={fill}
@@ -85,7 +85,7 @@ export const Image = (props: ImageProps) => {
           imageClassName,
           objectType && !fillWithSize ? objectType : "object-cover"
         )}
-        {...(!fill && { style: { height: imageHS } })}
+        {...(!fill && { style: { height: imageHg } })}
         {...(hasGif && { unoptimized: true })}
       />
     </div>
