@@ -1,13 +1,16 @@
-import { Control, FieldError } from 'react-hook-form';
-import { ImageProps as NextImageProps } from 'next/image';
-import { ReactNode } from 'react';
-import { PayloadAction } from '@reduxjs/toolkit';
-import { UsePaginationType } from './Pagination/hook';
+import { Control, FieldError } from "react-hook-form";
+import { ImageProps as NextImageProps } from "next/image";
+import { ReactNode } from "react";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { UsePaginationType } from "./Pagination/hook";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  appearance?: 'filled' | 'outlined' | 'ghost' | 'bright';
-  size?: 'xs' | 'lg';
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * @param {string} appearance - Filled | Outlined | Ghost | Bright
+   */
+  appearance?: "filled" | "outlined" | "ghost" | "bright";
+  size?: "xs" | "lg";
   link?: string | null;
   linkclassname?: string;
   isloading?: string | boolean;
@@ -19,22 +22,28 @@ export interface CheckboxProps extends React.HTMLProps<HTMLInputElement> {
   inputWidth?: number | Array<number>;
   inputHeight?: number | Array<number>;
   error?: FieldError | undefined;
-  appearance?: 'square' | 'circle';
+  appearance?: "square" | "circle";
   tick?: boolean;
 }
 
 export interface InputProps extends React.HTMLProps<HTMLInputElement> {
   label?: string;
-  labelStyle?: 'outer' | 'inner' | 'floating';
+  floatingLabelText?: string | undefined;
+  labelStyle?: "outer" | "inner" | "floating";
   labelClassName?: string;
+  className?: string;
   error?: FieldError | undefined;
   control?: Control<any, any>;
   required?: boolean;
+  icon?: IconProp;
+  iconClassName?: string;
+  iconButtonClassName?: string;
 }
 
 export interface InputLabelProps extends React.HTMLProps<HTMLInputElement> {
   label: string | undefined;
-  labelStyle?: 'outer' | 'inner' | 'floating';
+  floatingLabelText?: string | undefined;
+  labelStyle?: "outer" | "inner" | "floating";
   focused: boolean;
   hasValue: boolean;
   required: boolean;
@@ -46,9 +55,21 @@ export interface InputLabelProps extends React.HTMLProps<HTMLInputElement> {
 
 export interface SectionProps {
   children: React.ReactNode;
-  tag?: 'section' | 'div' | 'span' | 'main';
-  appearance?: 'thinnest' | 'thin' | 'wide' | 'full';
+  /**
+   * @param {string} tag - Section | Div | Span | Main
+   */
+  tag?: "section" | "div" | "span" | "main";
+  /**
+   * @param {string} appearance Thinnest | Thin | Wide | Full
+   */
+  appearance?: "thinnest" | "thin" | "wide" | "full";
+  /**
+   * @param {string} outerClassName Outer Div's classname
+   */
   outerClassName?: string;
+  /**
+   * @param {string} className Tag's classname
+   */
   className?: string;
 }
 
@@ -118,15 +139,15 @@ export interface ImageProps extends NextImageProps {
    * @param {'object-contain' | 'object-cover'} objectType - is object-cover(crops the image) or object-contain(doesn't crop, trims the width).
 
    */
-  objectType?: 'object-contain' | 'object-cover';
+  objectType?: "object-contain" | "object-cover";
 }
 
 export interface PriceProps {
   value: number;
-  displayType?: 'input' | 'text';
+  displayType?: "input" | "text";
   decimalScale?: number;
-  thousandSeperator?: '.' | ',';
-  decimalSeperator?: '.' | ',';
+  thousandSeperator?: "." | ",";
+  decimalSeperator?: "." | ",";
   currency?: string;
   fixedDecimalScale?: true;
 }
@@ -174,7 +195,7 @@ export type SelectItem = {
 export interface SelectProps extends React.HTMLProps<HTMLSelectElement> {
   options: SelectItem[];
   loading?: boolean;
-  labelStyle?: 'default' | 'floating';
+  labelStyle?: "default" | "floating";
   labelClassName?: string;
   itemListClassName?: string;
   itemClassName?: string;

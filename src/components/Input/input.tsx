@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import { forwardRef, FocusEvent, useState } from 'react';
+import { forwardRef, FocusEvent, useState } from "react";
 
-import { InputLabel } from '@/components/Input/input-label';
-import { Button } from '@/components/button';
-import { InputProps } from '@/components/types';
+import { InputLabel } from "@/components/Input/input-label";
+import { Button } from "@/components/button";
+import { InputProps } from "@/components/types";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons/faEye';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons/faEye";
+import { twMerge } from "tailwind-merge";
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const [focused, setFocused] = useState(false);
@@ -19,28 +19,32 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     id,
     label,
     labelStyle,
+    floatingLabelText,
     error,
     type,
     required = false,
     disabled = false,
     labelClassName,
+    className,
+    icon,
+    iconClassName,
+    iconButtonClassName,
     ...rest
   } = props;
+  const hasFloatingLabel = label && labelStyle === "floating";
+  const hasPlaceholder = label && (labelStyle === "inner" || !labelStyle);
+  const isPassword = type && type === "password";
 
-  const hasFloatingLabel = label && labelStyle === 'floating';
-  const hasPlaceholder = label && (labelStyle === 'inner' || !labelStyle);
-  const isPassword = type && type === 'password';
-
-  const inputClass = clsx(
-    'bg-transparent text-base w-full  border px-3 h-10 rounded my-[3px] transition duration-200',
-    'placeholder:text-white-400 dark:text-black-600',
-    'hover:border-outline-100 dark:hover:border-secondaryoutline-100 dark:border-secondaryoutline-100',
-    'active:border-outline dark:border-secondaryoutline',
-    'focus-visible:outline-none focus:border-outline dark:border-secondaryoutline',
-    { 'pt-3 h-12': hasFloatingLabel },
+  const inputClass = twMerge(
+    "bg-transparent text-base w-full  border px-3 h-10 rounded my-[3px] transition duration-200",
+    "placeholder:text-white-400 dark:text-black-600",
+    "hover:border-outline-100 dark:hover:border-secondaryoutline-100 dark:border-secondaryoutline-100",
+    "active:border-outline dark:border-secondaryoutline",
+    "focus-visible:outline-none focus:border-outline dark:border-secondaryoutline",
+    hasFloatingLabel && "pt-3 h-12",
     error &&
-      'border-error focus:!border-error active:!border-error hover:!border-error !text-error',
-    disabled && 'pointer-events-none opacity-40',
+      "border-error focus:!border-error active:!border-error hover:!border-error !text-error",
+    disabled && "pointer-events-none opacity-40",
     props.className
   );
 
@@ -48,12 +52,12 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     id,
     ref,
     className: inputClass,
-    type: type === 'password' ? (showValue ? 'text' : type) : type,
+    type: type === "password" ? (showValue ? "text" : type) : type,
     onFocus: () => setFocused(true),
     onBlur: (event: FocusEvent<HTMLInputElement>) => {
       setFocused(false);
       setHasValue(!!event.target.value);
-    }
+    },
   };
 
   return (
@@ -76,11 +80,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           <input
             {...rest}
             {...inputProps}
-            placeholder={
-              hasPlaceholder ? `${label} ${required ? '*' : ''}` : ''
-            }
+            placeholder={hasPlaceholder ? `${label} ${required ? "*" : ""}` : ""}
           />
-          {isPassword && (
+          {isPassword && !icon && (
             <Button
               type="button"
               appearance="bright"
@@ -92,29 +94,79 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             >
               <FontAwesomeIcon
                 icon={faEye}
-                className={clsx(
-                  'text-primary-600 dark:text-secondary-400',
-                  error && '!text-error'
+                className={twMerge(
+                  "text-primary-600 dark:text-secondary-400",
+                  error && "!text-error",
+                  iconClassName
                 )}
               />
 
               {showValue && (
                 <span
-                  className={clsx(
+                  className={twMerge(
                     "w-1 h-3/5 absolute top-1/2 left-1/2 bg-primary-600 dark:bg-secondary-400 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]",
-                    error && '!bg-error'
+                    error && "!bg-error"
                   )}
                 />
               )}
             </Button>
           )}
+
+          {isPassword && icon && (
+            <Button
+              type="button"
+              appearance="bright"
+              size="xs"
+              className="absolute right-0 top-1/2 -translate-y-1/2"
+              onClick={() => {
+                setShowValue(!showValue);
+              }}
+            >
+              <FontAwesomeIcon
+                icon={icon}
+                className={twMerge(
+                  "text-primary-600 dark:text-secondary-400",
+                  error && "!text-error",
+                  iconClassName
+                )}
+              />
+
+              {showValue && (
+                <span
+                  className={twMerge(
+                    "w-1 h-3/5 absolute top-1/2 left-1/2 bg-primary-600 dark:bg-secondary-400 rounded-xl border-l-2 border-l-black content-[''] -translate-x-1/2 -translate-y-1/2 -rotate-[60deg]",
+                    error && "!bg-error"
+                  )}
+                />
+              )}
+            </Button>
+          )}
+
+          {!isPassword && icon && (
+            <Button
+              type="button"
+              appearance="bright"
+              size="xs"
+              className="absolute right-0 top-1/2 -translate-y-1/2"
+              onClick={() => {
+                setShowValue(!showValue);
+              }}
+            >
+              <FontAwesomeIcon
+                icon={icon}
+                className={twMerge(
+                  "text-primary-600 dark:text-secondary-400",
+                  error && "!text-error",
+                  iconClassName
+                )}
+              />
+            </Button>
+          )}
         </div>
-        {error && (
-          <span className="-mt-1 text-sm text-error">{error.message}</span>
-        )}
+        {error && <span className="-mt-1 text-sm text-error">{error.message}</span>}
       </div>
     </>
   );
 });
 
-Input.displayName = 'Input';
+Input.displayName = "Input";

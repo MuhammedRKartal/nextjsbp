@@ -8,14 +8,14 @@ interface RouteParams {
   };
 }
 
-async function proxyRequest(...args) {
-  const [req, { params }] = args as [req: Request, params: RouteParams];
+async function proxyRequest(req: Request, routeParams: RouteParams) {
+  const { params } = routeParams;
   const { searchParams } = new URL(req.url);
 
-  const commerceUrl = `${process.env.BACKEND_URL}`;
-  const cookies = parseCookies(req.headers.get("cookie"));
+  const backendUrl: string = `${process.env.BACKEND_URL}`;
+  const cookies: { [key: string]: string } = parseCookies(req.headers.get("cookie") ?? "");
 
-  const access_token = cookies["access_token"];
+  const access_token: string | undefined = cookies["access_token"];
 
   const options: ClientRequestOptions = {
     useTrailingSlash: true,
@@ -25,8 +25,9 @@ async function proxyRequest(...args) {
     responseType: "json",
   };
 
-  const slug = `${params.slug.join("/")}`;
-  const options_ = JSON.parse(decodeURIComponent((searchParams.get("options") as string) ?? "{}"));
+  const slug: string = `${params.slug.join("/")}`;
+
+  const options_: any = JSON.parse(decodeURIComponent(searchParams.get("options") ?? "{}"));
   const urlSearchParams = new URLSearchParams();
 
   Object.assign(options, options_);
@@ -37,7 +38,7 @@ async function proxyRequest(...args) {
       urlSearchParams.append(key, `${searchParams.get(key)}`);
     });
 
-  const extraHeaders = Object.fromEntries(req.headers.entries());
+  const extraHeaders: Record<string, string> = Object.fromEntries(req.headers.entries());
 
   [
     "x-forwarded-host",
@@ -52,25 +53,26 @@ async function proxyRequest(...args) {
     "content-type",
   ].forEach(header => delete extraHeaders[header]);
 
-  const fetchOptions = {
+  const fetchOptions: RequestInit = {
     method: req.method,
     headers: {
       ...extraHeaders,
       "X-Requested-With": "XMLHttpRequest",
-      Referer: commerceUrl,
-      Accept: options.accept,
-      Authorization: `Bearer ${access_token}`,
+      Referer: backendUrl,
+      Accept: options.accept ?? "",
+      Authorization: access_token ? `Bearer ${access_token}` : "",
       auth_token: process.env.AUTH_TOKEN,
     },
-  } as RequestInit;
+  };
 
   if (options.contentType && fetchOptions.headers) {
-    fetchOptions.headers["Content-Type"] = options.contentType;
+    (fetchOptions.headers as Record<string, string>)["Content-Type"] = options.contentType;
   }
 
   if (req.method !== "GET") {
     const formData = new URLSearchParams();
-    let body = {};
+
+    let body: any = {};
 
     try {
       body = await req.json();
@@ -81,10 +83,11 @@ async function proxyRequest(...args) {
         formData.append(key, body[key]);
       }
     });
+
     fetchOptions.body = !options.useFormData ? JSON.stringify(body) : formData;
   }
 
-  let url = `${commerceUrl}/${slug.replace(/,/g, "/")}`;
+  let url = `${backendUrl}/${slug.replace(/,/g, "/")}`;
 
   if (!options.useTrailingSlash) {
     url = url.replace(/\/$/, "");
@@ -104,7 +107,7 @@ async function proxyRequest(...args) {
     } catch (error) {}
 
     const setCookieHeader = request.headers.get("set-cookie");
-    const responseHeaders: any = {};
+    const responseHeaders: Record<string, string> = {};
 
     if (setCookieHeader) {
       responseHeaders["set-cookie"] = setCookieHeader;
@@ -121,26 +124,26 @@ async function proxyRequest(...args) {
   }
 }
 
-export async function GET(...args) {
-  return proxyRequest(...args);
+export async function GET(req: Request, params: RouteParams) {
+  return proxyRequest(req, params);
 }
 
-export async function POST(...args) {
-  return proxyRequest(...args);
+export async function POST(req: Request, params: RouteParams) {
+  return proxyRequest(req, params);
 }
 
-export async function PUT(...args) {
-  return proxyRequest(...args);
+export async function PUT(req: Request, params: RouteParams) {
+  return proxyRequest(req, params);
 }
 
-export async function PATCH(...args) {
-  return proxyRequest(...args);
+export async function PATCH(req: Request, params: RouteParams) {
+  return proxyRequest(req, params);
 }
 
-export async function DELETE(...args) {
-  return proxyRequest(...args);
+export async function DELETE(req: Request, params: RouteParams) {
+  return proxyRequest(req, params);
 }
 
-export async function HEAD(...args) {
-  return proxyRequest(...args);
+export async function HEAD(req: Request, params: RouteParams) {
+  return proxyRequest(req, params);
 }
