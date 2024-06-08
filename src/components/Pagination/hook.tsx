@@ -1,5 +1,5 @@
-import { usePathname, useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useMemo, useReducer } from 'react';
+import { usePathname, useSearchParams } from "next/navigation";
+import { useCallback, useEffect, useMemo, useReducer } from "react";
 
 export type UsePaginationType = ReturnType<typeof usePagination>;
 
@@ -11,21 +11,21 @@ type InitialState = {
 };
 
 type ACTIONTYPE =
-  | { type: 'setPage'; payload: number }
-  | { type: 'setTotal'; payload: number }
-  | { type: 'setLimit'; payload: number };
+  | { type: "setPage"; payload: number }
+  | { type: "setTotal"; payload: number }
+  | { type: "setLimit"; payload: number };
 
 function reducer(state: InitialState, action: ACTIONTYPE) {
   switch (action.type) {
-    case 'setTotal':
+    case "setTotal":
       return {
         ...state,
         total: action.payload,
-        last: Math.ceil(action.payload / state.limit)
+        last: Math.ceil(action.payload / state.limit),
       };
-    case 'setPage':
+    case "setPage":
       return { ...state, page: action.payload };
-    case 'setLimit':
+    case "setLimit":
       return { ...state, limit: action.payload };
     default:
       throw new Error();
@@ -39,15 +39,12 @@ export default function usePagination(
   _last: number | undefined
 ) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const urlSearchParams = useMemo(
-    () => new URLSearchParams(searchParams),
-    [searchParams]
-  );
+  const searchParams = useSearchParams() || new URLSearchParams(); // Provide a default value if null
+  const urlSearchParams = useMemo(() => new URLSearchParams(searchParams), [searchParams]);
   const { page, limit } = useMemo(
     () => ({
-      page: _page || Number(searchParams.get('page')) || 1,
-      limit: _limit || Number(searchParams.get('limit'))
+      page: _page || Number(searchParams.get("page")) || 1,
+      limit: _limit || Number(searchParams.get("limit")),
     }),
     [searchParams, _page, _limit]
   );
@@ -56,16 +53,16 @@ export default function usePagination(
     page,
     limit,
     last: _last || Math.ceil(_total / limit) || 1,
-    total: _total
+    total: _total,
   };
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
-    dispatch({ type: 'setPage', payload: page });
+    dispatch({ type: "setPage", payload: page });
   }, [page]);
 
   useEffect(() => {
-    dispatch({ type: 'setLimit', payload: limit });
+    dispatch({ type: "setLimit", payload: limit });
   }, [limit]);
 
   useEffect(() => {
@@ -74,7 +71,7 @@ export default function usePagination(
 
   const setTotal = useCallback(
     (total: number) => {
-      dispatch({ type: 'setTotal', payload: total });
+      dispatch({ type: "setTotal", payload: total });
     },
     [dispatch]
   );
@@ -82,7 +79,7 @@ export default function usePagination(
   const setPage = useCallback(
     (page: number) => {
       if (page > 0 && page <= state.total) {
-        dispatch({ type: 'setPage', payload: page });
+        dispatch({ type: "setPage", payload: page });
       }
     },
     [dispatch, state.total]
@@ -90,25 +87,25 @@ export default function usePagination(
 
   const setLimit = useCallback(
     (limit: number) => {
-      dispatch({ type: 'setLimit', payload: limit });
+      dispatch({ type: "setLimit", payload: limit });
     },
     [dispatch]
   );
 
   const pageList = useMemo(() => {
     return Array.from({ length: state.last }, (_, i) => {
-      urlSearchParams.set('page', (i + 1).toString());
+      urlSearchParams.set("page", (i + 1).toString());
 
       return {
         page: i + 1,
-        url: `${pathname}?${urlSearchParams.toString()}`
+        url: `${pathname}?${urlSearchParams.toString()}`,
       };
     });
   }, [state.last, pathname, urlSearchParams]);
 
   const prev = useMemo(() => {
     if (state.page > 1) {
-      urlSearchParams.set('page', (Number(state.page) - 1).toString());
+      urlSearchParams.set("page", (Number(state.page) - 1).toString());
       return `${pathname}?${urlSearchParams.toString()}`;
     }
     return null;
@@ -116,7 +113,7 @@ export default function usePagination(
 
   const next = useMemo(() => {
     if (Number(state.page) < Number(state.last)) {
-      urlSearchParams.set('page', (Number(state.page) + 1).toString());
+      urlSearchParams.set("page", (Number(state.page) + 1).toString());
       return `${pathname}?${urlSearchParams.toString()}`;
     }
     return null;
@@ -129,6 +126,6 @@ export default function usePagination(
     setLimit,
     pageList,
     prev,
-    next
+    next,
   };
 }

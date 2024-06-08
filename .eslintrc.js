@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 2023,
     sourceType: "module",
   },
   extends: [
@@ -17,23 +17,26 @@ module.exports = {
   },
   globals: {
     process: "readonly",
+    "RequestInit": true,
+    "React": true,
   },
   rules: {
-    "prettier/prettier": "error",
-    strict: ["error", "never"],
-    "linebreak-style": ["error", "unix"],
-    quotes: ["error", "double", { avoidEscape: true }],
-    semi: ["error", "always"],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+      },
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "strict": ["error", "never"],
+    "quotes": ["error", "double", { avoidEscape: true }],
+    "semi": ["error", "always"],
     "no-empty": "off",
     "unused-imports/no-unused-imports": "error",
     "padding-line-between-statements": [
       "error",
       { blankLine: "always", prev: ["const", "let", "var"], next: "*" },
-      {
-        blankLine: "any",
-        prev: ["const", "let", "var"],
-        next: ["const", "let", "var"],
-      },
+      { blankLine: "any", prev: ["const", "let", "var"], next: ["const", "let", "var"] },
     ],
     "space-in-parens": "error",
     "no-multiple-empty-lines": "error",
@@ -47,12 +50,4 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ["*.ts"],
-      parser: "@typescript-eslint/parser",
-      extends: ["plugin:@typescript-eslint/recommended"],
-      plugins: ["@typescript-eslint"],
-    },
-  ],
 };

@@ -6,7 +6,7 @@ import { type ThemeProviderProps } from "next-themes/dist/types";
 import { useEffect, useState } from "react";
 
 const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
-  const [theme, setTheme] = useState(null);
+  const [theme, setTheme] = useState<string | null>(null);
 
   useEffect(() => {
     const isThemeOnLocalStorage = window.localStorage.getItem("theme");

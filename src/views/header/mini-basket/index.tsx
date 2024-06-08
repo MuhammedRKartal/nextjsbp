@@ -1,23 +1,18 @@
-import { Price } from '@/components/price';
-import { useGetBasketQuery } from '@/data/client/basket';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { closeMiniBasket } from '@/redux/reducers/pop-ups';
-import { useEffect, useRef, useState } from 'react';
-import MiniBasketItem from './mini-basket-item';
-import { Button } from '@/components/button';
-import { SliderMenu } from '@/components/slider-menu';
-import { twMerge } from 'tailwind-merge';
+import { Price } from "@/components/price";
+import { useGetBasketQuery } from "@/data/client/basket";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { closeMiniBasket } from "@/redux/reducers/pop-ups";
+import { useEffect, useRef, useState } from "react";
+import MiniBasketItem from "./mini-basket-item";
+import { Button } from "@/components/button";
+import { SliderMenu } from "@/components/slider-menu";
+import { twMerge } from "tailwind-merge";
 
 export default function MiniBasket() {
-  const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(
-    (state) => state.popUps
-  );
+  const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(state => state.popUps);
   const dispatch = useAppDispatch();
 
-  const {
-    data: basket,
-    isSuccess,
-  } = useGetBasketQuery();
+  const { data: basket, isSuccess } = useGetBasketQuery();
 
   const miniBasketList = useRef();
 
@@ -54,10 +49,8 @@ export default function MiniBasket() {
     <>
       <div
         className={twMerge(
-          miniBasketOpen
-            ? 'opacity-100 visible lg:opacity-0'
-            : 'opacity-0 invisible',
-          'fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300'
+          miniBasketOpen ? "opacity-100 visible lg:opacity-0" : "opacity-0 invisible",
+          "fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300"
         )}
         onClick={() => {
           dispatch(closeMiniBasket());
@@ -70,14 +63,14 @@ export default function MiniBasket() {
         desktopWidth="sm:w-96"
       >
         <header className="flex items-center justify-between gap-2 pb-4 border-b border-outline dark:border-secondaryoutline uppercase lg:pb-2 lg:mb-3 text-white-300 dark:text-black-700">
-          <h3 className="text-xs lg:text-sm">{'My Bag'}</h3>
+          <h3 className="text-xs lg:text-sm">{"My Bag"}</h3>
         </header>
         {isSuccess && (
           <ul
             className="overflow-y-auto lg:max-h-64 flex flex-col px-5 no-scrollbar"
             ref={miniBasketList}
           >
-            {sortedBasket.map((basketItem) => (
+            {sortedBasket.map(basketItem => (
               <MiniBasketItem
                 key={basketItem.item_id}
                 basketItem={basketItem}
@@ -89,7 +82,7 @@ export default function MiniBasket() {
         )}
         <footer className="flex flex-col gap-3 mt-auto lg:mt-3 lg:flex-1">
           <div className="flex justify-between items-center px-3">
-            <span className="text-sm font-semibold">{'Total Price'}</span>
+            <span className="text-sm font-semibold">{"Total Price"}</span>
             <span className="text-base font-bold">
               <Price
                 value={Number(basket?.total_amount)}
@@ -98,7 +91,7 @@ export default function MiniBasket() {
             </span>
           </div>
           <Button
-            link={'/baskets/basket'}
+            link={"/baskets/basket"}
             className="w-full"
             onClick={() => dispatch(closeMiniBasket())}
           >

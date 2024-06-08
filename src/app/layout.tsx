@@ -16,17 +16,23 @@ const lato = Lato({
   display: "swap",
 });
 
+const nextAuthUrl = process.env.NEXTAUTH_URL;
+
+if (!nextAuthUrl) {
+  throw new Error("NEXTAUTH_URL environment variable is not defined");
+}
+
 export const metadata: Metadata = {
   title: "WoW Tasker",
   description: "Revolutionize your botting experience with WoW Tasker!",
-  metadataBase: new URL(process.env.NEXTAUTH_URL),
+  metadataBase: new URL(nextAuthUrl),
   verification: {
     google: "5cQd3-U9FV3CZh0ax9nuPPUNR2DUo-JVHku4r2vUQ_0",
   },
   openGraph: {
     title: "WoW Tasker",
     description: "Revolutionize your botting experience with WoW Tasker!",
-    url: process.env.NEXTAUTH_URL,
+    url: nextAuthUrl,
     type: "website",
     siteName: "WoW Tasker",
     images: [

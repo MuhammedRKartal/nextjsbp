@@ -1,91 +1,80 @@
-'use client';
+"use client";
 
-import { Input } from '@/components/Input/input';
-import { string, object } from 'yup';
-import { useSession } from 'next-auth/react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import { Resolver, SubmitHandler, useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { PasswordChangeFormType } from '@/types';
-import { Button } from '@/components/button';
-import { useUpdatePasswordMutation } from '@/data/client/account';
-import { ROUTES } from '@/routes';
-import { useState } from 'react';
-import clsx from 'clsx';
-import PasswordVerificationModal from '@/views/modals/password-verification-modal';
+import { Input } from "@/components/Input/input";
+import { string, object } from "yup";
+import { useSession } from "next-auth/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { Resolver, SubmitHandler, useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { PasswordChangeFormType } from "@/types";
+import { Button } from "@/components/button";
+import { useUpdatePasswordMutation } from "@/data/client/account";
+import { ROUTES } from "@/routes";
+import { useState } from "react";
+import clsx from "clsx";
+import PasswordVerificationModal from "@/views/modals/password-verification-modal";
 
 export default function ChangePasswordPage() {
   const { data: session, status } = useSession();
   const router = useRouter();
-  if (status === 'unauthenticated') {
+  if (status === "unauthenticated") {
     router.push(ROUTES.LOGIN);
   }
 
   const passwordChangeValidationSchema = object().shape({
     current_password: string()
-      .required('This field is required.')
-      .min(8, 'Password must contain min 8 characters.')
-      .max(30, 'Password must contain max 30 characters.')
+      .required("This field is required.")
+      .min(8, "Password must contain min 8 characters.")
+      .max(30, "Password must contain max 30 characters.")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\\.@$!%*?&])[A-Za-z\d\\.@$!%*?&]{8,30}$/,
-        'Password must contain a capital letter and a spacial character.'
+        "Password must contain a capital letter and a spacial character."
       ),
     new_password: string()
-      .required('This field is required.')
-      .min(8, 'Password must contain min 8 characters.')
-      .max(30, 'Password must contain max 30 characters.')
+      .required("This field is required.")
+      .min(8, "Password must contain min 8 characters.")
+      .max(30, "Password must contain max 30 characters.")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\\.@$!%*?&])[A-Za-z\d\\.@$!%*?&]{8,30}$/,
-        'Password must contain a capital letter and a spacial character.'
+        "Password must contain a capital letter and a spacial character."
       )
-      .test(
-        'same-password',
-        `New password can't be same with the previous one.`,
-        function (value) {
-          return this.parent.current_password !== value;
-        }
-      ),
+      .test("same-password", `New password can't be same with the previous one.`, function (value) {
+        return this.parent.current_password !== value;
+      }),
     confirm_password: string()
-      .required('This field is required.')
-      .min(8, 'Password must contain min 8 characters.')
-      .max(30, 'Password must contain max 30 characters.')
-      .test(
-        'same-password',
-        `New password can't be same with the previous one.`,
-        function (value) {
-          return this.parent.current_password !== value;
-        }
-      )
-      .test('passwords-match', 'Passwords are not matching.', function (value) {
+      .required("This field is required.")
+      .min(8, "Password must contain min 8 characters.")
+      .max(30, "Password must contain max 30 characters.")
+      .test("same-password", `New password can't be same with the previous one.`, function (value) {
+        return this.parent.current_password !== value;
+      })
+      .test("passwords-match", "Passwords are not matching.", function (value) {
         return this.parent.new_password === value;
       }),
-    email: string()
+    email: string(),
   });
 
   const [updatePassword] = useUpdatePasswordMutation();
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [errorText, setErrorText] = useState('');
+  const [errorText, setErrorText] = useState("");
   const [body, setBody] = useState({});
 
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm<PasswordChangeFormType>({
-    resolver: yupResolver(passwordChangeValidationSchema) as Resolver<
-      PasswordChangeFormType,
-      any
-    >
+    resolver: yupResolver(passwordChangeValidationSchema) as Resolver<PasswordChangeFormType, any>,
   });
 
-  const onSubmit: SubmitHandler<PasswordChangeFormType> = async (data) => {
+  const onSubmit: SubmitHandler<PasswordChangeFormType> = async data => {
     setBody({
       email: data.email,
       new_password: data.new_password,
-      formType: 'confirmUpdatePassword'
+      formType: "confirmUpdatePassword",
     });
     setLoading(true);
     await updatePassword(data)
@@ -94,9 +83,9 @@ export default function ChangePasswordPage() {
         setLoading(false);
         setOpenModal(true);
         setError(false);
-        setErrorText('');
+        setErrorText("");
       })
-      .catch((error) => {
+      .catch(error => {
         setLoading(false);
         setError(true);
         setErrorText(error?.data?.error);
@@ -105,11 +94,7 @@ export default function ChangePasswordPage() {
 
   return (
     <div className="w-full ">
-      <PasswordVerificationModal
-        open={openModal}
-        body={body}
-        setOpen={setOpenModal}
-      />
+      <PasswordVerificationModal open={openModal} body={body} setOpen={setOpenModal} />
       <header>
         <h3 className="text-3xl mb-4">Change Password</h3>
       </header>
@@ -121,14 +106,14 @@ export default function ChangePasswordPage() {
                 <input
                   id="email"
                   type="hidden"
-                  value={session?.user?.email}
-                  {...register('email')}
+                  value={session?.user?.email ?? ""}
+                  {...register("email")}
                 />
                 <Input
                   labelStyle="outer"
                   label="Current Password"
                   labelClassName="text-xs"
-                  {...register('current_password')}
+                  {...register("current_password")}
                   error={errors.current_password}
                   type="password"
                   required
@@ -137,7 +122,7 @@ export default function ChangePasswordPage() {
                   labelStyle="outer"
                   label="New Password"
                   labelClassName="text-xs"
-                  {...register('new_password')}
+                  {...register("new_password")}
                   error={errors.new_password}
                   type="password"
                   required
@@ -146,22 +131,18 @@ export default function ChangePasswordPage() {
                   labelStyle="outer"
                   label="Repeat Password"
                   labelClassName="text-xs"
-                  {...register('confirm_password')}
+                  {...register("confirm_password")}
                   error={errors.confirm_password}
                   type="password"
                   required
                 ></Input>
               </div>
-              {error && (
-                <div className="text-error font-bold text-sm text-center">
-                  {errorText}
-                </div>
-              )}
+              {error && <div className="text-error font-bold text-sm text-center">{errorText}</div>}
               <Button
                 type="submit"
                 appearance="filled"
                 size="xs"
-                className={clsx('w-full text-base', error ? 'mt-3' : 'mt-7')}
+                className={clsx("w-full text-base", error ? "mt-3" : "mt-7")}
                 isloading={loading}
               >
                 Change Password
@@ -172,10 +153,10 @@ export default function ChangePasswordPage() {
         <div className="flex flex-[50] flex-col gap-4">
           <h3 className="text-3xl">Do you have any questions?</h3>
           <div className="text-sm">
-            Check out our{' '}
+            Check out our{" "}
             <Link href={ROUTES.FAQ} target="_blank" className="underline">
               FAQ
-            </Link>{' '}
+            </Link>{" "}
             page.
           </div>
         </div>

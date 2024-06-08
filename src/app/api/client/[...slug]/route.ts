@@ -59,10 +59,10 @@ async function proxyRequest(req: Request, routeParams: RouteParams) {
       ...extraHeaders,
       "X-Requested-With": "XMLHttpRequest",
       Referer: backendUrl,
-      Accept: options.accept ?? "",
-      Authorization: access_token ? `Bearer ${access_token}` : "",
-      auth_token: process.env.AUTH_TOKEN,
-    },
+      Accept: options.accept || "application/json",
+      ...(access_token && { Authorization: `Bearer ${access_token}` }),
+      ...(process.env.AUTH_TOKEN && { auth_token: process.env.AUTH_TOKEN }),
+    } as HeadersInit,
   };
 
   if (options.contentType && fetchOptions.headers) {
