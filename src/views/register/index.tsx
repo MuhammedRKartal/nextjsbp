@@ -40,7 +40,7 @@ export default function Register() {
   });
 
   const [body, setBody] = useState({});
-  const [isloading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -55,20 +55,24 @@ export default function Register() {
     const formData = JSON.stringify(data);
 
     setLoading(true);
-    await fetch(`/api/client${user.register}`, {
-      method: "POST",
-      body: formData,
-    }).then(res => {
+    try {
+      const res = await fetch(`/api/client${user.register}`, {
+        method: "POST",
+        body: formData,
+      });
       setLoading(false);
       if (res.status === 200) {
         setOpenModal(true);
       } else {
-        res.json().then(data => {
-          setError(true);
-          setErrorText(data.error);
-        });
+        const result = await res.json();
+        setError(true);
+        setErrorText(result.error);
       }
-    });
+    } catch (err) {
+      setLoading(false);
+      setError(true);
+      setErrorText("An unexpected error occurred. Please try again.");
+    }
   };
 
   const {
@@ -77,6 +81,13 @@ export default function Register() {
     formState: { errors },
   } = useForm<RegisterFormType>({
     resolver: yupResolver(registerValidationSchema) as Resolver<RegisterFormType, any>,
+    defaultValues: {
+      email: "",
+      username: "",
+      password: "",
+      password_confirm: "",
+      formType: "register",
+    },
   });
 
   return (
@@ -91,9 +102,9 @@ export default function Register() {
             height={52}
             width={350}
             aspectRatio={350 / 52}
-          ></Image>
+          />
         </Link>
-        <div className=" text-4xl font-extrabold mt-12 mb-14">Register</div>
+        <div className="text-4xl font-extrabold mt-12 mb-14">Register</div>
         <form
           id="register-form"
           className="flex flex-col gap-8 w-full"
@@ -133,14 +144,14 @@ export default function Register() {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            isloading={isloading}
+            isloading={isLoading}
           >
             Register
           </Button>
         </form>
         <div
           id="already-member"
-          className="flex items-center justify-center mt-8 w-full text-primary  dark:text-secondary font-extrabold gap-1"
+          className="flex items-center justify-center mt-8 w-full text-primary dark:text-secondary font-extrabold gap-1"
         >
           <div>Already a member?</div>
           <Link

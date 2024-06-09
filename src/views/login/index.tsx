@@ -15,7 +15,7 @@ import { user } from "@/data/urls";
 import { ROUTES } from "@/routes";
 
 const Login = () => {
-  const [isloading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorText, setErrorText] = useState("");
 
@@ -28,8 +28,14 @@ const Login = () => {
   const {
     register,
     handleSubmit,
+    formState: { errors },
   } = useForm<LoginFormType>({
     resolver: yupResolver(loginValidationSchema) as Resolver<LoginFormType, any>,
+    defaultValues: {
+      email: "",
+      password: "",
+      formType: "login",
+    },
   });
 
   const onSubmit: SubmitHandler<LoginFormType> = async data => {
@@ -37,20 +43,26 @@ const Login = () => {
 
     setLoading(true);
 
-    await fetch(`/api/client${user.login}`, {
-      method: "POST",
-      body: formData,
-    }).then(res => {
+    try {
+      const res = await fetch(`/api/client${user.login}`, {
+        method: "POST",
+        body: formData,
+      });
+
       setLoading(false);
+
       if (res.status === 200) {
         signIn("default", { ...data } as SignInOptions);
       } else {
-        res.json().then(data => {
-          setError(true);
-          setErrorText(data.error);
-        });
+        const result = await res.json();
+        setError(true);
+        setErrorText(result.error);
       }
-    });
+    } catch (err) {
+      setLoading(false);
+      setError(true);
+      setErrorText("An unexpected error occurred. Please try again.");
+    }
   };
 
   return (
@@ -58,19 +70,19 @@ const Login = () => {
       <div className="relative top-[15%] flex flex-col items-center mx-auto w-[320px] sm:w-[416px]">
         <Link href={ROUTES.HOME} className="flex gap-2 items-center">
           <Image
-            src={"/assets/company-logo-minimized.png"}
+            src="/assets/company-logo-minimized.png"
             alt="WoWTasker"
             width={65}
             height={65}
             aspectRatio={1}
             className="!justify-start"
-          ></Image>
+          />
           <div>
             <h1 className="text-2xl font-bold">WoW Tasker</h1>
             <h3 className="text-xs leading-3">A better experience!</h3>
           </div>
         </Link>
-        <div className=" text-4xl font-extrabold mt-12 mb-14">Log In</div>
+        <div className="text-4xl font-extrabold mt-12 mb-14">Log In</div>
         <form
           method="post"
           id="login-form"
@@ -78,8 +90,14 @@ const Login = () => {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="flex flex-col gap-2">
-            <Input label="Email or Phone" id="email" {...register("email")} />
-            <Input label="Password" id="password" type="password" {...register("password")} />
+            <Input label="Email or Phone" id="email" {...register("email")} error={errors.email} />
+            <Input
+              label="Password"
+              id="password"
+              type="password"
+              {...register("password")}
+              error={errors.password}
+            />
             <input id="formType" type="hidden" value="login" {...register("formType")} />
             {error && <div className="text-error font-bold text-sm text-center">{errorText}</div>}
           </div>
@@ -88,7 +106,7 @@ const Login = () => {
             appearance="filled"
             size="xs"
             className="w-full text-base"
-            isloading={isloading}
+            isloading={isLoading}
           >
             Log In
           </Button>
