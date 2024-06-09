@@ -1,13 +1,10 @@
-import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
-import { PaginationProps } from '../types';
-import { twMerge } from 'tailwind-merge';
-import clsx from 'clsx';
+import { useCallback, useEffect, useState } from "react";
+import { PaginationProps } from "../types";
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
-import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
-import usePagination from './hook';
+import Link from "next/link";
+import usePagination from "./hook";
 
 export const Pagination = (props: PaginationProps) => {
   const {
@@ -18,7 +15,7 @@ export const Pagination = (props: PaginationProps) => {
     className,
     itemClassName,
     threshold = 1,
-    render
+    render,
   } = props;
 
   const pagination = usePagination(total, limit, currentPage, numberOfPages);
@@ -27,73 +24,71 @@ export const Pagination = (props: PaginationProps) => {
     limit: paginationLimit,
     page,
     pageList,
-    prev,
-    next,
     setTotal,
-    setLimit
+    setLimit,
   } = pagination;
 
-  const [paginationItems, setPaginationItems] = useState([]);
+  const [paginationItems, setPaginationItems] = useState<{ page: number | string; url: string }[]>(
+    []
+  );
 
   const createListItems = useCallback(() => {
     setPaginationItems([]);
     const delta = 2;
-    const startPage = Math.max(Number(page) - delta / 2, 1);
-    const endPage = Math.min(Number(page) + delta / 2, numberOfPages);
+    const startPage = Math.max(Number(page ?? 1) - delta / 2, 1);
+    const endPage = Math.min(Number(page ?? 1) + delta / 2, numberOfPages as number);
 
-    setPaginationItems((prev) => [
+    setPaginationItems(prev => [
       ...prev,
       {
         page: pageList[0]?.page,
-        url: pageList[0]?.url
-      }
+        url: pageList[0]?.url,
+      },
     ]);
 
     if (delta <= startPage) {
-      setPaginationItems((prev) => [...prev, { page: '...', url: '#' }]);
+      setPaginationItems(prev => [...prev, { page: "...", url: "#" }]);
     }
 
     // 1 2 3 4 ![... 6]
     for (let i = startPage; i < endPage; i++ && i < pageList.length) {
-      setPaginationItems((prev) => [
+      setPaginationItems(prev => [
         ...prev,
         {
           page: pageList[i]?.page,
-          url: pageList[i]?.url
-        }
+          url: pageList[i]?.url,
+        },
       ]);
     }
 
     // 1 2 3 4 ... 6
-    if (endPage <= numberOfPages - delta) {
-      setPaginationItems((next) => [...next, { page: '...', url: '#' }]);
+    if (numberOfPages !== undefined && endPage <= numberOfPages - delta) {
+      setPaginationItems(next => [...next, { page: "...", url: "#" }]);
     }
 
     //last item
-    if (page < numberOfPages - delta) {
-      setPaginationItems((prev) => [
+    if (Number(page) < (numberOfPages ?? 0) - delta) {
+      setPaginationItems(prev => [
         ...prev,
         {
           page: pageList[pageList.length - threshold]?.page,
-          url: pageList[pageList.length - threshold]?.url
-        }
+          url: pageList[pageList.length - threshold]?.url,
+        },
       ]);
     }
   }, [numberOfPages, page, pageList, threshold]);
 
-  const handleClick = async (e) => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     e.stopPropagation();
-    const href = new URL(
-      e.target.href ? e.target.href : e.target.parentNode.href
-    ).searchParams.get('page');
+    const href = new URL(e.currentTarget.href).searchParams.get("page");
     const url = new URL(location.href);
 
     if (href) {
-      url.searchParams.delete('page');
-      url.searchParams.append('page', href);
+      url.searchParams.delete("page");
+      url.searchParams.append("page", href);
     } else {
-      url.searchParams.delete('page');
+      url.searchParams.delete("page");
     }
 
     window.location.href = url.href;
@@ -120,21 +115,21 @@ export const Pagination = (props: PaginationProps) => {
   }
 
   return (
-    <ul className={twMerge('flex justify-center', className)}>
+    <ul className={twMerge("flex justify-center", className)}>
       {paginationItems.map((item, i) => (
         <li key={i}>
-          {item.url != '#' ? (
+          {item.url != "#" ? (
             <Link
               onClick={handleClick}
               href={item.url}
               className={twMerge(
                 clsx(
-                  'relative text-xs',
-                  'px-3 py-4 flex items-center justify-center',
-                  'cursor-pointer text-black-400',
+                  "relative text-xs",
+                  "px-3 py-4 flex items-center justify-center",
+                  "cursor-pointer text-black-400",
                   Number(page) === Number(item.page)
-                    ? 'mx-1 p-4 border border-outline dark:border-secondaryoutline'
-                    : ''
+                    ? "mx-1 p-4 border border-outline dark:border-secondaryoutline"
+                    : ""
                 ),
                 itemClassName
               )}
@@ -144,9 +139,7 @@ export const Pagination = (props: PaginationProps) => {
               </span>
             </Link>
           ) : (
-            <span className="text-black-400 cursor-default px-1">
-              {item.page}
-            </span>
+            <span className="text-black-400 cursor-default px-1">{item.page}</span>
           )}
         </li>
       ))}

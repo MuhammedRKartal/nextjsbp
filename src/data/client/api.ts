@@ -5,10 +5,10 @@ import {
   BaseQueryFn,
   FetchBaseQueryError,
   FetchBaseQueryMeta,
-  FetchArgs
-} from '@reduxjs/toolkit/query/react';
-import { getCookie } from '../../utils';
-import { RootState } from '@/redux/store';
+  FetchArgs,
+} from "@reduxjs/toolkit/query/react";
+import { getCookie } from "../../utils";
+import { RootState } from "@/redux/store";
 
 const customBaseQuery: BaseQueryFn<
   string | FetchArgs,
@@ -17,29 +17,27 @@ const customBaseQuery: BaseQueryFn<
   {},
   FetchBaseQueryMeta
 > = async (args, api, extraOptions) => {
-  const mutations = Object.entries(
-    (api.getState() as RootState)?.api?.mutations ?? {}
-  ).map((x) => x[1]);
+  const mutations = Object.entries((api.getState() as RootState)?.api?.mutations ?? {}).map(
+    x => x[1]
+  );
 
   if (
-    api.type === 'mutation' &&
-    mutations.filter(
-      (m) => m?.status === 'pending' && m?.endpointName === api.endpoint
-    ).length > 1
+    api.type === "mutation" &&
+    mutations.filter(m => m?.status === "pending" && m?.endpointName === api.endpoint).length > 1
   ) {
-    api.abort('Mutation already in progress.');
+    api.abort("Mutation already in progress.");
   }
 
   const baseQuery = fetchBaseQuery({
-    prepareHeaders: async (headers) => {
-      const refresh_cookie = getCookie('refresh_token');
+    prepareHeaders: async headers => {
+      const refresh_cookie = getCookie("refresh_token");
 
       if (refresh_cookie) {
-        headers.set('refresh_token', `${refresh_cookie}`);
+        headers.set("refresh_token", `${refresh_cookie}`);
       }
       return headers;
     },
-    credentials: 'include'
+    credentials: "include",
   });
   try {
     const result = await baseQuery(args, api, extraOptions);
@@ -50,12 +48,12 @@ const customBaseQuery: BaseQueryFn<
 };
 
 export const api = createApi({
-  reducerPath: 'api',
+  reducerPath: "api",
   baseQuery: retry(customBaseQuery, { maxRetries: 1 }),
-  tagTypes: ['Basket', 'Product', 'Profile'],
-  endpoints: () => ({})
+  tagTypes: ["Basket", "Product", "Profile"],
+  endpoints: () => ({}),
 });
 
 export const {
-  util: { invalidateTags }
+  util: { invalidateTags },
 } = api;

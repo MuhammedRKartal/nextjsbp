@@ -1,7 +1,7 @@
-import { forwardRef, useState, useEffect } from 'react';
-import { CheckboxProps } from './types';
-import { twMerge } from 'tailwind-merge';
-import clsx from 'clsx';
+import { forwardRef, useState, useEffect } from "react";
+import { CheckboxProps } from "./types";
+import { twMerge } from "tailwind-merge";
+import clsx from "clsx";
 
 const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
   const {
@@ -17,19 +17,19 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
 
   const style = {
     width: `${inputWidth}px`,
-    height: `${inputHeight}px`
+    height: `${inputHeight}px`,
   };
 
   if (Array.isArray(inputWidth)) {
-    style['width'] = `${inputWidth}px`;
+    style["width"] = `${inputWidth}px`;
   }
 
   if (Array.isArray(inputHeight)) {
-    style['height'] = `${inputHeight}px`;
+    style["height"] = `${inputHeight}px`;
   }
 
   return (
-    <label className={twMerge('flex flex-col text-sm', props.className)}>
+    <label className={twMerge("flex flex-col text-sm", props.className)}>
       <div className="flex items-center relative">
         <input
           style={style}
@@ -38,17 +38,14 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
           ref={ref}
           className={twMerge(
             clsx(
-              'appearance-none border border-white dark:border-black rounded-none',
-              'checked:bg-primary checked:ring-primary dark:checked:bg-secondary dark:checked:ring-secondary',
-              props.appearance === 'circle' && [
-                'appearance-none rounded-full',
-                'checked:ring-1'
-              ],
-              props.appearance === 'square' && [],
+              "appearance-none border border-white dark:border-black rounded-none",
+              "checked:bg-primary checked:ring-primary dark:checked:bg-secondary dark:checked:ring-secondary",
+              props.appearance === "circle" && ["appearance-none rounded-full", "checked:ring-1"],
+              props.appearance === "square" && [],
               props.tick && [
-                'checked:relative',
-                'checked:before:border-b checked:before:border-r checked:before:w-1 checked:before:h-[6px] checked:before:rotate-45 checked:before:',
-                'checked:before:absolute checked:before:top-[calc(50%-1px)] checked:before:left-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2'
+                "checked:relative",
+                "checked:before:border-b checked:before:border-r checked:before:w-1 checked:before:h-[6px] checked:before:rotate-45 checked:before:",
+                "checked:before:absolute checked:before:top-[calc(50%-1px)] checked:before:left-1/2 checked:before:-translate-x-1/2 checked:before:-translate-y-1/2",
               ],
               inputClassName
             )
@@ -57,13 +54,11 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
 
         {children && <span className="ml-2">{children}</span>}
       </div>
-      {error && (
-        <span className="mt-1 text-sm text-error">{error.message}</span>
-      )}
+      {error && <span className="mt-1 text-sm text-error">{error.message}</span>}
     </label>
   );
 });
 
-Checkbox.displayName = 'Checkbox';
+Checkbox.displayName = "Checkbox";
 
 export { Checkbox };

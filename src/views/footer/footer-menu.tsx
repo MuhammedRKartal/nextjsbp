@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import data from '@/schemas/footer-menu.json';
-import Link from 'next/link';
+import clsx from "clsx";
+import data from "@/schemas/footer-menu.json";
+import Link from "next/link";
 
 export type FooterMenuItemType = {
   title: string;
@@ -19,9 +19,9 @@ export default async function FooterMenu() {
   return (
     <ul
       className={clsx(
-        'grid grid-cols-2 gap-x-4 gap-y-8 py-8',
-        'sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16',
-        'lg:grid-cols-5'
+        "grid grid-cols-2 gap-x-4 gap-y-8 py-8",
+        "sm:grid-cols-3 sm:gap-x-8 sm:gap-y-16",
+        "lg:grid-cols-5"
       )}
     >
       {data?.map((column: FooterMenuColumnType) => (

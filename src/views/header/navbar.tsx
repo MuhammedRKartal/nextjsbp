@@ -1,8 +1,8 @@
-import clsx from 'clsx';
+import clsx from "clsx";
 
 export default function Navbar({
   children,
-  navClassName
+  navClassName,
 }: {
   children: React.ReactNode;
   navClassName?: string;
@@ -11,7 +11,7 @@ export default function Navbar({
     <>
       <nav
         className={clsx(
-          'h-full flex items-center justify-between gap-2 transition-all',
+          "h-full flex items-center justify-between gap-2 transition-all",
           navClassName ?? navClassName
         )}
       >

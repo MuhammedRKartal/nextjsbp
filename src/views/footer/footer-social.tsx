@@ -1,6 +1,6 @@
-import { Button } from '@/components/button';
-import data from '@/schemas/footer-social.json';
-import { Image } from '@/components/image';
+import { Button } from "@/components/button";
+import data from "@/schemas/footer-social.json";
+import { Image } from "@/components/image";
 
 export type FooterSocialItemType = {
   logo: string;
@@ -22,13 +22,7 @@ export default async function FooterSocial() {
             rel={item?.rel}
             target="_blank"
           >
-            <Image
-              src={item?.logo}
-              alt={item?.alt}
-              height={25}
-              width={25}
-              aspectRatio={1}
-            ></Image>
+            <Image src={item?.logo} alt={item?.alt} height={25} width={25} aspectRatio={1}></Image>
           </Button>
         </li>
       ))}

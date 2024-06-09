@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { TabContentProps } from '../types';
+import { TabContentProps } from "../types";
 
 export const TabContent = ({ tabId, active, children }: TabContentProps) => {
   const isActive = active === tabId;

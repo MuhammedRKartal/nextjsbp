@@ -1,24 +1,24 @@
-import { useGetOrdersQuery } from '@/data/client/account';
-import { twMerge } from 'tailwind-merge';
-import { OrderItem } from './order-item';
-import { useSearchParams } from 'next/navigation';
-import { Pagination } from '@/components/Pagination';
+import { useGetOrdersQuery } from "@/data/client/account";
+import { twMerge } from "tailwind-merge";
+import { OrderItem } from "./order-item";
+import { useSearchParams } from "next/navigation";
+import { Pagination } from "@/components/Pagination";
 
-export const AccountOrders = (props) => {
+export const AccountOrders = props => {
   const searchParams = useSearchParams();
-  const limit = Number(searchParams.get('limit'));
-  const page = Number(searchParams.get('page'));
+  const limit = Number(searchParams.get("limit"));
+  const page = Number(searchParams.get("page"));
 
   const {
     data: orders,
     isSuccess,
     error,
-    isLoading
+    isLoading,
   } = useGetOrdersQuery(
     limit
       ? {
           limit: limit,
-          page: page
+          page: page,
         }
       : {}
   );
@@ -26,12 +26,7 @@ export const AccountOrders = (props) => {
   const { className } = props;
 
   return (
-    <div
-      className={twMerge(
-        'relative flex flex-col gap-4 w-full pb-6  ',
-        className
-      )}
-    >
+    <div className={twMerge("relative flex flex-col gap-4 w-full pb-6  ", className)}>
       <header>
         <h3 className="text-3xl">My Orders</h3>
       </header>
@@ -47,7 +42,7 @@ export const AccountOrders = (props) => {
               numberOfPages={orders.page_count}
             />
           </div>
-          {orders.data.map((order) => {
+          {orders.data.map(order => {
             return <OrderItem data={order} />;
           })}
         </>

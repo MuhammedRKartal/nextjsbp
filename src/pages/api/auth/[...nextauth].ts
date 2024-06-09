@@ -1,26 +1,26 @@
-'use server';
-import type { NextApiRequest, NextApiResponse } from 'next';
-import NextAuth, { AuthOptions } from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
-import { URLS } from '@/data/urls';
+"use server";
+import type { NextApiRequest, NextApiResponse } from "next";
+import NextAuth, { AuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
+import { URLS } from "@/data/urls";
 
-async function getCurrentUser(refresh_token) {
+async function getCurrentUser(refresh_token: string) {
   const headers = {
     Cookie: `refresh_token=${refresh_token}`,
-    'Content-Type': 'application/json'
+    "Content-Type": "application/json",
   };
 
   const currentUser = await (
     await fetch(`${process.env.BACKEND_URL}${URLS.user.currentUser}`, {
-      method: 'GET',
-      headers
+      method: "GET",
+      headers,
     })
   ).json();
 
   return {
     id: currentUser.user_id,
     email: currentUser.email,
-    name: currentUser.username
+    name: currentUser.username,
   };
 }
 
@@ -28,23 +28,23 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
   return {
     providers: [
       CredentialsProvider({
-        id: 'default',
-        name: 'Credentials',
+        id: "default",
+        name: "Credentials",
         credentials: {
-          email: { label: 'Email', type: 'email', placeholder: 'Email' },
+          email: { label: "Email", type: "email", placeholder: "Email" },
           password: {
-            label: 'password',
-            type: 'password'
+            label: "password",
+            type: "password",
           },
-          formType: { type: 'string' }
+          formType: { type: "string" },
         },
-        authorize: async (credentials) => {
+        authorize: async credentials => {
           const sessionId = req.cookies.refresh_token;
 
           const currentUser = await getCurrentUser(sessionId);
           return currentUser;
-        }
-      })
+        },
+      }),
     ],
 
     callbacks: {
@@ -59,26 +59,25 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
         session.user = token?.user;
 
         return session;
-      }
+      },
     },
     events: {
       signOut: () => {
-        res.setHeader('Set-Cookie', [
-          `refresh_token=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`
+        res.setHeader("Set-Cookie", [
+          `refresh_token=; Path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT`,
         ]);
-      }
+      },
     },
     secret: process.env.NEXTAUTH_SECRET,
     session: {
-      strategy: 'jwt',
+      strategy: "jwt",
       maxAge: 15 * 24 * 60 * 60,
-      updateAge: 2 * 24 * 60 * 60
-    }
+      updateAge: 2 * 24 * 60 * 60,
+    },
   } as AuthOptions;
 };
 
-const handler = (req, res) => {
-  return NextAuth(req, res, authOptions(req, res));
-};
+const handler = (req: NextApiRequest, res: NextApiResponse) =>
+  NextAuth(req, res, authOptions(req, res));
 
 export default handler;

@@ -3,8 +3,8 @@
     {
       "is_image": true,
       "image": "/assets/saurfang-senjin.gif",
-      "mobile_image": "/assets/WoWTaskerMinimized.png",
-      "content_image": "/assets/WoWTaskerMinimized.png",
+      "mobile_image": "/assets/company-logo-minimized.png",
+      "content_image": "/assets/company-logo-minimized.png",
       "content_image_alt": "WoWTasker Logo",
       "image_alt": "Early Access gif",
       "title": "Early Access",
@@ -15,8 +15,8 @@
     {
       "is_image": true,
       "image": "/assets/orc-war.gif",
-      "mobile_image": "/assets/WoWTaskerMinimized.png",
-      "content_image": "/assets/WoWTaskerMinimized.png",
+      "mobile_image": "/assets/company-logo-minimized.png",
+      "content_image": "/assets/company-logo-minimized.png",
       "content_image_alt": "WoWTasker Logo",
       "image_alt": "Start Shopping gif",
       "title": "Start Shopping",
@@ -27,8 +27,8 @@
     {
       "is_image": true,
       "image": "/assets/jaina.gif",
-      "mobile_image": "/assets/WoWTaskerMinimized.png",
-      "content_image": "/assets/WoWTaskerMinimized.png",
+      "mobile_image": "/assets/company-logo-minimized.png",
+      "content_image": "/assets/company-logo-minimized.png",
       "content_image_alt": "WoWTasker Logo",
       "image_alt": "Join our Discord gif",
       "title": "Learn More",

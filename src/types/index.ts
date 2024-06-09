@@ -1,6 +1,6 @@
-import { ReactElement, ReactNode } from 'react';
-import { NextPage } from 'next';
-import { AppProps } from 'next/app';
+import { ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
+import { AppProps } from "next/app";
 
 export interface PageProps<T = any> {
   params: T;
@@ -75,7 +75,7 @@ export interface ClientRequestOptions {
   useFormData?: boolean;
   accept?: string;
   contentType?: string | null;
-  responseType?: 'json' | 'text';
+  responseType?: "json" | "text";
 }
 
 export type RegisterFormType = {

@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import { Image } from '@/components/image';
-import { BasketItemPrice } from './price';
-import clsx from 'clsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
-import { basketApi, useUpdateQuantityMutation } from '@/data/client/basket';
-import { useAppDispatch } from '@/redux/hooks';
-import { signOut } from 'next-auth/react';
-import { Select } from '@/components/select';
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { Image } from "@/components/image";
+import { BasketItemPrice } from "./price";
+import clsx from "clsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
+import { basketApi, useUpdateQuantityMutation } from "@/data/client/basket";
+import { useAppDispatch } from "@/redux/hooks";
+import { signOut } from "next-auth/react";
+import { Select } from "@/components/select";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function BasketItem(props) {
   const { basketItem } = props;
@@ -31,18 +31,14 @@ export default function BasketItem(props) {
   const removeItem = () => {
     updateQuantityMutation({
       productPk: String(product.pk),
-      quantity: 0
+      quantity: 0,
     })
       .unwrap()
-      .then((data) =>
+      .then(data =>
         dispatch(
-          basketApi.util.updateQueryData(
-            'getBasket',
-            undefined,
-            (draftBasket) => {
-              Object.assign(draftBasket, data);
-            }
-          )
+          basketApi.util.updateQueryData("getBasket", undefined, draftBasket => {
+            Object.assign(draftBasket, data);
+          })
         )
       );
   };
@@ -51,24 +47,20 @@ export default function BasketItem(props) {
     setUpdateLoading(true);
     updateQuantityMutation({
       productPk: String(basketItem.product.pk),
-      quantity: quantity
+      quantity: quantity,
     })
       .unwrap()
-      .then((data) => {
+      .then(data => {
         setTimeout(() => {
           dispatch(
-            basketApi.util.updateQueryData(
-              'getBasket',
-              undefined,
-              (draftBasket) => {
-                Object.assign(draftBasket, data);
-              }
-            )
+            basketApi.util.updateQueryData("getBasket", undefined, draftBasket => {
+              Object.assign(draftBasket, data);
+            })
           );
           setUpdateLoading(false);
         }, 1000);
       })
-      .catch((error) => {
+      .catch(error => {
         if (error.status === 400) {
           setUpdateLoading(false);
         }
@@ -80,11 +72,7 @@ export default function BasketItem(props) {
   }, [basketItem]);
 
   useEffect(() => {
-    if (
-      basketItem.quantity !== 0 &&
-      selectedOption &&
-      selectedOption !== basketItem.quantity
-    ) {
+    if (basketItem.quantity !== 0 && selectedOption && selectedOption !== basketItem.quantity) {
       updateItemQuantity(Number(selectedOption));
     }
   }, [selectedOption]);
@@ -92,19 +80,14 @@ export default function BasketItem(props) {
   return (
     <li
       className={clsx(
-        'relative flex flex-row pt-4 pb-3.5 border-outline dark:border-secondaryoutline border-b ',
-        'last-of-type:pb-10',
-        'first-of-type:border-t',
-        'lg:last-of-type:pb-3.5'
+        "relative flex flex-row pt-4 pb-3.5 border-outline dark:border-secondaryoutline border-b ",
+        "last-of-type:pb-10",
+        "first-of-type:border-t",
+        "lg:last-of-type:pb-3.5"
       )}
     >
       <Link href={`/product/${product.pk}`}>
-        <Image
-          src={basketItem.image}
-          alt={product.name}
-          width={120}
-          height={120}
-        ></Image>
+        <Image src={basketItem.image} alt={product.name} width={120} height={120}></Image>
       </Link>
 
       <div className="flex flex-wrap w-full gap-2 px-2">

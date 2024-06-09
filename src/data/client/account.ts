@@ -1,12 +1,7 @@
-import { api } from './api';
-import { account, user } from '../urls';
-import { buildClientRequestUrl } from '../../utils';
-import {
-  NotificationChangeFormType,
-  OrderType,
-  PasswordChangeFormType,
-  UserType
-} from '@/types';
+import { api } from "./api";
+import { account, user } from "../urls";
+import { buildClientRequestUrl } from "../../utils";
+import { NotificationChangeFormType, OrderType, PasswordChangeFormType, UserType } from "@/types";
 
 interface OrdersRequestType {
   limit?: number;
@@ -20,40 +15,38 @@ interface GetOrdersResponse {
 }
 
 export const accountApi = api.injectEndpoints({
-  endpoints: (build) => ({
+  endpoints: build => ({
     getProfileInfo: build.query<any, void>({
       query: () => buildClientRequestUrl(user.profile),
       transformResponse: (response: UserType) => response,
-      providesTags: ['Profile']
+      providesTags: ["Profile"],
     }),
     updatePassword: build.mutation<void, PasswordChangeFormType>({
-      query: (body) => ({
+      query: body => ({
         url: buildClientRequestUrl(account.updatePassword),
-        method: 'POST',
-        body
-      })
+        method: "POST",
+        body,
+      }),
     }),
     updateNotifications: build.mutation<void, NotificationChangeFormType>({
-      query: (body) => ({
+      query: body => ({
         url: buildClientRequestUrl(account.updateNotifications),
-        method: 'POST',
-        body
-      })
+        method: "POST",
+        body,
+      }),
     }),
     getOrders: build.query<GetOrdersResponse, OrdersRequestType>({
-      query: (params) => ({
-        url: buildClientRequestUrl(
-          `${account.orders}?limit=${params?.limit}&page=${params?.page}`
-        )
-      })
+      query: params => ({
+        url: buildClientRequestUrl(`${account.orders}?limit=${params?.limit}&page=${params?.page}`),
+      }),
     }),
     getLastActiveOrder: build.query<OrderType, void>({
       query: () => ({
-        url: buildClientRequestUrl(`${account.lastActiveOrder}`)
-      })
-    })
+        url: buildClientRequestUrl(`${account.lastActiveOrder}`),
+      }),
+    }),
   }),
-  overrideExisting: true
+  overrideExisting: true,
 });
 
 export const {
@@ -61,5 +54,5 @@ export const {
   useUpdatePasswordMutation,
   useUpdateNotificationsMutation,
   useGetOrdersQuery,
-  useGetLastActiveOrderQuery
+  useGetLastActiveOrderQuery,
 } = accountApi;

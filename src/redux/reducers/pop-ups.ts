@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface PopUpState {
   openMiniBasket: boolean;
@@ -9,21 +9,21 @@ export interface PopUpState {
 const initialState: PopUpState = {
   openMiniBasket: false,
   openAccountPopUp: false,
-  highlightedItem: null
+  highlightedItem: null,
 };
 
 const popUpsSlice = createSlice({
-  name: 'mini-basket',
+  name: "mini-basket",
   initialState,
   reducers: {
-    openMiniBasket: (state) => {
+    openMiniBasket: state => {
       state.openMiniBasket = true;
       state.openAccountPopUp = false;
     },
-    closeMiniBasket: (state) => {
+    closeMiniBasket: state => {
       state.openMiniBasket = false;
     },
-    toggleMiniBasket: (state) => {
+    toggleMiniBasket: state => {
       if (state.openMiniBasket === false) {
         if (state.openAccountPopUp === true) {
           state.openAccountPopUp = false;
@@ -31,14 +31,14 @@ const popUpsSlice = createSlice({
       }
       state.openMiniBasket = !state.openMiniBasket;
     },
-    openAccountPopUp: (state) => {
+    openAccountPopUp: state => {
       state.openAccountPopUp = true;
       state.openMiniBasket = false;
     },
-    closeAccountPopUp: (state) => {
+    closeAccountPopUp: state => {
       state.openAccountPopUp = false;
     },
-    toggleAccountPopUp: (state) => {
+    toggleAccountPopUp: state => {
       if (state.openAccountPopUp === false) {
         if (state.openMiniBasket === true) {
           state.openMiniBasket = false;
@@ -46,14 +46,14 @@ const popUpsSlice = createSlice({
       }
       state.openMiniBasket = !state.openMiniBasket;
     },
-    closeBothPopUps: (state) => {
+    closeBothPopUps: state => {
       state.openMiniBasket = false;
       state.openAccountPopUp = false;
     },
     sethighlightedItem: (state, action: { payload: number | null }) => {
       state.highlightedItem = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const {
@@ -64,7 +64,7 @@ export const {
   toggleMiniBasket,
   toggleAccountPopUp,
   closeBothPopUps,
-  sethighlightedItem
+  sethighlightedItem,
 } = popUpsSlice.actions;
 
 export default popUpsSlice.reducer;

@@ -1,24 +1,24 @@
-'use client';
+"use client";
 
-import { Image } from '@/components/image';
-import data from '@/schemas/header-megamenu.json';
-import { Button } from '@/components/button';
-import MobileHamburgerButton from './mobile-menu/hamburger-menu-button';
+import { Image } from "@/components/image";
+import data from "@/schemas/header-megamenu.json";
+import { Button } from "@/components/button";
+import MobileHamburgerButton from "./mobile-menu/hamburger-menu-button";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
-import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
-import MiniBasket from './mini-basket';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { toggleMiniBasket } from '@/redux/reducers/pop-ups';
-import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
-import AccountPopUp from './account-popup';
-import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
-import { ROUTES } from '@/routes';
-import { useTheme } from 'next-themes';
-import { faMoon } from '@fortawesome/free-solid-svg-icons/faMoon';
-import { faLightbulb } from '@fortawesome/free-solid-svg-icons/faLightbulb';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
+import MiniBasket from "./mini-basket";
+import { useAppDispatch } from "@/redux/hooks";
+import { toggleMiniBasket } from "@/redux/reducers/pop-ups";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import AccountPopUp from "./account-popup";
+import { closeAccountPopUp, openAccountPopUp } from "@/redux/reducers/pop-ups";
+import { ROUTES } from "@/routes";
+import { useTheme } from "next-themes";
+import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
+import { faLightbulb } from "@fortawesome/free-solid-svg-icons/faLightbulb";
 
 export type HeaderNavItemType = {
   title: string;
@@ -33,14 +33,14 @@ export default function Megamenu() {
   const { status } = useSession();
   const router = useRouter();
 
-  const isActive = theme === 'light';
+  const isActive = theme === "light";
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   const onClickEvent = () => {
-    if (status === 'authenticated') {
+    if (status === "authenticated") {
       dispatch(openAccountPopUp());
     } else {
       router.push(ROUTES.LOGIN);
@@ -48,13 +48,13 @@ export default function Megamenu() {
   };
 
   const onHoverEvent = () => {
-    if (status === 'authenticated') {
+    if (status === "authenticated") {
       dispatch(openAccountPopUp());
     }
   };
 
   const onHoverOutEvent = () => {
-    if (status === 'authenticated') {
+    if (status === "authenticated") {
       dispatch(closeAccountPopUp());
     }
   };
@@ -71,7 +71,7 @@ export default function Megamenu() {
           linkclassname="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:static md:translate-x-0 md:translate-y-0"
         >
           <Image
-            src={'/assets/WoWTaskerMinimized.png'}
+            src={"/assets/company-logo-minimized.png"}
             alt="wow"
             height={30}
             width={30}
@@ -119,11 +119,7 @@ export default function Megamenu() {
           appearance="bright"
           className="pl-2 pr-2 mr-2 md:w-8 hover:text-outline-600"
         >
-          {isActive ? (
-            <FontAwesomeIcon icon={faLightbulb} />
-          ) : (
-            <FontAwesomeIcon icon={faMoon} />
-          )}
+          {isActive ? <FontAwesomeIcon icon={faLightbulb} /> : <FontAwesomeIcon icon={faMoon} />}
         </Button>
       </div>
     </>

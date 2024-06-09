@@ -1,5 +1,5 @@
-import { Image } from '@/components/image';
-import { FeatureItemType } from '@/types';
+import { Image } from "@/components/image";
+import { FeatureItemType } from "@/types";
 
 export const FeatureItem = ({ item }: { item: FeatureItemType }) => {
   return (
@@ -13,9 +13,7 @@ export const FeatureItem = ({ item }: { item: FeatureItemType }) => {
         className="invert dark:invert-0"
       ></Image>
 
-      <span className="text-xs font-bold uppercase whitespace-nowrap">
-        {item?.text}
-      </span>
+      <span className="text-xs font-bold uppercase whitespace-nowrap">{item?.text}</span>
     </div>
   );
 };

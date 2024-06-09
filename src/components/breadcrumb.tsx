@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
-import { ROUTES } from '@/routes';
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
+import { ROUTES } from "@/routes";
 
 export interface BreadcrumbResultType {
   url: string;
@@ -17,43 +17,33 @@ export interface BreadcrumbProps {
 }
 
 export default function Breadcrumb(props: BreadcrumbProps) {
-  const {
-    breadcrumbList = [],
-    includeHome = false,
-    className,
-    linkClassName
-  } = props;
+  const { breadcrumbList = [], includeHome = false, className, linkClassName } = props;
 
   let list = [] as BreadcrumbResultType[];
   if (includeHome) {
-    list = [{ url: ROUTES.HOME, text: 'Home' }];
+    list = [{ url: ROUTES.HOME, text: "Home" }];
   }
   list = [
     ...list,
-    ...breadcrumbList.map((breadcrumb) => {
+    ...breadcrumbList.map(breadcrumb => {
       return {
         url: breadcrumb.url,
-        text: breadcrumb.text
+        text: breadcrumb.text,
       };
-    })
+    }),
   ];
 
   return (
-    <div className={twMerge('flex items-center mb-4', className)}>
+    <div className={twMerge("flex items-center mb-4", className)}>
       {list.map((item, index) => (
         <div key={index} className="text-white-400 dark:text-black-600">
           <Link
             href={item.url}
-            className={twMerge(
-              'text-sm last: last:font-semibold',
-              linkClassName
-            )}
+            className={twMerge("text-sm last: last:font-semibold", linkClassName)}
           >
             {item.text}
           </Link>
-          {index !== list.length - 1 && (
-            <span className="ms-1 me-2 text-xs"> / </span>
-          )}
+          {index !== list.length - 1 && <span className="ms-1 me-2 text-xs"> / </span>}
         </div>
       ))}
     </div>
