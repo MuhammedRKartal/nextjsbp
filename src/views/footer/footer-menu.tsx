@@ -35,8 +35,8 @@ export default async function FooterMenu() {
                 {item?.is_link ? (
                   <Link
                     href={item.link}
-                    rel="noreferrer"
-                    target="target"
+                    rel={item.rel}
+                    target={item.target}
                     className="hover:text-primary dark:hover:text-secondary"
                   >
                     {item.title}
