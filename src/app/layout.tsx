@@ -8,6 +8,7 @@ import MainRoot from "./main-root";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/Providers/SessionProvider";
 import ThemeProvider from "@/components/Providers/ThemeProvider";
+import StoreProvider from "@/components/Providers/StoreProvider";
 
 const lato = Lato({
   weight: ["400", "700"],

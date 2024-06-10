@@ -27,7 +27,7 @@ export const checkout = {
 export const user = {
   currentUser: "/web/currentuser",
   login: "/web/user/login",
-  register: "/web/user/register",
+  register: "/register",
   profile: "/web/user/profile",
 };
 

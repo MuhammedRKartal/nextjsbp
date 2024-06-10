@@ -52,9 +52,9 @@ export const Image = (props: ImageProps) => {
     <div
       className={clsx(
         "flex items-center justify-center",
-        fill && "w-full",
-        fillWithSize && "overflow-hidden w-full relative",
-        fillWithSize && showBG && "w-full",
+        fill && "w-full h-full",
+        fillWithSize && "overflow-hidden w-full h-full relative",
+        fillWithSize && showBG && "w-full h-full",
         className
       )}
       style={{

@@ -104,7 +104,7 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
             )}
           />
           {error && <div className="mb-12 text-error font-bold text-sm">{errorText}</div>}
-          <Button className="w-full" onClick={onSubmit} isloading={String(isloading)}>
+          <Button className="w-full" onClick={onSubmit} isloading={isloading}>
             {success ? <FontAwesomeIcon icon={faCheckCircle} /> : <div>Confirm</div>}
           </Button>
         </Section>
