@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import ReactPortal from '@/components/Modal/react-portal';
-import { Button } from '@/components/button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClose } from '@fortawesome/free-solid-svg-icons/faClose';
-import { blurBackground, removeBlur } from '@/utils';
+import clsx from "clsx";
+import ReactPortal from "@/components/Modal/react-portal";
+import { Button } from "@/components/button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
+import { blurBackground, removeBlur } from "@/utils";
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -29,7 +29,7 @@ export const Modal = (props: ModalProps) => {
     showCloseButton = true,
     className,
     outsideClick = true,
-    onClose = () => {}
+    onClose = () => {},
   } = props;
 
   if (open) {
@@ -55,8 +55,8 @@ export const Modal = (props: ModalProps) => {
       />
       <section
         className={clsx(
-          'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-primary-900 dark:bg-secondary-100 shadow-lg full-scroll-lock',
-          'rounded-md',
+          "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-primary-900 dark:bg-secondary-100 shadow-lg full-scroll-lock",
+          "rounded-md",
           className
         )}
       >

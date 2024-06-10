@@ -106,7 +106,7 @@ export default function ChangePasswordPage() {
                 <input
                   id="email"
                   type="hidden"
-                  value={session?.user?.email ?? ""}
+                  value={session?.user?.email || ""}
                   {...register("email")}
                 />
                 <Input

@@ -1,16 +1,14 @@
-import { SliderMenu } from '@/components/slider-menu';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { closeAccountPopUp, openAccountPopUp } from '@/redux/reducers/pop-ups';
-import { ROUTES } from '@/routes';
-import { PayloadAction } from '@reduxjs/toolkit';
-import { signOut, useSession } from 'next-auth/react';
-import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
+import { SliderMenu } from "@/components/slider-menu";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { closeAccountPopUp, openAccountPopUp } from "@/redux/reducers/pop-ups";
+import { ROUTES } from "@/routes";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { signOut, useSession } from "next-auth/react";
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 export default function AccountPopUp() {
-  const { openAccountPopUp: accountPopUpOpen } = useAppSelector(
-    (state) => state.popUps
-  );
+  const { openAccountPopUp: accountPopUpOpen } = useAppSelector(state => state.popUps);
   const dispatch = useAppDispatch();
   const { data } = useSession();
   const user = data?.user?.name;
@@ -23,10 +21,8 @@ export default function AccountPopUp() {
     <>
       <div
         className={twMerge(
-          accountPopUpOpen
-            ? 'opacity-100 visible lg:opacity-0'
-            : 'opacity-0 invisible',
-          'fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300'
+          accountPopUpOpen ? "opacity-100 visible lg:opacity-0" : "opacity-0 invisible",
+          "fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300"
         )}
         onClick={() => {
           dispatch(closeAccountPopUp());
@@ -38,7 +34,7 @@ export default function AccountPopUp() {
         closePop={closeAccountPopUp() as PayloadAction}
         open={accountPopUpOpen}
         enableDesktop={true}
-        desktopWidth={'sm:w-56'}
+        desktopWidth={"sm:w-56"}
       >
         <header className="flex items-center justify-between gap-2 pb-4 mb-3 border-b border-outline dark:border-secondaryoutline lg:pb-2 text-white-300 dark:text-black-700">
           <h3 className="text-lg lg:text-base">{`Hi, ${user}`}</h3>

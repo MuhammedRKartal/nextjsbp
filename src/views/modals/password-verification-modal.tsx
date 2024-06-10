@@ -1,15 +1,15 @@
-'use client';
-import { Section } from '@/components/section';
-import { Modal } from '@/components/Modal/modal';
-import { useState } from 'react';
-import OTPInput from 'react-otp-input';
-import { Button } from '@/components/button';
-import clsx from 'clsx';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons/faCheckCircle';
-import { signOut } from 'next-auth/react';
-import { confirms } from '@/data/urls';
-import { blurBackground, removeBlur } from '@/utils';
+"use client";
+import { Section } from "@/components/section";
+import { Modal } from "@/components/Modal/modal";
+import { useState } from "react";
+import OTPInput from "react-otp-input";
+import { Button } from "@/components/button";
+import clsx from "clsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
+import { signOut } from "next-auth/react";
+import { confirms } from "@/data/urls";
+import { blurBackground, removeBlur } from "@/utils";
 
 export interface ModalProps {
   open: boolean;
@@ -17,37 +17,33 @@ export interface ModalProps {
   setOpen: (open: boolean) => void;
 }
 
-export default function PasswordVerificationModal({
-  open,
-  body,
-  setOpen
-}: ModalProps) {
-  const [otp, setOtp] = useState('');
+export default function PasswordVerificationModal({ open, body, setOpen }: ModalProps) {
+  const [otp, setOtp] = useState("");
   const [error, setError] = useState(false);
-  const [errorText, setErrorText] = useState('');
+  const [errorText, setErrorText] = useState("");
   const [success, setSuccess] = useState(false);
   const [isloading, setLoading] = useState(false);
 
   blurBackground();
 
   const onClose = () => {
-    setOtp('');
+    setOtp("");
     setError(false);
-    setErrorText('');
+    setErrorText("");
     setSuccess(false);
     removeBlur();
   };
 
   const onSubmit = async () => {
-    body['verification_code'] = otp;
+    body["verification_code"] = otp;
 
     if (otp.length === 6 && isloading === false) {
       setLoading(true);
       setTimeout(async () => {
         await fetch(`/api/client${confirms[body.formType]}`, {
-          method: 'POST',
-          body: JSON.stringify(body)
-        }).then((res) => {
+          method: "POST",
+          body: JSON.stringify(body),
+        }).then(res => {
           if (res.status === 200) {
             setLoading(false);
             setSuccess(true);
@@ -59,7 +55,7 @@ export default function PasswordVerificationModal({
               setOpen(false);
             }, 1000);
           } else {
-            res.json().then((data) => {
+            res.json().then(data => {
               setLoading(false);
               setError(true);
               setErrorText(data.error);
@@ -69,7 +65,7 @@ export default function PasswordVerificationModal({
       }, 500);
     } else if (isloading === false && otp.length < 6) {
       setError(true);
-      setErrorText('Please enter a 6-digit code.');
+      setErrorText("Please enter a 6-digit code.");
     }
   };
 
@@ -80,12 +76,10 @@ export default function PasswordVerificationModal({
         open={open}
         setOpen={setOpen}
         onClose={onClose}
-        title={'Confirmation Code'}
+        title={"Confirmation Code"}
       >
         <Section className="flex flex-col items-center">
-          <div className="text-white dark:text-black text-2xl mt-4 mb-1">
-            Enter Code
-          </div>
+          <div className="text-white dark:text-black text-2xl mt-4 mb-1">Enter Code</div>
           <div className="text-white-300 dark:text-black-700 mb-1">
             Enter the 6-digit code sent by WoWTasker Email Provider.
           </div>
@@ -96,34 +90,22 @@ export default function PasswordVerificationModal({
             value={otp}
             onChange={setOtp}
             numInputs={6}
-            renderSeparator={''}
+            renderSeparator={""}
             inputType="number"
-            containerStyle={clsx('gap-1', error ? 'mb-2' : 'mb-12')}
-            renderInput={(props) => (
+            containerStyle={clsx("gap-1", error ? "mb-2" : "mb-12")}
+            renderInput={props => (
               <input
                 {...props}
                 className={clsx(
-                  '!w-12 h-12 rounded border-2 border-outline dark:border-secondaryoutline text-lg font-bold text-white-500 dark:text-black-500',
-                  error && '!border-error !border'
+                  "!w-12 h-12 rounded border-2 border-outline dark:border-secondaryoutline text-lg font-bold text-white-500 dark:text-black-500",
+                  error && "!border-error !border"
                 )}
               />
             )}
           />
-          {error && (
-            <div className="mb-12 text-error font-bold text-sm">
-              {errorText}
-            </div>
-          )}
-          <Button
-            className="w-full"
-            onClick={onSubmit}
-            isloading={String(isloading)}
-          >
-            {success ? (
-              <FontAwesomeIcon icon={faCheckCircle} />
-            ) : (
-              <div>Confirm</div>
-            )}
+          {error && <div className="mb-12 text-error font-bold text-sm">{errorText}</div>}
+          <Button className="w-full" onClick={onSubmit} isloading={String(isloading)}>
+            {success ? <FontAwesomeIcon icon={faCheckCircle} /> : <div>Confirm</div>}
           </Button>
         </Section>
       </Modal>

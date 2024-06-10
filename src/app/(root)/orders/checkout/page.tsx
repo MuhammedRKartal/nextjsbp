@@ -1,9 +1,9 @@
-import Checkout from '@/views/checkout';
-import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
+import Checkout from "@/views/checkout";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
 
 export default async function CheckoutPage({
-  searchParams
+  searchParams,
 }: {
   searchParams?: { [key: string]: string | undefined };
 }) {
@@ -12,7 +12,7 @@ export default async function CheckoutPage({
   if (!session?.user?.name) {
     const callback = searchParams?.callbackUrl;
 
-    redirect(callback ?? '/');
+    redirect(callback ?? "/");
   }
   return <Checkout />;
 }

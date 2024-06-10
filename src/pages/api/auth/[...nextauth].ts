@@ -4,7 +4,7 @@ import NextAuth, { AuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { URLS } from "@/data/urls";
 
-async function getCurrentUser(refresh_token) {
+async function getCurrentUser(refresh_token: string) {
   const headers = {
     Cookie: `refresh_token=${refresh_token}`,
     "Content-Type": "application/json",
@@ -85,8 +85,7 @@ const authOptions = (req: NextApiRequest, res: NextApiResponse) => {
   } as AuthOptions;
 };
 
-const handler = (req, res) => {
-  return NextAuth(req, res, authOptions(req, res));
-};
+const handler = (req: NextApiRequest, res: NextApiResponse) =>
+  NextAuth(req, res, authOptions(req, res));
 
 export default handler;

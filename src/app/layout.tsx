@@ -8,7 +8,6 @@ import MainRoot from "./main-root";
 import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/Providers/SessionProvider";
 import ThemeProvider from "@/components/Providers/ThemeProvider";
-import StoreProvider from "@/components/Providers/StoreProvider";
 
 const lato = Lato({
   weight: ["400", "700"],
@@ -16,23 +15,19 @@ const lato = Lato({
   display: "swap",
 });
 
-const nextAuthUrl = process.env.NEXTAUTH_URL;
-
-if (!nextAuthUrl) {
-  throw new Error("NEXTAUTH_URL environment variable is not defined");
-}
+const NEXTAUTH_URL = process.env.NEXTAUTH_URL || "https://nextbpk.netlify.app";
 
 export const metadata: Metadata = {
   title: "WoW Tasker",
   description: "Revolutionize your botting experience with WoW Tasker!",
-  metadataBase: new URL(nextAuthUrl),
+  metadataBase: new URL(NEXTAUTH_URL),
   verification: {
-    google: "5cQd3-U9FV3CZh0ax9nuPPUNR2DUo-JVHku4r2vUQ_0",
+    google: process.env.GOOGLE_VERIFICATION,
   },
   openGraph: {
     title: "WoW Tasker",
     description: "Revolutionize your botting experience with WoW Tasker!",
-    url: nextAuthUrl,
+    url: NEXTAUTH_URL,
     type: "website",
     siteName: "WoW Tasker",
     images: [

@@ -1,8 +1,8 @@
-import { Price } from '@/components/price';
+import { Price } from "@/components/price";
 
-export const CheckoutItemPrice = (props) => {
+export const CheckoutItemPrice = props => {
   const {
-    product: { price, retail_price, currency_symbol }
+    product: { price, retail_price, currency_symbol },
   } = props;
 
   return (
@@ -14,11 +14,7 @@ export const CheckoutItemPrice = (props) => {
           className="text-white-400 dark:text-black-600 text-xs font-bold line-through"
         />
       )}
-      <Price
-        value={price}
-        currency={currency_symbol}
-        className=" text-sm font-bold"
-      />
+      <Price value={price} currency={currency_symbol} className=" text-sm font-bold" />
     </div>
   );
 };

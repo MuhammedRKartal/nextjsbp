@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/button';
-import { ROUTES } from '@/routes';
-import data from '@/schemas/account-menu.json';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { signOut } from 'next-auth/react';
-import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
+import { Button } from "@/components/button";
+import { ROUTES } from "@/routes";
+import data from "@/schemas/account-menu.json";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { signOut } from "next-auth/react";
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 export type AccountMenuSubtitleType = {
   title: string;
@@ -22,19 +22,19 @@ type AccountMenuItemType = {
   link: string;
 };
 
-export const AccountMenuMobile = (props) => {
+export const AccountMenuMobile = props => {
   const { className } = props;
   return (
-    <div className={twMerge(' w-full', className)}>
+    <div className={twMerge(" w-full", className)}>
       <h2 className="text-3xl pb-2.5 border-b w-full border-outline dark:border-secondaryoutline">
         <Link href={ROUTES.ACCOUNT}>My Account</Link>
       </h2>
       <ul className="w-full text-sm leading-7 [&>:nth-last-child(2)]:mb-6">
-        {data?.map((item: AccountMenuItemType) => (
+        {data?.map((item: AccountMenuItemType, index) => (
           <>
             {item?.is_link && (
               <li
-                key={item.main_title}
+                key={item.main_title + index}
                 className="flex justify-between items-center border-b py-1 border-outline dark:border-secondaryoutline"
               >
                 <Link href={item?.link}>{item?.main_title}</Link>

@@ -7,11 +7,7 @@ import Header from "@/views/header";
 import { Section } from "@/components/section";
 import { Image } from "@/components/image";
 
-export default function Error({
-  error,
-}: {
-  error: Error & { digest?: string };
-}) {
+export default function Error({ error }: { error: Error & { digest?: string } }) {
   return (
     <html lang="en">
       <body className="preload overflow-x-hidden bg-black dark:bg-white-bg">

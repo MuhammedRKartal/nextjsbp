@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { ROUTES } from '@/routes';
-import data from '@/schemas/account-menu.json';
-import { signOut } from 'next-auth/react';
-import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
+import { ROUTES } from "@/routes";
+import data from "@/schemas/account-menu.json";
+import { signOut } from "next-auth/react";
+import Link from "next/link";
+import { twMerge } from "tailwind-merge";
 
 export type AccountMenuSubtitleType = {
   title: string;
@@ -19,13 +19,13 @@ type AccountMenuItemType = {
   link: string;
 };
 
-export const AccountMenu = (props) => {
+export const AccountMenu = props => {
   const { className } = props;
   return (
     <div
       className={twMerge(
-        ' whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[55vh] border-outline dark:border-secondaryoutline hidden md:block',
-        'lg:pr-24',
+        " whitespace-pre-line border pt-10 pb-6 pr-24 pl-8 w-max h-[55vh] border-outline dark:border-secondaryoutline hidden md:block",
+        "lg:pr-24",
         className
       )}
     >
@@ -34,10 +34,7 @@ export const AccountMenu = (props) => {
       </h2>
       <ul className="w-max text-sm leading-7 [&>:nth-last-child(2)]:border-b [&>:nth-last-child(2)]:pb-2.5 [&>:nth-last-child(2)]:mb-6">
         {data?.map((item: AccountMenuItemType) => (
-          <li
-            key={item.main_title}
-            className="border-outline dark:border-secondaryoutline "
-          >
+          <li key={item.main_title} className="border-outline dark:border-secondaryoutline ">
             {item?.is_link ? (
               <Link href={item?.link}>{item?.main_title}</Link>
             ) : (

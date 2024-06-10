@@ -35,7 +35,7 @@ export const InputLabel: React.FC<InputLabelProps> = ({
       {floatingLabelText && floating && (
         <>{!focused ? <span>{floatingLabelText}</span> : <span>{label}</span>}</>
       )}
-      {!floatingLabelText && floating && <span>{label}</span>}{" "}
+      {(!floating || !floatingLabelText) && <span>{label}</span>}{" "}
       {required && (
         <span className={twMerge("text-primary dark:text-secondary", hasError ? "text-error" : "")}>
           *

@@ -3,8 +3,6 @@
 import Login from "@/views/login";
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth/next";
-import { cookies } from "next/headers";
-import SignOut from "@/components/Utility/SignOut";
 
 export default async function Auth({
   searchParams,

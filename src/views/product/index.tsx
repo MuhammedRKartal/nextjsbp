@@ -1,12 +1,5 @@
 import { ProductItemType } from "@/types";
-import {
-  Children,
-  cloneElement,
-  ReactNode,
-  ReactElement,
-  isValidElement,
-  JSXElementConstructor,
-} from "react";
+import { Children, cloneElement, ReactNode, isValidElement, JSXElementConstructor } from "react";
 import { Images } from "./components/images";
 import { Details } from "./components/details";
 import { Information } from "./components/information";

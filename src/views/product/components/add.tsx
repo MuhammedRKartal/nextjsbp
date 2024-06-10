@@ -1,26 +1,26 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/button';
-import { basketApi } from '@/data/client/basket';
-import { useAddProductMutation } from '@/data/client/product';
-import { useAppDispatch } from '@/redux/hooks';
-import { openMiniBasket, sethighlightedItem } from '@/redux/reducers/pop-ups';
-import { ROUTES } from '@/routes';
-import { faBasketShopping } from '@fortawesome/free-solid-svg-icons/faBasketShopping';
-import { faBell } from '@fortawesome/free-solid-svg-icons/faBell';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import clsx from 'clsx';
-import { useSession } from 'next-auth/react';
+import { Button } from "@/components/button";
+import { basketApi } from "@/data/client/basket";
+import { useAddProductMutation } from "@/data/client/product";
+import { useAppDispatch } from "@/redux/hooks";
+import { openMiniBasket, sethighlightedItem } from "@/redux/reducers/pop-ups";
+import { ROUTES } from "@/routes";
+import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
+import { faBell } from "@fortawesome/free-solid-svg-icons/faBell";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
+import { useSession } from "next-auth/react";
 
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
-export const Add = (props) => {
+export const Add = props => {
   const { product } = props;
   const { in_stock } = product;
 
   const [isloading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState("");
 
   const { status } = useSession();
   const router = useRouter();
@@ -28,25 +28,21 @@ export const Add = (props) => {
   const dispatch = useAppDispatch();
   const [addProduct] = useAddProductMutation();
 
-  const onClickAction = async (product) => {
-    if (status === 'unauthenticated') {
+  const onClickAction = async product => {
+    if (status === "unauthenticated") {
       router.push(ROUTES.LOGIN);
     } else {
       setLoading(true);
       await addProduct({
         productPk: product,
-        quantity: 1
+        quantity: 1,
       })
         .unwrap()
-        .then((data) =>
+        .then(data =>
           dispatch(
-            basketApi.util.updateQueryData(
-              'getBasket',
-              undefined,
-              (draftBasket) => {
-                Object.assign(draftBasket, data);
-              }
-            )
+            basketApi.util.updateQueryData("getBasket", undefined, draftBasket => {
+              Object.assign(draftBasket, data);
+            })
           )
         )
         .then(() => {
@@ -59,7 +55,7 @@ export const Add = (props) => {
             }, 3000);
           }, 500);
         })
-        .catch((error) => {
+        .catch(error => {
           if (error.status === 400) {
             setLoading(false);
             setErrorMessage(error.data.error);
@@ -76,14 +72,11 @@ export const Add = (props) => {
             isloading={isloading}
             onClick={() => onClickAction(product.pk)}
             className={clsx(
-              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2 z-10',
-              'md:relative md:h-12'
+              "fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2 z-10",
+              "md:relative md:h-12"
             )}
           >
-            <FontAwesomeIcon
-              icon={faBasketShopping}
-              size="sm"
-            ></FontAwesomeIcon>
+            <FontAwesomeIcon icon={faBasketShopping} size="sm"></FontAwesomeIcon>
             <span>Add to Basket</span>
           </Button>
           <div className="text-xs text-error text-center">{errorMessage}</div>
@@ -93,8 +86,8 @@ export const Add = (props) => {
           <Button
             appearance="outlined"
             className={clsx(
-              'fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2 z-10',
-              'md:relative md:h-12'
+              "fixed bottom-0 left-0 rounded-none w-full font-bold px-12 h-[3.5rem] gap-2 z-10",
+              "md:relative md:h-12"
             )}
           >
             <FontAwesomeIcon icon={faBell} size="sm"></FontAwesomeIcon>

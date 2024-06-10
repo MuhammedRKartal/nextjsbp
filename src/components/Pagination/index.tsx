@@ -28,7 +28,9 @@ export const Pagination = (props: PaginationProps) => {
     setLimit,
   } = pagination;
 
-  const [paginationItems, setPaginationItems] = useState<{ page: number; url: string }[]>([]);
+  const [paginationItems, setPaginationItems] = useState<{ page: number | string; url: string }[]>(
+    []
+  );
 
   const createListItems = useCallback(() => {
     setPaginationItems([]);
@@ -45,7 +47,7 @@ export const Pagination = (props: PaginationProps) => {
     ]);
 
     if (delta <= startPage) {
-      setPaginationItems(prev => [...prev, { page: -1, url: "#" }]);
+      setPaginationItems(prev => [...prev, { page: "...", url: "#" }]);
     }
 
     // 1 2 3 4 ![... 6]
@@ -61,11 +63,11 @@ export const Pagination = (props: PaginationProps) => {
 
     // 1 2 3 4 ... 6
     if (numberOfPages !== undefined && endPage <= numberOfPages - delta) {
-      setPaginationItems(next => [...next, { page: -1, url: "#" }]);
+      setPaginationItems(next => [...next, { page: "...", url: "#" }]);
     }
 
     //last item
-    if (page < (numberOfPages ?? 0) - delta) {
+    if (Number(page) < (numberOfPages ?? 0) - delta) {
       setPaginationItems(prev => [
         ...prev,
         {

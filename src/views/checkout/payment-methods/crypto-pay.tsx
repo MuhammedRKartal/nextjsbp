@@ -1,14 +1,14 @@
-'use client';
+"use client";
 
-import { Button } from '@/components/button';
-import { useCreateCheckoutMutation } from '@/data/client/checkout';
-import { ROUTES } from '@/routes';
-import { CheckoutType } from '@/types';
-import CryptoPayModal from '@/views/modals/crypto-pay-modal';
-import ExpirationModal from '@/views/modals/order-expired-modal';
-import SuccessModal from '@/views/modals/order-success-modal';
-import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { Button } from "@/components/button";
+import { useCreateCheckoutMutation } from "@/data/client/checkout";
+import { ROUTES } from "@/routes";
+import { CheckoutType } from "@/types";
+import CryptoPayModal from "@/views/modals/crypto-pay-modal";
+import ExpirationModal from "@/views/modals/order-expired-modal";
+import SuccessModal from "@/views/modals/order-success-modal";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function CryptoPay() {
   const [invoiceData, setData] = useState({} as CheckoutType);
@@ -34,7 +34,7 @@ export default function CryptoPay() {
     setLoading(true);
     createCheckout()
       .unwrap()
-      .then((data) => {
+      .then(data => {
         setData(data);
         setOpen(true);
         setLoading(false);
@@ -44,11 +44,7 @@ export default function CryptoPay() {
   return (
     <>
       {success && (
-        <SuccessModal
-          open={success}
-          setOpen={setSuccess}
-          onClose={() => onCloseSuccessAction()}
-        />
+        <SuccessModal open={success} setOpen={setSuccess} onClose={() => onCloseSuccessAction()} />
       )}
       {expired && (
         <ExpirationModal
@@ -73,21 +69,13 @@ export default function CryptoPay() {
         <div className="px-7 pt-6 pb-7">
           <ol className="text-sm flex flex-col gap-1.5 list-disc list-inside">
             <li>Our payment method of choice is LTC.</li>
-            <li>
-              Select Continue Payment to display your latest active order .
-            </li>
+            <li>Select Continue Payment to display your latest active order .</li>
             <li>Send the following amount of LTC to the address displayed.</li>
+            <li>The total amount you have to pay is {invoiceData?.invoice?.amount} LTC.</li>
+            <li>The order will be delivered after 2 confirmations on the block chain.</li>
             <li>
-              The total amount you have to pay is {invoiceData?.invoice?.amount}{' '}
-              LTC.
-            </li>
-            <li>
-              The order will be delivered after 2 confirmations on the block
-              chain.
-            </li>
-            <li>
-              For all your questions about Pay at the Door, you can visit our
-              Frequently Asked Questions page.
+              For all your questions about Pay at the Door, you can visit our Frequently Asked
+              Questions page.
             </li>
             <li>Thank you for choosing WoW Tasker.</li>
           </ol>

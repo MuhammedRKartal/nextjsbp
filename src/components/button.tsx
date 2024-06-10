@@ -29,15 +29,9 @@ export const Button = (props: ButtonProps) => {
 
   return link ? (
     <Link href={link} className={linkclassname} {...(target ? { target } : {})}>
-      <a>
-        <button {...rest} className={getClassNames(props)}>
-          {isloading ? (
-            <FontAwesomeIcon icon={faSpinner} className="animate-spin" />
-          ) : (
-            props.children
-          )}
-        </button>
-      </a>
+      <button {...rest} className={getClassNames(props)}>
+        {isloading ? <FontAwesomeIcon icon={faSpinner} className="animate-spin" /> : props.children}
+      </button>
     </Link>
   ) : (
     <button {...rest} className={getClassNames(props)}>

@@ -1,10 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "module": "esnext",
+    "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable", "ESNext"],
-    "sourceMap": true,
-    "inlineSources": true,
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,6 +21,13 @@
     "noImplicitThis": false,
     "useUnknownInCatchVariables": false,
     "strictNullChecks": false,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": false,
+    "allowSyntheticDefaultImports": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowUnreachableCode": false,
     "plugins": [
       {
         "name": "next"

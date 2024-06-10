@@ -1,6 +1,6 @@
-import Link from 'next/link';
+import Link from "next/link";
 
-export const Wrapper = (props) => {
+export const Wrapper = props => {
   const { children, pk } = props;
 
   return (

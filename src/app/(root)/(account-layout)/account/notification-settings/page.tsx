@@ -28,11 +28,7 @@ export default function ChangeNotificationsPage() {
   const { data: profile, isSuccess, isLoading } = useGetProfileInfoQuery();
   const dispatch = useDispatch()<any>;
 
-  const {
-    register,
-    handleSubmit,
-    formState: {},
-  } = useForm<NotificationChangeFormType>();
+  const { register, handleSubmit } = useForm<NotificationChangeFormType>();
 
   const onSubmit: SubmitHandler<NotificationChangeFormType> = async data => {
     await updateNotifications(data)

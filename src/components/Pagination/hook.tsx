@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useReducer } from "react";
 export type UsePaginationType = ReturnType<typeof usePagination>;
 
 type InitialState = {
-  page: number;
+  page: number | string;
   last: number;
   limit: number;
   total: number;
@@ -104,7 +104,7 @@ export default function usePagination(
   }, [state.last, pathname, urlSearchParams]);
 
   const prev = useMemo(() => {
-    if (state.page > 1) {
+    if (Number(state.page) > 1) {
       urlSearchParams.set("page", (Number(state.page) - 1).toString());
       return `${pathname}?${urlSearchParams.toString()}`;
     }

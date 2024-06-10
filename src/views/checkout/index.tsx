@@ -1,20 +1,16 @@
-'use client';
-import { Section } from '@/components/section';
-import CheckoutSummary from './summary';
-import CheckoutOptions from './options';
-import { useGetBasketQuery } from '@/data/client/basket';
-import { Loader } from '@/components/loader';
-import { useEffect, useState } from 'react';
-import { BasketType } from '@/types';
-import { useRouter } from 'next/navigation';
-import { ROUTES } from '@/routes';
+"use client";
+import { Section } from "@/components/section";
+import CheckoutSummary from "./summary";
+import CheckoutOptions from "./options";
+import { useGetBasketQuery } from "@/data/client/basket";
+import { Loader } from "@/components/loader";
+import { useEffect, useState } from "react";
+import { BasketType } from "@/types";
+import { useRouter } from "next/navigation";
+import { ROUTES } from "@/routes";
 
 export default function Checkout() {
-  const {
-    data: basketData,
-    isLoading,
-    isSuccess: basketSuccess,
-  } = useGetBasketQuery();
+  const { data: basketData, isLoading, isSuccess: basketSuccess } = useGetBasketQuery();
   const [data, setData] = useState(basketData as BasketType);
 
   useEffect(() => {
@@ -38,23 +34,13 @@ export default function Checkout() {
     <>
       <Section tag="section" appearance="thin">
         <div className="flex flex-col lg:flex-row gap-6  lg:gap-10">
-          <Loader
-            loading={isLoading}
-            showIcon={false}
-            className="lg:flex-[2] 2xl:flex-[2.5]"
-          >
-            {basketSuccess && (
-              <CheckoutOptions className="lg:flex-[2] 2xl:flex-[2.5]" />
-            )}
+          <Loader loading={isLoading} showIcon={false} className="lg:flex-[2] 2xl:flex-[2.5]">
+            {basketSuccess && <CheckoutOptions className="lg:flex-[2] 2xl:flex-[2.5]" />}
           </Loader>
 
           <div className="lg:flex-[1.2] 2xl:flex-[1]">
             {data?.total_quantity !== undefined && (
-              <CheckoutSummary
-                data={data}
-                isSuccess={basketSuccess}
-                isLoading={isLoading}
-              />
+              <CheckoutSummary data={data} isSuccess={basketSuccess} isLoading={isLoading} />
             )}
           </div>
         </div>

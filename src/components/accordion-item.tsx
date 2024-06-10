@@ -1,9 +1,9 @@
-'use client';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { twMerge } from 'tailwind-merge';
-import { AccordionItemProps } from './types';
-import { faChevronRight } from '@fortawesome/free-solid-svg-icons/faChevronRight';
-import clsx from 'clsx';
+"use client";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { twMerge } from "tailwind-merge";
+import { AccordionItemProps } from "./types";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import clsx from "clsx";
 
 export const AccordionItem = ({
   accordionId,
@@ -15,13 +15,13 @@ export const AccordionItem = ({
   titleClassName,
   activeTitleClassName,
   activeClassName,
-  showIcon
+  showIcon,
 }: AccordionItemProps) => {
   const isActive = active === accordionId;
   return (
     <div
       className={twMerge(
-        'flex flex-col justify-center border-b text-white-300 dark:text-black-700 border-outline dark:border-secondaryoutline pb-2.5 mb-2.5 last:mb-0 first-of-type:border-t first-of-type:pt-2.5',
+        "flex flex-col justify-center border-b text-white-300 dark:text-black-700 border-outline dark:border-secondaryoutline pb-2.5 mb-2.5 last:mb-0 first-of-type:border-t first-of-type:pt-2.5",
         className
       )}
     >
@@ -32,9 +32,9 @@ export const AccordionItem = ({
         {title && (
           <h3
             className={twMerge(
-              'text-sm',
-              isActive ? `mb-2` : '',
-              isActive ? `${activeTitleClassName}` : '',
+              "text-sm",
+              isActive ? `mb-2` : "",
+              isActive ? `${activeTitleClassName}` : "",
 
               titleClassName
             )}
@@ -45,18 +45,15 @@ export const AccordionItem = ({
         {showIcon && (
           <FontAwesomeIcon
             icon={faChevronRight}
-            className={clsx(
-              isActive && 'rotate-90',
-              'transfrom duration-200 text-xs'
-            )}
+            className={clsx(isActive && "rotate-90", "transfrom duration-200 text-xs")}
           ></FontAwesomeIcon>
         )}
       </div>
       <div
         className={twMerge(
-          'transition-[height] duration-200 ease-in-out text-sm overflow-auto no-scrollbar mx-0.5',
-          isActive ? `h-12` : 'h-0 ',
-          isActive ? `${activeClassName}` : '',
+          "transition-[height] duration-200 ease-in-out text-sm overflow-auto no-scrollbar mx-0.5",
+          isActive ? `h-12` : "h-0 ",
+          isActive ? `${activeClassName}` : "",
           className
         )}
       >

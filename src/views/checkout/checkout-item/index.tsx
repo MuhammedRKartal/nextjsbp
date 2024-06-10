@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { Image } from '@/components/image';
-import { CheckoutItemPrice } from './price';
-import clsx from 'clsx';
-import Link from 'next/link';
+import { Image } from "@/components/image";
+import { CheckoutItemPrice } from "./price";
+import clsx from "clsx";
+import Link from "next/link";
 
 export default function CheckoutItem(props) {
   const { checkoutItem } = props;
@@ -13,9 +13,9 @@ export default function CheckoutItem(props) {
   return (
     <li
       className={clsx(
-        'flex flex-row pt-4 pb-3.5 border-outline dark:border-secondaryoutline border-b',
-        'last-of-type:pb-10',
-        'lg:last-of-type:pb-3.5'
+        "flex flex-row pt-4 pb-3.5 border-outline dark:border-secondaryoutline border-b",
+        "last-of-type:pb-10",
+        "lg:last-of-type:pb-3.5"
       )}
     >
       <Link href={`/product/${product.pk}`}>
@@ -39,19 +39,17 @@ export default function CheckoutItem(props) {
             {product?.attributes?.duration && (
               <div className="text-white-300 dark:text-black-700 text-xs">
                 <span className="font-bold text-white-100 dark:text-black-900">
-                  {product.attributes.duration.label}{' '}
-                </span>{' '}
+                  {product.attributes.duration.label}{" "}
+                </span>{" "}
                 <span className="">{product.attributes.duration.value}</span>
               </div>
             )}
             {product?.attributes?.os_compatibility?.value && (
               <div className="text-white-300 dark:text-black-700 text-xs">
                 <span className="font-bold text-white-100 dark:text-black-900">
-                  {product.attributes.os_compatibility.label}{' '}
-                </span>{' '}
-                <span className="">
-                  {product.attributes.os_compatibility.value}
-                </span>
+                  {product.attributes.os_compatibility.label}{" "}
+                </span>{" "}
+                <span className="">{product.attributes.os_compatibility.value}</span>
               </div>
             )}
           </div>

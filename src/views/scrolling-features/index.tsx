@@ -1,15 +1,15 @@
-import { Section } from '@/components/section';
-import { FeatureItem } from './feature-item';
+import { Section } from "@/components/section";
+import { FeatureItem } from "./feature-item";
 
-import data from '@/schemas/feature-items.json';
-import { twMerge } from 'tailwind-merge';
-import { FeatureItemType } from '@/types';
+import data from "@/schemas/feature-items.json";
+import { twMerge } from "tailwind-merge";
+import { FeatureItemType } from "@/types";
 
-export const ScrollingFeatures = async (props) => {
+export const ScrollingFeatures = async props => {
   const { className } = props;
   return (
     <Section
-      outerClassName={twMerge('!px-0 overflow-hidden', className)}
+      outerClassName={twMerge("!px-0 overflow-hidden", className)}
       className="w-full !max-w-[unset]"
     >
       <div className="flex items-center justify-center w-full relative pointer-events-none">
@@ -19,10 +19,7 @@ export const ScrollingFeatures = async (props) => {
               <FeatureItem item={item} key={`${item?.text} Slider 1`} />
             ))}
           </div>
-          <div
-            className="flex animate-loop-scroll-2 absolute"
-            aria-hidden="true"
-          >
+          <div className="flex animate-loop-scroll-2 absolute" aria-hidden="true">
             {data.map((item: FeatureItemType) => (
               <FeatureItem item={item} key={`${item?.text} Slider 1`} />
             ))}

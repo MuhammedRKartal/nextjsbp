@@ -1,6 +1,6 @@
 "use client";
 
-import { HeroBannerType } from "./type";
+import { HeroBannerType } from "@/types";
 import HeroBannerCustomPagination from "@/widgets/hero-banner/custom-pagination";
 import { Button } from "@/components/button";
 
@@ -40,7 +40,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
   return (
     <Section outerClassName="!px-0" className="w-full text-white !max-w-[unset]">
       <Swiper
-        className={twMerge("relative", "k-pxi", "!min-h-[450px] h-full")}
+        className={twMerge("relative", "k-pxi", "!h-[450px] lg:!h-[550px]")}
         modules={[Navigation, Pagination, EffectCoverflow]}
         pagination={paginationSettings}
         effect="coverflow"
@@ -56,7 +56,7 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
           <SwiperSlide
             key={item.title || item.image_alt}
             className={twMerge(
-              "flex w-full h-full relative items-center justify-center rounded-lg overflow-hidden",
+              "flex w-full relative items-center justify-center rounded-lg overflow-hidden",
               "k-container"
             )}
           >

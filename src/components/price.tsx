@@ -1,19 +1,19 @@
-import { NumericFormat, NumericFormatProps } from 'react-number-format';
-import { PriceProps } from './types';
+import { NumericFormat, NumericFormatProps } from "react-number-format";
+import { PriceProps } from "./types";
 
 export const Price = (props: PriceProps & NumericFormatProps) => {
   const {
     value,
-    displayType = 'text',
+    displayType = "text",
     decimalScale = 2,
-    thousandSeperator = '.',
-    decimalSeperator = ',',
+    thousandSeperator = ".",
+    decimalSeperator = ",",
     currency,
     fixedDecimalScale = true,
     ...rest
   } = props;
 
-  const price = value?.toString().replace('.', ',');
+  const price = value?.toString().replace(".", ",");
 
   return (
     <NumericFormat

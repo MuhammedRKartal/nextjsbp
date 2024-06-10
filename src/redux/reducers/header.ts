@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface HeaderState {
   isMobileMenuOpen: boolean;
@@ -9,11 +9,11 @@ export interface HeaderState {
 
 const initialState: HeaderState = {
   isMobileMenuOpen: false,
-  openedMenu: null
+  openedMenu: null,
 };
 
 const headerSlice = createSlice({
-  name: 'header',
+  name: "header",
   initialState,
   reducers: {
     openMobileMenu(state) {
@@ -30,8 +30,8 @@ const headerSlice = createSlice({
     },
     resetHeaderState() {
       return initialState;
-    }
-  }
+    },
+  },
 });
 
 export const {
@@ -39,7 +39,7 @@ export const {
   closeMobileMenu,
   toggleMobileMenu,
   setOpenedMenu,
-  resetHeaderState
+  resetHeaderState,
 } = headerSlice.actions;
 
 export default headerSlice.reducer;

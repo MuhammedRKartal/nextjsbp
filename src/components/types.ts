@@ -6,9 +6,6 @@ import { UsePaginationType } from "./Pagination/hook";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  /**
-   * @param {string} appearance - Filled | Outlined | Ghost | Bright
-   */
   appearance?: "filled" | "outlined" | "ghost" | "bright";
   size?: "xs" | "lg";
   link?: string | null;
@@ -55,17 +52,8 @@ export interface InputLabelProps extends React.HTMLProps<HTMLInputElement> {
 
 export interface SectionProps {
   children: React.ReactNode;
-  /**
-   * @param {string} tag - Section | Div | Span | Main
-   */
   tag?: "section" | "div" | "span" | "main";
-  /**
-   * @param {string} appearance Thinnest | Thin | Wide | Full
-   */
   appearance?: "thinnest" | "thin" | "wide" | "full";
-  /**
-   * @param {string} outerClassName Outer Div's classname
-   */
   outerClassName?: string;
   /**
    * @param {string} className Tag's classname

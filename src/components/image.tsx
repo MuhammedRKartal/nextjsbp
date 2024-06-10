@@ -51,8 +51,8 @@ export const Image = (props: ImageProps) => {
   return (
     <div
       className={clsx(
-        "flex items-center justify-center relative",
-        fill && "w-full h-full",
+        "flex items-center justify-center",
+        fill && "w-full",
         fillWithSize && "overflow-hidden w-full relative",
         fillWithSize && showBG && "w-full",
         className

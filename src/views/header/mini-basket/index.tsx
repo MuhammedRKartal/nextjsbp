@@ -2,7 +2,7 @@ import { Price } from "@/components/price";
 import { useGetBasketQuery } from "@/data/client/basket";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { closeMiniBasket } from "@/redux/reducers/pop-ups";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, useCallback } from "react";
 import MiniBasketItem from "./mini-basket-item";
 import { Button } from "@/components/button";
 import { SliderMenu } from "@/components/slider-menu";
@@ -11,39 +11,35 @@ import { twMerge } from "tailwind-merge";
 export default function MiniBasket() {
   const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(state => state.popUps);
   const dispatch = useAppDispatch();
+  const { data: basket, isSuccess, isError } = useGetBasketQuery();
+  const miniBasketList = useRef(null);
 
-  const { data: basket, isSuccess } = useGetBasketQuery();
-
-  const miniBasketList = useRef();
-
-  const [highlightedItemPk, sethighlightedItemPk] = useState(0);
+  const [highlightedItemPk, setHighlightedItemPk] = useState(0);
   const [sortedBasket, setSortedBasket] = useState([]);
 
   useEffect(() => {
     if (highlightedItem > 0) {
-      sethighlightedItemPk(highlightedItem);
+      setHighlightedItemPk(highlightedItem);
     }
   }, [highlightedItem]);
 
   useEffect(() => {
-    if (isSuccess) {
-      if (highlightedItemPk > 0) {
-        setSortedBasket(
-          basket.product_list.slice().sort((a, b) => {
-            if (a.product.pk === highlightedItemPk) {
-              return -1;
-            } else if (b.product.pk === highlightedItemPk) {
-              return 1;
-            } else {
-              return Number(a.product.pk) - Number(b.product.pk);
-            }
-          })
-        );
-      } else {
-        setSortedBasket(basket.product_list);
-      }
+    if (isSuccess && basket) {
+      const sortedItems = getSortedBasket(basket.product_list, highlightedItemPk);
+      setSortedBasket(sortedItems);
     }
-  }, [isSuccess, highlightedItem, basket]);
+  }, [isSuccess, highlightedItemPk, basket]);
+
+  const getSortedBasket = useCallback((productList, highlightedItemPk) => {
+    if (highlightedItemPk > 0) {
+      return productList.slice().sort((a, b) => {
+        if (a.product.pk === highlightedItemPk) return -1;
+        if (b.product.pk === highlightedItemPk) return 1;
+        return Number(a.product.pk) - Number(b.product.pk);
+      });
+    }
+    return productList;
+  }, []);
 
   return (
     <>
@@ -52,9 +48,7 @@ export default function MiniBasket() {
           miniBasketOpen ? "opacity-100 visible lg:opacity-0" : "opacity-0 invisible",
           "fixed top-0 left-0 z-50 w-screen h-screen bg-black bg-opacity-80 transition-all duration-300"
         )}
-        onClick={() => {
-          dispatch(closeMiniBasket());
-        }}
+        onClick={() => dispatch(closeMiniBasket())}
       />
       <SliderMenu
         open={miniBasketOpen}
@@ -80,23 +74,32 @@ export default function MiniBasket() {
             ))}
           </ul>
         )}
-        <footer className="flex flex-col gap-3 mt-auto lg:mt-3 lg:flex-1">
-          <div className="flex justify-between items-center px-3">
-            <span className="text-sm font-semibold">{"Total Price"}</span>
-            <span className="text-base font-bold">
-              <Price
-                value={Number(basket?.total_amount)}
-                currency={basket?.product_list[0]?.currency_symbol}
-              />
-            </span>
+        {isError && (
+          <div className="text-error text-center">
+            Failed to load mini-basket items. Please try again.
           </div>
-          <Button
-            link={"/baskets/basket"}
-            className="w-full"
-            onClick={() => dispatch(closeMiniBasket())}
-          >
-            View Basket
-          </Button>
+        )}
+        <footer className="flex flex-col gap-3 mt-auto lg:mt-3 lg:flex-1">
+          {isSuccess && (
+            <>
+              <div className="flex justify-between items-center px-3">
+                <span className="text-sm font-semibold">{"Total Price"}</span>
+                <span className="text-base font-bold">
+                  <Price
+                    value={Number(basket?.total_amount)}
+                    currency={basket?.product_list[0]?.currency_symbol}
+                  />
+                </span>
+              </div>
+              <Button
+                link={"/baskets/basket"}
+                className="w-full"
+                onClick={() => dispatch(closeMiniBasket())}
+              >
+                View Basket
+              </Button>
+            </>
+          )}
         </footer>
       </SliderMenu>
     </>
