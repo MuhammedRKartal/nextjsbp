@@ -2,7 +2,7 @@ import { Price } from "@/components/price";
 import { useGetBasketQuery } from "@/data/client/basket";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { closeMiniBasket } from "@/redux/reducers/pop-ups";
-import { useEffect, useMemo, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import MiniBasketItem from "./mini-basket-item";
 import { Button } from "@/components/button";
 import { SliderMenu } from "@/components/slider-menu";
@@ -11,7 +11,7 @@ import { twMerge } from "tailwind-merge";
 export default function MiniBasket() {
   const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(state => state.popUps);
   const dispatch = useAppDispatch();
-  const { data: basket, isSuccess, isError } = useGetBasketQuery();
+  const { data: basket, isSuccess } = useGetBasketQuery();
   const miniBasketList = useRef(null);
 
   const [highlightedItemPk, setHighlightedItemPk] = useState(0);
@@ -73,11 +73,6 @@ export default function MiniBasket() {
               />
             ))}
           </ul>
-        )}
-        {isError && (
-          <div className="text-error text-center">
-            Failed to load mini-basket items. Please try again.
-          </div>
         )}
         <footer className="flex flex-col gap-3 mt-auto lg:mt-3 lg:flex-1">
           {isSuccess && (

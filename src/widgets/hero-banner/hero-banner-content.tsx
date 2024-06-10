@@ -1,6 +1,6 @@
 "use client";
 
-import { HeroBannerType } from "@/types";
+import { HeroBannerType } from "./type";
 import HeroBannerCustomPagination from "@/widgets/hero-banner/custom-pagination";
 import { Button } from "@/components/button";
 
