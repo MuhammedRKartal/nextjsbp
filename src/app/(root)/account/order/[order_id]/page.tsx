@@ -2,7 +2,6 @@
 
 import { redirect } from "next/navigation";
 import { ROUTES } from "@/routes";
-import { PageProps } from "@/types";
 import { cookies } from "next/headers";
 
 export default async function OrderPage() {

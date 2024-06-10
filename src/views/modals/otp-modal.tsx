@@ -34,7 +34,7 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
     removeBlur();
   };
 
-  const onSubmit = async e => {
+  const onSubmit = async () => {
     body["verification_code"] = otp;
 
     if (otp.length === 6 && isloading === false) {

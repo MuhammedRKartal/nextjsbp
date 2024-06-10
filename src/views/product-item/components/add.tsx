@@ -1,3 +1,3 @@
-export const Add = (props) => {
+export const Add = () => {
   return <>{}</>;
 };

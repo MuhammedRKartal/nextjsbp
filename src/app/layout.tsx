@@ -15,17 +15,19 @@ const lato = Lato({
   display: "swap",
 });
 
+const NEXTAUTH_URL = process.env.NEXTAUTH_URL || "https://nextbpk.netlify.app";
+
 export const metadata: Metadata = {
   title: "WoW Tasker",
   description: "Revolutionize your botting experience with WoW Tasker!",
-  metadataBase: new URL(process.env.NEXTAUTH_URL),
+  metadataBase: new URL(NEXTAUTH_URL),
   verification: {
-    google: "5cQd3-U9FV3CZh0ax9nuPPUNR2DUo-JVHku4r2vUQ_0",
+    google: process.env.GOOGLE_VERIFICATION,
   },
   openGraph: {
     title: "WoW Tasker",
     description: "Revolutionize your botting experience with WoW Tasker!",
-    url: process.env.NEXTAUTH_URL,
+    url: NEXTAUTH_URL,
     type: "website",
     siteName: "WoW Tasker",
     images: [

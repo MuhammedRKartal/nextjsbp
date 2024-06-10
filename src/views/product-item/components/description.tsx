@@ -1,4 +1,4 @@
-export const Description = (props) => {
+export const Description = props => {
   const { product } = props;
   return (
     <>

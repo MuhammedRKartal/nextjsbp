@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
 import { useDispatch } from "react-redux";
+import { PayloadAction } from "@reduxjs/toolkit";
 
 export const SliderMenu = (props: SliderMenuProps) => {
   const { open, closePop, enableDesktop, desktopWidth, className, children, ...rest } = props;
@@ -33,7 +34,7 @@ export const SliderMenu = (props: SliderMenuProps) => {
       <>
         <FontAwesomeIcon
           onClick={() => {
-            dispatch(closePop);
+            dispatch(closePop as PayloadAction);
           }}
           className="absolute right-5 transition-all duration-300 text-lg hover: hover:cursor-pointer lg:!hidden"
           icon={faClose}

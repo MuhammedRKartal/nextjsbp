@@ -10,12 +10,7 @@ import { useRouter } from "next/navigation";
 import { ROUTES } from "@/routes";
 
 export default function Checkout() {
-  const {
-    data: basketData,
-    isLoading,
-    isSuccess: basketSuccess,
-    error: basketError,
-  } = useGetBasketQuery();
+  const { data: basketData, isLoading, isSuccess: basketSuccess } = useGetBasketQuery();
   const [data, setData] = useState(basketData as BasketType);
 
   useEffect(() => {

@@ -15,7 +15,6 @@ export const AccordionItem = ({
   titleClassName,
   activeTitleClassName,
   activeClassName,
-  iconClassName,
   showIcon,
 }: AccordionItemProps) => {
   const isActive = active === accordionId;

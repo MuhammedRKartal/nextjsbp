@@ -13,7 +13,7 @@ interface CheckoutSummaryProps {
 }
 
 export default function CheckoutSummary(props: CheckoutSummaryProps) {
-  const { data, isLoading, isSuccess, className } = props;
+  const { data, isLoading, className } = props;
 
   return (
     <>

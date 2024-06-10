@@ -1,18 +1,14 @@
-'use client';
-import { Price } from '@/components/price';
+"use client";
+import { Price } from "@/components/price";
 
-export const Prices = (props) => {
+export const Prices = props => {
   const {
-    product: { price, retail_price, currency_symbol }
+    product: { price, retail_price, currency_symbol },
   } = props;
 
   return (
     <div className="flex gap-1.5">
-      <Price
-        value={price}
-        currency={currency_symbol}
-        className=" text-sm font-bold"
-      />
+      <Price value={price} currency={currency_symbol} className=" text-sm font-bold" />
       {parseFloat(retail_price) > parseFloat(price) && (
         <Price
           value={retail_price}

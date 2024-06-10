@@ -65,7 +65,7 @@ export default function ChangeNotificationsPage() {
                   >
                     <div>by E-mail.</div>
                     <span className="text-xs">
-                      Your registered e-mail address: {session.user.email}
+                      Your registered e-mail address: {session?.user?.email}
                     </span>
                   </Checkbox>
 

@@ -1,7 +1,14 @@
-import clsx from "clsx";
+import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
-export const AccountInfoBox = props => {
+interface AccountInfoBoxProps {
+  title: string;
+  children: ReactNode;
+  className?: string;
+  titleClassName?: string;
+}
+
+export const AccountInfoBox = (props: AccountInfoBoxProps) => {
   const { title, children, className, titleClassName } = props;
 
   return (

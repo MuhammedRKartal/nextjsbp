@@ -54,7 +54,6 @@ export default function HeroBannerContent({ content }: HeroBannerType) {
       >
         {content.map(item => (
           <SwiperSlide
-            onClick={item => {}}
             key={item.title || item.image_alt}
             className={twMerge(
               "flex w-full relative items-center justify-center rounded-lg overflow-hidden",

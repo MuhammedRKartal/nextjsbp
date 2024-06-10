@@ -9,12 +9,7 @@ export const AccountOrders = props => {
   const limit = Number(searchParams.get("limit"));
   const page = Number(searchParams.get("page"));
 
-  const {
-    data: orders,
-    isSuccess,
-    error,
-    isLoading,
-  } = useGetOrdersQuery(
+  const { data: orders, isSuccess } = useGetOrdersQuery(
     limit
       ? {
           limit: limit,
