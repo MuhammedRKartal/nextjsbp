@@ -20,7 +20,7 @@ export const BasketItemPrice = (props: BasketItemPropsType) => {
         <Price
           value={retail_price}
           currency={currency_symbol}
-          className="text-white-400 dark:text-black-600 text-xs font-bold line-through"
+          className="text-white-400 text-xs font-bold line-through"
         />
       )}
     </div>

@@ -151,12 +151,12 @@ export default function Register() {
         </form>
         <div
           id="already-member"
-          className="flex items-center justify-center mt-8 w-full text-primary dark:text-secondary font-extrabold gap-1"
+          className="flex items-center justify-center mt-8 w-full text-primary font-extrabold gap-1"
         >
           <div>Already a member?</div>
           <Link
             href={ROUTES.LOGIN}
-            className="text-primary dark:text-secondary font-extrabold hover:text-primary-600 dark:hover:text-primary-600 underline"
+            className="text-primary font-extrabold hover:text-primary-600 underline"
           >
             Log In.
           </Link>
@@ -165,7 +165,7 @@ export default function Register() {
           <Link
             href={'/'}
             target="_blank"
-            className="text-sm text-primary dark:text-secondary font-bold hover:text-primary-600 dark:hover:text-primary-600"
+            className="text-sm text-primary font-bold hover:text-primary-600"
           >
             Forgot your password?
           </Link>

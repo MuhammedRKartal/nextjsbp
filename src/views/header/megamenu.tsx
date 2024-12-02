@@ -1,7 +1,6 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons/faLightbulb";
@@ -27,15 +26,8 @@ export type HeaderNavItemType = {
 
 export default function Megamenu() {
   const dispatch = useAppDispatch();
-  const { theme, setTheme } = useTheme();
   const { status } = useSession();
   const router = useRouter();
-
-  const isActive = theme === "light";
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
 
   const onClickEvent = () => {
     if (status === "authenticated") {
@@ -111,13 +103,6 @@ export default function Megamenu() {
           onMouseLeave={onHoverOutEvent}
         >
           <FontAwesomeIcon icon={faUser} />
-        </Button>
-        <Button
-          onClick={toggleTheme}
-          appearance="bright"
-          className="pl-2 pr-2 mr-2 md:w-8 hover:text-outline-600"
-        >
-          {isActive ? <FontAwesomeIcon icon={faLightbulb} /> : <FontAwesomeIcon icon={faMoon} />}
         </Button>
       </div>
     </>

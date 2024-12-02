@@ -18,7 +18,7 @@ export default function CheckoutOptions(props) {
       <div className="relative flex gap-4 -mb-px">
         <TabItem tabId={1} handleToggle={handleToggle} title="BTCPay" active={active}></TabItem>
       </div>
-      <div className="relative border z-0 border-outline dark:border-secondaryoutline">
+      <div className="relative border z-0 border-outline">
         <TabContent tabId={1} active={active}>
           <CryptoPay />
         </TabContent>

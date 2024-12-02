@@ -17,7 +17,7 @@ export default async function Category() {
 
     return (
       <Section tag="section">
-        <h1 className="text-4xl font-bold lg:text-3xl mb-6 pb-3 border-b-2 border-outline dark:border-secondaryoutline">
+        <h1 className="text-4xl font-bold lg:text-3xl mb-6 pb-3 border-b-2 border-outline">
           Products
         </h1>
         <div className="grid grid-cols-1 gap-y-8 gap-x-4 sm:gap-x-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4">
@@ -30,7 +30,7 @@ export default async function Category() {
   } catch (error) {
     return (
       <Section tag="section">
-        <h1 className="text-4xl font-bold lg:text-3xl mb-6 pb-3 border-b-2 border-outline dark:border-secondaryoutline">
+        <h1 className="text-4xl font-bold lg:text-3xl mb-6 pb-3 border-b-2 border-outline">
           Error
         </h1>
         <div>{error.message}</div>

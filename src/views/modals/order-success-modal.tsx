@@ -25,7 +25,7 @@ export default function SuccessModal({ open, setOpen, onClose }: ModalProps) {
           <FontAwesomeIcon
             icon={faCircleCheck}
             size="2xl"
-            className="text-primary dark:text-secondary mb-4"
+            className="text-primary mb-4"
           ></FontAwesomeIcon>
           <h3 className="text-2xl mb-3">Your Order is Completed</h3>
           <Button

@@ -28,7 +28,7 @@ export default function HamburgerMenu({ children }: { children: React.ReactNode 
       />
       <div
         className={clsx(
-          "fixed top-0 left-0 z-[70] flex flex-col bg-black shadow-[6px_0px_14px_-9px_rgba(0,0,0,0.66)] shadow-primary-800 dark:shadow-secondary-200  dark:bg-secondary-100 w-80 -translate-x-80 h-screen",
+          "fixed top-0 left-0 z-[70] flex flex-col bg-black shadow-[6px_0px_14px_-9px_rgba(0,0,0,0.66)] shadow-primary-800  w-80 -translate-x-80 h-screen",
           "opacity-0 transition duration-300 transform",
           {
             "!visible !opacity-100 translate-x-[0]": isMobileMenuOpen,

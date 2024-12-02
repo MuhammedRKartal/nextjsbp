@@ -10,7 +10,7 @@ import Header from "@/views/header";
 export default function Error({ error }: { error: Error & { digest?: string } }) {
   return (
     <html lang="en">
-      <body className="preload overflow-x-hidden bg-black dark:bg-white-bg">
+      <body className="preload overflow-x-hidden bg-black">
         <Header />
         <main className={clsx("flex items-center my-6 mx-auto min-h-[64vh]", "md:my-10 md:mt-15")}>
           <Section

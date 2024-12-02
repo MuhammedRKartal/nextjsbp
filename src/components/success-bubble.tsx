@@ -15,7 +15,7 @@ export default function SuccessBubble(props: SuccessBubbleType) {
     <div
       className={twMerge(
         "absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full flex items-center justify-center opacity-0",
-        "shadow-primary dark:shadow-secondary shadow-lg bg-black dark:bg-white-bg duration-200 transform",
+        "shadow-primary shadow-lg bg-black duration-200 transform",
         success === true ? "opacity-100 z-10" : "",
         className
       )}

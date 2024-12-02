@@ -36,10 +36,10 @@ export default function AccountPopUp() {
         enableDesktop={true}
         desktopWidth={"sm:w-56"}
       >
-        <header className="flex items-center justify-between gap-2 pb-4 mb-3 border-b border-outline dark:border-secondaryoutline lg:pb-2 text-white-300 dark:text-black-700">
+        <header className="flex items-center justify-between gap-2 pb-4 mb-3 border-b border-outline lg:pb-2 text-white-300 ">
           <h3 className="text-lg lg:text-base">{`Hi, ${user}`}</h3>
         </header>
-        <ul className="flex flex-col text-white-300 dark:text-black-700 gap-1 mb-3 lg:gap-1 lg:mb-2">
+        <ul className="flex flex-col text-white-300  gap-1 mb-3 lg:gap-1 lg:mb-2">
           <li>
             <Link href={ROUTES.ACCOUNT}>My Account</Link>
           </li>
@@ -47,7 +47,7 @@ export default function AccountPopUp() {
             <Link href={ROUTES.ORDERS}>My Orders</Link>
           </li>
         </ul>
-        <footer className="text-white-300 dark:text-black-700">
+        <footer className="text-white-300 ">
           <div className="hover:cursor-pointer w-fit" onClick={onClickSignOut}>
             Sign Out
           </div>

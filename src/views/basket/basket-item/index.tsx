@@ -79,7 +79,7 @@ export default function BasketItem(props) {
   return (
     <li
       className={clsx(
-        "relative flex flex-row pt-4 pb-3.5 border-outline dark:border-secondaryoutline border-b ",
+        "relative flex flex-row pt-4 pb-3.5 border-outline border-b ",
         "last-of-type:pb-10",
         "first-of-type:border-t",
         "lg:last-of-type:pb-3.5"

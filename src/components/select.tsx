@@ -30,7 +30,7 @@ const Select = (props: SelectProps) => {
   return (
     <div
       className={twMerge(
-        "w-24 bg-black dark:bg-white-bg lg:relative",
+        "w-24 bg-black lg:relative",
         loading === true ? "flex justify-center items-center" : "",
         className
       )}
@@ -50,7 +50,7 @@ const Select = (props: SelectProps) => {
       ) : (
         <div
           className={twMerge(
-            "relative border border-outline dark:border-secondaryoutline text-xs py-2 px-3 cursor-pointer",
+            "relative border border-outline text-xs py-2 px-3 cursor-pointer",
             labelClassName
           )}
           onClick={handleListDisplay}
@@ -67,7 +67,7 @@ const Select = (props: SelectProps) => {
       )}
       <ul
         className={twMerge(
-          "fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[calc(80vw)] py-1 border bg-black dark:bg-white-bg border-outline dark:border-secondaryoutline overflow-auto transition-all duration-300 max-h-56 max-w-xs thin-scrollbar z-50",
+          "fixed top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[calc(80vw)] py-1 border bg-black border-outline overflow-auto transition-all duration-300 max-h-56 max-w-xs thin-scrollbar z-50",
           "lg:absolute lg:top-full lg:left-0 lg:translate-y-0 lg:translate-x-0 lg:w-full lg:border-t-0",
           showOptionList
             ? "visible opacity-100 lg:max-h-32 lg:h-32 scroll-lock"
@@ -80,7 +80,7 @@ const Select = (props: SelectProps) => {
             <li
               className={twMerge(
                 "text-xs py-2 px-4 cursor-pointer",
-                "hover:bg-primary-100 dark:hover:bg-secondary-500",
+                "hover:bg-primary-100",
                 itemClassName
               )}
               data-label={option.label}

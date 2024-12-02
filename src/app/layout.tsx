@@ -6,7 +6,6 @@ import { Lato } from "next/font/google";
 import ClientRoot from "@/app/client-root";
 import SessionProvider from "@/components/Providers/SessionProvider";
 import StoreProvider from "@/components/Providers/StoreProvider";
-import ThemeProvider from "@/components/Providers/ThemeProvider";
 import MainRoot from "./main-root";
 
 const lato = Lato({
@@ -45,13 +44,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 
   return (
     <html lang="en" className={lato.className}>
-      <body className="preload overflow-x-hidden bg-black dark:bg-white-bg text-white dark:text-black w-full">
+      <body className="preload overflow-x-hidden bg-black text-white">
         <MainRoot>
           <StoreProvider>
             <SessionProvider session={session}>
-              <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-                <ClientRoot>{children}</ClientRoot>
-              </ThemeProvider>
+              <ClientRoot>{children}</ClientRoot>
             </SessionProvider>
           </StoreProvider>
         </MainRoot>

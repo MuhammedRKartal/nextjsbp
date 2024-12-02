@@ -16,7 +16,7 @@ export const Images = props => {
     clickable: true,
     bulletClass: twMerge(
       "swiper-pagination-bullet",
-      "!bg-primary !rounded-sm !mx-0.5 !my-1 hover:!bg-primary-900 dark:hover:!bg-secondary-100"
+      "!bg-primary !rounded-sm !mx-0.5 !my-1 hover:!bg-primary-900"
     ),
     bulletActiveClass: twMerge("swiper-pagination-bullet-active", "!w-2 !h-2 !bg-primary-900"),
     el: "#pi-custom-pagination",

@@ -14,7 +14,7 @@ export const Prices = props => {
         <Price
           value={retail_price}
           currency={currency_symbol}
-          className="text-white-400 dark:text-black-600 text-sm font-bold line-through"
+          className="text-white-400 text-sm font-bold line-through"
         />
       )}
     </div>

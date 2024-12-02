@@ -63,7 +63,7 @@ export default function CryptoPay() {
         ></CryptoPayModal>
       )}
       <section className="">
-        <div className="py-4 px-7 border-b border-outline dark:border-secondaryoutline">
+        <div className="py-4 px-7 border-b border-outline">
           <span className="text-2xl">BTCPay Transaction Guide</span>
         </div>
         <div className="px-7 pt-6 pb-7">

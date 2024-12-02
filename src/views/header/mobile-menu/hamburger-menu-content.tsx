@@ -23,7 +23,7 @@ export default function HamburgerMenuContent() {
         onClick={() => {
           dispatch(closeMobileMenu());
         }}
-        className="mb-5 flex gap-2 items-center bg-primary-600 dark:bg-secondary-300 w-full pt-5 pb-2 px-4"
+        className="mb-5 flex gap-2 items-center bg-primary-600 w-full pt-5 pb-2 px-4"
       >
         <Image
           src={"/assets/company-logo-minimized.png"}

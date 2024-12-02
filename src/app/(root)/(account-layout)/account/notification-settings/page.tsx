@@ -48,14 +48,14 @@ export default function ChangeNotificationsPage() {
         <div className="w-full ">
           <header className="mb-6">
             <h3 className="text-3xl mb-2 lg:mb-1">Notification Settings</h3>
-            <p className="text-xs text-white-300 dark:text-black-700 lg:text-sm">
+            <p className="text-xs text-white-300 lg:text-sm">
               Change your selections for our notifications and press the "SAVE" button at the bottom
               of the page to update.
             </p>
           </header>
           <div className="flex flex-col gap-7 xl:flex-row xl:w-full xl:flex-wrap">
             <div className="flex-[50]">
-              <div className="flex flex-col gap-5 px-7 py-6 border border-outline dark:border-secondaryoutline sm:px-16 sm:py-16 md:px-12 md:py-8 lg:px-16 lg:py-12 xl:px-12 xl:py-8 2xl:px-16 2xl:py-12">
+              <div className="flex flex-col gap-5 px-7 py-6 border border-outline sm:px-16 sm:py-16 md:px-12 md:py-8 lg:px-16 lg:py-12 xl:px-12 xl:py-8 2xl:px-16 2xl:py-12">
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
                   <div>How would you like to be informed about our campaigns?</div>
                   <Checkbox

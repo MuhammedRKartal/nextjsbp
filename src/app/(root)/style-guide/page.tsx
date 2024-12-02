@@ -17,31 +17,31 @@ export default function StyleGuidePage() {
                 <li key="primary-default" className="bg-primary ">
                   Default
                 </li>
-                <li key="primary-100" className="bg-primary-100 dark:bg-secondary-900">
+                <li key="primary-100" className="bg-primary-100">
                   100
                 </li>
-                <li key="primary-200" className="bg-primary-200 dark:bg-secondary-800">
+                <li key="primary-200" className="bg-primary-200">
                   200
                 </li>
-                <li key="primary-300" className="bg-primary-300 dark:bg-secondary-700">
+                <li key="primary-300" className="bg-primary-300">
                   300
                 </li>
-                <li key="primary-400" className="bg-primary-400 dark:bg-secondary-600">
+                <li key="primary-400" className="bg-primary-400">
                   400
                 </li>
                 <li key="primary-500" className="bg-primary-500">
                   500
                 </li>
-                <li key="primary-600" className="bg-primary-600 dark:bg-secondary-400">
+                <li key="primary-600" className="bg-primary-600">
                   600
                 </li>
-                <li key="primary-600" className="bg-primary-600 dark:bg-secondary-400">
+                <li key="primary-600" className="bg-primary-600">
                   700
                 </li>
-                <li key="primary-700" className="bg-primary-700 dark:bg-secondary-300">
+                <li key="primary-700" className="bg-primary-700">
                   800
                 </li>
-                <li key="primary-900" className="bg-primary-900 dark:bg-secondary-100">
+                <li key="primary-900" className="bg-primary-900">
                   900
                 </li>
                 <li key="primary-opacity" className="bg-primary-opacity">

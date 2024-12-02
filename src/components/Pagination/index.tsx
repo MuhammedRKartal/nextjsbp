@@ -126,9 +126,7 @@ export const Pagination = (props: PaginationProps) => {
                   "relative text-xs",
                   "px-3 py-4 flex items-center justify-center",
                   "cursor-pointer text-black-400",
-                  Number(page) === Number(item.page)
-                    ? "mx-1 p-4 border border-outline dark:border-secondaryoutline"
-                    : ""
+                  Number(page) === Number(item.page) ? "mx-1 p-4 border border-outline" : ""
                 ),
                 itemClassName
               )}

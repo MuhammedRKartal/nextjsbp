@@ -11,7 +11,7 @@ export const CheckoutItemPrice = props => {
         <Price
           value={retail_price}
           currency={currency_symbol}
-          className="text-white-400 dark:text-black-600 text-xs font-bold line-through"
+          className="text-white-400 text-xs font-bold line-through"
         />
       )}
       <Price value={price} currency={currency_symbol} className=" text-sm font-bold" />

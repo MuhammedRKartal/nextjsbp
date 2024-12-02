@@ -29,7 +29,7 @@ export default function Basket() {
                 <span>My Basket</span>
                 <Link
                   href="/products"
-                  className="underline text-[10px] text-white-300 dark:text-black-700 tracking-wide"
+                  className="underline text-[10px] text-white-300  tracking-wide"
                 >
                   Back to Shopping
                 </Link>
