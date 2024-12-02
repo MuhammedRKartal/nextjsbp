@@ -1,8 +1,8 @@
 "use client";
 
+import { twMerge } from "tailwind-merge";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { twMerge } from "tailwind-merge";
 
 type SuccessBubbleType = {
   success: boolean;

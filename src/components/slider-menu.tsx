@@ -1,9 +1,9 @@
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { PayloadAction } from "@reduxjs/toolkit";
-import clsx from "clsx";
 import { useDispatch } from "react-redux";
-import { twMerge } from "tailwind-merge";
 import { SliderMenuProps } from "./types";
 
 export const SliderMenu = (props: SliderMenuProps) => {

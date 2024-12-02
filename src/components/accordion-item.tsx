@@ -1,9 +1,9 @@
 "use client";
 
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AccordionItemProps } from "./types";
 
 export const AccordionItem = ({

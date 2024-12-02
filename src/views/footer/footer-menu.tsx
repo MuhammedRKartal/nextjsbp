@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import Link from "next/link";
+import clsx from "clsx";
 import data from "@/schemas/footer-menu.json";
 
 export type FooterMenuItemType = {

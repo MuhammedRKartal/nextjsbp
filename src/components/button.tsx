@@ -1,8 +1,8 @@
+import Link from "next/link";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import Link from "next/link";
-import { twMerge } from "tailwind-merge";
 import { ButtonProps } from "./types";
 
 const getClassNames = (props: ButtonProps) => {

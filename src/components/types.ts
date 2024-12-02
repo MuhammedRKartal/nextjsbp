@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
+import { ImageProps as NextImageProps } from "next/image";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { ImageProps as NextImageProps } from "next/image";
 import { Control, FieldError } from "react-hook-form";
 import { UsePaginationType } from "./Pagination/hook";
 

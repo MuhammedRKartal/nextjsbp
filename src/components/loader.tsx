@@ -1,6 +1,6 @@
+import { twMerge } from "tailwind-merge";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { twMerge } from "tailwind-merge";
 import { Section } from "./section";
 
 export const Loader = props => {

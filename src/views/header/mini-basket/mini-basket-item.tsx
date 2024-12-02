@@ -1,8 +1,8 @@
 import { MutableRefObject, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
+import clsx from "clsx";
 import { faSpinner, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import Link from "next/link";
 import { Image } from "@/components/image";
 import { Price } from "@/components/price";
 import { basketApi, useUpdateQuantityMutation } from "@/data/client/basket";

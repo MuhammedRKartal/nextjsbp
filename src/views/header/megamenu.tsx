@@ -1,13 +1,13 @@
 "use client";
 
+import { useSession } from "next-auth/react";
+import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons/faLightbulb";
 import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useSession } from "next-auth/react";
-import { useTheme } from "next-themes";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/button";
 import { Image } from "@/components/image";
 import { useAppDispatch } from "@/redux/hooks";

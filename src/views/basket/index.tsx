@@ -1,7 +1,7 @@
 "use client";
 
-import clsx from "clsx";
 import Link from "next/link";
+import clsx from "clsx";
 import { Loader } from "@/components/loader";
 import { Section } from "@/components/section";
 import { useGetBasketQuery } from "@/data/client/basket";

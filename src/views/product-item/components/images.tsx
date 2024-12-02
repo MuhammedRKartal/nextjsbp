@@ -6,8 +6,8 @@ import { Image } from "@/components/image";
 import { ProductItemImagesType } from "@/types";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
 import { twMerge } from "tailwind-merge";
+import { Pagination } from "swiper/modules";
 
 export const Images = props => {
   const { product } = props;

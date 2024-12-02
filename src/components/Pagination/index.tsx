@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import clsx from "clsx";
 import Link from "next/link";
+import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import { PaginationProps } from "../types";
 import usePagination from "./hook";

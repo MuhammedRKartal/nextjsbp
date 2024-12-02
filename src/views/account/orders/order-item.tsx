@@ -1,8 +1,8 @@
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { Image } from "@/components/image";
 import { Price } from "@/components/price";
 import { OrderType } from "@/types";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
 
 interface OrderProps {
   data: OrderType;

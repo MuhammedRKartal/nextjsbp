@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { signIn, SignInOptions } from "next-auth/react";
+import clsx from "clsx";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import { signIn, SignInOptions } from "next-auth/react";
 import OTPInput from "react-otp-input";
 import { Button } from "@/components/button";
 import { Modal } from "@/components/Modal/modal";

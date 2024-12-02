@@ -1,9 +1,9 @@
 import { useState } from "react";
+import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons/faCaretDown";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import { twMerge } from "tailwind-merge";
 import { SelectProps } from "./types";
 
 const Select = (props: SelectProps) => {

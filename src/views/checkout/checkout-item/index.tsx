@@ -1,7 +1,7 @@
 "use client";
 
-import clsx from "clsx";
 import Link from "next/link";
+import clsx from "clsx";
 import { Image } from "@/components/image";
 import { CheckoutItemPrice } from "./price";
 

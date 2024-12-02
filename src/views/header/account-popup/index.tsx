@@ -1,7 +1,7 @@
-import { PayloadAction } from "@reduxjs/toolkit";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { SliderMenu } from "@/components/slider-menu";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { closeAccountPopUp, openAccountPopUp } from "@/redux/reducers/pop-ups";

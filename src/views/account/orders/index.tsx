@@ -1,8 +1,8 @@
-import { useGetOrdersQuery } from "@/data/client/account";
-import { twMerge } from "tailwind-merge";
-import { OrderItem } from "./order-item";
 import { useSearchParams } from "next/navigation";
+import { twMerge } from "tailwind-merge";
 import { Pagination } from "@/components/Pagination";
+import { useGetOrdersQuery } from "@/data/client/account";
+import { OrderItem } from "./order-item";
 
 export const AccountOrders = props => {
   const searchParams = useSearchParams();

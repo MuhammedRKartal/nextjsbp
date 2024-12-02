@@ -1,12 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import clsx from "clsx";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
 import { faBell } from "@fortawesome/free-solid-svg-icons/faBell";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/button";
 import { basketApi } from "@/data/client/basket";
 import { useAddProductMutation } from "@/data/client/product";

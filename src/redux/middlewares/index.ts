@@ -1,5 +1,5 @@
-import type { Middleware } from "@reduxjs/toolkit";
 import { signOut } from "next-auth/react";
+import type { Middleware } from "@reduxjs/toolkit";
 import { ROUTES } from "@/routes";
 import { api } from "../../data/client/api";
 

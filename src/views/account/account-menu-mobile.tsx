@@ -1,10 +1,10 @@
 "use client";
 
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@/components/button";
 import { ROUTES } from "@/routes";
 import data from "@/schemas/account-menu.json";

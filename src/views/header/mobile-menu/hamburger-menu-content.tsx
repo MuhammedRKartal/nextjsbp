@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
 import { Image } from "@/components/image";
 import { useAppDispatch } from "@/redux/hooks";
 import { closeMobileMenu } from "@/redux/reducers/header";

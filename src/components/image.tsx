@@ -1,5 +1,5 @@
-import clsx from "clsx";
 import NextImage from "next/image";
+import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import { ImageProps } from "@/components/types";
 

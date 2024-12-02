@@ -1,9 +1,9 @@
 "use client";
 
 import clsx from "clsx";
+import { twMerge } from "tailwind-merge";
 import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { twMerge } from "tailwind-merge";
 import { Button } from "@/components/button";
 import { Image } from "@/components/image";
 import { Section } from "@/components/section";

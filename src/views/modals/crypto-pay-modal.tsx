@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import clsx from "clsx";
 import { faCheck } from "@fortawesome/free-solid-svg-icons/faCheck";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons/faChevronLeft";
 import { faCopy } from "@fortawesome/free-solid-svg-icons/faCopy";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons/faSpinner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import Link from "next/link";
 import { Image } from "@/components/image";
 import { Modal } from "@/components/Modal/modal";
 import { Section } from "@/components/section";

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import clsx from "clsx";
 import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import Link from "next/link";
 import { Image } from "@/components/image";
 import { Select } from "@/components/select";
 import { basketApi, useUpdateQuantityMutation } from "@/data/client/basket";
