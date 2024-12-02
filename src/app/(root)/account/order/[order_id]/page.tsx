@@ -7,9 +7,9 @@ import { ROUTES } from "@/routes";
 export default async function OrderPage() {
   const cookie = cookies();
 
-  const refresh_token = cookie.get("refresh_token");
+  const access_token = cookie.get("access_token");
 
-  if (!refresh_token) {
+  if (!access_token) {
     redirect(ROUTES.LOGIN);
   }
 

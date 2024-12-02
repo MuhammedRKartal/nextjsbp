@@ -56,7 +56,7 @@ export default function MiniBasket() {
         enableDesktop={true}
         desktopWidth="sm:w-96"
       >
-        <header className="flex items-center justify-between gap-2 pb-4 border-b border-outline dark:border-secondaryoutline uppercase lg:pb-2 lg:mb-3 text-white-300 dark:text-black-700">
+        <header className="flex items-center justify-between gap-2 pb-4 border-b border-outline uppercase lg:pb-2 lg:mb-3 text-white-300">
           <h3 className="text-xs lg:text-sm">{"My Bag"}</h3>
         </header>
         {isSuccess && (

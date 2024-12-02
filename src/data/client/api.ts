@@ -30,10 +30,10 @@ const customBaseQuery: BaseQueryFn<
 
   const baseQuery = fetchBaseQuery({
     prepareHeaders: async headers => {
-      const refresh_cookie = getCookie("refresh_token");
+      const refresh_cookie = getCookie("access_token");
 
       if (refresh_cookie) {
-        headers.set("refresh_token", `${refresh_cookie}`);
+        headers.set("access_token", `${refresh_cookie}`);
       }
       return headers;
     },

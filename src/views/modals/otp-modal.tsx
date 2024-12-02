@@ -36,17 +36,19 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
   };
 
   const onSubmit = async () => {
-    body["verification_code"] = otp;
+    body["code"] = otp;
+    console.log(body);
 
     if (otp.length === 6 && isloading === false) {
       setLoading(true);
       setTimeout(async () => {
-        await fetch(`/api/client${confirms[body.formType]}`, {
-          method: "POST",
-          body: JSON.stringify(body),
-        }).then(res => {
+        try {
+          const res = await fetch(`/api/client${confirms[body.formType]}`, {
+            method: "POST",
+            body: JSON.stringify(body),
+          });
+          setLoading(false);
           if (res.status === 200) {
-            setLoading(false);
             setSuccess(true);
             setTimeout(() => {
               onClose();
@@ -56,13 +58,15 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
               signIn("default", { ...body } as SignInOptions);
             }
           } else {
-            res.json().then(data => {
-              setLoading(false);
-              setError(true);
-              setErrorText(data.error);
-            });
+            const error = await res.json();
+            setError(true);
+            setErrorText(error.message);
           }
-        });
+        } catch (error) {
+          setLoading(false);
+          setError(true);
+          setErrorText("An unexpected error occurred. Please try again.");
+        }
       }, 500);
     } else if (isloading === false && otp.length < 6) {
       setError(true);
@@ -80,11 +84,11 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
         title={"Confirmation Code"}
       >
         <Section className="flex flex-col items-center">
-          <div className="text-white dark:text-black text-2xl mt-4 mb-1">Enter Code</div>
-          <div className="text-white-300 dark:text-black-700 mb-1">
+          <div className="text-white text-2xl mt-4 mb-1">Enter Code</div>
+          <div className="text-white-300 mb-1">
             Enter the 6-digit code sent by WoWTasker Email Provider.
           </div>
-          <div className="text-xs text-white-400 dark:text-black-600  mb-8">
+          <div className="text-xs text-white-400 mb-8">
             Please check your spam folder if you didn't receive the email.
           </div>
           <OTPInput
@@ -98,13 +102,15 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
               <input
                 {...props}
                 className={clsx(
-                  "!w-12 h-12 rounded border-2 border-outline dark:border-secondaryoutline text-lg font-bold text-white-500 dark:text-black-500",
+                  "!w-12 h-12 rounded border-2 border-outline text-lg font-bold text-white-500",
                   error && "!border-error !border"
                 )}
               />
             )}
           />
-          {error && <div className="mb-12 text-error font-bold text-sm">{errorText}</div>}
+          {error && (
+            <div className="mb-12 text-center text-error font-bold text-sm">{errorText}</div>
+          )}
           <Button className="w-full" onClick={onSubmit} isloading={isloading}>
             {success ? <FontAwesomeIcon icon={faCheckCircle} /> : <div>Confirm</div>}
           </Button>

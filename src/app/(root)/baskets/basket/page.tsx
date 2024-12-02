@@ -12,7 +12,7 @@ export default async function BasketPage() {
   if (!session?.user) {
     redirect(ROUTES.LOGIN);
   }
-  if (!cookie.get("refresh_token")?.value) {
+  if (!cookie.get("access_token")?.value) {
     return <SignOut />;
   }
 

@@ -52,11 +52,15 @@ const Login = () => {
       setLoading(false);
 
       if (res.status === 200) {
-        signIn("default", { ...data } as SignInOptions);
+        res.json().then(dat => {
+          const accessToken = dat.token;
+
+          signIn("default", { ...data, accessToken } as SignInOptions);
+        });
       } else {
-        const result = await res.json();
+        const error = await res.json();
         setError(true);
-        setErrorText(result.error);
+        setErrorText(error.message);
       }
     } catch (err) {
       setLoading(false);

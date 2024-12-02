@@ -12,9 +12,9 @@ export default async function Auth({
   searchParams?: { [key: string]: string | undefined };
 }) {
   const session = await getServerSession();
-  const refresh_token = cookies().get("refresh_token");
+  const access_token = cookies().get("access_token");
 
-  if (session?.user && !refresh_token?.value) {
+  if (session?.user && !access_token?.value) {
     return <SignOut />;
   }
 

@@ -89,6 +89,8 @@ async function proxyRequest(...args) {
 
   let url = `${backendUrl}/${slug.replace(/,/g, "/")}`;
 
+  console.log(url);
+
   if (!options.useTrailingSlash) {
     url = url.replace(/\/$/, "");
   }

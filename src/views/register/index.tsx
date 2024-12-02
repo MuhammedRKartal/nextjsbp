@@ -64,9 +64,9 @@ export default function Register() {
       if (res.status === 200) {
         setOpenModal(true);
       } else {
-        const result = await res.json();
+        const error = await res.json();
         setError(true);
-        setErrorText(result.error);
+        setErrorText(error.message);
       }
     } catch (err) {
       setLoading(false);

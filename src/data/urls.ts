@@ -25,17 +25,17 @@ export const checkout = {
 };
 
 export const user = {
-  currentUser: "/users/currentuser",
   profile: "/web/user/profile",
 };
 
 export const auth = {
-  login: "/users/login",
-  register: "/users/register",
+  currentUser: "/auth/current-user",
+  login: "/auth/login",
+  register: "/auth/register",
 };
 
 export const confirms = {
-  confirmRegistration: "/users/verify",
+  confirmRegistration: "/auth/verify",
   confirmUpdatePassword: "/web/user/password/confirm-change",
 };
 

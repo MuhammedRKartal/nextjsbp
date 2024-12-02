@@ -4,7 +4,7 @@ import { basket } from "../urls";
 import { api } from "./api";
 
 export type UpdateQuantityResponse = {
-  refresh_token: string;
+  access_token: string;
 };
 
 export type UpdateQuantityRequest = {
