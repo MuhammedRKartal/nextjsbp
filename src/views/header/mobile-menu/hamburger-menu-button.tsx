@@ -1,10 +1,10 @@
 "use client";
 
-import { Button } from "@/components/button";
-import { toggleMobileMenu } from "@/redux/reducers/header";
-import { useAppDispatch } from "@/redux/hooks";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/components/button";
+import { useAppDispatch } from "@/redux/hooks";
+import { toggleMobileMenu } from "@/redux/reducers/header";
 
 export default function MobileHamburgerButton() {
   const dispatch = useAppDispatch();

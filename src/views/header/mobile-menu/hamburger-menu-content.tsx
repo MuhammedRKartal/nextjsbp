@@ -1,13 +1,13 @@
 "use client";
 
-import data from "@/schemas/header-megamenu.json";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
+import { Image } from "@/components/image";
 import { useAppDispatch } from "@/redux/hooks";
 import { closeMobileMenu } from "@/redux/reducers/header";
-import { Image } from "@/components/image";
-import Link from "next/link";
 import { ROUTES } from "@/routes";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
+import data from "@/schemas/header-megamenu.json";
 
 export type HeaderNavItemType = {
   title: string;

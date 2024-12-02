@@ -1,12 +1,12 @@
 "use client";
 
-import { forwardRef, FocusEvent, useState } from "react";
-import { InputLabel } from "@/components/Input/input-label";
-import { Button } from "@/components/button";
-import { InputProps } from "@/components/types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FocusEvent, forwardRef, useState } from "react";
 import { faEye } from "@fortawesome/free-solid-svg-icons/faEye";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { twMerge } from "tailwind-merge";
+import { Button } from "@/components/button";
+import { InputLabel } from "@/components/Input/input-label";
+import { InputProps } from "@/components/types";
 
 const getButtonClassNames = (error: boolean, iconClassName?: string) =>
   twMerge("text-primary-600 dark:text-secondary-400", error && "!text-error", iconClassName);

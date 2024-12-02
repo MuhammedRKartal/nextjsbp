@@ -1,12 +1,12 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import { twMerge } from "tailwind-merge";
+import { Button } from "@/components/button";
 import { Price } from "@/components/price";
+import { SliderMenu } from "@/components/slider-menu";
 import { useGetBasketQuery } from "@/data/client/basket";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { closeMiniBasket } from "@/redux/reducers/pop-ups";
-import { useEffect, useRef, useState, useCallback } from "react";
 import MiniBasketItem from "./mini-basket-item";
-import { Button } from "@/components/button";
-import { SliderMenu } from "@/components/slider-menu";
-import { twMerge } from "tailwind-merge";
 
 export default function MiniBasket() {
   const { openMiniBasket: miniBasketOpen, highlightedItem } = useAppSelector(state => state.popUps);

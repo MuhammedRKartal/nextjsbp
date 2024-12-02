@@ -3,18 +3,18 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { Button } from "@/components/button";
 import { Checkbox } from "@/components/checkbox";
+import { Loader } from "@/components/loader";
 import {
   accountApi,
   useGetProfileInfoQuery,
   useUpdateNotificationsMutation,
 } from "@/data/client/account";
-import { NotificationChangeFormType } from "@/types";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { Loader } from "@/components/loader";
 import { ROUTES } from "@/routes";
+import { NotificationChangeFormType } from "@/types";
 
 export default function ChangeNotificationsPage() {
   const { data: session, status } = useSession();

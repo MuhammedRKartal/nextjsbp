@@ -1,7 +1,7 @@
-import { api } from "./api";
 import { BasketType } from "../../types";
 import { buildClientRequestUrl } from "../../utils";
 import { basket } from "../urls";
+import { api } from "./api";
 
 export type UpdateQuantityResponse = {
   refresh_token: string;

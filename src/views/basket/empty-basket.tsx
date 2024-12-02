@@ -1,7 +1,7 @@
-import { Section } from "@/components/section";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@/components/button";
+import { Section } from "@/components/section";
 
 export default function EmptyBasket() {
   return (

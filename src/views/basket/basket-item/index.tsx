@@ -1,15 +1,15 @@
 "use client";
 
-import { Image } from "@/components/image";
-import { BasketItemPrice } from "./price";
-import clsx from "clsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
+import Link from "next/link";
+import { Image } from "@/components/image";
+import { Select } from "@/components/select";
 import { basketApi, useUpdateQuantityMutation } from "@/data/client/basket";
 import { useAppDispatch } from "@/redux/hooks";
-import { Select } from "@/components/select";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import { BasketItemPrice } from "./price";
 
 export default function BasketItem(props) {
   const { basketItem } = props;

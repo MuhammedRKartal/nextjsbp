@@ -1,6 +1,6 @@
 import { Button } from "@/components/button";
-import data from "@/schemas/footer-social.json";
 import { Image } from "@/components/image";
+import data from "@/schemas/footer-social.json";
 
 export type FooterSocialItemType = {
   logo: string;

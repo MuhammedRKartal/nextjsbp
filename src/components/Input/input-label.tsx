@@ -1,6 +1,6 @@
 import React from "react";
-import { InputLabelProps } from "@/components/types";
 import { twMerge } from "tailwind-merge";
+import { InputLabelProps } from "@/components/types";
 
 export const InputLabel: React.FC<InputLabelProps> = ({
   label,

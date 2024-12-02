@@ -1,6 +1,6 @@
+import { NextResponse } from "next/server";
 import { ClientRequestOptions } from "@/types";
 import { parseCookies } from "@/utils";
-import { NextResponse } from "next/server";
 
 interface RouteParams {
   params: {
@@ -8,14 +8,14 @@ interface RouteParams {
   };
 }
 
-async function proxyRequest(req: Request, routeParams: RouteParams) {
-  const { params } = routeParams;
+async function proxyRequest(...args) {
+  const [req, { params }] = args as [req: Request, params: RouteParams];
   const { searchParams } = new URL(req.url);
 
   const backendUrl: string = `${process.env.BACKEND_URL}`;
-  const cookies: { [key: string]: string } = parseCookies(req.headers.get("cookie") ?? "");
+  const cookies = parseCookies(req.headers.get("cookie"));
 
-  const access_token: string | undefined = cookies["access_token"];
+  const access_token = cookies["access_token"];
 
   const options: ClientRequestOptions = {
     useTrailingSlash: true,

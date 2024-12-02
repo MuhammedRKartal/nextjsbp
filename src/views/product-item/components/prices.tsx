@@ -1,4 +1,5 @@
 "use client";
+
 import { Price } from "@/components/price";
 
 export const Prices = props => {

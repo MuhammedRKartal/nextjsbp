@@ -1,11 +1,11 @@
-import { SliderMenu } from "@/components/slider-menu";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { closeAccountPopUp, openAccountPopUp } from "@/redux/reducers/pop-ups";
-import { ROUTES } from "@/routes";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import { SliderMenu } from "@/components/slider-menu";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { closeAccountPopUp, openAccountPopUp } from "@/redux/reducers/pop-ups";
+import { ROUTES } from "@/routes";
 
 export default function AccountPopUp() {
   const { openAccountPopUp: accountPopUpOpen } = useAppSelector(state => state.popUps);

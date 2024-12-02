@@ -1,5 +1,5 @@
-import { usePathname, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useMemo, useReducer } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export type UsePaginationType = ReturnType<typeof usePagination>;
 

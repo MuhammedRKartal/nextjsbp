@@ -1,7 +1,7 @@
-import { api } from "./api";
-import { checkout } from "../urls";
-import { buildClientRequestUrl } from "../../utils";
 import { CheckoutType, OrderType } from "@/types";
+import { buildClientRequestUrl } from "../../utils";
+import { checkout } from "../urls";
+import { api } from "./api";
 
 interface FetchStatusRequestType {
   token: number;

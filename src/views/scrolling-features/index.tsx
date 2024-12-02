@@ -1,9 +1,8 @@
-import { Section } from "@/components/section";
-import { FeatureItem } from "./feature-item";
-
-import data from "@/schemas/feature-items.json";
 import { twMerge } from "tailwind-merge";
+import { Section } from "@/components/section";
+import data from "@/schemas/feature-items.json";
 import { FeatureItemType } from "@/types";
+import { FeatureItem } from "./feature-item";
 
 export const ScrollingFeatures = async props => {
   const { className } = props;

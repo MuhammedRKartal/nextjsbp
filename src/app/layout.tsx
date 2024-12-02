@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
 import "@/app/globals.css";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-
+import { getServerSession } from "next-auth";
 import { Lato } from "next/font/google";
 import ClientRoot from "@/app/client-root";
-import MainRoot from "./main-root";
-import { getServerSession } from "next-auth";
 import SessionProvider from "@/components/Providers/SessionProvider";
-import ThemeProvider from "@/components/Providers/ThemeProvider";
 import StoreProvider from "@/components/Providers/StoreProvider";
+import ThemeProvider from "@/components/Providers/ThemeProvider";
+import MainRoot from "./main-root";
 
 const lato = Lato({
   weight: ["400", "700"],

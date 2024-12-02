@@ -1,11 +1,11 @@
-'use client';
-import { Section } from '@/components/section';
-import { Modal } from '@/components/Modal/modal';
-import { Button } from '@/components/button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+"use client";
 
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons/faCircleCheck';
-import { removeBlur } from '@/utils';
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons/faCircleCheck";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/components/button";
+import { Modal } from "@/components/Modal/modal";
+import { Section } from "@/components/section";
+import { removeBlur } from "@/utils";
 
 export interface ModalProps {
   open: boolean;
@@ -20,12 +20,7 @@ export default function SuccessModal({ open, setOpen, onClose }: ModalProps) {
 
   return (
     <>
-      <Modal
-        wrapperId="success-modal"
-        open={open}
-        setOpen={setOpen}
-        onClose={onClose}
-      >
+      <Modal wrapperId="success-modal" open={open} setOpen={setOpen} onClose={onClose}>
         <Section className="text-center ">
           <FontAwesomeIcon
             icon={faCircleCheck}

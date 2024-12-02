@@ -1,18 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
+import { Resolver, SubmitHandler, useForm } from "react-hook-form";
+import { object, string } from "yup";
 import { Button } from "@/components/button";
+import { Image } from "@/components/image";
 import { Input } from "@/components/Input/input";
 import { Section } from "@/components/section";
-import { Image } from "@/components/image";
-import Link from "next/link";
-import { string, object } from "yup";
-import { Resolver, SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { RegisterFormType } from "./type";
-import OTPModal from "@/views/modals/otp-modal";
-import { user } from "@/data/urls";
+import { auth } from "@/data/urls";
 import { ROUTES } from "@/routes";
+import OTPModal from "@/views/modals/otp-modal";
+import { RegisterFormType } from "./type";
 
 export default function Register() {
   const registerValidationSchema = object().shape({
@@ -56,7 +56,7 @@ export default function Register() {
 
     setLoading(true);
     try {
-      const res = await fetch(`/api/client${user.register}`, {
+      const res = await fetch(`/api/client${auth.register}`, {
         method: "POST",
         body: formData,
       });

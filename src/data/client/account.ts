@@ -1,7 +1,7 @@
-import { api } from "./api";
-import { account, user } from "../urls";
-import { buildClientRequestUrl } from "../../utils";
 import { NotificationChangeFormType, OrderType, PasswordChangeFormType, UserType } from "@/types";
+import { buildClientRequestUrl } from "../../utils";
+import { account, user } from "../urls";
+import { api } from "./api";
 
 interface OrdersRequestType {
   limit?: number;

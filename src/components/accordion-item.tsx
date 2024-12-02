@@ -1,9 +1,10 @@
 "use client";
+
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
 import { twMerge } from "tailwind-merge";
 import { AccordionItemProps } from "./types";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons/faChevronRight";
-import clsx from "clsx";
 
 export const AccordionItem = ({
   accordionId,

@@ -1,8 +1,8 @@
 "use client";
 
-import { ROUTES } from "@/routes";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { ROUTES } from "@/routes";
 
 export default function SignOut() {
   const router = useRouter();

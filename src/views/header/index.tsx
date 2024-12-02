@@ -2,9 +2,9 @@
 
 import clsx from "clsx";
 import Megamenu from "@/views/header/megamenu";
-import Navbar from "@/views/header/navbar";
 import HamburgerMenu from "@/views/header/mobile-menu/hamburger-menu";
 import HamburgerMenuContent from "@/views/header/mobile-menu/hamburger-menu-content";
+import Navbar from "@/views/header/navbar";
 
 export default async function Header() {
   return (

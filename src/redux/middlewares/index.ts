@@ -1,8 +1,7 @@
 import type { Middleware } from "@reduxjs/toolkit";
-
-import { api } from "../../data/client/api";
 import { signOut } from "next-auth/react";
 import { ROUTES } from "@/routes";
+import { api } from "../../data/client/api";
 
 export const rtkQueryResponseHandler: Middleware = () => next => action => {
   return next(action);

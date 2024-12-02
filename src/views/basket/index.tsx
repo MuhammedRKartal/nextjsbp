@@ -1,13 +1,13 @@
 "use client";
 
-import { Section } from "@/components/section";
-import BasketItem from "./basket-item";
-import BasketSummary from "./summary";
 import clsx from "clsx";
-import { useGetBasketQuery } from "@/data/client/basket";
-import EmptyBasket from "./empty-basket";
 import Link from "next/link";
 import { Loader } from "@/components/loader";
+import { Section } from "@/components/section";
+import { useGetBasketQuery } from "@/data/client/basket";
+import BasketItem from "./basket-item";
+import EmptyBasket from "./empty-basket";
+import BasketSummary from "./summary";
 
 export default function Basket() {
   const { data: basket, isSuccess, isLoading } = useGetBasketQuery();

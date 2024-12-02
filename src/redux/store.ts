@@ -1,6 +1,5 @@
-import reducers from "@/redux/reducers";
-
 import { configureStore } from "@reduxjs/toolkit";
+import reducers from "@/redux/reducers";
 import middlewares from "./middlewares";
 
 export const makeStore = () => {

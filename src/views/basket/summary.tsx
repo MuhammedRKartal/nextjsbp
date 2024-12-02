@@ -1,8 +1,8 @@
 "use client";
 
-import { Price } from "@/components/price";
-import { Button } from "@/components/button";
 import clsx from "clsx";
+import { Button } from "@/components/button";
+import { Price } from "@/components/price";
 import { ROUTES } from "@/routes";
 
 interface BasketSummaryProps {

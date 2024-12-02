@@ -1,6 +1,6 @@
-import { Section } from "@/components/section";
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Section } from "@/components/section";
 
 export const metadata: Metadata = {
   title: "About WoW Tasker",

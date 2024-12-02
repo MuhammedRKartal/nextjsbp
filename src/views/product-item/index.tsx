@@ -1,13 +1,13 @@
+import { Children, cloneElement, isValidElement, JSXElementConstructor, ReactNode } from "react";
 import { ProductItemType } from "@/types";
-import { Children, cloneElement, ReactNode, isValidElement, JSXElementConstructor } from "react";
-import { Images } from "./components/images";
-import { Prices } from "./components/prices";
-import { Description } from "./components/description";
-import { InStock } from "./components/instock";
 import { Add } from "./components/add";
-import { Wrapper } from "./components/wrapper";
-import { BottomSheet } from "./components/bottom-sheet";
 import { Attributes } from "./components/attributes";
+import { BottomSheet } from "./components/bottom-sheet";
+import { Description } from "./components/description";
+import { Images } from "./components/images";
+import { InStock } from "./components/instock";
+import { Prices } from "./components/prices";
+import { Wrapper } from "./components/wrapper";
 
 interface Props {
   product: ProductItemType;

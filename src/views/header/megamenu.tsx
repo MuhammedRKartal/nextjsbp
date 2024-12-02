@@ -1,24 +1,22 @@
 "use client";
 
-import { Image } from "@/components/image";
-import data from "@/schemas/header-megamenu.json";
-import { Button } from "@/components/button";
-import MobileHamburgerButton from "./mobile-menu/hamburger-menu-button";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
-import MiniBasket from "./mini-basket";
-import { useAppDispatch } from "@/redux/hooks";
-import { toggleMiniBasket } from "@/redux/reducers/pop-ups";
-import { useRouter } from "next/navigation";
-import { useSession } from "next-auth/react";
-import AccountPopUp from "./account-popup";
-import { closeAccountPopUp, openAccountPopUp } from "@/redux/reducers/pop-ups";
-import { ROUTES } from "@/routes";
-import { useTheme } from "next-themes";
-import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons/faLightbulb";
+import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
+import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useSession } from "next-auth/react";
+import { useTheme } from "next-themes";
+import { useRouter } from "next/navigation";
+import { Button } from "@/components/button";
+import { Image } from "@/components/image";
+import { useAppDispatch } from "@/redux/hooks";
+import { closeAccountPopUp, openAccountPopUp, toggleMiniBasket } from "@/redux/reducers/pop-ups";
+import { ROUTES } from "@/routes";
+import data from "@/schemas/header-megamenu.json";
+import AccountPopUp from "./account-popup";
+import MiniBasket from "./mini-basket";
+import MobileHamburgerButton from "./mobile-menu/hamburger-menu-button";
 
 export type HeaderNavItemType = {
   title: string;

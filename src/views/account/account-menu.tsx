@@ -1,10 +1,10 @@
 "use client";
 
-import { ROUTES } from "@/routes";
-import data from "@/schemas/account-menu.json";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
+import { ROUTES } from "@/routes";
+import data from "@/schemas/account-menu.json";
 
 export type AccountMenuSubtitleType = {
   title: string;

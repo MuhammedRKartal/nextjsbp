@@ -1,14 +1,14 @@
 import {
-  createApi,
-  fetchBaseQuery,
-  retry,
   BaseQueryFn,
+  createApi,
+  FetchArgs,
+  fetchBaseQuery,
   FetchBaseQueryError,
   FetchBaseQueryMeta,
-  FetchArgs,
+  retry,
 } from "@reduxjs/toolkit/query/react";
-import { getCookie } from "../../utils";
 import { RootState } from "@/redux/store";
+import { getCookie } from "../../utils";
 
 const customBaseQuery: BaseQueryFn<
   string | FetchArgs,

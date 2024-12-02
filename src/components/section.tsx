@@ -1,5 +1,5 @@
-import { SectionProps } from "@/components/types";
 import { twMerge } from "tailwind-merge";
+import { SectionProps } from "@/components/types";
 
 export const Section = (props: SectionProps) => {
   const { children, outerClassName, className, tag, appearance } = props;

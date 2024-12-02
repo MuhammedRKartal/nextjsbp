@@ -1,8 +1,7 @@
 "use server";
 
-import HeroBannerContent from "@/widgets/hero-banner/hero-banner-content";
 import data from "@/schemas/hero-banner.json";
-
+import HeroBannerContent from "@/widgets/hero-banner/hero-banner-content";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";

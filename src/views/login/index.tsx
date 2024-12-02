@@ -1,18 +1,18 @@
 "use client";
 
+import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signIn, SignInOptions } from "next-auth/react";
+import Link from "next/link";
+import { Resolver, SubmitHandler, useForm } from "react-hook-form";
+import { object, string } from "yup";
 import { Button } from "@/components/button";
 import { Image } from "@/components/image";
 import { Input } from "@/components/Input/input";
 import { Section } from "@/components/section";
-import Link from "next/link";
-import { string, object } from "yup";
-import { Resolver, SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { LoginFormType } from "./type";
-import { useState } from "react";
-import { SignInOptions, signIn } from "next-auth/react";
-import { user } from "@/data/urls";
+import { auth } from "@/data/urls";
 import { ROUTES } from "@/routes";
+import { LoginFormType } from "./type";
 
 const Login = () => {
   const [isLoading, setLoading] = useState(false);
@@ -44,7 +44,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`/api/client${user.login}`, {
+      const res = await fetch(`/api/client${auth.login}`, {
         method: "POST",
         body: formData,
       });

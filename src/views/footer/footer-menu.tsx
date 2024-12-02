@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import data from "@/schemas/footer-menu.json";
 import Link from "next/link";
+import data from "@/schemas/footer-menu.json";
 
 export type FooterMenuItemType = {
   title: string;

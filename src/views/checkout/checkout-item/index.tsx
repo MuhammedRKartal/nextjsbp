@@ -1,9 +1,9 @@
 "use client";
 
-import { Image } from "@/components/image";
-import { CheckoutItemPrice } from "./price";
 import clsx from "clsx";
 import Link from "next/link";
+import { Image } from "@/components/image";
+import { CheckoutItemPrice } from "./price";
 
 export default function CheckoutItem(props) {
   const { checkoutItem } = props;

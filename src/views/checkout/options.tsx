@@ -1,7 +1,8 @@
 "use client";
-import { TabItem } from "@/components/Tab/tab-item";
+
 import { useState } from "react";
 import { TabContent } from "@/components/Tab/tab-content";
+import { TabItem } from "@/components/Tab/tab-item";
 import CryptoPay from "./payment-methods/crypto-pay";
 
 export default function CheckoutOptions(props) {

@@ -1,9 +1,9 @@
-import { Control, FieldError } from "react-hook-form";
-import { ImageProps as NextImageProps } from "next/image";
 import { ReactNode } from "react";
-import { PayloadAction } from "@reduxjs/toolkit";
-import { UsePaginationType } from "./Pagination/hook";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { ImageProps as NextImageProps } from "next/image";
+import { Control, FieldError } from "react-hook-form";
+import { UsePaginationType } from "./Pagination/hook";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   appearance?: "filled" | "outlined" | "ghost" | "bright";

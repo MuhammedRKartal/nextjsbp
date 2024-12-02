@@ -1,9 +1,10 @@
 "use client";
+
 import clsx from "clsx";
-import CheckoutItem from "./checkout-item";
 import { Loader } from "@/components/loader";
 import { Price } from "@/components/price";
 import { BasketType } from "@/types";
+import CheckoutItem from "./checkout-item";
 
 interface CheckoutSummaryProps {
   data: BasketType;

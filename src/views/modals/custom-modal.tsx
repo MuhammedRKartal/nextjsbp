@@ -1,6 +1,7 @@
 "use client";
-import { Section } from "@/components/section";
+
 import { Modal } from "@/components/Modal/modal";
+import { Section } from "@/components/section";
 
 export interface ModalProps {
   open: boolean;

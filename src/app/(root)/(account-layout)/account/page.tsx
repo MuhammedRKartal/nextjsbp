@@ -1,11 +1,11 @@
-import { ROUTES } from "@/routes";
-import { AccountInfoBox } from "@/views/account/account-info-box";
-import { AccountMenuMobile } from "@/views/account/account-menu-mobile";
 import { getServerSession } from "next-auth";
 import { cookies } from "next/headers";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import SignOut from "@/components/Utility/SignOut";
+import { ROUTES } from "@/routes";
+import { AccountInfoBox } from "@/views/account/account-info-box";
+import { AccountMenuMobile } from "@/views/account/account-menu-mobile";
 
 export default async function Page() {
   const session = await getServerSession();

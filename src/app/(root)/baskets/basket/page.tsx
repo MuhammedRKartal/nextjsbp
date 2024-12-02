@@ -1,9 +1,9 @@
-import { redirect } from "next/navigation";
-import Basket from "@/views/basket";
-import { ROUTES } from "@/routes";
 import { getServerSession } from "next-auth";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import SignOut from "@/components/Utility/SignOut";
+import { ROUTES } from "@/routes";
+import Basket from "@/views/basket";
 
 export default async function BasketPage() {
   const session = await getServerSession();

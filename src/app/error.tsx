@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 import { Button } from "@/components/button";
+import { Image } from "@/components/image";
+import { Section } from "@/components/section";
 import Footer from "@/views/footer";
 import Header from "@/views/header";
-import { Section } from "@/components/section";
-import { Image } from "@/components/image";
 
 export default function Error({ error }: { error: Error & { digest?: string } }) {
   return (

@@ -1,9 +1,10 @@
 "use client";
-import { Section } from "@/components/section";
-import { Modal } from "@/components/Modal/modal";
-import { Button } from "@/components/button";
+
 import { faWarning } from "@fortawesome/free-solid-svg-icons/faWarning";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button } from "@/components/button";
+import { Modal } from "@/components/Modal/modal";
+import { Section } from "@/components/section";
 import { removeBlur } from "@/utils";
 
 export interface ModalProps {

@@ -1,8 +1,8 @@
 "use server";
 
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { ROUTES } from "@/routes";
-import { cookies } from "next/headers";
 
 export default async function OrderPage() {
   const cookie = cookies();

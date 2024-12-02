@@ -1,10 +1,10 @@
 "use server";
 
-import Register from "@/views/register";
-import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth/next";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 import SignOut from "@/components/Utility/SignOut";
+import Register from "@/views/register";
 
 export default async function Auth({
   searchParams,

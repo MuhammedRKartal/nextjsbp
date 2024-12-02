@@ -1,13 +1,14 @@
 "use client";
-import { Section } from "@/components/section";
-import CheckoutSummary from "./summary";
-import CheckoutOptions from "./options";
-import { useGetBasketQuery } from "@/data/client/basket";
-import { Loader } from "@/components/loader";
+
 import { useEffect, useState } from "react";
-import { BasketType } from "@/types";
 import { useRouter } from "next/navigation";
+import { Loader } from "@/components/loader";
+import { Section } from "@/components/section";
+import { useGetBasketQuery } from "@/data/client/basket";
 import { ROUTES } from "@/routes";
+import { BasketType } from "@/types";
+import CheckoutOptions from "./options";
+import CheckoutSummary from "./summary";
 
 export default function Checkout() {
   const { data: basketData, isLoading, isSuccess: basketSuccess } = useGetBasketQuery();

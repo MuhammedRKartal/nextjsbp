@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import NextImage from "next/image";
-import { ImageProps } from "@/components/types";
 import { twMerge } from "tailwind-merge";
+import { ImageProps } from "@/components/types";
 
 export const Image = (props: ImageProps) => {
   const {

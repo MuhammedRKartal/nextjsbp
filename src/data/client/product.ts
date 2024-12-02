@@ -1,7 +1,7 @@
 import { BasketType, ProductItemType } from "../../types";
 import { buildClientRequestUrl } from "../../utils";
+import { basket, product } from "../urls";
 import { api } from "./api";
-import { product, basket } from "../urls";
 
 export type AddProductResponse = {
   basket: BasketType;

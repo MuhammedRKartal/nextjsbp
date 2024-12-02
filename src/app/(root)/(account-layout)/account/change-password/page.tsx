@@ -1,18 +1,18 @@
 "use client";
 
-import { Input } from "@/components/Input/input";
-import { string, object } from "yup";
+import { useState } from "react";
+import { yupResolver } from "@hookform/resolvers/yup";
+import clsx from "clsx";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Resolver, SubmitHandler, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { PasswordChangeFormType } from "@/types";
+import { object, string } from "yup";
 import { Button } from "@/components/button";
+import { Input } from "@/components/Input/input";
 import { useUpdatePasswordMutation } from "@/data/client/account";
 import { ROUTES } from "@/routes";
-import { useState } from "react";
-import clsx from "clsx";
+import { PasswordChangeFormType } from "@/types";
 import PasswordVerificationModal from "@/views/modals/password-verification-modal";
 
 export default function ChangePasswordPage() {

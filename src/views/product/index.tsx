@@ -1,11 +1,11 @@
+import { Children, cloneElement, isValidElement, JSXElementConstructor, ReactNode } from "react";
 import { ProductItemType } from "@/types";
-import { Children, cloneElement, ReactNode, isValidElement, JSXElementConstructor } from "react";
-import { Images } from "./components/images";
-import { Details } from "./components/details";
-import { Information } from "./components/information";
-import { Wrapper } from "./components/wrapper";
-import { Prices } from "./components/prices";
 import { Add } from "./components/add";
+import { Details } from "./components/details";
+import { Images } from "./components/images";
+import { Information } from "./components/information";
+import { Prices } from "./components/prices";
+import { Wrapper } from "./components/wrapper";
 
 interface Props {
   product: ProductItemType;

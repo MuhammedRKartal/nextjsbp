@@ -1,16 +1,14 @@
 "use client";
 
-import { HeroBannerType } from "./type";
-import HeroBannerCustomPagination from "@/widgets/hero-banner/custom-pagination";
-import { Button } from "@/components/button";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation, EffectCoverflow } from "swiper/modules";
-
-import { Image } from "@/components/image";
 import clsx from "clsx";
+import { EffectCoverflow, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { twMerge } from "tailwind-merge";
+import { Button } from "@/components/button";
+import { Image } from "@/components/image";
 import { Section } from "@/components/section";
+import HeroBannerCustomPagination from "@/widgets/hero-banner/custom-pagination";
+import { HeroBannerType } from "./type";
 
 export default function HeroBannerContent({ content }: HeroBannerType) {
   const paginationSettings = {

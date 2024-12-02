@@ -1,8 +1,8 @@
 "use client";
 
+import clsx from "clsx";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { closeMobileMenu } from "@/redux/reducers/header";
-import clsx from "clsx";
 
 export type HeaderNavItemType = {
   title: string;

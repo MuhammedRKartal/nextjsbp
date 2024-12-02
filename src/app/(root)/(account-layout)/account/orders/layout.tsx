@@ -1,7 +1,6 @@
+import { Metadata } from "next";
 import Breadcrumb from "@/components/breadcrumb";
 import { ROUTES } from "@/routes";
-
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "My Orders",

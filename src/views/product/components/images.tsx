@@ -1,9 +1,8 @@
 "use client";
 
+import { Swiper, SwiperSlide } from "swiper/react";
 import { Image } from "@/components/image";
 import { ProductItemImagesType } from "@/types";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
 

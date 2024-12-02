@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
-import { PaginationProps } from "../types";
-import { twMerge } from "tailwind-merge";
 import clsx from "clsx";
-
 import Link from "next/link";
+import { twMerge } from "tailwind-merge";
+import { PaginationProps } from "../types";
 import usePagination from "./hook";
 
 export const Pagination = (props: PaginationProps) => {

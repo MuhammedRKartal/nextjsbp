@@ -1,13 +1,13 @@
+import { MutableRefObject, useEffect, useMemo, useState } from "react";
+import { faSpinner, faTrash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
+import Link from "next/link";
 import { Image } from "@/components/image";
 import { Price } from "@/components/price";
 import { basketApi, useUpdateQuantityMutation } from "@/data/client/basket";
 import { useAppDispatch } from "@/redux/hooks";
 import { BasketItemType } from "@/types";
-import { faTrash, faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import clsx from "clsx";
-import Link from "next/link";
-import { MutableRefObject, useEffect, useMemo, useState } from "react";
 
 interface MiniBasketItemProps {
   basketItem: BasketItemType;

@@ -1,13 +1,14 @@
 "use client";
-import { Section } from "@/components/section";
-import { Modal } from "@/components/Modal/modal";
+
 import { useState } from "react";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import clsx from "clsx";
+import { signOut } from "next-auth/react";
 import OTPInput from "react-otp-input";
 import { Button } from "@/components/button";
-import clsx from "clsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
-import { signOut } from "next-auth/react";
+import { Modal } from "@/components/Modal/modal";
+import { Section } from "@/components/section";
 import { confirms } from "@/data/urls";
 import { blurBackground, removeBlur } from "@/utils";
 

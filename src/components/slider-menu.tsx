@@ -1,10 +1,10 @@
+import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PayloadAction } from "@reduxjs/toolkit";
+import clsx from "clsx";
+import { useDispatch } from "react-redux";
 import { twMerge } from "tailwind-merge";
 import { SliderMenuProps } from "./types";
-import clsx from "clsx";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClose } from "@fortawesome/free-solid-svg-icons/faClose";
-import { useDispatch } from "react-redux";
-import { PayloadAction } from "@reduxjs/toolkit";
 
 export const SliderMenu = (props: SliderMenuProps) => {
   const { open, closePop, enableDesktop, desktopWidth, className, children, ...rest } = props;

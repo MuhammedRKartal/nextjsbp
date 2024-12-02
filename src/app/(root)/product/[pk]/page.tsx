@@ -1,8 +1,8 @@
+import { Metadata } from "next";
 import { Section } from "@/components/section";
 import { URLS } from "@/data/urls";
 import { PageProps } from "@/types";
 import ProductPage from "@/views/product/product-page";
-import { Metadata } from "next";
 
 type Props = {
   params: { pk: string };
