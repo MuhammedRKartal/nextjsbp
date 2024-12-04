@@ -51,17 +51,20 @@ const Login = () => {
 
       setLoading(false);
 
-      if (res.status === 200) {
-        res.json().then(dat => {
-          const accessToken = dat.token;
-
-          signIn("default", { ...data, accessToken } as SignInOptions);
-        });
-      } else {
-        const error = await res.json();
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({}));
         setError(true);
-        setErrorText(error.message);
+        setErrorText(error.message || "An unexpected error occurred. Please try again.");
+        return;
       }
+
+      const data = await res.json();
+      const accessToken = data.token;
+
+      await signIn("default", {
+        ...data,
+        accessToken,
+      } as SignInOptions);
     } catch (err) {
       setLoading(false);
       setError(true);
