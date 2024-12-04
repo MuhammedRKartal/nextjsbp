@@ -2,7 +2,6 @@ export const account = {
   orders: "/web/user/orders",
   lastActiveOrder: "/web/user/get-active-order",
   orderId: (id: string | string[]) => `/web/user/order/${id}`,
-  updatePassword: "/web/user/password/change",
   updateNotifications: "/web/user/update-notifications",
   delete: "/web/user/delete",
 };
@@ -32,11 +31,12 @@ export const auth = {
   currentUser: "/auth/current-user",
   login: "/auth/login",
   register: "/auth/register",
+  changePassword: "/auth/change-password",
 };
 
 export const confirms = {
-  confirmRegistration: "/auth/verify",
-  confirmUpdatePassword: "/web/user/password/confirm-change",
+  confirmRegistration: "/auth/verify-registration",
+  confirmChangePassword: "/auth/confirm-password-change",
 };
 
 const URLS = {

@@ -8,6 +8,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  width: 100%;
+}
+
 html:has(.scroll-lock) {
   @media (max-width: 970px) {
     overflow-y: hidden;

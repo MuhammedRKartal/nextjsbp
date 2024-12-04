@@ -1,6 +1,6 @@
 import { NotificationChangeFormType, OrderType, PasswordChangeFormType, UserType } from "@/types";
 import { buildClientRequestUrl } from "../../utils";
-import { account, user } from "../urls";
+import { account, auth, user } from "../urls";
 import { api } from "./api";
 
 interface OrdersRequestType {
@@ -21,9 +21,9 @@ export const accountApi = api.injectEndpoints({
       transformResponse: (response: UserType) => response,
       providesTags: ["Profile"],
     }),
-    updatePassword: build.mutation<void, PasswordChangeFormType>({
+    changePassword: build.mutation<void, PasswordChangeFormType>({
       query: body => ({
-        url: buildClientRequestUrl(account.updatePassword),
+        url: buildClientRequestUrl(auth.changePassword),
         method: "POST",
         body,
       }),
@@ -51,7 +51,7 @@ export const accountApi = api.injectEndpoints({
 
 export const {
   useGetProfileInfoQuery,
-  useUpdatePasswordMutation,
+  useChangePasswordMutation,
   useUpdateNotificationsMutation,
   useGetOrdersQuery,
   useGetLastActiveOrderQuery,

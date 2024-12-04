@@ -36,33 +36,35 @@ export default function PasswordVerificationModal({ open, body, setOpen }: Modal
   };
 
   const onSubmit = async () => {
-    body["verification_code"] = otp;
+    body["code"] = otp;
 
     if (otp.length === 6 && isloading === false) {
       setLoading(true);
       setTimeout(async () => {
-        await fetch(`/api/client${confirms[body.formType]}`, {
-          method: "POST",
-          body: JSON.stringify(body),
-        }).then(res => {
-          if (res.status === 200) {
-            setLoading(false);
-            setSuccess(true);
-            setTimeout(() => {
-              onClose();
-              signOut();
-            }, 2000);
-            setTimeout(() => {
-              setOpen(false);
-            }, 1000);
-          } else {
-            res.json().then(data => {
-              setLoading(false);
-              setError(true);
-              setErrorText(data.error);
-            });
+        try {
+          const res = await fetch(`/api/client${confirms[body.formType]}`, {
+            method: "POST",
+            body: JSON.stringify(body),
+          });
+
+          setLoading(false);
+
+          if (!res.ok) {
+            const error = await res.json().catch(() => ({}));
+            setError(true);
+            setErrorText(error.message || "An unexpected error occurred. Please try again.");
+            return;
           }
-        });
+          setSuccess(true);
+          setTimeout(() => {
+            onClose();
+            setOpen(false);
+          }, 1000);
+        } catch (error) {
+          setLoading(false);
+          setError(true);
+          setErrorText("An unexpected error occurred. Please try again.");
+        }
       }, 500);
     } else if (isloading === false && otp.length < 6) {
       setError(true);
@@ -105,7 +107,7 @@ export default function PasswordVerificationModal({ open, body, setOpen }: Modal
             )}
           />
           {error && <div className="mb-12 text-error font-bold text-sm">{errorText}</div>}
-          <Button className="w-full" onClick={onSubmit} isloading={String(isloading)}>
+          <Button className="w-full" onClick={onSubmit} isloading={isloading}>
             {success ? <FontAwesomeIcon icon={faCheckCircle} /> : <div>Confirm</div>}
           </Button>
         </Section>

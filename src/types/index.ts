@@ -62,10 +62,9 @@ export interface ClientRequestOptions {
 }
 
 export type PasswordChangeFormType = {
-  current_password: string;
-  new_password: string;
-  confirm_password: string;
-  email: string;
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
 };
 
 export type NotificationChangeFormType = {

@@ -9,7 +9,7 @@ import OTPInput from "react-otp-input";
 import { Button } from "@/components/button";
 import { Modal } from "@/components/Modal/modal";
 import { Section } from "@/components/section";
-import { confirms } from "@/data/urls";
+import { auth, confirms } from "@/data/urls";
 import { blurBackground, removeBlur } from "@/utils";
 
 export interface ModalProps {
@@ -37,7 +37,6 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
 
   const onSubmit = async () => {
     body["code"] = otp;
-    console.log(body);
 
     if (otp.length === 6 && isloading === false) {
       setLoading(true);
@@ -47,20 +46,27 @@ export default function OTPModal({ open, body, isSignIn = false, setOpen }: Moda
             method: "POST",
             body: JSON.stringify(body),
           });
+
           setLoading(false);
-          if (res.status === 200) {
-            setSuccess(true);
-            setTimeout(() => {
-              onClose();
-              setOpen(false);
-            }, 2000);
-            if (isSignIn) {
-              signIn("default", { ...body } as SignInOptions);
-            }
-          } else {
-            const error = await res.json();
+
+          if (!res.ok) {
+            const error = await res.json().catch(() => ({}));
             setError(true);
-            setErrorText(error.message);
+            setErrorText(error.message || "An unexpected error occurred. Please try again.");
+            return;
+          }
+
+          setSuccess(true);
+          setTimeout(() => {
+            onClose();
+            setOpen(false);
+          }, 2000);
+
+          if (isSignIn) {
+            const data = await res.json();
+            const accessToken = data.token;
+
+            signIn("default", { ...body, accessToken } as SignInOptions);
           }
         } catch (error) {
           setLoading(false);

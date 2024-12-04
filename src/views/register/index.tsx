@@ -55,19 +55,23 @@ export default function Register() {
     const formData = JSON.stringify(data);
 
     setLoading(true);
+
     try {
       const res = await fetch(`/api/client${auth.register}`, {
         method: "POST",
         body: formData,
       });
+
       setLoading(false);
-      if (res.status === 200) {
-        setOpenModal(true);
-      } else {
-        const error = await res.json();
+
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({}));
         setError(true);
-        setErrorText(error.message);
+        setErrorText(error.message || "An unexpected error occurred. Please try again.");
+        return;
       }
+      setError(false);
+      setOpenModal(true);
     } catch (err) {
       setLoading(false);
       setError(true);
