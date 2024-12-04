@@ -18,6 +18,7 @@ export const Pagination = (props: PaginationProps) => {
   } = props;
 
   const pagination = usePagination(total, limit, currentPage, numberOfPages);
+
   const {
     total: paginationTotal,
     limit: paginationLimit,

@@ -9,7 +9,7 @@ import OTPInput from "react-otp-input";
 import { Button } from "@/components/button";
 import { Modal } from "@/components/Modal/modal";
 import { Section } from "@/components/section";
-import { auth, confirms } from "@/data/urls";
+import { confirms } from "@/data/urls";
 import { blurBackground, removeBlur } from "@/utils";
 
 export interface ModalProps {

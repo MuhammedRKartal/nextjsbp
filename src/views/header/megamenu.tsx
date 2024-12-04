@@ -3,8 +3,6 @@
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { faBasketShopping } from "@fortawesome/free-solid-svg-icons/faBasketShopping";
-import { faLightbulb } from "@fortawesome/free-solid-svg-icons/faLightbulb";
-import { faMoon } from "@fortawesome/free-solid-svg-icons/faMoon";
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "@/components/button";

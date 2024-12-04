@@ -50,4 +50,8 @@ module.exports = {
       },
     ],
   },
+  ignorePatterns: [
+    "node_modules/*", // Ignore files in node_modules directory
+    ".next/*", // Ignore files in the .next directory
+  ],
 };

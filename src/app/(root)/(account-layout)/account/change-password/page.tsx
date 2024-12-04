@@ -16,7 +16,7 @@ import { PasswordChangeFormType } from "@/types";
 import PasswordVerificationModal from "@/views/modals/password-verification-modal";
 
 export default function ChangePasswordPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const router = useRouter();
   if (status === "unauthenticated") {
     router.push(ROUTES.LOGIN);
