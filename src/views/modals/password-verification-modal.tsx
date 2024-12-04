@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { signOut } from "next-auth/react";
 import clsx from "clsx";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons/faCheckCircle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
